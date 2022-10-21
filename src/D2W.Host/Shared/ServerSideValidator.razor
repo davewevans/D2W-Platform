@@ -1,0 +1,28 @@
+﻿@if (IsError)
+{
+    @if (!string.IsNullOrEmpty(ExceptionResult.Title))
+    {
+        Snackbar.Add(ExceptionResult.Title, Severity.Error, (options) =>
+        {
+            options.CloseAfterNavigation = true;
+        });
+
+        Snackbar.Add(ExceptionResult.Detail, Severity.Error, (options) =>
+        {
+            options.CloseAfterNavigation = true;
+        });
+    }
+
+    @if (ExceptionResult.ValidationErrors != null && ExceptionResult.ValidationErrors.Any())
+    {
+        @foreach (var error in ExceptionResult.ValidationErrors)
+            Snackbar.Add(@error.Reason, Severity.Error, (options) =>
+            {
+                options.CloseAfterNavigation = true;
+            });
+    }
+}
+
+@code {
+
+}

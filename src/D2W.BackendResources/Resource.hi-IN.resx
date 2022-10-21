@@ -1,0 +1,564 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Access_token_timespan_cannot_be_null" xml:space="preserve">
+    <value>एक्सेस टोकन टाइमपैन शून्य नहीं हो सकता है।</value>
+  </data>
+  <data name="Access_token_timespan_is_required" xml:space="preserve">
+    <value>टोकन टाइमपैन तक पहुंच की आवश्यकता है।</value>
+  </data>
+  <data name="Allowed_username_characters_are_required" xml:space="preserve">
+    <value>अनुमति उपयोगकर्ता नाम वर्ण की आवश्यकता है।</value>
+  </data>
+  <data name="An_unknown_failure_has_occurred" xml:space="preserve">
+    <value>एक अज्ञात विफलता हुई है ।</value>
+  </data>
+  <data name="Applicant_has_been_created_successfully" xml:space="preserve">
+    <value>आवेदक सफलतापूर्वक बनाया गया है</value>
+  </data>
+  <data name="Applicant_has_been_deleted_successfully" xml:space="preserve">
+    <value>आवेदक को सफलतापूर्वक हटा दिया गया है।</value>
+  </data>
+  <data name="Applicant_has_been_updated_successfully" xml:space="preserve">
+    <value>आवेदक को सफलतापूर्वक अपडेट किया गया है।</value>
+  </data>
+  <data name="A_user_with_this_login_already_exists" xml:space="preserve">
+    <value>इस लॉगिन के साथ एक उपयोगकर्ता पहले से ही मौजूद है।</value>
+  </data>
+  <data name="Cannot_disable_2FA_for_user_with_Id" xml:space="preserve">
+    <value>आईडी '{0}' वाले उपयोगकर्ता के लिए टू-फैक्टर प्रमाणीकरण को अक्षम नहीं कर सकते क्योंकि यह वर्तमान में सक्षम नहीं है।</value>
+  </data>
+  <data name="Cannot_generate_recovery_codes" xml:space="preserve">
+    <value>उपयोगकर्ता नाम '{0}' के लिए रिकवरी कोड उत्पन्न नहीं कर सकते क्योंकि उनके पास टू-फैक्टर ऑथेंटिकेशन सक्षम नहीं है।</value>
+  </data>
+  <data name="Code_is_required" xml:space="preserve">
+    <value>कोड की आवश्यकता है।</value>
+  </data>
+  <data name="Confirmation_link_to_change_email_has_been_sent" xml:space="preserve">
+    <value>ईमेल बदलने के लिए पुष्टि लिंक भेजा गया है। कृपया अपना ईमेल चेक करें।</value>
+  </data>
+  <data name="Confirm_password_is_required" xml:space="preserve">
+    <value>पुष्टि पासवर्ड की आवश्यकता है।</value>
+  </data>
+  <data name="Confirm_your_email" xml:space="preserve">
+    <value>अपने ईमेल की पुष्टि करें</value>
+  </data>
+  <data name="Date_of_Birth_is_required" xml:space="preserve">
+    <value>जन्म तिथि आवश्यक है</value>
+  </data>
+  <data name="Deletion_of_entity_failed" xml:space="preserve">
+    <value>इकाई "{0}" ({1}) का विलोपन विफल रहा। {2}.</value>
+  </data>
+  <data name="Email_is_already_taken" xml:space="preserve">
+    <value>ईमेल '{0}' पहले से ही लिया जाता है।</value>
+  </data>
+  <data name="Email_is_invalid" xml:space="preserve">
+    <value>ईमेल '{0}' अमान्य है।</value>
+  </data>
+  <data name="Entity_with_key_was_not_found" xml:space="preserve">
+    <value>प्रमुख "{1}" के साथ इकाई "{0}" नहीं मिली।</value>
+  </data>
+  <data name="Error_changing_user_name" xml:space="preserve">
+    <value>उपयोगकर्ता नाम बदलने में त्रुटि।</value>
+  </data>
+  <data name="Error_changing_your_user_name" xml:space="preserve">
+    <value>आपके उपयोगकर्ता नाम को बदलने में त्रुटि।</value>
+  </data>
+  <data name="File_has_not_been_uploaded" xml:space="preserve">
+    <value>फाइल अपलोड नहीं की गई है।</value>
+  </data>
+  <data name="File_is_empty" xml:space="preserve">
+    <value>फाइल खाली है।</value>
+  </data>
+  <data name="File_storage_settings_have_been_updated_successfully" xml:space="preserve">
+    <value>फ़ाइल स्टोरेज सेटिंग को सफलतापूर्वक अपडेट किया गया है।</value>
+  </data>
+  <data name="First_name_is_required" xml:space="preserve">
+    <value>पहले नाम की आवश्यकता है।</value>
+  </data>
+  <data name="Height_is_required" xml:space="preserve">
+    <value>ऊंचाई की आवश्यकता है।</value>
+  </data>
+  <data name="Identity_settings_have_been_updated_successfully" xml:space="preserve">
+    <value>पहचान सेटिंग्स को सफलतापूर्वक अपडेट किया गया है।</value>
+  </data>
+  <data name="Incorrect_password" xml:space="preserve">
+    <value>गलत पासवर्ड।</value>
+  </data>
+  <data name="Invalid_applicant_Id" xml:space="preserve">
+    <value>अमान्य आवेदक आईडी।</value>
+  </data>
+  <data name="Invalid_authenticator_code_entered" xml:space="preserve">
+    <value>अमान्य प्रमाणक कोड दर्ज किया गया।</value>
+  </data>
+  <data name="Invalid_client_request" xml:space="preserve">
+    <value>अमान्य ग्राहक अनुरोध।</value>
+  </data>
+  <data name="Invalid_login_attempt" xml:space="preserve">
+    <value>अमान्य लॉगिन प्रयास।</value>
+  </data>
+  <data name="Invalid_recovery_code_entered" xml:space="preserve">
+    <value>अमान्य वसूली कोड दर्ज किया गया।</value>
+  </data>
+  <data name="Invalid_report_Id" xml:space="preserve">
+    <value>अमान्य रिपोर्ट Id.</value>
+  </data>
+  <data name="Invalid_role_Id" xml:space="preserve">
+    <value>अमान्य रोल आईडी।</value>
+  </data>
+  <data name="Invalid_tenant_name" xml:space="preserve">
+    <value>अमान्य किरायेदार का नाम।</value>
+  </data>
+  <data name="Invalid_token" xml:space="preserve">
+    <value>अमान्य टोकन।</value>
+  </data>
+  <data name="Invalid_user_Id" xml:space="preserve">
+    <value>अमान्य यूजर आईडी।</value>
+  </data>
+  <data name="Job_title_is_required" xml:space="preserve">
+    <value>नौकरी शीर्षक की आवश्यकता है ।</value>
+  </data>
+  <data name="Last_name_is_required" xml:space="preserve">
+    <value>अंतिम नाम आवश्यक है</value>
+  </data>
+  <data name="Lockout_is_not_enabled_for_this_user" xml:space="preserve">
+    <value>इस उपयोगकर्ता के लिए तालाबंदी सक्षम नहीं है।</value>
+  </data>
+  <data name="Maximum_allowed_number_of_attachments_must_not_exceed_3" xml:space="preserve">
+    <value>अटैचमेंट की अधिकतम अनुमेदित संख्या 3 से अधिक नहीं होनी चाहिए।</value>
+  </data>
+  <data name="Method_cannot_be_null" xml:space="preserve">
+    <value>विधि शून्य नहीं हो सकती।</value>
+  </data>
+  <data name="Minimum_allowed_number_of_attachments_must_be_at_least_1" xml:space="preserve">
+    <value>अटैचमेंट की न्यूनतम अनुमेई संख्या कम से कम 1 होनी चाहिए।</value>
+  </data>
+  <data name="New_password_is_required" xml:space="preserve">
+    <value>नए पासवर्ड की आवश्यकता है।</value>
+  </data>
+  <data name="New_password_must_be_at_least_6_characters" xml:space="preserve">
+    <value>नया पासवर्ड कम से कम 6 वर्ण होना चाहिए।</value>
+  </data>
+  <data name="New_password_must_not_exceed_200_characters" xml:space="preserve">
+    <value>नया पासवर्ड 200 वर्णों से अधिक नहीं होना चाहिए।</value>
+  </data>
+  <data name="N_A" xml:space="preserve">
+    <value>उपलब्ध नहीं है</value>
+  </data>
+  <data name="Old_password_is_required" xml:space="preserve">
+    <value>पुराने पासवर्ड की आवश्यकता है।</value>
+  </data>
+  <data name="Only_those_between_the_ages_of_18_and_28_are_allowed_for_enlisting" xml:space="preserve">
+    <value>केवल 18 और 28 की उम्र के बीच के लोगों को सूचीबद्ध करने की अनुमति है ।</value>
+  </data>
+  <data name="Only_those_whose_BMI_between_18_5_and_24_9_are_allowed_for_enlisting" xml:space="preserve">
+    <value>केवल उन लोगों को सूचीबद्ध करने की अनुमति है जिनका बीएमआई १८.५ और २४.९ के बीच है ।</value>
+  </data>
+  <data name="Only_those_whose_heights_between_100_and_250_with_normal_BMI_are_allowed_for_enlisting" xml:space="preserve">
+    <value>केवल उन लोगों को सूचीबद्ध करने की अनुमति है जिनकी सामान्य बीएमआई के साथ 100 और 250 के बीच की ऊंचाई को सूचीबद्ध करने की अनुमति है।</value>
+  </data>
+  <data name="Only_those_who_weigh_between_50_and_200_with_normal_BMI_are_allowed_for_enlisting" xml:space="preserve">
+    <value>केवल उन लोगों को सूचीबद्ध करने की अनुमति है जो सामान्य बीएमआई के साथ ५० और २०० के बीच वजन करते हैं ।</value>
+  </data>
+  <data name="Optimistic_concurrency_failure" xml:space="preserve">
+    <value>आशावादी सहमति विफलता, वस्तु को संशोधित किया गया है ।</value>
+  </data>
+  <data name="Passwords_must_be_at_least_length_characters" xml:space="preserve">
+    <value>पासवर्ड कम से कम {0} वर्ण होना चाहिए।</value>
+  </data>
+  <data name="Passwords_must_have_at_least_one_digit" xml:space="preserve">
+    <value>पासवर्ड में कम से कम एक अंक ('0'-'9') होना चाहिए।</value>
+  </data>
+  <data name="Passwords_must_have_at_least_one_lowercase" xml:space="preserve">
+    <value>पासवर्ड में कम से कम एक लोअरकेस ('ए'-ज़') होना चाहिए।</value>
+  </data>
+  <data name="Passwords_must_have_at_least_one_non_alphanumeric_character" xml:space="preserve">
+    <value>पासवर्ड में कम से कम एक गैर अल्फान्यूमेरिक चरित्र होना चाहिए।</value>
+  </data>
+  <data name="Passwords_must_have_at_least_one_uppercase" xml:space="preserve">
+    <value>पासवर्ड में कम से कम एक अपरकेस ('ए'-जेड') होना चाहिए।</value>
+  </data>
+  <data name="Password_cannot_contain_password" xml:space="preserve">
+    <value>पासवर्ड में 'पासवर्ड' नहीं हो सकता है।</value>
+  </data>
+  <data name="Password_cannot_contain_username" xml:space="preserve">
+    <value>पासवर्ड में उपयोगकर्ता नाम नहीं हो सकता है।</value>
+  </data>
+  <data name="Password_is_required" xml:space="preserve">
+    <value>पासवर्ड की आवश्यकता है।</value>
+  </data>
+  <data name="Password_must_be_at_least_6_characters" xml:space="preserve">
+    <value>पासवर्ड कम से कम 6 वर्ण होना चाहिए।</value>
+  </data>
+  <data name="Password_must_not_exceed_200_characters" xml:space="preserve">
+    <value>पासवर्ड 200 वर्णों से अधिक नहीं होना चाहिए।</value>
+  </data>
+  <data name="Password_reset_link_was_sent" xml:space="preserve">
+    <value>पासवर्ड रीसेट लिंक भेजा गया था। कृपया अपना ईमेल चेक करें।</value>
+  </data>
+  <data name="Phone_number_is_required" xml:space="preserve">
+    <value>फोन नंबर आवश्यक है।!</value>
+  </data>
+  <data name="Please_confirm_your_account_by_clicking_here" xml:space="preserve">
+    <value>कृपया &lt;a href='{0}'&gt;यहां क्लिक करके&lt;/a&gt;अपने खाते की पुष्टि करें ।</value>
+  </data>
+  <data name="Please_confirm_your_email" xml:space="preserve">
+    <value>कृपया अपने ईमेल की पुष्टि करें।</value>
+  </data>
+  <data name="Please_reset_your_password_by_clicking_here" xml:space="preserve">
+    <value>कृपया &lt;a href='{0}'&gt;यहां क्लिक करके&lt;/a&gt;अपना पासवर्ड रीसेट करें ।</value>
+  </data>
+  <data name="Please_specify_the_application_tenant_mode" xml:space="preserve">
+    <value>आवेदन किरायेदार मोड निर्दिष्ट करें।</value>
+  </data>
+  <data name="Profile_picture_is_required" xml:space="preserve">
+    <value>प्रोफाइल पिक्चर की आवश्यकता है।</value>
+  </data>
+  <data name="Recovery_Code_is_required" xml:space="preserve">
+    <value>रिकवरी कोड की आवश्यकता है।</value>
+  </data>
+  <data name="Recovery_Code_Redemption_Failed" xml:space="preserve">
+    <value>रिकवरी कोड रिडेम्पशन फेल</value>
+  </data>
+  <data name="Reference_name_is_required" xml:space="preserve">
+    <value>नाम आवश्यक है!</value>
+  </data>
+  <data name="Refresh_token_timespan_cannot_be_null" xml:space="preserve">
+    <value>ताज़ा टोकन टाइमपैन शून्य नहीं हो सकता है।</value>
+  </data>
+  <data name="Refresh_token_timespan_is_required" xml:space="preserve">
+    <value>ताज़ा टोकन टाइमपैन की आवश्यकता है।</value>
+  </data>
+  <data name="Refresh_token_timespan_must_be_greater_than_access_token_expiry_time" xml:space="preserve">
+    <value>ताज़ा टोकन टाइमपैन एक्सेस टोकन समाप्ति समय से अधिक होना चाहिए।</value>
+  </data>
+  <data name="Repeated_Ones_are_not_valid_Social_security_number" xml:space="preserve">
+    <value>111111111 एक वैध सामाजिक सुरक्षा संख्या नहीं है।</value>
+  </data>
+  <data name="Repeated_Threes_are_not_valid_Social_security_number" xml:space="preserve">
+    <value>333333333 एक वैध सामाजिक सुरक्षा संख्या नहीं है।</value>
+  </data>
+  <data name="Reset_your_password" xml:space="preserve">
+    <value>अपना पासवर्ड रीसेट करें</value>
+  </data>
+  <data name="Role_has_been_created_successfully" xml:space="preserve">
+    <value>भूमिका सफलतापूर्वक बनाई गई है ।</value>
+  </data>
+  <data name="Role_has_been_deleted_successfully" xml:space="preserve">
+    <value>भूमिका को सफलतापूर्वक हटा दिया गया है।</value>
+  </data>
+  <data name="Role_has_been_updated_successfully" xml:space="preserve">
+    <value>भूमिका को सफलतापूर्वक अद्यतन किया गया है ।</value>
+  </data>
+  <data name="Role_name_is_already_taken" xml:space="preserve">
+    <value>रोल नाम '{0}' पहले से ही लिया गया है।</value>
+  </data>
+  <data name="Role_name_is_invalid" xml:space="preserve">
+    <value>रोल नाम '{0}' अमान्य है।</value>
+  </data>
+  <data name="Role_name_is_required" xml:space="preserve">
+    <value>रोल नाम की आवश्यकता है।</value>
+  </data>
+  <data name="Social_security_number_is_required" xml:space="preserve">
+    <value>सामाजिक सुरक्षा संख्या की आवश्यकता है</value>
+  </data>
+  <data name="Social_security_number_must_contain_only_9_digits" xml:space="preserve">
+    <value>सामाजिक सुरक्षा संख्या में केवल 9 अंक होने चाहिए ।</value>
+  </data>
+  <data name="Social_security_number_must_not_contain_consecutive_digits" xml:space="preserve">
+    <value>सामाजिक सुरक्षा संख्या में लगातार अंक नहीं होने चाहिए ।</value>
+  </data>
+  <data name="Surname_is_required" xml:space="preserve">
+    <value>उपनाम की आवश्यकता है।</value>
+  </data>
+  <data name="Tenant_has_been_created_successfully" xml:space="preserve">
+    <value>किरायेदार सफलतापूर्वक बनाया गया है।</value>
+  </data>
+  <data name="The_applicant_is_not_found" xml:space="preserve">
+    <value>आवेदक नहीं मिला है।</value>
+  </data>
+  <data name="The_password_and_confirmation_password_do_not_match" xml:space="preserve">
+    <value>पासवर्ड और कन्फर्मेशन पासवर्ड मेल नहीं खाता।</value>
+  </data>
+  <data name="The_specified_role_is_already_registered" xml:space="preserve">
+    <value>निर्दिष्ट भूमिका पहले से ही पंजीकृत है।</value>
+  </data>
+  <data name="The_specified_role_is_already_registered_in_the_given_tenant" xml:space="preserve">
+    <value>निर्दिष्ट भूमिका पहले से ही दिए गए किरायेदार में पंजीकृत है।</value>
+  </data>
+  <data name="The_specified_username_and_email_are_already_registered" xml:space="preserve">
+    <value>निर्दिष्ट उपयोगकर्ता नाम और ईमेल पहले से ही पंजीकृत हैं।</value>
+  </data>
+  <data name="The_specified_username_and_email_are_already_registered_in_the_given_tenant" xml:space="preserve">
+    <value>दिए गए किरायेदार में निर्दिष्ट उपयोगकर्ता नाम और ईमेल पहले से ही पंजीकृत हैं।</value>
+  </data>
+  <data name="Token_settings_have_been_updated_successfully" xml:space="preserve">
+    <value>टोकन सेटिंग्स को सफलतापूर्वक अपडेट किया गया है।</value>
+  </data>
+  <data name="Two_factor_authentication_code_is_required" xml:space="preserve">
+    <value>दो कारक प्रमाणीकरण कोड की आवश्यकता है।</value>
+  </data>
+  <data name="Two_factor_authentication_code_must_be_at_least_6_character_long" xml:space="preserve">
+    <value>दो कारक प्रमाणीकरण कोड कम से कम 6 चरित्र लंबा होना चाहिए।</value>
+  </data>
+  <data name="Two_factor_authentication_code_must_not_exceed_7_characters" xml:space="preserve">
+    <value>दो कारक प्रमाणीकरण कोड 7 अक्षरों से अधिक नहीं होना चाहिए।</value>
+  </data>
+  <data name="Two_factor_authentication_has_been_disabled" xml:space="preserve">
+    <value>2Fa को अक्षम कर दिया गया है। जब आप एक प्रमाणक ऐप सेटअप करते हैं तो आप टू-फैक्टर ऑथेंटिकेशन को फिर से तैयार कर सकते हैं।</value>
+  </data>
+  <data name="Two_factor_authentication_required" xml:space="preserve">
+    <value>दो कारक प्रमाणीकरण की आवश्यकता है।</value>
+  </data>
+  <data name="Unable_to_create_new_tenant_in_single_tenant_mode" xml:space="preserve">
+    <value>एकल किरायेदार मोड में नए किरायेदार बनाने में असमर्थ।</value>
+  </data>
+  <data name="Unable_to_delete_static_role" xml:space="preserve">
+    <value>स्थिर भूमिका को हटाने में असमर्थ।</value>
+  </data>
+  <data name="Unable_to_delete_static_user" xml:space="preserve">
+    <value>स्थिर उपयोगकर्ता को हटाने में असमर्थ।</value>
+  </data>
+  <data name="Unable_to_load_applicant" xml:space="preserve">
+    <value>आवेदक लोड करने में असमर्थ।</value>
+  </data>
+  <data name="Unable_to_load_report" xml:space="preserve">
+    <value>रिपोर्ट लोड करने में असमर्थ.</value>
+  </data>
+  <data name="Unable_to_load_role" xml:space="preserve">
+    <value>भूमिका लोड करने में असमर्थ।</value>
+  </data>
+  <data name="Unable_to_load_user" xml:space="preserve">
+    <value>उपयोगकर्ता लोड करने में असमर्थ।</value>
+  </data>
+  <data name="Unable_to_update_static_user" xml:space="preserve">
+    <value>स्थिर उपयोगकर्ता को अपडेट करने में असमर्थ।</value>
+  </data>
+  <data name="Unexpected_error_occurred_deleting_user_with_Id" xml:space="preserve">
+    <value>अप्रत्याशित त्रुटि आईडी '{0}' के साथ उपयोगकर्ता को हटाने हुई।</value>
+  </data>
+  <data name="Unexpected_error_occurred_disabling_2FA" xml:space="preserve">
+    <value>अप्रत्याशित त्रुटि आईडी '{0}' के साथ उपयोगकर्ता के लिए दो कारक प्रमाणीकरण अक्षम हुई।</value>
+  </data>
+  <data name="Username_has_been_confirmed_successfully" xml:space="preserve">
+    <value>उपयोगकर्ता नाम की सफलतापूर्वक पुष्टि की गई है।</value>
+  </data>
+  <data name="Username_is_already_taken" xml:space="preserve">
+    <value>उपयोगकर्ता नाम '{0}' पहले से ही लिया जाता है।</value>
+  </data>
+  <data name="Username_is_invalid" xml:space="preserve">
+    <value>उपयोगकर्ता नाम '{0}' अमान्य है, केवल अक्षर या अंक हो सकते हैं।</value>
+  </data>
+  <data name="Username_is_required" xml:space="preserve">
+    <value>उपयोगकर्ता नाम की आवश्यकता है।</value>
+  </data>
+  <data name="Username_must_be_at_least_6_characters" xml:space="preserve">
+    <value>उपयोगकर्ता नाम कम से कम 6 वर्ण होना चाहिए।</value>
+  </data>
+  <data name="Username_must_not_exceed_200_characters" xml:space="preserve">
+    <value>उपयोगकर्ता नाम 200 वर्णों से अधिक नहीं होना चाहिए।</value>
+  </data>
+  <data name="User_already_has_a_password_set" xml:space="preserve">
+    <value>यूजर के पास पहले से ही पासवर्ड सेट है।</value>
+  </data>
+  <data name="User_already_in_role" xml:space="preserve">
+    <value>उपयोगकर्ता पहले से ही '{0}' की भूमिका में हैं।</value>
+  </data>
+  <data name="User_has_been_added_without_files" xml:space="preserve">
+    <value>उपयोगकर्ता फ़ाइलों के बिना जोड़ा गया है।</value>
+  </data>
+  <data name="User_has_been_created_successfully" xml:space="preserve">
+    <value>उपयोगकर्ता सफलतापूर्वक बनाया गया है।</value>
+  </data>
+  <data name="User_has_been_deleted_successfully" xml:space="preserve">
+    <value>उपयोगकर्ता को सफलतापूर्वक हटा दिया गया है।</value>
+  </data>
+  <data name="User_has_been_updated_successfully" xml:space="preserve">
+    <value>उपयोगकर्ता को सफलतापूर्वक अपडेट किया गया है।</value>
+  </data>
+  <data name="User_has_been_updated_successfully_without_updating_his_her_roles_as_the_user_is_static_type" xml:space="preserve">
+    <value>उपयोगकर्ता को अपनी भूमिकाओं को अपडेट किए बिना सफलतापूर्वक अपडेट किया गया है क्योंकि उपयोगकर्ता स्थिर प्रकार है।</value>
+  </data>
+  <data name="User_Id_is_required" xml:space="preserve">
+    <value>यूजर आईडी की जरूरत है।</value>
+  </data>
+  <data name="User_permissions_have_been_updated_successfully" xml:space="preserve">
+    <value>उपयोगकर्ता अनुमतियों को सफलतापूर्वक अपडेट किया गया है।</value>
+  </data>
+  <data name="User_with_Id_deleted" xml:space="preserve">
+    <value>आईडी '{0}' वाले उपयोगकर्ता को हटा दिया गया है.</value>
+  </data>
+  <data name="User_with_Id_UserId_logged_in_with_2Fa" xml:space="preserve">
+    <value>आईडी '{0}' वाले उपयोगकर्ता ने टू-फैक्टर ऑथेंटिकेशन के साथ लॉग इन किया।</value>
+  </data>
+  <data name="value_cannot_be_null" xml:space="preserve">
+    <value>{0} शून्य नहीं हो सकता</value>
+  </data>
+  <data name="Verification_code_is_invalid" xml:space="preserve">
+    <value>सत्यापन कोड अमान्य है।</value>
+  </data>
+  <data name="Verification_email_has_been_sent" xml:space="preserve">
+    <value>वेरिफिकेशन ईमेल भेजा गया है। कृपया अपना ईमेल चेक करें।</value>
+  </data>
+  <data name="Weight_is_required" xml:space="preserve">
+    <value>वजन की आवश्यकता है।</value>
+  </data>
+  <data name="Your_account_is_deactivated_Please_contact_your_administrator" xml:space="preserve">
+    <value>आपका खाता निष्क्रिय कर दिया जाता है. कृपया अपने प्रशासक से संपर्क करें।</value>
+  </data>
+  <data name="Your_authenticator_app_has_been_verified" xml:space="preserve">
+    <value>आपका प्रमाणक ऐप सत्यापित कर लिया गया है।</value>
+  </data>
+  <data name="Your_authenticator_app_key_has_been_reset" xml:space="preserve">
+    <value>आपकी प्रमाणक ऐप कुंजी रीसेट की गई है, आपको नई कुंजी का उपयोग करके अपने प्रमाणक ऐप को कॉन्फ़िगर करना होगा।</value>
+  </data>
+  <data name="Your_email_has_been_changed_successfully" xml:space="preserve">
+    <value>आपका ईमेल सफलतापूर्वक बदल दिया गया है।</value>
+  </data>
+  <data name="Your_email_has_been_successfully_changed" xml:space="preserve">
+    <value>आपका ईमेल सफलतापूर्वक बदल दिया गया है।</value>
+  </data>
+  <data name="Your_email_is_unchanged" xml:space="preserve">
+    <value>आपका ईमेल अपरिवर्तित है।</value>
+  </data>
+  <data name="Your_password_has_been_changed" xml:space="preserve">
+    <value>आपका पासवर्ड बदल दिया गया है।</value>
+  </data>
+  <data name="Your_password_has_been_reset" xml:space="preserve">
+    <value>आपका पासवर्ड रीसेट कर दिया गया है।</value>
+  </data>
+  <data name="Your_password_has_been_set" xml:space="preserve">
+    <value>आपका पासवर्ड सेट कर दिया गया है।</value>
+  </data>
+  <data name="You_are_forbidden" xml:space="preserve">
+    <value>आपको {0} तक पहुंचने के लिए मना किया जाता है।</value>
+  </data>
+  <data name="You_are_locked_out" xml:space="preserve">
+    <value>आप बाहर बंद कर रहे हैं।</value>
+  </data>
+  <data name="You_are_not_authorized" xml:space="preserve">
+    <value>आप {0} तक पहुंचने के लिए अधिकृत नहीं हैं।</value>
+  </data>
+  <data name="You_have_generated_new_recovery_codes" xml:space="preserve">
+    <value>आपने नए रिकवरी कोड जेनरेट किए हैं।</value>
+  </data>
+  <data name="You_have_successfully_created_a_new_account" xml:space="preserve">
+    <value>आपने सफलतापूर्वक एक नया खाता बनाया है।</value>
+  </data>
+</root>

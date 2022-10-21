@@ -1,0 +1,564 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Access_token_timespan_cannot_be_null" xml:space="preserve">
+    <value>Erişim belirteci zaman aralığı null olamaz.</value>
+  </data>
+  <data name="Access_token_timespan_is_required" xml:space="preserve">
+    <value>Erişim belirteci zaman aralığı gereklidir.</value>
+  </data>
+  <data name="Allowed_username_characters_are_required" xml:space="preserve">
+    <value>İzin verilen kullanıcı adı karakterleri gereklidir.</value>
+  </data>
+  <data name="An_unknown_failure_has_occurred" xml:space="preserve">
+    <value>Bilinmeyen bir hata oluştu.</value>
+  </data>
+  <data name="Applicant_has_been_created_successfully" xml:space="preserve">
+    <value>Başvuran başarıyla oluşturuldu</value>
+  </data>
+  <data name="Applicant_has_been_deleted_successfully" xml:space="preserve">
+    <value>Başvuran başarıyla silindi.</value>
+  </data>
+  <data name="Applicant_has_been_updated_successfully" xml:space="preserve">
+    <value>Başvuran başarıyla güncelleştirildi.</value>
+  </data>
+  <data name="A_user_with_this_login_already_exists" xml:space="preserve">
+    <value>Bu oturum açma olan bir kullanıcı zaten var.</value>
+  </data>
+  <data name="Cannot_disable_2FA_for_user_with_Id" xml:space="preserve">
+    <value>Kimliği '{0}' olan kullanıcı için İki Faktörlü Kimlik Doğrulaması şu anda etkinleştirilmediği için devre dışı bırakılamıyor.</value>
+  </data>
+  <data name="Cannot_generate_recovery_codes" xml:space="preserve">
+    <value>İki Faktörlü Kimlik Doğrulama etkinleştirilmediği için '{0}' kullanıcı adı için kurtarma kodları oluşturulamıyor.</value>
+  </data>
+  <data name="Code_is_required" xml:space="preserve">
+    <value>Kod gereklidir.</value>
+  </data>
+  <data name="Confirmation_link_to_change_email_has_been_sent" xml:space="preserve">
+    <value>E-postayı değiştirmek için onay bağlantısı gönderildi. Lütfen e-postanızı kontrol edin.</value>
+  </data>
+  <data name="Confirm_password_is_required" xml:space="preserve">
+    <value>Parolayı Onayla gereklidir.</value>
+  </data>
+  <data name="Confirm_your_email" xml:space="preserve">
+    <value>E-postanızı onaylama</value>
+  </data>
+  <data name="Date_of_Birth_is_required" xml:space="preserve">
+    <value>Doğum Tarihi gereklidir</value>
+  </data>
+  <data name="Deletion_of_entity_failed" xml:space="preserve">
+    <value>"{0}" ({1}) varlığı silinemedi. {2}.</value>
+  </data>
+  <data name="Email_is_already_taken" xml:space="preserve">
+    <value>E-posta '{0}' zaten alındı.</value>
+  </data>
+  <data name="Email_is_invalid" xml:space="preserve">
+    <value>'{0}' e-postası geçersiz.</value>
+  </data>
+  <data name="Entity_with_key_was_not_found" xml:space="preserve">
+    <value>"{1}" anahtarlı "{0}" varlığı bulunamadı.</value>
+  </data>
+  <data name="Error_changing_user_name" xml:space="preserve">
+    <value>Kullanıcı adı değiştirilirken hata oluştu.</value>
+  </data>
+  <data name="Error_changing_your_user_name" xml:space="preserve">
+    <value>Kullanıcı adınız değiştirilirken hata oluştu.</value>
+  </data>
+  <data name="File_has_not_been_uploaded" xml:space="preserve">
+    <value>Dosya karşıya yüklenmedi.</value>
+  </data>
+  <data name="File_is_empty" xml:space="preserve">
+    <value>Dosya boş.</value>
+  </data>
+  <data name="File_storage_settings_have_been_updated_successfully" xml:space="preserve">
+    <value>Dosya depolama ayarları başarıyla güncelleştirildi.</value>
+  </data>
+  <data name="First_name_is_required" xml:space="preserve">
+    <value>İlk ad gereklidir.</value>
+  </data>
+  <data name="Height_is_required" xml:space="preserve">
+    <value>Yükseklik gereklidir.</value>
+  </data>
+  <data name="Identity_settings_have_been_updated_successfully" xml:space="preserve">
+    <value>Kimlik ayarları başarıyla güncelleştirildi.</value>
+  </data>
+  <data name="Incorrect_password" xml:space="preserve">
+    <value>Yanlış parola.</value>
+  </data>
+  <data name="Invalid_applicant_Id" xml:space="preserve">
+    <value>Geçersiz başvuru kimliği.</value>
+  </data>
+  <data name="Invalid_authenticator_code_entered" xml:space="preserve">
+    <value>Geçersiz kimlik doğrulayıcı kodu girildi.</value>
+  </data>
+  <data name="Invalid_client_request" xml:space="preserve">
+    <value>Geçersiz istemci isteği.</value>
+  </data>
+  <data name="Invalid_login_attempt" xml:space="preserve">
+    <value>Geçersiz oturum açma girişimi.</value>
+  </data>
+  <data name="Invalid_recovery_code_entered" xml:space="preserve">
+    <value>Geçersiz kurtarma kodu girildi.</value>
+  </data>
+  <data name="Invalid_report_Id" xml:space="preserve">
+    <value>Geçersiz rapor kimliği.</value>
+  </data>
+  <data name="Invalid_role_Id" xml:space="preserve">
+    <value>Geçersiz rol kimliği.</value>
+  </data>
+  <data name="Invalid_tenant_name" xml:space="preserve">
+    <value>Geçersiz kiracı adı.</value>
+  </data>
+  <data name="Invalid_token" xml:space="preserve">
+    <value>Geçersiz belirteç.</value>
+  </data>
+  <data name="Invalid_user_Id" xml:space="preserve">
+    <value>Geçersiz kullanıcı kimliği.</value>
+  </data>
+  <data name="Job_title_is_required" xml:space="preserve">
+    <value>İş unvanı gereklidir.</value>
+  </data>
+  <data name="Last_name_is_required" xml:space="preserve">
+    <value>Soyadı gereklidir</value>
+  </data>
+  <data name="Lockout_is_not_enabled_for_this_user" xml:space="preserve">
+    <value>Kilitleme bu kullanıcı için etkinleştirilmedi.</value>
+  </data>
+  <data name="Maximum_allowed_number_of_attachments_must_not_exceed_3" xml:space="preserve">
+    <value>İzin verilen en fazla ek sayısı 3'ü geçmemelidir.</value>
+  </data>
+  <data name="Method_cannot_be_null" xml:space="preserve">
+    <value>Yöntem null olamaz.</value>
+  </data>
+  <data name="Minimum_allowed_number_of_attachments_must_be_at_least_1" xml:space="preserve">
+    <value>İzin verilen en az ek sayısı en az 1 olmalıdır.</value>
+  </data>
+  <data name="New_password_is_required" xml:space="preserve">
+    <value>Yeni parola gereklidir.</value>
+  </data>
+  <data name="New_password_must_be_at_least_6_characters" xml:space="preserve">
+    <value>Yeni parola en az 6 karakter olmalıdır.</value>
+  </data>
+  <data name="New_password_must_not_exceed_200_characters" xml:space="preserve">
+    <value>Yeni parola 200 karakteri geçmemelidir.</value>
+  </data>
+  <data name="N_A" xml:space="preserve">
+    <value>Kullanılabilir Değil</value>
+  </data>
+  <data name="Old_password_is_required" xml:space="preserve">
+    <value>Eski parola gereklidir.</value>
+  </data>
+  <data name="Only_those_between_the_ages_of_18_and_28_are_allowed_for_enlisting" xml:space="preserve">
+    <value>Sadece 18-28 yaş arasındakilerin askere alınmasına izin verilir.</value>
+  </data>
+  <data name="Only_those_whose_BMI_between_18_5_and_24_9_are_allowed_for_enlisting" xml:space="preserve">
+    <value>Yalnızca VKİ'si 18,5 ile 24,9 arasında olanlar askere alınmaktadır.</value>
+  </data>
+  <data name="Only_those_whose_heights_between_100_and_250_with_normal_BMI_are_allowed_for_enlisting" xml:space="preserve">
+    <value>Yalnızca normal VKİ ile 100 ila 250 arasında yükseklikleri olanlara kaydolma izni verilir.</value>
+  </data>
+  <data name="Only_those_who_weigh_between_50_and_200_with_normal_BMI_are_allowed_for_enlisting" xml:space="preserve">
+    <value>Yalnızca normal BMI ile 50 ila 200 arasında olanlar askere alınmaktadır.</value>
+  </data>
+  <data name="Optimistic_concurrency_failure" xml:space="preserve">
+    <value>İyimser eşzamanlılık hatası, nesne değiştirildi.</value>
+  </data>
+  <data name="Passwords_must_be_at_least_length_characters" xml:space="preserve">
+    <value>Parolalar en az {0} karakter olmalıdır.</value>
+  </data>
+  <data name="Passwords_must_have_at_least_one_digit" xml:space="preserve">
+    <value>Parolaların en az bir basamayı olmalıdır ('0'-'9').</value>
+  </data>
+  <data name="Passwords_must_have_at_least_one_lowercase" xml:space="preserve">
+    <value>Parolalarda en az bir küçük harf ('a'-'z') olmalıdır.</value>
+  </data>
+  <data name="Passwords_must_have_at_least_one_non_alphanumeric_character" xml:space="preserve">
+    <value>Parolalar en az bir alfasayısal olmayan karaktere sahip olmalıdır.</value>
+  </data>
+  <data name="Passwords_must_have_at_least_one_uppercase" xml:space="preserve">
+    <value>Parolaların en az bir büyük harfe ('A'-'Z') sahip olması gerekir.</value>
+  </data>
+  <data name="Password_cannot_contain_password" xml:space="preserve">
+    <value>Parola 'parola' içeremez.</value>
+  </data>
+  <data name="Password_cannot_contain_username" xml:space="preserve">
+    <value>Parola kullanıcı adı içeremez.</value>
+  </data>
+  <data name="Password_is_required" xml:space="preserve">
+    <value>Parola gereklidir.</value>
+  </data>
+  <data name="Password_must_be_at_least_6_characters" xml:space="preserve">
+    <value>Parola en az 6 karakter olmalıdır.</value>
+  </data>
+  <data name="Password_must_not_exceed_200_characters" xml:space="preserve">
+    <value>Parola 200 karakteri geçmemelidir.</value>
+  </data>
+  <data name="Password_reset_link_was_sent" xml:space="preserve">
+    <value>Parola sıfırlama bağlantısı gönderildi. Lütfen e-postanızı kontrol edin.</value>
+  </data>
+  <data name="Phone_number_is_required" xml:space="preserve">
+    <value>Telefon numarası gereklidir.!</value>
+  </data>
+  <data name="Please_confirm_your_account_by_clicking_here" xml:space="preserve">
+    <value>Lütfen &lt;a href='{0}'&gt;buraya tıklayarak hesabınızı onaylayın.&lt;/a&gt;</value>
+  </data>
+  <data name="Please_confirm_your_email" xml:space="preserve">
+    <value>Lütfen e-postanızı onaylayın.</value>
+  </data>
+  <data name="Please_reset_your_password_by_clicking_here" xml:space="preserve">
+    <value>Lütfen &lt;a href='{0}'&gt;buraya tıklayarak&lt;/a&gt;şifrenizi sıfırlayın.</value>
+  </data>
+  <data name="Please_specify_the_application_tenant_mode" xml:space="preserve">
+    <value>Lütfen uygulama kiracı modunu belirtin.</value>
+  </data>
+  <data name="Profile_picture_is_required" xml:space="preserve">
+    <value>Profil resmi gereklidir.</value>
+  </data>
+  <data name="Recovery_Code_is_required" xml:space="preserve">
+    <value>Kurtarma Kodu gereklidir.</value>
+  </data>
+  <data name="Recovery_Code_Redemption_Failed" xml:space="preserve">
+    <value>Kurtarma Kodu Kullanımı Başarısız Oldu</value>
+  </data>
+  <data name="Reference_name_is_required" xml:space="preserve">
+    <value>İsim Gereklidir!</value>
+  </data>
+  <data name="Refresh_token_timespan_cannot_be_null" xml:space="preserve">
+    <value>Yenileme belirteci zaman aralığı null olamaz.</value>
+  </data>
+  <data name="Refresh_token_timespan_is_required" xml:space="preserve">
+    <value>Belirteç zaman aralığı yenilemek gerekir.</value>
+  </data>
+  <data name="Refresh_token_timespan_must_be_greater_than_access_token_expiry_time" xml:space="preserve">
+    <value>Yenileme belirteci zaman aralığı erişim belirteci sona erme süresinden büyük olmalıdır.</value>
+  </data>
+  <data name="Repeated_Ones_are_not_valid_Social_security_number" xml:space="preserve">
+    <value>111111111 geçerli bir sosyal güvenlik numarası değildir.</value>
+  </data>
+  <data name="Repeated_Threes_are_not_valid_Social_security_number" xml:space="preserve">
+    <value>333333333 geçerli bir sosyal güvenlik numarası değildir.</value>
+  </data>
+  <data name="Reset_your_password" xml:space="preserve">
+    <value>Parolanızı sıfırlama</value>
+  </data>
+  <data name="Role_has_been_created_successfully" xml:space="preserve">
+    <value>Rol başarıyla oluşturuldu.</value>
+  </data>
+  <data name="Role_has_been_deleted_successfully" xml:space="preserve">
+    <value>Rol başarıyla silindi.</value>
+  </data>
+  <data name="Role_has_been_updated_successfully" xml:space="preserve">
+    <value>Rol başarıyla güncelleştirildi.</value>
+  </data>
+  <data name="Role_name_is_already_taken" xml:space="preserve">
+    <value>Rol adı '{0}' zaten alındı.</value>
+  </data>
+  <data name="Role_name_is_invalid" xml:space="preserve">
+    <value>Rol adı '{0}' geçersiz.</value>
+  </data>
+  <data name="Role_name_is_required" xml:space="preserve">
+    <value>Rol adı gereklidir.</value>
+  </data>
+  <data name="Social_security_number_is_required" xml:space="preserve">
+    <value>Sosyal güvenlik numarası gereklidir</value>
+  </data>
+  <data name="Social_security_number_must_contain_only_9_digits" xml:space="preserve">
+    <value>Sosyal güvenlik numarası sadece 9 haneli olmalıdır.</value>
+  </data>
+  <data name="Social_security_number_must_not_contain_consecutive_digits" xml:space="preserve">
+    <value>Sosyal güvenlik numarası ardışık basamak içermemelidir.</value>
+  </data>
+  <data name="Surname_is_required" xml:space="preserve">
+    <value>Soyadı gereklidir.</value>
+  </data>
+  <data name="Tenant_has_been_created_successfully" xml:space="preserve">
+    <value>Kiracı başarıyla oluşturuldu.</value>
+  </data>
+  <data name="The_applicant_is_not_found" xml:space="preserve">
+    <value>Başvuru sahibi bulunamadı.</value>
+  </data>
+  <data name="The_password_and_confirmation_password_do_not_match" xml:space="preserve">
+    <value>Parola ve onay parolası eşleşmiyor.</value>
+  </data>
+  <data name="The_specified_role_is_already_registered" xml:space="preserve">
+    <value>Belirtilen rol zaten kayıtlı.</value>
+  </data>
+  <data name="The_specified_role_is_already_registered_in_the_given_tenant" xml:space="preserve">
+    <value>Belirtilen rol verilen kiracıda zaten kayıtlı.</value>
+  </data>
+  <data name="The_specified_username_and_email_are_already_registered" xml:space="preserve">
+    <value>Belirtilen kullanıcı adı ve e-posta zaten kayıtlı.</value>
+  </data>
+  <data name="The_specified_username_and_email_are_already_registered_in_the_given_tenant" xml:space="preserve">
+    <value>Belirtilen kullanıcı adı ve e-posta zaten verilen kiracıda kayıtlı.</value>
+  </data>
+  <data name="Token_settings_have_been_updated_successfully" xml:space="preserve">
+    <value>Belirteç ayarları başarıyla güncelleştirildi.</value>
+  </data>
+  <data name="Two_factor_authentication_code_is_required" xml:space="preserve">
+    <value>İki faktörlü kimlik doğrulama kodu gereklidir.</value>
+  </data>
+  <data name="Two_factor_authentication_code_must_be_at_least_6_character_long" xml:space="preserve">
+    <value>İki faktörlü kimlik doğrulama kodu en az 6 karakter uzunluğunda olmalıdır.</value>
+  </data>
+  <data name="Two_factor_authentication_code_must_not_exceed_7_characters" xml:space="preserve">
+    <value>İki faktörlü kimlik doğrulama kodu 7 karakteri geçmemelidir.</value>
+  </data>
+  <data name="Two_factor_authentication_has_been_disabled" xml:space="preserve">
+    <value>2Fa devre dışı bırakıldı. Bir kimlik doğrulayıcı uygulaması kurarken İki Faktörlü Kimlik Doğrulama'ya yeniden sahip olabilirsiniz.</value>
+  </data>
+  <data name="Two_factor_authentication_required" xml:space="preserve">
+    <value>İki faktörlü kimlik doğrulaması gereklidir.</value>
+  </data>
+  <data name="Unable_to_create_new_tenant_in_single_tenant_mode" xml:space="preserve">
+    <value>Tek kiracı modunda yeni kiracı oluşturulamıyor.</value>
+  </data>
+  <data name="Unable_to_delete_static_role" xml:space="preserve">
+    <value>Statik rol silinemiyor.</value>
+  </data>
+  <data name="Unable_to_delete_static_user" xml:space="preserve">
+    <value>Statik kullanıcı silinemiyor.</value>
+  </data>
+  <data name="Unable_to_load_applicant" xml:space="preserve">
+    <value>Başvuran yüklenemiyor.</value>
+  </data>
+  <data name="Unable_to_load_report" xml:space="preserve">
+    <value>Rapor yüklenemiyor.</value>
+  </data>
+  <data name="Unable_to_load_role" xml:space="preserve">
+    <value>Rol yüklenemiyor.</value>
+  </data>
+  <data name="Unable_to_load_user" xml:space="preserve">
+    <value>Kullanıcı yüklenemiyor.</value>
+  </data>
+  <data name="Unable_to_update_static_user" xml:space="preserve">
+    <value>Statik kullanıcı güncelleştirilemiyor.</value>
+  </data>
+  <data name="Unexpected_error_occurred_deleting_user_with_Id" xml:space="preserve">
+    <value>Kimliği '{0}' olan kullanıcı silinırken beklenmeyen hata oluştu.</value>
+  </data>
+  <data name="Unexpected_error_occurred_disabling_2FA" xml:space="preserve">
+    <value>Kimliği '{0}' olan kullanıcı için İki Faktörlü Kimlik Doğrulaması devre dışı bırakılırken beklenmeyen hata oluştu.</value>
+  </data>
+  <data name="Username_has_been_confirmed_successfully" xml:space="preserve">
+    <value>Kullanıcı adı başarıyla onaylandı.</value>
+  </data>
+  <data name="Username_is_already_taken" xml:space="preserve">
+    <value>'{0}' kullanıcı adı zaten alınmıştır.</value>
+  </data>
+  <data name="Username_is_invalid" xml:space="preserve">
+    <value>'{0}' kullanıcı adı geçersiz, yalnızca harf veya rakam içerebilir.</value>
+  </data>
+  <data name="Username_is_required" xml:space="preserve">
+    <value>Kullanıcı adı gereklidir.</value>
+  </data>
+  <data name="Username_must_be_at_least_6_characters" xml:space="preserve">
+    <value>Kullanıcı adı en az 6 karakter olmalıdır.</value>
+  </data>
+  <data name="Username_must_not_exceed_200_characters" xml:space="preserve">
+    <value>Kullanıcı adı 200 karakteri geçmemelidir.</value>
+  </data>
+  <data name="User_already_has_a_password_set" xml:space="preserve">
+    <value>Kullanıcının zaten bir parola kümesi var.</value>
+  </data>
+  <data name="User_already_in_role" xml:space="preserve">
+    <value>Kullanıcı zaten '{0}' rolünde.</value>
+  </data>
+  <data name="User_has_been_added_without_files" xml:space="preserve">
+    <value>Kullanıcı dosya olmadan eklendi.</value>
+  </data>
+  <data name="User_has_been_created_successfully" xml:space="preserve">
+    <value>Kullanıcı başarıyla oluşturuldu.</value>
+  </data>
+  <data name="User_has_been_deleted_successfully" xml:space="preserve">
+    <value>Kullanıcı başarıyla silindi.</value>
+  </data>
+  <data name="User_has_been_updated_successfully" xml:space="preserve">
+    <value>Kullanıcı başarıyla güncelleştirildi.</value>
+  </data>
+  <data name="User_has_been_updated_successfully_without_updating_his_her_roles_as_the_user_is_static_type" xml:space="preserve">
+    <value>Kullanıcı statik tür olduğu için rolleri güncelleştirilmeden başarıyla güncelleştirildi.</value>
+  </data>
+  <data name="User_Id_is_required" xml:space="preserve">
+    <value>Kullanıcı Kimliği gereklidir.</value>
+  </data>
+  <data name="User_permissions_have_been_updated_successfully" xml:space="preserve">
+    <value>Kullanıcı izinleri başarıyla güncelleştirildi.</value>
+  </data>
+  <data name="User_with_Id_deleted" xml:space="preserve">
+    <value>Kimliği '{0}' olan kullanıcı silindi.</value>
+  </data>
+  <data name="User_with_Id_UserId_logged_in_with_2Fa" xml:space="preserve">
+    <value>Kimliği '{0}' olan kullanıcı İki Faktörlü Kimlik Doğrulama ile oturum açtı.</value>
+  </data>
+  <data name="value_cannot_be_null" xml:space="preserve">
+    <value>{0} null olamaz</value>
+  </data>
+  <data name="Verification_code_is_invalid" xml:space="preserve">
+    <value>Doğrulama kodu geçersiz.</value>
+  </data>
+  <data name="Verification_email_has_been_sent" xml:space="preserve">
+    <value>Doğrulama e-postası gönderildi. Lütfen e-postanızı kontrol edin.</value>
+  </data>
+  <data name="Weight_is_required" xml:space="preserve">
+    <value>Ağırlık gereklidir.</value>
+  </data>
+  <data name="Your_account_is_deactivated_Please_contact_your_administrator" xml:space="preserve">
+    <value>Hesabınız devre dışı bırakıldı. Lütfen yöneticinize başvurun.</value>
+  </data>
+  <data name="Your_authenticator_app_has_been_verified" xml:space="preserve">
+    <value>Kimlik doğrulayıcı uygulamanız doğrulandı.</value>
+  </data>
+  <data name="Your_authenticator_app_key_has_been_reset" xml:space="preserve">
+    <value>Kimlik doğrulayıcı uygulama anahtarınız sıfırlandı, kimlik doğrulayıcı uygulamanızı yeni anahtarı kullanarak yapılandırmanız gerekir.</value>
+  </data>
+  <data name="Your_email_has_been_changed_successfully" xml:space="preserve">
+    <value>E-postanız başarıyla değiştirildi.</value>
+  </data>
+  <data name="Your_email_has_been_successfully_changed" xml:space="preserve">
+    <value>E-postanız başarıyla değiştirildi.</value>
+  </data>
+  <data name="Your_email_is_unchanged" xml:space="preserve">
+    <value>E-postanız değişmedi.</value>
+  </data>
+  <data name="Your_password_has_been_changed" xml:space="preserve">
+    <value>Parolanız değiştirildi.</value>
+  </data>
+  <data name="Your_password_has_been_reset" xml:space="preserve">
+    <value>Parolanız sıfırlandı.</value>
+  </data>
+  <data name="Your_password_has_been_set" xml:space="preserve">
+    <value>Parolanız ayarlandı.</value>
+  </data>
+  <data name="You_are_forbidden" xml:space="preserve">
+    <value>{0} girmeniz yasaktır.</value>
+  </data>
+  <data name="You_are_locked_out" xml:space="preserve">
+    <value>Dışarıda kaldın.</value>
+  </data>
+  <data name="You_are_not_authorized" xml:space="preserve">
+    <value>{0} erişme yetkiniz yok.</value>
+  </data>
+  <data name="You_have_generated_new_recovery_codes" xml:space="preserve">
+    <value>Yeni kurtarma kodları oluşturmuşsunuz.</value>
+  </data>
+  <data name="You_have_successfully_created_a_new_account" xml:space="preserve">
+    <value>Başarıyla yeni bir hesap oluşturdunuz.</value>
+  </data>
+</root>

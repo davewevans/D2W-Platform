@@ -1,0 +1,89 @@
+﻿<ServerSideValidator @ref="ServerSideValidator" />
+<MudDialog Style="max-height:700px; overflow-y: scroll">
+    <TitleContent>
+        <MudText Typo="Typo.h6">
+            <MudIcon Icon="@Icons.Material.Filled.Groups" Class="mr-3 mb-n1" />
+            @Resource.Roles
+        </MudText>
+    </TitleContent>
+    <DialogContent>
+        <MudContainer>
+            <MudChipSet Style="max-width:700px; overflow-x: scroll" AllClosable="true" OnClose="Closed">
+                @foreach (var roleItem in SelectedUserRoles)
+                {
+                    <MudChip Text="@roleItem.Name"></MudChip>
+                }
+            </MudChipSet>
+            <MudTable ServerData="@(new Func<TableState, Task<TableData<RoleItem>>>(ServerReload))" Striped="true" Dense="true" Hover="true" FixedHeader="true" FixedFooter="true" @ref="Table" Elevation="8">
+                <ToolBarContent>
+                    <MudButton ButtonType="ButtonType.Button"
+                               OnClick="Submit"
+                               Variant="Variant.Filled"
+                               Color="Color.Error">
+                        @Resource.Add_Selected_Roles
+                    </MudButton>
+
+                    <MudButton OnClick="Cancel"
+                               Color="Color.Default"
+                               Variant="Variant.Filled">
+                        @Resource.Cancel
+                    </MudButton>
+                    <MudSpacer />
+                    <MudTextField T="string"
+                                  Immediate="true"
+                                  ValueChanged="@(FilterRoles)"
+                                  Placeholder="@Resource.Search"
+                                  Adornment="Adornment.Start"
+                                  AdornmentIcon="@Icons.Material.Filled.Search"
+                                  IconSize="Size.Small"
+                                  Class="mt-0">
+                    </MudTextField>
+                </ToolBarContent>
+                <HeaderContent>
+                    <MudTh>
+                        <input id="thCheckBox" type="checkbox" checked="@SelectAllVisibleRowsCheckBox" @onchange="(e) => SelectAllVisibleRows(e.Value)">
+                    </MudTh>
+                    <MudTh><MudTableSortLabel SortLabel="Name" T="RoleItem" InitialDirection="SortDirection.Ascending">@Resource.Name</MudTableSortLabel></MudTh>
+                    <MudTh><MudTableSortLabel SortLabel="IsStatic" T="RoleItem">@Resource.Is_Static</MudTableSortLabel></MudTh>
+                    <MudTh><MudTableSortLabel SortLabel="IsDefault" T="RoleItem">@Resource.Is_Default</MudTableSortLabel></MudTh>
+                    <MudTh><MudTableSortLabel SortLabel="CreatedOn" T="RoleItem">@Resource.Created_On</MudTableSortLabel></MudTh>
+                </HeaderContent>
+                <RowTemplate>
+                    <MudTd DataLabel="SelectAll">
+                        <input type="checkbox" checked="@context.Checked" @onchange="() => AddToSelectedUserRoles(context)" />
+                    </MudTd>
+                    <MudTd DataLabel="Name">@context.Name</MudTd>
+                    <MudTd DataLabel="IsStatic">@context.IsStatic</MudTd>
+                    <MudTd DataLabel="IsDefault">@context.IsDefault</MudTd>
+                    <MudTd DataLabel="CreatedOn">@context.CreatedOn</MudTd>
+                </RowTemplate>
+                <PagerContent>
+                    <MudTablePager RowsPerPageString="@Resource.Rows_Per_Page" />
+                </PagerContent>
+                <FooterContent>
+                </FooterContent>
+            </MudTable>
+        </MudContainer>
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Cancel"
+                   Color="Color.Default"
+                   Style="float: right"
+                   Variant="Variant.Filled">
+            @Resource.Cancel
+        </MudButton>
+
+        <MudButton ButtonType="ButtonType.Button"
+                   OnClick="Submit"
+                   Style="float: right"
+                   Variant="Variant.Filled"
+                   Color="Color.Error">
+            @Resource.Add_Selected_Roles
+        </MudButton>
+    </DialogActions>
+</MudDialog>
+
+
+@code {
+
+}

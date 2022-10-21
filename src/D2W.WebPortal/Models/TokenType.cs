@@ -1,0 +1,11 @@
+﻿namespace D2W.WebPortal.Models;
+
+public sealed class TokenType
+{
+    #region Public Properties
+
+    public static string AccessToken => "AccessToken";
+    public static string RefreshToken => "RefreshToken";
+
+    #endregion Public Properties
+}

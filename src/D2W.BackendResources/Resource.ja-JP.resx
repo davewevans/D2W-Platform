@@ -1,0 +1,564 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Access_token_timespan_cannot_be_null" xml:space="preserve">
+    <value>アクセス トークンの時間間隔を null にすることはできません。</value>
+  </data>
+  <data name="Access_token_timespan_is_required" xml:space="preserve">
+    <value>アクセス トークンの期間が必要です。</value>
+  </data>
+  <data name="Allowed_username_characters_are_required" xml:space="preserve">
+    <value>許可されたユーザー名文字が必要です。</value>
+  </data>
+  <data name="An_unknown_failure_has_occurred" xml:space="preserve">
+    <value>不明なエラーが発生しました。</value>
+  </data>
+  <data name="Applicant_has_been_created_successfully" xml:space="preserve">
+    <value>申請者は正常に作成されました</value>
+  </data>
+  <data name="Applicant_has_been_deleted_successfully" xml:space="preserve">
+    <value>申請者は正常に削除されました。</value>
+  </data>
+  <data name="Applicant_has_been_updated_successfully" xml:space="preserve">
+    <value>申請者は正常に更新されました。</value>
+  </data>
+  <data name="A_user_with_this_login_already_exists" xml:space="preserve">
+    <value>このログインを持つユーザーは既に存在します。</value>
+  </data>
+  <data name="Cannot_disable_2FA_for_user_with_Id" xml:space="preserve">
+    <value>ID が有効になっていないため、ID が 「{0}' のユーザーに対しては 2 要素認証を無効にできません。</value>
+  </data>
+  <data name="Cannot_generate_recovery_codes" xml:space="preserve">
+    <value>2 要素認証が有効になっていないため、ユーザー名 '{0}' の復旧コードを生成できません。</value>
+  </data>
+  <data name="Code_is_required" xml:space="preserve">
+    <value>コードが必要です。</value>
+  </data>
+  <data name="Confirmation_link_to_change_email_has_been_sent" xml:space="preserve">
+    <value>メール変更の確認リンクが送信されました。メールを確認してください。</value>
+  </data>
+  <data name="Confirm_password_is_required" xml:space="preserve">
+    <value>パスワードの確認が必要です。</value>
+  </data>
+  <data name="Confirm_your_email" xml:space="preserve">
+    <value>メールを確認する</value>
+  </data>
+  <data name="Date_of_Birth_is_required" xml:space="preserve">
+    <value>生年月日が必要です</value>
+  </data>
+  <data name="Deletion_of_entity_failed" xml:space="preserve">
+    <value>エンティティ "{0}" ({1}) の削除に失敗しました。{2}.</value>
+  </data>
+  <data name="Email_is_already_taken" xml:space="preserve">
+    <value>メール '{0}' はすでに取得されています。</value>
+  </data>
+  <data name="Email_is_invalid" xml:space="preserve">
+    <value>メール '{0}' が無効です。</value>
+  </data>
+  <data name="Entity_with_key_was_not_found" xml:space="preserve">
+    <value>"{1}" キーを持つエンティティ "{0}" が見つかりませんでした。</value>
+  </data>
+  <data name="Error_changing_user_name" xml:space="preserve">
+    <value>ユーザー名の変更中にエラーが発生しました。</value>
+  </data>
+  <data name="Error_changing_your_user_name" xml:space="preserve">
+    <value>ユーザー名の変更中にエラーが発生しました。</value>
+  </data>
+  <data name="File_has_not_been_uploaded" xml:space="preserve">
+    <value>ファイルがアップロードされていません。</value>
+  </data>
+  <data name="File_is_empty" xml:space="preserve">
+    <value>ファイルが空です。</value>
+  </data>
+  <data name="File_storage_settings_have_been_updated_successfully" xml:space="preserve">
+    <value>ファイルストレージの設定は正常に更新されました。</value>
+  </data>
+  <data name="First_name_is_required" xml:space="preserve">
+    <value>名は必須です。</value>
+  </data>
+  <data name="Height_is_required" xml:space="preserve">
+    <value>高さが必要です。</value>
+  </data>
+  <data name="Identity_settings_have_been_updated_successfully" xml:space="preserve">
+    <value>ID 設定は正常に更新されました。</value>
+  </data>
+  <data name="Incorrect_password" xml:space="preserve">
+    <value>パスワードが正しくありません。</value>
+  </data>
+  <data name="Invalid_applicant_Id" xml:space="preserve">
+    <value>申請者 ID が無効です。</value>
+  </data>
+  <data name="Invalid_authenticator_code_entered" xml:space="preserve">
+    <value>無効な認証コードが入力されました。</value>
+  </data>
+  <data name="Invalid_client_request" xml:space="preserve">
+    <value>クライアント要求が無効です。</value>
+  </data>
+  <data name="Invalid_login_attempt" xml:space="preserve">
+    <value>ログイン試行が無効です。</value>
+  </data>
+  <data name="Invalid_recovery_code_entered" xml:space="preserve">
+    <value>無効な回復コードが入力されました。</value>
+  </data>
+  <data name="Invalid_report_Id" xml:space="preserve">
+    <value>無効なレポート ID。</value>
+  </data>
+  <data name="Invalid_role_Id" xml:space="preserve">
+    <value>無効なロール ID です。</value>
+  </data>
+  <data name="Invalid_tenant_name" xml:space="preserve">
+    <value>無効なテナント名です。</value>
+  </data>
+  <data name="Invalid_token" xml:space="preserve">
+    <value>無効なトークンです。</value>
+  </data>
+  <data name="Invalid_user_Id" xml:space="preserve">
+    <value>無効なユーザー ID です。</value>
+  </data>
+  <data name="Job_title_is_required" xml:space="preserve">
+    <value>役職は必須です。</value>
+  </data>
+  <data name="Last_name_is_required" xml:space="preserve">
+    <value>姓が必要です</value>
+  </data>
+  <data name="Lockout_is_not_enabled_for_this_user" xml:space="preserve">
+    <value>このユーザーに対しては、ロックアウトは有効になっていません。</value>
+  </data>
+  <data name="Maximum_allowed_number_of_attachments_must_not_exceed_3" xml:space="preserve">
+    <value>添付ファイルの最大数は 3 を超えることはできません。</value>
+  </data>
+  <data name="Method_cannot_be_null" xml:space="preserve">
+    <value>メソッドを null にすることはできません。</value>
+  </data>
+  <data name="Minimum_allowed_number_of_attachments_must_be_at_least_1" xml:space="preserve">
+    <value>添付ファイルの最小許容数は 1 以上でなければなりません。</value>
+  </data>
+  <data name="New_password_is_required" xml:space="preserve">
+    <value>新しいパスワードが必要です。</value>
+  </data>
+  <data name="New_password_must_be_at_least_6_characters" xml:space="preserve">
+    <value>新しいパスワードは 6 文字以上で指定してください。</value>
+  </data>
+  <data name="New_password_must_not_exceed_200_characters" xml:space="preserve">
+    <value>新しいパスワードは 200 文字以内にする必要があります。</value>
+  </data>
+  <data name="N_A" xml:space="preserve">
+    <value>利用不可</value>
+  </data>
+  <data name="Old_password_is_required" xml:space="preserve">
+    <value>古いパスワードが必要です。</value>
+  </data>
+  <data name="Only_those_between_the_ages_of_18_and_28_are_allowed_for_enlisting" xml:space="preserve">
+    <value>参加できるのは18歳から28歳までの人だけです。</value>
+  </data>
+  <data name="Only_those_whose_BMI_between_18_5_and_24_9_are_allowed_for_enlisting" xml:space="preserve">
+    <value>18.5 から 24.9 までの BMI のみが参加が許可されます。</value>
+  </data>
+  <data name="Only_those_whose_heights_between_100_and_250_with_normal_BMI_are_allowed_for_enlisting" xml:space="preserve">
+    <value>通常のBMIを持つ100〜250の高さの人だけが参加を許可されています。</value>
+  </data>
+  <data name="Only_those_who_weigh_between_50_and_200_with_normal_BMI_are_allowed_for_enlisting" xml:space="preserve">
+    <value>通常のBMIを持つ50〜200の間の重量を量る人だけが参加を許可されています。</value>
+  </data>
+  <data name="Optimistic_concurrency_failure" xml:space="preserve">
+    <value>オプティミスティック同時実行制御エラー、オブジェクトが変更されました。</value>
+  </data>
+  <data name="Passwords_must_be_at_least_length_characters" xml:space="preserve">
+    <value>パスワードは、少なくとも{0}文字でなければなりません。</value>
+  </data>
+  <data name="Passwords_must_have_at_least_one_digit" xml:space="preserve">
+    <value>パスワードには、少なくとも 1 桁の数字 ('0'-'9') を指定する必要があります。</value>
+  </data>
+  <data name="Passwords_must_have_at_least_one_lowercase" xml:space="preserve">
+    <value>パスワードには、少なくとも 1 つの小文字 ('a'-'z') が必要です。</value>
+  </data>
+  <data name="Passwords_must_have_at_least_one_non_alphanumeric_character" xml:space="preserve">
+    <value>パスワードには、英数字以外の文字が少なくとも 1 つ必要です。</value>
+  </data>
+  <data name="Passwords_must_have_at_least_one_uppercase" xml:space="preserve">
+    <value>パスワードには、大文字 ('A'-'Z') を少なくとも 1 つ指定する必要があります。</value>
+  </data>
+  <data name="Password_cannot_contain_password" xml:space="preserve">
+    <value>パスワードに 「パスワード」を含めることはできません。</value>
+  </data>
+  <data name="Password_cannot_contain_username" xml:space="preserve">
+    <value>パスワードにユーザー名を含めることはできません。</value>
+  </data>
+  <data name="Password_is_required" xml:space="preserve">
+    <value>パスワードは必須です。</value>
+  </data>
+  <data name="Password_must_be_at_least_6_characters" xml:space="preserve">
+    <value>パスワードは 6 文字以上にする必要があります。</value>
+  </data>
+  <data name="Password_must_not_exceed_200_characters" xml:space="preserve">
+    <value>パスワードは 200 文字以内で指定してください。</value>
+  </data>
+  <data name="Password_reset_link_was_sent" xml:space="preserve">
+    <value>パスワードリセットリンクが送信されました。メールを確認してください。</value>
+  </data>
+  <data name="Phone_number_is_required" xml:space="preserve">
+    <value>電話番号が必要です。</value>
+  </data>
+  <data name="Please_confirm_your_account_by_clicking_here" xml:space="preserve">
+    <value>&lt;a href='{0}'&gt;こちらをクリック&lt;/a&gt;してアカウントを確認してください。</value>
+  </data>
+  <data name="Please_confirm_your_email" xml:space="preserve">
+    <value>メールを確認してください。</value>
+  </data>
+  <data name="Please_reset_your_password_by_clicking_here" xml:space="preserve">
+    <value>パスワードをリセットするには &lt;a href='{0}'&gt;、ここをクリック&lt;/a&gt;してください。</value>
+  </data>
+  <data name="Please_specify_the_application_tenant_mode" xml:space="preserve">
+    <value>アプリケーションのテナント モードを指定してください。</value>
+  </data>
+  <data name="Profile_picture_is_required" xml:space="preserve">
+    <value>プロフィール写真が必要です。</value>
+  </data>
+  <data name="Recovery_Code_is_required" xml:space="preserve">
+    <value>回復コードが必要です。</value>
+  </data>
+  <data name="Recovery_Code_Redemption_Failed" xml:space="preserve">
+    <value>回復コードの引き換えに失敗しました</value>
+  </data>
+  <data name="Reference_name_is_required" xml:space="preserve">
+    <value>名前は必須です！</value>
+  </data>
+  <data name="Refresh_token_timespan_cannot_be_null" xml:space="preserve">
+    <value>更新トークンのタイムスパンを null にすることはできません。</value>
+  </data>
+  <data name="Refresh_token_timespan_is_required" xml:space="preserve">
+    <value>更新トークンの期間が必要です。</value>
+  </data>
+  <data name="Refresh_token_timespan_must_be_greater_than_access_token_expiry_time" xml:space="preserve">
+    <value>更新トークンの期間は、アクセス トークンの有効期限より長くする必要があります。</value>
+  </data>
+  <data name="Repeated_Ones_are_not_valid_Social_security_number" xml:space="preserve">
+    <value>111111111有効な社会保障番号ではありません。</value>
+  </data>
+  <data name="Repeated_Threes_are_not_valid_Social_security_number" xml:space="preserve">
+    <value>333333333有効な社会保障番号ではありません。</value>
+  </data>
+  <data name="Reset_your_password" xml:space="preserve">
+    <value>パスワードをリセットする</value>
+  </data>
+  <data name="Role_has_been_created_successfully" xml:space="preserve">
+    <value>ロールは正常に作成されました。</value>
+  </data>
+  <data name="Role_has_been_deleted_successfully" xml:space="preserve">
+    <value>ロールは正常に削除されました。</value>
+  </data>
+  <data name="Role_has_been_updated_successfully" xml:space="preserve">
+    <value>ロールは正常に更新されました。</value>
+  </data>
+  <data name="Role_name_is_already_taken" xml:space="preserve">
+    <value>ロール名 '{0}' は既に使用されています。</value>
+  </data>
+  <data name="Role_name_is_invalid" xml:space="preserve">
+    <value>ロール名 '{0}' が無効です。</value>
+  </data>
+  <data name="Role_name_is_required" xml:space="preserve">
+    <value>ロール名が必要です。</value>
+  </data>
+  <data name="Social_security_number_is_required" xml:space="preserve">
+    <value>社会保障番号が必要です</value>
+  </data>
+  <data name="Social_security_number_must_contain_only_9_digits" xml:space="preserve">
+    <value>社会保障番号は 9 桁の数字のみで指定してください。</value>
+  </data>
+  <data name="Social_security_number_must_not_contain_consecutive_digits" xml:space="preserve">
+    <value>社会保障番号に連続する数字を含めることはできません。</value>
+  </data>
+  <data name="Surname_is_required" xml:space="preserve">
+    <value>姓は必須です。</value>
+  </data>
+  <data name="Tenant_has_been_created_successfully" xml:space="preserve">
+    <value>テナントは正常に作成されました。</value>
+  </data>
+  <data name="The_applicant_is_not_found" xml:space="preserve">
+    <value>申請者が見つかりません。</value>
+  </data>
+  <data name="The_password_and_confirmation_password_do_not_match" xml:space="preserve">
+    <value>パスワードと確認パスワードが一致しません。</value>
+  </data>
+  <data name="The_specified_role_is_already_registered" xml:space="preserve">
+    <value>指定されたロールは既に登録されています。</value>
+  </data>
+  <data name="The_specified_role_is_already_registered_in_the_given_tenant" xml:space="preserve">
+    <value>指定されたロールは、指定されたテナントに既に登録されています。</value>
+  </data>
+  <data name="The_specified_username_and_email_are_already_registered" xml:space="preserve">
+    <value>指定されたユーザー名と電子メールは既に登録されています。</value>
+  </data>
+  <data name="The_specified_username_and_email_are_already_registered_in_the_given_tenant" xml:space="preserve">
+    <value>指定されたユーザー名と電子メールは、既に指定されたテナントに登録されています。</value>
+  </data>
+  <data name="Token_settings_have_been_updated_successfully" xml:space="preserve">
+    <value>トークン設定は正常に更新されました。</value>
+  </data>
+  <data name="Two_factor_authentication_code_is_required" xml:space="preserve">
+    <value>2 要素認証コードが必要です。</value>
+  </data>
+  <data name="Two_factor_authentication_code_must_be_at_least_6_character_long" xml:space="preserve">
+    <value>2 要素認証コードは、6 文字以上でなければなりません。</value>
+  </data>
+  <data name="Two_factor_authentication_code_must_not_exceed_7_characters" xml:space="preserve">
+    <value>2 要素認証コードは 7 文字以内にする必要があります。</value>
+  </data>
+  <data name="Two_factor_authentication_has_been_disabled" xml:space="preserve">
+    <value>2Fa が無効になっています。認証アプリをセットアップするときに、2 要素認証を再度有効にすることができます。</value>
+  </data>
+  <data name="Two_factor_authentication_required" xml:space="preserve">
+    <value>2 要素認証が必要です。</value>
+  </data>
+  <data name="Unable_to_create_new_tenant_in_single_tenant_mode" xml:space="preserve">
+    <value>シングル テナント モードで新しいテナントを作成できません。</value>
+  </data>
+  <data name="Unable_to_delete_static_role" xml:space="preserve">
+    <value>静的ロールを削除できません。</value>
+  </data>
+  <data name="Unable_to_delete_static_user" xml:space="preserve">
+    <value>静的ユーザーを削除できません。</value>
+  </data>
+  <data name="Unable_to_load_applicant" xml:space="preserve">
+    <value>申請者を読み込めません。</value>
+  </data>
+  <data name="Unable_to_load_report" xml:space="preserve">
+    <value>レポートを読み込めません。</value>
+  </data>
+  <data name="Unable_to_load_role" xml:space="preserve">
+    <value>ロールを読み込めません。</value>
+  </data>
+  <data name="Unable_to_load_user" xml:space="preserve">
+    <value>ユーザーを読み込めません。</value>
+  </data>
+  <data name="Unable_to_update_static_user" xml:space="preserve">
+    <value>静的ユーザーを更新できません。</value>
+  </data>
+  <data name="Unexpected_error_occurred_deleting_user_with_Id" xml:space="preserve">
+    <value>ID '{0}' のユーザーを削除中に、予期しないエラーが発生しました。</value>
+  </data>
+  <data name="Unexpected_error_occurred_disabling_2FA" xml:space="preserve">
+    <value>ID '{0}' のユーザーに対して 2 要素認証を無効にして、予期しないエラーが発生しました。</value>
+  </data>
+  <data name="Username_has_been_confirmed_successfully" xml:space="preserve">
+    <value>ユーザー名は正常に確認されました。</value>
+  </data>
+  <data name="Username_is_already_taken" xml:space="preserve">
+    <value>ユーザー名 '{0}' はすでに取得されています。</value>
+  </data>
+  <data name="Username_is_invalid" xml:space="preserve">
+    <value>ユーザー名 '{0}' は無効です。</value>
+  </data>
+  <data name="Username_is_required" xml:space="preserve">
+    <value>ユーザー名が必要です。</value>
+  </data>
+  <data name="Username_must_be_at_least_6_characters" xml:space="preserve">
+    <value>ユーザー名は 6 文字以上でなければなりません。</value>
+  </data>
+  <data name="Username_must_not_exceed_200_characters" xml:space="preserve">
+    <value>ユーザー名は 200 文字を超えてはなりません。</value>
+  </data>
+  <data name="User_already_has_a_password_set" xml:space="preserve">
+    <value>ユーザーは既にパスワードセットを持っています。</value>
+  </data>
+  <data name="User_already_in_role" xml:space="preserve">
+    <value>ユーザーは既にロール '{0}' に入っています。</value>
+  </data>
+  <data name="User_has_been_added_without_files" xml:space="preserve">
+    <value>ユーザーはファイルなしで追加されました。</value>
+  </data>
+  <data name="User_has_been_created_successfully" xml:space="preserve">
+    <value>ユーザーは正常に作成されました。</value>
+  </data>
+  <data name="User_has_been_deleted_successfully" xml:space="preserve">
+    <value>ユーザーは正常に削除されました。</value>
+  </data>
+  <data name="User_has_been_updated_successfully" xml:space="preserve">
+    <value>ユーザーは正常に更新されました。</value>
+  </data>
+  <data name="User_has_been_updated_successfully_without_updating_his_her_roles_as_the_user_is_static_type" xml:space="preserve">
+    <value>ユーザーは静的な型であるため、ロールを更新せずに正常に更新されました。</value>
+  </data>
+  <data name="User_Id_is_required" xml:space="preserve">
+    <value>ユーザー ID が必要です。</value>
+  </data>
+  <data name="User_permissions_have_been_updated_successfully" xml:space="preserve">
+    <value>ユーザーのアクセス許可は正常に更新されました。</value>
+  </data>
+  <data name="User_with_Id_deleted" xml:space="preserve">
+    <value>ID '{0}' のユーザーが削除されました。</value>
+  </data>
+  <data name="User_with_Id_UserId_logged_in_with_2Fa" xml:space="preserve">
+    <value>ID '{0}' が 2 要素認証でログインしているユーザー。</value>
+  </data>
+  <data name="value_cannot_be_null" xml:space="preserve">
+    <value>{0}は null にできません</value>
+  </data>
+  <data name="Verification_code_is_invalid" xml:space="preserve">
+    <value>検証コードが無効です。</value>
+  </data>
+  <data name="Verification_email_has_been_sent" xml:space="preserve">
+    <value>確認メールが送信されました。メールを確認してください。</value>
+  </data>
+  <data name="Weight_is_required" xml:space="preserve">
+    <value>重量が必要です。</value>
+  </data>
+  <data name="Your_account_is_deactivated_Please_contact_your_administrator" xml:space="preserve">
+    <value>アカウントが無効になります。管理者に問い合わせてください。</value>
+  </data>
+  <data name="Your_authenticator_app_has_been_verified" xml:space="preserve">
+    <value>認証アプリが確認されました。</value>
+  </data>
+  <data name="Your_authenticator_app_key_has_been_reset" xml:space="preserve">
+    <value>認証アプリのキーがリセットされました、新しいキーを使用して認証アプリを構成する必要があります。</value>
+  </data>
+  <data name="Your_email_has_been_changed_successfully" xml:space="preserve">
+    <value>メールが正常に変更されました。</value>
+  </data>
+  <data name="Your_email_has_been_successfully_changed" xml:space="preserve">
+    <value>メールは正常に変更されました。</value>
+  </data>
+  <data name="Your_email_is_unchanged" xml:space="preserve">
+    <value>メールは変更されません。</value>
+  </data>
+  <data name="Your_password_has_been_changed" xml:space="preserve">
+    <value>パスワードが変更されました。</value>
+  </data>
+  <data name="Your_password_has_been_reset" xml:space="preserve">
+    <value>パスワードがリセットされました。</value>
+  </data>
+  <data name="Your_password_has_been_set" xml:space="preserve">
+    <value>パスワードが設定されました。</value>
+  </data>
+  <data name="You_are_forbidden" xml:space="preserve">
+    <value>{0}にアクセスすることは禁じられています。</value>
+  </data>
+  <data name="You_are_locked_out" xml:space="preserve">
+    <value>あなたはロックアウトされています。</value>
+  </data>
+  <data name="You_are_not_authorized" xml:space="preserve">
+    <value>{0}にアクセスする権限がありません。</value>
+  </data>
+  <data name="You_have_generated_new_recovery_codes" xml:space="preserve">
+    <value>新しい復旧コードが生成されました。</value>
+  </data>
+  <data name="You_have_successfully_created_a_new_account" xml:space="preserve">
+    <value>新しいアカウントが正常に作成されました。</value>
+  </data>
+</root>

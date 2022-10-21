@@ -1,0 +1,564 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Access_token_timespan_cannot_be_null" xml:space="preserve">
+    <value>O tempo de acesso ao token não pode ser nulo.</value>
+  </data>
+  <data name="Access_token_timespan_is_required" xml:space="preserve">
+    <value>É necessário aceder ao tempo de token.</value>
+  </data>
+  <data name="Allowed_username_characters_are_required" xml:space="preserve">
+    <value>São necessários caracteres de nome de utilizador permitidos.</value>
+  </data>
+  <data name="An_unknown_failure_has_occurred" xml:space="preserve">
+    <value>Ocorreu uma falha desconhecida.</value>
+  </data>
+  <data name="Applicant_has_been_created_successfully" xml:space="preserve">
+    <value>Candidato foi criado com sucesso</value>
+  </data>
+  <data name="Applicant_has_been_deleted_successfully" xml:space="preserve">
+    <value>O requerente foi eliminado com êxito.</value>
+  </data>
+  <data name="Applicant_has_been_updated_successfully" xml:space="preserve">
+    <value>O requerente foi atualizado com sucesso.</value>
+  </data>
+  <data name="A_user_with_this_login_already_exists" xml:space="preserve">
+    <value>Um utilizador com este login já existe.</value>
+  </data>
+  <data name="Cannot_disable_2FA_for_user_with_Id" xml:space="preserve">
+    <value>Não é possível desativar a autenticação de dois fatores para o utilizador com id '{0}' uma vez que não está ativada atualmente.</value>
+  </data>
+  <data name="Cannot_generate_recovery_codes" xml:space="preserve">
+    <value>Não é possível gerar códigos de recuperação para o nome de utilizador '{0}', uma vez que não têm a autenticação de dois fatores ativada.</value>
+  </data>
+  <data name="Code_is_required" xml:space="preserve">
+    <value>O código é necessário.</value>
+  </data>
+  <data name="Confirmation_link_to_change_email_has_been_sent" xml:space="preserve">
+    <value>Foi enviado o link de confirmação para alterar o e-mail. Por favor, verifique o seu e-mail.</value>
+  </data>
+  <data name="Confirm_password_is_required" xml:space="preserve">
+    <value>Confirme que a palavra-passe é necessária.</value>
+  </data>
+  <data name="Confirm_your_email" xml:space="preserve">
+    <value>Confirme o seu e-mail</value>
+  </data>
+  <data name="Date_of_Birth_is_required" xml:space="preserve">
+    <value>É necessária a data de nascimento</value>
+  </data>
+  <data name="Deletion_of_entity_failed" xml:space="preserve">
+    <value>A supressão da entidade "{0}" ({1}) falhou. {2}.</value>
+  </data>
+  <data name="Email_is_already_taken" xml:space="preserve">
+    <value>O e-mail '{0}' já está tomado.</value>
+  </data>
+  <data name="Email_is_invalid" xml:space="preserve">
+    <value>O e-mail '{0}' é inválido.</value>
+  </data>
+  <data name="Entity_with_key_was_not_found" xml:space="preserve">
+    <value>Não foi encontrada a entidade "{0}" com "{1}" chave.</value>
+  </data>
+  <data name="Error_changing_user_name" xml:space="preserve">
+    <value>Erro de alteração do nome de utilizador.</value>
+  </data>
+  <data name="Error_changing_your_user_name" xml:space="preserve">
+    <value>Erro alterando o nome de utilizador.</value>
+  </data>
+  <data name="File_has_not_been_uploaded" xml:space="preserve">
+    <value>O ficheiro não foi carregado.</value>
+  </data>
+  <data name="File_is_empty" xml:space="preserve">
+    <value>O ficheiro está vazio.</value>
+  </data>
+  <data name="File_storage_settings_have_been_updated_successfully" xml:space="preserve">
+    <value>As definições de armazenamento de ficheiros foram atualizadas com sucesso.</value>
+  </data>
+  <data name="First_name_is_required" xml:space="preserve">
+    <value>O primeiro nome é necessário.</value>
+  </data>
+  <data name="Height_is_required" xml:space="preserve">
+    <value>É necessária altura.</value>
+  </data>
+  <data name="Identity_settings_have_been_updated_successfully" xml:space="preserve">
+    <value>As definições de identidade foram atualizadas com sucesso.</value>
+  </data>
+  <data name="Incorrect_password" xml:space="preserve">
+    <value>Senha incorreta.</value>
+  </data>
+  <data name="Invalid_applicant_Id" xml:space="preserve">
+    <value>Identificação inválida do requerente.</value>
+  </data>
+  <data name="Invalid_authenticator_code_entered" xml:space="preserve">
+    <value>Código autenticador inválido introduzido.</value>
+  </data>
+  <data name="Invalid_client_request" xml:space="preserve">
+    <value>Pedido de cliente inválido.</value>
+  </data>
+  <data name="Invalid_login_attempt" xml:space="preserve">
+    <value>Tentativa de login inválida.</value>
+  </data>
+  <data name="Invalid_recovery_code_entered" xml:space="preserve">
+    <value>Código de recuperação inválido introduzido.</value>
+  </data>
+  <data name="Invalid_report_Id" xml:space="preserve">
+    <value>Id relatório inválido.</value>
+  </data>
+  <data name="Invalid_role_Id" xml:space="preserve">
+    <value>ID de papel inválido.</value>
+  </data>
+  <data name="Invalid_tenant_name" xml:space="preserve">
+    <value>Nome inválido do inquilino.</value>
+  </data>
+  <data name="Invalid_token" xml:space="preserve">
+    <value>Ficha inválida.</value>
+  </data>
+  <data name="Invalid_user_Id" xml:space="preserve">
+    <value>ID do utilizador inválido.</value>
+  </data>
+  <data name="Job_title_is_required" xml:space="preserve">
+    <value>O título de emprego é necessário.</value>
+  </data>
+  <data name="Last_name_is_required" xml:space="preserve">
+    <value>O sobrenome é necessário</value>
+  </data>
+  <data name="Lockout_is_not_enabled_for_this_user" xml:space="preserve">
+    <value>O bloqueio não está ativado para este utilizador.</value>
+  </data>
+  <data name="Maximum_allowed_number_of_attachments_must_not_exceed_3" xml:space="preserve">
+    <value>O número máximo permitido de anexos não deve exceder 3.</value>
+  </data>
+  <data name="Method_cannot_be_null" xml:space="preserve">
+    <value>O método não pode ser nulo.</value>
+  </data>
+  <data name="Minimum_allowed_number_of_attachments_must_be_at_least_1" xml:space="preserve">
+    <value>O número mínimo permitido de anexos deve ser de, pelo menos, 1.</value>
+  </data>
+  <data name="New_password_is_required" xml:space="preserve">
+    <value>É necessária nova senha.</value>
+  </data>
+  <data name="New_password_must_be_at_least_6_characters" xml:space="preserve">
+    <value>A nova palavra-passe deve ter pelo menos 6 caracteres.</value>
+  </data>
+  <data name="New_password_must_not_exceed_200_characters" xml:space="preserve">
+    <value>A nova palavra-passe não deve exceder 200 caracteres.</value>
+  </data>
+  <data name="N_A" xml:space="preserve">
+    <value>Não Disponível</value>
+  </data>
+  <data name="Old_password_is_required" xml:space="preserve">
+    <value>A senha antiga é necessária.</value>
+  </data>
+  <data name="Only_those_between_the_ages_of_18_and_28_are_allowed_for_enlisting" xml:space="preserve">
+    <value>Apenas os que têm entre 18 e 28 anos podem alistar-se.</value>
+  </data>
+  <data name="Only_those_whose_BMI_between_18_5_and_24_9_are_allowed_for_enlisting" xml:space="preserve">
+    <value>Apenas aqueles cujo IMC entre 18,5 e 24,9 são autorizados a alistar-se.</value>
+  </data>
+  <data name="Only_those_whose_heights_between_100_and_250_with_normal_BMI_are_allowed_for_enlisting" xml:space="preserve">
+    <value>Apenas aqueles cujas alturas entre 100 e 250 com IMC normal são permitidas para alistamento.</value>
+  </data>
+  <data name="Only_those_who_weigh_between_50_and_200_with_normal_BMI_are_allowed_for_enlisting" xml:space="preserve">
+    <value>Apenas aqueles que pesam entre 50 e 200 com IMC normal são autorizados a alistar-se.</value>
+  </data>
+  <data name="Optimistic_concurrency_failure" xml:space="preserve">
+    <value>Falha de concordância otimista, objeto foi modificado.</value>
+  </data>
+  <data name="Passwords_must_be_at_least_length_characters" xml:space="preserve">
+    <value>As palavras-passe devem ser pelo menos {0} caracteres.</value>
+  </data>
+  <data name="Passwords_must_have_at_least_one_digit" xml:space="preserve">
+    <value>As palavras-passe devem ter pelo menos um dígito ('0'-'9').</value>
+  </data>
+  <data name="Passwords_must_have_at_least_one_lowercase" xml:space="preserve">
+    <value>As palavras-passe devem ter pelo menos uma minúscula ('a'-z').</value>
+  </data>
+  <data name="Passwords_must_have_at_least_one_non_alphanumeric_character" xml:space="preserve">
+    <value>As palavras-passe devem ter pelo menos um carácter não alfanumérico.</value>
+  </data>
+  <data name="Passwords_must_have_at_least_one_uppercase" xml:space="preserve">
+    <value>As palavras-passe devem ter pelo menos uma maiúscula ('A'-Z').</value>
+  </data>
+  <data name="Password_cannot_contain_password" xml:space="preserve">
+    <value>A palavra-passe não pode conter 'password'.</value>
+  </data>
+  <data name="Password_cannot_contain_username" xml:space="preserve">
+    <value>A palavra-passe não pode conter o nome de utilizador.</value>
+  </data>
+  <data name="Password_is_required" xml:space="preserve">
+    <value>A palavra-passe é necessária.</value>
+  </data>
+  <data name="Password_must_be_at_least_6_characters" xml:space="preserve">
+    <value>A palavra-passe deve ter pelo menos 6 caracteres.</value>
+  </data>
+  <data name="Password_must_not_exceed_200_characters" xml:space="preserve">
+    <value>A palavra-passe não deve exceder 200 caracteres.</value>
+  </data>
+  <data name="Password_reset_link_was_sent" xml:space="preserve">
+    <value>O link de reset da palavra-passe foi enviado. Por favor, verifique o seu e-mail.</value>
+  </data>
+  <data name="Phone_number_is_required" xml:space="preserve">
+    <value>O número de telefone é obrigatório!</value>
+  </data>
+  <data name="Please_confirm_your_account_by_clicking_here" xml:space="preserve">
+    <value>Por favor, confirme a sua conta &lt;a href='{0}'&gt;clicando aqui.&lt;/a&gt;</value>
+  </data>
+  <data name="Please_confirm_your_email" xml:space="preserve">
+    <value>Por favor, confirme o seu e-mail.</value>
+  </data>
+  <data name="Please_reset_your_password_by_clicking_here" xml:space="preserve">
+    <value>Por favor, repõe a sua palavra-passe &lt;a href='{0}'&gt;clicando aqui.&lt;/a&gt;</value>
+  </data>
+  <data name="Please_specify_the_application_tenant_mode" xml:space="preserve">
+    <value>Por favor, especifique o modo de inquilino de aplicação.</value>
+  </data>
+  <data name="Profile_picture_is_required" xml:space="preserve">
+    <value>É necessária uma imagem de perfil.</value>
+  </data>
+  <data name="Recovery_Code_is_required" xml:space="preserve">
+    <value>É necessário um Código de Recuperação.</value>
+  </data>
+  <data name="Recovery_Code_Redemption_Failed" xml:space="preserve">
+    <value>Falha do código de recuperação da redenção</value>
+  </data>
+  <data name="Reference_name_is_required" xml:space="preserve">
+    <value>Nome é obrigatório!</value>
+  </data>
+  <data name="Refresh_token_timespan_cannot_be_null" xml:space="preserve">
+    <value>Refrescar a timepan token não pode ser nulo.</value>
+  </data>
+  <data name="Refresh_token_timespan_is_required" xml:space="preserve">
+    <value>É necessário refrescar a timepan token.</value>
+  </data>
+  <data name="Refresh_token_timespan_must_be_greater_than_access_token_expiry_time" xml:space="preserve">
+    <value>A atualização do tempo de token deve ser maior do que o prazo de validade do token.</value>
+  </data>
+  <data name="Repeated_Ones_are_not_valid_Social_security_number" xml:space="preserve">
+    <value>111111111 não é um número de segurança social válido.</value>
+  </data>
+  <data name="Repeated_Threes_are_not_valid_Social_security_number" xml:space="preserve">
+    <value>333333333 não é um número de segurança social válido.</value>
+  </data>
+  <data name="Reset_your_password" xml:space="preserve">
+    <value>Repôs a sua palavra-passe</value>
+  </data>
+  <data name="Role_has_been_created_successfully" xml:space="preserve">
+    <value>O papel foi criado com sucesso.</value>
+  </data>
+  <data name="Role_has_been_deleted_successfully" xml:space="preserve">
+    <value>O papel foi eliminado com sucesso.</value>
+  </data>
+  <data name="Role_has_been_updated_successfully" xml:space="preserve">
+    <value>O papel foi atualizado com sucesso.</value>
+  </data>
+  <data name="Role_name_is_already_taken" xml:space="preserve">
+    <value>O nome de "{0}" já está tomado.</value>
+  </data>
+  <data name="Role_name_is_invalid" xml:space="preserve">
+    <value>O nome de função "{0}" é inválido.</value>
+  </data>
+  <data name="Role_name_is_required" xml:space="preserve">
+    <value>É necessário um nome de papel.</value>
+  </data>
+  <data name="Social_security_number_is_required" xml:space="preserve">
+    <value>Número de segurança social é necessário</value>
+  </data>
+  <data name="Social_security_number_must_contain_only_9_digits" xml:space="preserve">
+    <value>O número da segurança social deve conter apenas 9 dígitos.</value>
+  </data>
+  <data name="Social_security_number_must_not_contain_consecutive_digits" xml:space="preserve">
+    <value>O número da segurança social não deve conter dígitos consecutivos.</value>
+  </data>
+  <data name="Surname_is_required" xml:space="preserve">
+    <value>O sobrenome é necessário.</value>
+  </data>
+  <data name="Tenant_has_been_created_successfully" xml:space="preserve">
+    <value>O inquilino foi criado com sucesso.</value>
+  </data>
+  <data name="The_applicant_is_not_found" xml:space="preserve">
+    <value>O requerente não foi encontrado.</value>
+  </data>
+  <data name="The_password_and_confirmation_password_do_not_match" xml:space="preserve">
+    <value>A palavra-passe e a palavra-passe de confirmação não coincidem.</value>
+  </data>
+  <data name="The_specified_role_is_already_registered" xml:space="preserve">
+    <value>A função especificada já está registada.</value>
+  </data>
+  <data name="The_specified_role_is_already_registered_in_the_given_tenant" xml:space="preserve">
+    <value>A função especificada já está registada no arrendatário.</value>
+  </data>
+  <data name="The_specified_username_and_email_are_already_registered" xml:space="preserve">
+    <value>O nome de utilizador especificado e o e-mail já estão registados.</value>
+  </data>
+  <data name="The_specified_username_and_email_are_already_registered_in_the_given_tenant" xml:space="preserve">
+    <value>O nome de utilizador especificado e o e-mail já estão registados no arrendatário.</value>
+  </data>
+  <data name="Token_settings_have_been_updated_successfully" xml:space="preserve">
+    <value>As definições de token foram atualizadas com sucesso.</value>
+  </data>
+  <data name="Two_factor_authentication_code_is_required" xml:space="preserve">
+    <value>São necessários dois códigos de autenticação de fator.</value>
+  </data>
+  <data name="Two_factor_authentication_code_must_be_at_least_6_character_long" xml:space="preserve">
+    <value>Dois códigos de autenticação de fator devem ter pelo menos 6 caracteres de comprimento.</value>
+  </data>
+  <data name="Two_factor_authentication_code_must_not_exceed_7_characters" xml:space="preserve">
+    <value>Dois códigos de autenticação de fator não devem exceder 7 caracteres.</value>
+  </data>
+  <data name="Two_factor_authentication_has_been_disabled" xml:space="preserve">
+    <value>2Fa foi desativado. Pode reenerger a autenticação de dois fatores quando configurar uma aplicação autenticadora.</value>
+  </data>
+  <data name="Two_factor_authentication_required" xml:space="preserve">
+    <value>A autenticação de dois fatores necessária.</value>
+  </data>
+  <data name="Unable_to_create_new_tenant_in_single_tenant_mode" xml:space="preserve">
+    <value>Incapaz de criar um novo inquilino em modo inquilino único.</value>
+  </data>
+  <data name="Unable_to_delete_static_role" xml:space="preserve">
+    <value>Incapaz de eliminar o papel estático.</value>
+  </data>
+  <data name="Unable_to_delete_static_user" xml:space="preserve">
+    <value>Não é possível eliminar o utilizador estático.</value>
+  </data>
+  <data name="Unable_to_load_applicant" xml:space="preserve">
+    <value>Incapaz de carregar o candidato.</value>
+  </data>
+  <data name="Unable_to_load_report" xml:space="preserve">
+    <value>Incapaz de carregar o relatório.</value>
+  </data>
+  <data name="Unable_to_load_role" xml:space="preserve">
+    <value>Incapaz de carregar o papel.</value>
+  </data>
+  <data name="Unable_to_load_user" xml:space="preserve">
+    <value>Não é possível carregar o utilizador.</value>
+  </data>
+  <data name="Unable_to_update_static_user" xml:space="preserve">
+    <value>Não é possível atualizar o utilizador estático.</value>
+  </data>
+  <data name="Unexpected_error_occurred_deleting_user_with_Id" xml:space="preserve">
+    <value>Ocorreu um erro inesperado ao eliminar o utilizador com '{0}' de ID.</value>
+  </data>
+  <data name="Unexpected_error_occurred_disabling_2FA" xml:space="preserve">
+    <value>Erro inesperado ocorreu desativando a autenticação de dois fatores para o utilizador com '{0}'.</value>
+  </data>
+  <data name="Username_has_been_confirmed_successfully" xml:space="preserve">
+    <value>O nome de utilizador foi confirmado com sucesso.</value>
+  </data>
+  <data name="Username_is_already_taken" xml:space="preserve">
+    <value>O nome de utilizador '{0}' já está tomado.</value>
+  </data>
+  <data name="Username_is_invalid" xml:space="preserve">
+    <value>O nome de utilizador '{0}' é inválido, só pode conter letras ou dígitos.</value>
+  </data>
+  <data name="Username_is_required" xml:space="preserve">
+    <value>É necessário um nome de utilizador.</value>
+  </data>
+  <data name="Username_must_be_at_least_6_characters" xml:space="preserve">
+    <value>O nome de utilizador deve ter pelo menos 6 caracteres.</value>
+  </data>
+  <data name="Username_must_not_exceed_200_characters" xml:space="preserve">
+    <value>O nome de utilizador não deve exceder 200 caracteres.</value>
+  </data>
+  <data name="User_already_has_a_password_set" xml:space="preserve">
+    <value>O utilizador já tem uma definição de senha.</value>
+  </data>
+  <data name="User_already_in_role" xml:space="preserve">
+    <value>Utilizador já em "{0}".</value>
+  </data>
+  <data name="User_has_been_added_without_files" xml:space="preserve">
+    <value>O utilizador foi adicionado sem ficheiros.</value>
+  </data>
+  <data name="User_has_been_created_successfully" xml:space="preserve">
+    <value>O utilizador foi criado com sucesso.</value>
+  </data>
+  <data name="User_has_been_deleted_successfully" xml:space="preserve">
+    <value>O utilizador foi eliminado com sucesso.</value>
+  </data>
+  <data name="User_has_been_updated_successfully" xml:space="preserve">
+    <value>O utilizador foi atualizado com sucesso.</value>
+  </data>
+  <data name="User_has_been_updated_successfully_without_updating_his_her_roles_as_the_user_is_static_type" xml:space="preserve">
+    <value>O utilizador foi atualizado com sucesso sem atualizar as suas funções, uma vez que o utilizador é estático.</value>
+  </data>
+  <data name="User_Id_is_required" xml:space="preserve">
+    <value>É necessário o ID do utilizador.</value>
+  </data>
+  <data name="User_permissions_have_been_updated_successfully" xml:space="preserve">
+    <value>As permissões do utilizador foram atualizadas com sucesso.</value>
+  </data>
+  <data name="User_with_Id_deleted" xml:space="preserve">
+    <value>O utilizador com id '{0}' foi eliminado.</value>
+  </data>
+  <data name="User_with_Id_UserId_logged_in_with_2Fa" xml:space="preserve">
+    <value>Utilizador com id '{0}' iniciado com autenticação de dois fatores.</value>
+  </data>
+  <data name="value_cannot_be_null" xml:space="preserve">
+    <value>{0} não pode ser nula</value>
+  </data>
+  <data name="Verification_code_is_invalid" xml:space="preserve">
+    <value>O código de verificação é inválido.</value>
+  </data>
+  <data name="Verification_email_has_been_sent" xml:space="preserve">
+    <value>O e-mail de verificação foi enviado. Por favor, verifique o seu e-mail.</value>
+  </data>
+  <data name="Weight_is_required" xml:space="preserve">
+    <value>É necessário peso.</value>
+  </data>
+  <data name="Your_account_is_deactivated_Please_contact_your_administrator" xml:space="preserve">
+    <value>A sua conta está desativada. Por favor contacte o seu administrador.</value>
+  </data>
+  <data name="Your_authenticator_app_has_been_verified" xml:space="preserve">
+    <value>A sua aplicação de autenticador foi verificada.</value>
+  </data>
+  <data name="Your_authenticator_app_key_has_been_reset" xml:space="preserve">
+    <value>A tecla de aplicação do autenticador foi reiniciada, terá de configurar a sua aplicação autenticadora utilizando a nova chave.</value>
+  </data>
+  <data name="Your_email_has_been_changed_successfully" xml:space="preserve">
+    <value>O seu email foi alterado com sucesso.</value>
+  </data>
+  <data name="Your_email_has_been_successfully_changed" xml:space="preserve">
+    <value>O seu email foi alterado com sucesso.</value>
+  </data>
+  <data name="Your_email_is_unchanged" xml:space="preserve">
+    <value>O seu e-mail não mudou.</value>
+  </data>
+  <data name="Your_password_has_been_changed" xml:space="preserve">
+    <value>A sua senha foi alterada.</value>
+  </data>
+  <data name="Your_password_has_been_reset" xml:space="preserve">
+    <value>A sua palavra-passe foi reposta.</value>
+  </data>
+  <data name="Your_password_has_been_set" xml:space="preserve">
+    <value>A sua senha foi definida.</value>
+  </data>
+  <data name="You_are_forbidden" xml:space="preserve">
+    <value>Está proibido de aceder a {0}.</value>
+  </data>
+  <data name="You_are_locked_out" xml:space="preserve">
+    <value>Está trancado fora.</value>
+  </data>
+  <data name="You_are_not_authorized" xml:space="preserve">
+    <value>Não está autorizado a aceder a {0}.</value>
+  </data>
+  <data name="You_have_generated_new_recovery_codes" xml:space="preserve">
+    <value>Gerou novos códigos de recuperação.</value>
+  </data>
+  <data name="You_have_successfully_created_a_new_account" xml:space="preserve">
+    <value>Criou com sucesso uma nova conta.</value>
+  </data>
+</root>

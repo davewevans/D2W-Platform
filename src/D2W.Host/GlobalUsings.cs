@@ -1,0 +1,29 @@
+﻿global using D2W.HostApp.Consumers;
+global using D2W.HostApp.Extensions;
+global using D2W.HostApp.Features.Identity.Tenants.Commands.CreateTenantCommand;
+global using D2W.HostApp.Interfaces;
+global using D2W.HostApp.Interfaces.Consumers;
+global using D2W.HostApp.Interfaces.Providers;
+global using D2W.HostApp.Models;
+global using D2W.HostApp.Providers;
+global using D2W.HostApp.Services;
+global using D2W.HostApp.Shared;
+global using Microsoft.AspNetCore.Builder;
+global using Microsoft.AspNetCore.Components;
+global using Microsoft.AspNetCore.Hosting;
+global using Microsoft.Extensions.Configuration;
+global using Microsoft.Extensions.DependencyInjection;
+global using Microsoft.Extensions.Hosting;
+global using Microsoft.Extensions.Options;
+
+global using MudBlazor;
+global using MudBlazor.Services;
+
+global using System;
+global using System.Collections.Generic;
+global using System.Linq;
+global using System.Net.Http;
+global using System.Text;
+global using System.Text.Json;
+global using System.Text.RegularExpressions;
+global using System.Threading.Tasks;

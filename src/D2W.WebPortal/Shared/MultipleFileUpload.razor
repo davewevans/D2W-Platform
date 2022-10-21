@@ -1,0 +1,24 @@
+﻿<MudButton Variant="Variant.Filled"
+           Color="Color.Primary"
+           StartIcon="@Icons.Filled.UploadFile"
+           @onclick=AddBpUploadFileComponent>
+    @Resource.Add_New_File
+</MudButton>
+
+<MudDivider DividerType="DividerType.Middle" Class="my-6" />
+
+<div>
+    @if (List.Any())
+    {
+        <ul class="p-0">
+            @foreach (var item in List)
+            {
+                <BpUploadFile ButtonIcon="@ButtonIcon" ButtonName="@ButtonName" AllowRename="AllowRename" AllowRemove="AllowRemove" MaxFileSize="MaxFileSize" OnFileSelected="OnFileSelected" OnFileUnSelected="OnFileUnSelected" />
+            }
+        </ul>
+    }
+</div>
+
+@code {
+
+}

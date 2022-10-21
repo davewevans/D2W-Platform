@@ -1,0 +1,564 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Access_token_timespan_cannot_be_null" xml:space="preserve">
+    <value>访问令牌时限不能为空。</value>
+  </data>
+  <data name="Access_token_timespan_is_required" xml:space="preserve">
+    <value>需要访问令牌时间跨度。</value>
+  </data>
+  <data name="Allowed_username_characters_are_required" xml:space="preserve">
+    <value>需要允许的用户名字符。</value>
+  </data>
+  <data name="An_unknown_failure_has_occurred" xml:space="preserve">
+    <value>发生了未知故障。</value>
+  </data>
+  <data name="Applicant_has_been_created_successfully" xml:space="preserve">
+    <value>申请人已创建成功</value>
+  </data>
+  <data name="Applicant_has_been_deleted_successfully" xml:space="preserve">
+    <value>申请人已成功删除。</value>
+  </data>
+  <data name="Applicant_has_been_updated_successfully" xml:space="preserve">
+    <value>申请人已成功更新。</value>
+  </data>
+  <data name="A_user_with_this_login_already_exists" xml:space="preserve">
+    <value>已存在此登录的用户。</value>
+  </data>
+  <data name="Cannot_disable_2FA_for_user_with_Id" xml:space="preserve">
+    <value>不能禁用具有 ID"{0}"的用户的双重身份验证，因为它目前尚未启用。</value>
+  </data>
+  <data name="Cannot_generate_recovery_codes" xml:space="preserve">
+    <value>不能生成用户名"{0}"的恢复代码，因为它们没有启用双重身份验证。</value>
+  </data>
+  <data name="Code_is_required" xml:space="preserve">
+    <value>需要代码。</value>
+  </data>
+  <data name="Confirmation_link_to_change_email_has_been_sent" xml:space="preserve">
+    <value>已发送更改电子邮件的确认链接。请查看您的电子邮件。</value>
+  </data>
+  <data name="Confirm_password_is_required" xml:space="preserve">
+    <value>需要确认密码。</value>
+  </data>
+  <data name="Confirm_your_email" xml:space="preserve">
+    <value>确认您的电子邮件</value>
+  </data>
+  <data name="Date_of_Birth_is_required" xml:space="preserve">
+    <value>需要出生日期</value>
+  </data>
+  <data name="Deletion_of_entity_failed" xml:space="preserve">
+    <value>删除实体"{0}"（{1}）失败。{2}.</value>
+  </data>
+  <data name="Email_is_already_taken" xml:space="preserve">
+    <value>电子邮件"{0}"已被获取。</value>
+  </data>
+  <data name="Email_is_invalid" xml:space="preserve">
+    <value>电子邮件"{0}"无效。</value>
+  </data>
+  <data name="Entity_with_key_was_not_found" xml:space="preserve">
+    <value>未找到具有关键"{1}"的实体"{0}"。</value>
+  </data>
+  <data name="Error_changing_user_name" xml:space="preserve">
+    <value>更改用户名的错误。</value>
+  </data>
+  <data name="Error_changing_your_user_name" xml:space="preserve">
+    <value>更改用户名的错误。</value>
+  </data>
+  <data name="File_has_not_been_uploaded" xml:space="preserve">
+    <value>文件尚未上传。</value>
+  </data>
+  <data name="File_is_empty" xml:space="preserve">
+    <value>文件是空的。</value>
+  </data>
+  <data name="File_storage_settings_have_been_updated_successfully" xml:space="preserve">
+    <value>文件存储设置已成功更新。</value>
+  </data>
+  <data name="First_name_is_required" xml:space="preserve">
+    <value>需要名字。</value>
+  </data>
+  <data name="Height_is_required" xml:space="preserve">
+    <value>需要高度。</value>
+  </data>
+  <data name="Identity_settings_have_been_updated_successfully" xml:space="preserve">
+    <value>身份设置已成功更新。</value>
+  </data>
+  <data name="Incorrect_password" xml:space="preserve">
+    <value>密码不正确。</value>
+  </data>
+  <data name="Invalid_applicant_Id" xml:space="preserve">
+    <value>无效申请人 ID。</value>
+  </data>
+  <data name="Invalid_authenticator_code_entered" xml:space="preserve">
+    <value>输入无效身份验证器代码。</value>
+  </data>
+  <data name="Invalid_client_request" xml:space="preserve">
+    <value>无效的客户请求。</value>
+  </data>
+  <data name="Invalid_login_attempt" xml:space="preserve">
+    <value>无效登录尝试。</value>
+  </data>
+  <data name="Invalid_recovery_code_entered" xml:space="preserve">
+    <value>输入无效恢复代码。</value>
+  </data>
+  <data name="Invalid_report_Id" xml:space="preserve">
+    <value>报告 ID 无效。</value>
+  </data>
+  <data name="Invalid_role_Id" xml:space="preserve">
+    <value>无效角色 ID。</value>
+  </data>
+  <data name="Invalid_tenant_name" xml:space="preserve">
+    <value>无效租户名称。</value>
+  </data>
+  <data name="Invalid_token" xml:space="preserve">
+    <value>无效令牌。</value>
+  </data>
+  <data name="Invalid_user_Id" xml:space="preserve">
+    <value>无效用户 ID。</value>
+  </data>
+  <data name="Job_title_is_required" xml:space="preserve">
+    <value>需要职称。</value>
+  </data>
+  <data name="Last_name_is_required" xml:space="preserve">
+    <value>需要姓氏</value>
+  </data>
+  <data name="Lockout_is_not_enabled_for_this_user" xml:space="preserve">
+    <value>此用户无法启用锁定。</value>
+  </data>
+  <data name="Maximum_allowed_number_of_attachments_must_not_exceed_3" xml:space="preserve">
+    <value>允许的最大附件数量不得超过 3。</value>
+  </data>
+  <data name="Method_cannot_be_null" xml:space="preserve">
+    <value>方法不能无效。</value>
+  </data>
+  <data name="Minimum_allowed_number_of_attachments_must_be_at_least_1" xml:space="preserve">
+    <value>允许的附件的最小数量必须至少为 1。</value>
+  </data>
+  <data name="New_password_is_required" xml:space="preserve">
+    <value>需要新的密码。</value>
+  </data>
+  <data name="New_password_must_be_at_least_6_characters" xml:space="preserve">
+    <value>新密码必须至少为 6 个字符。</value>
+  </data>
+  <data name="New_password_must_not_exceed_200_characters" xml:space="preserve">
+    <value>新密码不得超过 200 个字符。</value>
+  </data>
+  <data name="N_A" xml:space="preserve">
+    <value>不可用</value>
+  </data>
+  <data name="Old_password_is_required" xml:space="preserve">
+    <value>需要旧密码。</value>
+  </data>
+  <data name="Only_those_between_the_ages_of_18_and_28_are_allowed_for_enlisting" xml:space="preserve">
+    <value>只有18至28岁的人才能入伍。</value>
+  </data>
+  <data name="Only_those_whose_BMI_between_18_5_and_24_9_are_allowed_for_enlisting" xml:space="preserve">
+    <value>只有体重指数在18.5至24.9之间的人才能入伍。</value>
+  </data>
+  <data name="Only_those_whose_heights_between_100_and_250_with_normal_BMI_are_allowed_for_enlisting" xml:space="preserve">
+    <value>只有身高在 100 到 250 之间且体重指数正常的人才能入伍。</value>
+  </data>
+  <data name="Only_those_who_weigh_between_50_and_200_with_normal_BMI_are_allowed_for_enlisting" xml:space="preserve">
+    <value>只有体重在50到200岁之间，体重指数正常的人才能入伍。</value>
+  </data>
+  <data name="Optimistic_concurrency_failure" xml:space="preserve">
+    <value>乐观并发故障，对象已修改。</value>
+  </data>
+  <data name="Passwords_must_be_at_least_length_characters" xml:space="preserve">
+    <value>密码必须至少是{0}字符。</value>
+  </data>
+  <data name="Passwords_must_have_at_least_one_digit" xml:space="preserve">
+    <value>密码必须至少有一个数字（'0'-'9'）。</value>
+  </data>
+  <data name="Passwords_must_have_at_least_one_lowercase" xml:space="preserve">
+    <value>密码必须至少有一个小写（'a'-'z'）。</value>
+  </data>
+  <data name="Passwords_must_have_at_least_one_non_alphanumeric_character" xml:space="preserve">
+    <value>密码必须至少有一个非字母数字字符。</value>
+  </data>
+  <data name="Passwords_must_have_at_least_one_uppercase" xml:space="preserve">
+    <value>密码必须至少有一个大写字母（'A'-'Z'）。</value>
+  </data>
+  <data name="Password_cannot_contain_password" xml:space="preserve">
+    <value>密码不能包含"密码"。</value>
+  </data>
+  <data name="Password_cannot_contain_username" xml:space="preserve">
+    <value>密码不能包含用户名。</value>
+  </data>
+  <data name="Password_is_required" xml:space="preserve">
+    <value>需要密码。</value>
+  </data>
+  <data name="Password_must_be_at_least_6_characters" xml:space="preserve">
+    <value>密码必须至少为 6 个字符。</value>
+  </data>
+  <data name="Password_must_not_exceed_200_characters" xml:space="preserve">
+    <value>密码不得超过 200 个字符。</value>
+  </data>
+  <data name="Password_reset_link_was_sent" xml:space="preserve">
+    <value>已发送密码重置链接。请查看您的电子邮件。</value>
+  </data>
+  <data name="Phone_number_is_required" xml:space="preserve">
+    <value>电话号码是必需的。！</value>
+  </data>
+  <data name="Please_confirm_your_account_by_clicking_here" xml:space="preserve">
+    <value>请 &lt;a href='{0}'&gt;点击这里&lt;/a&gt;确认您的帐户。</value>
+  </data>
+  <data name="Please_confirm_your_email" xml:space="preserve">
+    <value>请确认您的电子邮件。</value>
+  </data>
+  <data name="Please_reset_your_password_by_clicking_here" xml:space="preserve">
+    <value>请 &lt;a href='{0}'&gt;点击这里&lt;/a&gt;重置密码。</value>
+  </data>
+  <data name="Please_specify_the_application_tenant_mode" xml:space="preserve">
+    <value>请指定应用程序租户模式。</value>
+  </data>
+  <data name="Profile_picture_is_required" xml:space="preserve">
+    <value>需要配置文件图片。</value>
+  </data>
+  <data name="Recovery_Code_is_required" xml:space="preserve">
+    <value>需要恢复代码。</value>
+  </data>
+  <data name="Recovery_Code_Redemption_Failed" xml:space="preserve">
+    <value>恢复代码兑换失败</value>
+  </data>
+  <data name="Reference_name_is_required" xml:space="preserve">
+    <value>名称是必填项！</value>
+  </data>
+  <data name="Refresh_token_timespan_cannot_be_null" xml:space="preserve">
+    <value>刷新令牌时间跨度不能为空。</value>
+  </data>
+  <data name="Refresh_token_timespan_is_required" xml:space="preserve">
+    <value>需要刷新令牌时间跨度。</value>
+  </data>
+  <data name="Refresh_token_timespan_must_be_greater_than_access_token_expiry_time" xml:space="preserve">
+    <value>刷新令牌时跨度必须大于访问令牌到期时间。</value>
+  </data>
+  <data name="Repeated_Ones_are_not_valid_Social_security_number" xml:space="preserve">
+    <value>111111111不是有效的社会保险号码。</value>
+  </data>
+  <data name="Repeated_Threes_are_not_valid_Social_security_number" xml:space="preserve">
+    <value>333333333不是有效的社会保险号码。</value>
+  </data>
+  <data name="Reset_your_password" xml:space="preserve">
+    <value>重置密码</value>
+  </data>
+  <data name="Role_has_been_created_successfully" xml:space="preserve">
+    <value>角色已创建成功。</value>
+  </data>
+  <data name="Role_has_been_deleted_successfully" xml:space="preserve">
+    <value>角色已成功删除。</value>
+  </data>
+  <data name="Role_has_been_updated_successfully" xml:space="preserve">
+    <value>角色已成功更新。</value>
+  </data>
+  <data name="Role_name_is_already_taken" xml:space="preserve">
+    <value>角色名称"{0}"已被获取。</value>
+  </data>
+  <data name="Role_name_is_invalid" xml:space="preserve">
+    <value>角色名称"{0}"无效。</value>
+  </data>
+  <data name="Role_name_is_required" xml:space="preserve">
+    <value>需要角色名称。</value>
+  </data>
+  <data name="Social_security_number_is_required" xml:space="preserve">
+    <value>需要社会保险号码</value>
+  </data>
+  <data name="Social_security_number_must_contain_only_9_digits" xml:space="preserve">
+    <value>社会保险号码必须只包含 9 位数字。</value>
+  </data>
+  <data name="Social_security_number_must_not_contain_consecutive_digits" xml:space="preserve">
+    <value>社会保险号码不得包含连续数字。</value>
+  </data>
+  <data name="Surname_is_required" xml:space="preserve">
+    <value>需要姓氏。</value>
+  </data>
+  <data name="Tenant_has_been_created_successfully" xml:space="preserve">
+    <value>租户已成功创建。</value>
+  </data>
+  <data name="The_applicant_is_not_found" xml:space="preserve">
+    <value>找不到申请人。</value>
+  </data>
+  <data name="The_password_and_confirmation_password_do_not_match" xml:space="preserve">
+    <value>密码和确认密码不匹配。</value>
+  </data>
+  <data name="The_specified_role_is_already_registered" xml:space="preserve">
+    <value>指定的角色已注册。</value>
+  </data>
+  <data name="The_specified_role_is_already_registered_in_the_given_tenant" xml:space="preserve">
+    <value>指定的角色已在给定租户中注册。</value>
+  </data>
+  <data name="The_specified_username_and_email_are_already_registered" xml:space="preserve">
+    <value>指定的用户名和电子邮件已注册。</value>
+  </data>
+  <data name="The_specified_username_and_email_are_already_registered_in_the_given_tenant" xml:space="preserve">
+    <value>指定的用户名和电子邮件已在给定租户中注册。</value>
+  </data>
+  <data name="Token_settings_have_been_updated_successfully" xml:space="preserve">
+    <value>令牌设置已成功更新。</value>
+  </data>
+  <data name="Two_factor_authentication_code_is_required" xml:space="preserve">
+    <value>需要两个因子身份验证代码。</value>
+  </data>
+  <data name="Two_factor_authentication_code_must_be_at_least_6_character_long" xml:space="preserve">
+    <value>两个因素身份验证代码必须至少 6 字符长。</value>
+  </data>
+  <data name="Two_factor_authentication_code_must_not_exceed_7_characters" xml:space="preserve">
+    <value>两个因素身份验证代码不得超过 7 个字符。</value>
+  </data>
+  <data name="Two_factor_authentication_has_been_disabled" xml:space="preserve">
+    <value>2Fa 已禁用。设置身份验证器应用时，您可以重新进行双重身份验证。</value>
+  </data>
+  <data name="Two_factor_authentication_required" xml:space="preserve">
+    <value>需要双重身份验证。</value>
+  </data>
+  <data name="Unable_to_create_new_tenant_in_single_tenant_mode" xml:space="preserve">
+    <value>无法在单个租户模式下创建新租户。</value>
+  </data>
+  <data name="Unable_to_delete_static_role" xml:space="preserve">
+    <value>无法删除静态角色。</value>
+  </data>
+  <data name="Unable_to_delete_static_user" xml:space="preserve">
+    <value>无法删除静态用户。</value>
+  </data>
+  <data name="Unable_to_load_applicant" xml:space="preserve">
+    <value>无法加载申请人。</value>
+  </data>
+  <data name="Unable_to_load_report" xml:space="preserve">
+    <value>无法加载报告。</value>
+  </data>
+  <data name="Unable_to_load_role" xml:space="preserve">
+    <value>无法加载角色。</value>
+  </data>
+  <data name="Unable_to_load_user" xml:space="preserve">
+    <value>无法加载用户。</value>
+  </data>
+  <data name="Unable_to_update_static_user" xml:space="preserve">
+    <value>无法更新静态用户。</value>
+  </data>
+  <data name="Unexpected_error_occurred_deleting_user_with_Id" xml:space="preserve">
+    <value>意外错误发生时，删除用户 ID"{0}"。</value>
+  </data>
+  <data name="Unexpected_error_occurred_disabling_2FA" xml:space="preserve">
+    <value>意外错误发生在具有 ID"{0}"的用户禁用双重身份验证时。</value>
+  </data>
+  <data name="Username_has_been_confirmed_successfully" xml:space="preserve">
+    <value>用户名已确认成功。</value>
+  </data>
+  <data name="Username_is_already_taken" xml:space="preserve">
+    <value>用户名"{0}"已被获取。</value>
+  </data>
+  <data name="Username_is_invalid" xml:space="preserve">
+    <value>用户名"{0}"无效，只能包含字母或数字。</value>
+  </data>
+  <data name="Username_is_required" xml:space="preserve">
+    <value>需要用户名。</value>
+  </data>
+  <data name="Username_must_be_at_least_6_characters" xml:space="preserve">
+    <value>用户名必须至少为 6 个字符。</value>
+  </data>
+  <data name="Username_must_not_exceed_200_characters" xml:space="preserve">
+    <value>用户名不得超过 200 个字符。</value>
+  </data>
+  <data name="User_already_has_a_password_set" xml:space="preserve">
+    <value>用户已经有一个密码集。</value>
+  </data>
+  <data name="User_already_in_role" xml:space="preserve">
+    <value>用户已经在角色"{0}"。</value>
+  </data>
+  <data name="User_has_been_added_without_files" xml:space="preserve">
+    <value>用户已添加而没有文件。</value>
+  </data>
+  <data name="User_has_been_created_successfully" xml:space="preserve">
+    <value>用户已创建成功。</value>
+  </data>
+  <data name="User_has_been_deleted_successfully" xml:space="preserve">
+    <value>用户已成功删除。</value>
+  </data>
+  <data name="User_has_been_updated_successfully" xml:space="preserve">
+    <value>用户已成功更新。</value>
+  </data>
+  <data name="User_has_been_updated_successfully_without_updating_his_her_roles_as_the_user_is_static_type" xml:space="preserve">
+    <value>用户已成功更新，但未更新其角色，因为用户是静态类型。</value>
+  </data>
+  <data name="User_Id_is_required" xml:space="preserve">
+    <value>需要用户 ID。</value>
+  </data>
+  <data name="User_permissions_have_been_updated_successfully" xml:space="preserve">
+    <value>用户权限已成功更新。</value>
+  </data>
+  <data name="User_with_Id_deleted" xml:space="preserve">
+    <value>具有 ID"{0}"的用户已被删除。</value>
+  </data>
+  <data name="User_with_Id_UserId_logged_in_with_2Fa" xml:space="preserve">
+    <value>具有 ID"{0}"的用户通过双重身份验证登录。</value>
+  </data>
+  <data name="value_cannot_be_null" xml:space="preserve">
+    <value>{0}不能无效</value>
+  </data>
+  <data name="Verification_code_is_invalid" xml:space="preserve">
+    <value>验证代码无效。</value>
+  </data>
+  <data name="Verification_email_has_been_sent" xml:space="preserve">
+    <value>已发送验证电子邮件。请查看您的电子邮件。</value>
+  </data>
+  <data name="Weight_is_required" xml:space="preserve">
+    <value>需要重量。</value>
+  </data>
+  <data name="Your_account_is_deactivated_Please_contact_your_administrator" xml:space="preserve">
+    <value>您的帐户已停用。请联系您的管理员。</value>
+  </data>
+  <data name="Your_authenticator_app_has_been_verified" xml:space="preserve">
+    <value>您的身份验证器应用已验证。</value>
+  </data>
+  <data name="Your_authenticator_app_key_has_been_reset" xml:space="preserve">
+    <value>您的身份验证器应用密钥已重置，您将需要使用新密钥配置身份验证器应用。</value>
+  </data>
+  <data name="Your_email_has_been_changed_successfully" xml:space="preserve">
+    <value>您的电子邮件已成功更改。</value>
+  </data>
+  <data name="Your_email_has_been_successfully_changed" xml:space="preserve">
+    <value>您的电子邮件已成功更改。</value>
+  </data>
+  <data name="Your_email_is_unchanged" xml:space="preserve">
+    <value>您的电子邮件保持不变。</value>
+  </data>
+  <data name="Your_password_has_been_changed" xml:space="preserve">
+    <value>您的密码已更改。</value>
+  </data>
+  <data name="Your_password_has_been_reset" xml:space="preserve">
+    <value>您的密码已重置。</value>
+  </data>
+  <data name="Your_password_has_been_set" xml:space="preserve">
+    <value>您的密码已设置。</value>
+  </data>
+  <data name="You_are_forbidden" xml:space="preserve">
+    <value>您被禁止访问{0}。</value>
+  </data>
+  <data name="You_are_locked_out" xml:space="preserve">
+    <value>你被锁在门外了</value>
+  </data>
+  <data name="You_are_not_authorized" xml:space="preserve">
+    <value>您未获授权访问{0}。</value>
+  </data>
+  <data name="You_have_generated_new_recovery_codes" xml:space="preserve">
+    <value>您已生成新的恢复代码。</value>
+  </data>
+  <data name="You_have_successfully_created_a_new_account" xml:space="preserve">
+    <value>您已成功创建了一个新帐户。</value>
+  </data>
+</root>

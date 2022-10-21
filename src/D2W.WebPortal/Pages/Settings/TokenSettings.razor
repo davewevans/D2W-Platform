@@ -1,0 +1,70 @@
+﻿@page "/settings/tokenSettings"
+@attribute [Authorize]
+
+<MudText Typo="Typo.h5" Color="Color.Primary" Class="mb-4">@Resource.Token_Settings</MudText>
+<ServerSideValidator @ref="ServerSideValidator" />
+<EditForm Model="TokenSettingsForEditVm" OnValidSubmit="SubmitForm">
+    <EditContextServerSideValidator @ref="EditContextServerSideValidator" />
+    <MudHidden @bind-Value="TokenSettingsForEditVm.TokenSettings.Id" />
+    <MudCard>
+        <MudCardContent>
+            <MudGrid>
+                <MudItem xs="8">
+                    <MudNumericField Label="@Resource.Access_Token_TimeSpan"
+                                     Variant="Variant.Outlined"
+                                     @bind-Value="TokenSettingsForEditVm.TokenSettings.AccessTokenTimeSpan"
+                                     For="@(() => TokenSettingsForEditVm.TokenSettings.AccessTokenTimeSpan)" />
+                </MudItem>
+                <MudItem xs="4">
+                    <MudSelect T="int" Label="@Resource.Units_of_Time" Strict="true" Variant="Variant.Outlined" @bind-Value="TokenSettingsForEditVm.TokenSettings.AccessTokenUoT">
+                        <MudSelectItem Value="(int) UoT.Minutes">@Resource.Minute</MudSelectItem>
+                        <MudSelectItem Value="(int) UoT.Hours">@Resource.Hour</MudSelectItem>
+                        <MudSelectItem Value="(int) UoT.Days">@Resource.Day</MudSelectItem>
+                        <MudSelectItem Value="(int) UoT.Month">@Resource.Month</MudSelectItem>
+                    </MudSelect>
+                </MudItem>
+            </MudGrid>
+            <MudGrid>
+                <MudItem xs="8">
+                    <MudNumericField Label="@Resource.Refresh_Token_TimeSpan"
+                                     Variant="Variant.Outlined"
+                                     @bind-Value="TokenSettingsForEditVm.TokenSettings.RefreshTokenTimeSpan"
+                                     For="@(() => TokenSettingsForEditVm.TokenSettings.RefreshTokenTimeSpan)" />
+                </MudItem>
+                <MudItem xs="4">
+                    <MudSelect T="int"
+                               Label="@Resource.Units_of_Time"
+                               Strict="true"
+                               Variant="Variant.Outlined"
+                               @bind-Value="TokenSettingsForEditVm.TokenSettings.RefreshTokenUoT">
+                        <MudSelectItem Value="(int) UoT.Minutes">@Resource.Minute</MudSelectItem>
+                        <MudSelectItem Value="(int) UoT.Hours">@Resource.Hour</MudSelectItem>
+                        <MudSelectItem Value="(int) UoT.Days">@Resource.Day</MudSelectItem>
+                        <MudSelectItem Value="(int) UoT.Month">@Resource.Month</MudSelectItem>
+                    </MudSelect>
+                </MudItem>
+            </MudGrid>
+        </MudCardContent>
+        <MudCardActions Class="pb-4 pl-4">
+            <MudButton ButtonType="ButtonType.Submit"
+                       Variant="Variant.Filled"
+                       Color="Color.Primary"
+                       Class="ml-auto"
+                       FullWidth="true">
+                @Resource.Save
+            </MudButton>
+        </MudCardActions>
+        <MudDivider />
+        <MudExpansionPanels>
+            <MudExpansionPanel Text="@Resource.Validation_Summary" IsExpanded="true" Disabled="true" HideIcon="true">
+                <MudText Color="@Color.Error">
+                    <ValidationSummary />
+                </MudText>
+            </MudExpansionPanel>
+        </MudExpansionPanels>
+    </MudCard>
+</EditForm>
+
+@code {
+
+}

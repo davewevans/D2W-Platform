@@ -1,0 +1,23 @@
+@inject NavigationManager _navigationManager
+
+<Router AppAssembly="@typeof(Program).Assembly" PreferExactMatches="@true">
+    <Found Context="routeData">
+        <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)">
+            <Authorizing>
+                <MudText>@Resource.Authorizing...</MudText>
+            </Authorizing>
+            <NotAuthorized>
+                <_401 RedirectToLoginIfUserNotAuthenticated="false"
+                      RedirectToLoginIfUserNotAuthorized="false"
+                      ReturnUrl="@_navigationManager.ToBaseRelativePath(_navigationManager.Uri)" />
+            </NotAuthorized>
+        </AuthorizeRouteView>
+    </Found>
+    <NotFound>
+        <CascadingAuthenticationState>
+            <LayoutView Layout="@typeof(MainLayout)">
+                <_404 />
+            </LayoutView>
+        </CascadingAuthenticationState>
+    </NotFound>
+</Router>

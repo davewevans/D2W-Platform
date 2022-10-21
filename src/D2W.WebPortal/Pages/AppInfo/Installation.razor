@@ -1,0 +1,443 @@
+﻿@page "/appInfo/installation"
+
+<MudText Typo="Typo.h5" Color="Color.Primary" Class="mb-4">Installation</MudText>
+<MudGrid>
+    <MudItem xs="12" sm="12" md="10">
+        <MudText Typo="Typo.h6" GutterBottom="true">Getting Started</MudText>
+        <MudExpansionPanels Elevation="25">
+            <MudExpansionPanel Style="font-weight:500" Class="mb-2" Text="What are the types of Application Settings that should be taken into consideration before running BlazorPlate?">
+                <MudText Typo="Typo.body2" Class="mb-2">The following Application Settings which are located in AppOptions section within <code>appsettings.json</code> should be considered. The default values of AppOptions can be modified according to your application requirements.</MudText>
+                <MudList>
+                    <MudListItem Icon="@Icons.Material.Filled.Check">
+                        <MudText Typo="Typo.body2" Class="mb-2">Identity Settings</MudText>
+                    </MudListItem>
+                    <MudListItem Icon="@Icons.Material.Filled.Check">
+                        <MudText Typo="Typo.body2" Class="mb-2">Token Settings</MudText>
+                    </MudListItem>
+                    <MudListItem Icon="@Icons.Material.Filled.Check">
+                        <MudText Typo="Typo.body2" Class="mb-2">File Storage Settings</MudText>
+                    </MudListItem>
+                    <MudListItem Icon="@Icons.Material.Filled.Check">
+                        <MudText Typo="Typo.body2" Class="mb-2">Tenant Mode Settings</MudText>
+                    </MudListItem>
+                </MudList>
+            </MudExpansionPanel>
+
+            <MudExpansionPanel Style="font-weight:500" Class="mb-2" Text="Where can I modify the default Application Settings?">
+                <MudText Typo="Typo.body2" Class="mb-2">Application settings can be modified from the Settings Menu within the BlazorPlate GUI environment.</MudText>
+                <MudText Typo="Typo.body2" Class="mb-2">Also, you can change the default settings without using the GUI environment by changing the values in <code>AppOptions</code> section in the <code>appsettings.json</code> within the <code>BlazorPlate.WebAPI</code> project.</MudText>
+            </MudExpansionPanel>
+            <MudExpansionPanel Style="font-weight:500" Class="mb-2" Text="Can I set different settings for each Tenant?">
+                <MudText Typo="Typo.body2" Class="mb-2">Yes, of course! You can alter the Application Settings for each tenant from the Settings Menu within the BlazorPlate GUI environment.</MudText>
+                <MudList>
+                    <MudListItem Icon="@Icons.Material.Filled.Check">
+                        <MudText Typo="Typo.body2" Class="mb-2">Keep in mind that all tenants share the same default application settings which are preconfigured in <code>AppOptions</code> section in the <code>appsettings.json</code> within the <code>BlazorPlate.WebAPI</code> project.</MudText>
+                    </MudListItem>
+                    <MudListItem Icon="@Icons.Material.Filled.Check">
+                        <MudText Typo="Typo.body2" Class="mb-2">As soon as you modify any type of application settings for a specific tenant, the settings values will be persisted in the database including the ID value of that tenant.</MudText>
+                    </MudListItem>
+                    <MudListItem Icon="@Icons.Material.Filled.Check">
+                        <MudText Typo="Typo.body2" Class="mb-2">The backend system will read the related tenant application settings from the database. If they do not exist, it will read the default settings from <code>appsettings.json</code>.</MudText>
+                    </MudListItem>
+                </MudList>
+            </MudExpansionPanel>
+        </MudExpansionPanels>
+
+        <MudText Typo="Typo.h6" GutterBottom="true" Class="mt-8">Identity Settings</MudText>
+        <MudExpansionPanels Elevation="25">
+            <MudExpansionPanel Style="font-weight:500" Class="mb-2" Text="What can be done with Identity Settings?">
+                <MudChip Label="true" Class="mt-4">UserOptions</MudChip>
+                <MudSimpleTable Hover="true">
+                    <thead>
+
+                        <tr>
+                            <th>Property</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                AllowedUserNameCharacters
+                            </td>
+                            <td>
+                                Gets or sets the list of allowed characters in the username used to validate user names. Defaults to abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._&#64;+
+                            </td>
+                        </tr>
+                    </tbody>
+                </MudSimpleTable>
+
+                <MudChip Label="true" Class="mt-4">SignInOptions</MudChip>
+                <MudSimpleTable Hover="true">
+                    <thead>
+
+                        <tr>
+                            <th>Property</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                RequireConfirmedEmail
+                            </td>
+                            <td>
+                                Gets or sets a flag indicating whether a confirmed email address is required to sign in. Defaults to false.
+                            </td>
+                        </tr>
+                    </tbody>
+                </MudSimpleTable>
+
+                <MudChip Label="true" Class="mt-4">PasswordOptions</MudChip>
+                <MudSimpleTable Hover="true">
+                    <thead>
+
+                        <tr>
+                            <th>Property</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                RequireDigit
+                            </td>
+                            <td>
+                                Gets or sets a flag indicating if passwords must contain a digit. Defaults to true.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                RequiredLength
+                            </td>
+                            <td>
+                                Gets or sets the minimum length a password must be. Defaults to 6.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                RequireLowercase
+                            </td>
+                            <td>
+                                Gets or sets a flag indicating if passwords must contain a lower case ASCII character. Defaults to true.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                RequireNonAlphanumeric
+                            </td>
+                            <td>
+                                Gets or sets a flag indicating if passwords must contain a non-alphanumeric character. Defaults to true.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                RequireUppercase
+                            </td>
+                            <td>
+                                Gets or sets a flag indicating if passwords must contain a upper case ASCII character. Defaults to true.
+                            </td>
+                        </tr>
+                    </tbody>
+                </MudSimpleTable>
+                <MudChip Label="true" Class="mt-4">LockoutOptions</MudChip>
+                <MudSimpleTable Hover="true">
+                    <thead>
+
+                        <tr>
+                            <th>Property</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                AllowedForNewUsers
+                            </td>
+                            <td>
+                                Gets or sets a flag indicating whether a new user can be locked out. Defaults to true.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                DefaultLockoutTimeSpan
+                            </td>
+                            <td>
+                                Gets or sets the TimeSpan a user is locked out for when a lockout occurs. Defaults to 5 minutes.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                MaxFailedAccessAttempts
+                            </td>
+                            <td>
+                                Gets or sets the number of failed access attempts allowed before a user is locked out, assuming lock out is enabled. Defaults to 5.
+                            </td>
+                        </tr>
+                    </tbody>
+                </MudSimpleTable>
+            </MudExpansionPanel>
+        </MudExpansionPanels>
+
+        <MudText Typo="Typo.h6" GutterBottom="true" Class="mt-8">Token Settings</MudText>
+        <MudExpansionPanels Elevation="25">
+            <MudExpansionPanel Style="font-weight:500" Class="mb-2" Text="What can be done with Token Settings?">
+                <MudSimpleTable Hover="true">
+                    <thead>
+                        <tr>
+                            <th>Property</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                AccessTokenTimeSpan
+                            </td>
+                            <td>
+                                Gets or sets the TimeSpan an access token is valid. When the TimeSpan is expired. Defaults to 7 days.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                RefreshTokenTimeSpan
+                            </td>
+                            <td>
+                                Gets or sets the TimeSpan a refresh token is valid. Defaults to 7 days.
+                            </td>
+                        </tr>
+                    </tbody>
+                </MudSimpleTable>
+            </MudExpansionPanel>
+            <MudExpansionPanel Style="font-weight:500" Class="mb-2" Text="What is the differnce between Access Token and Refresh Token?">
+                <MudText Typo="Typo.body2" Class="mb-2">Modern secure applications often use access tokens to ensure a user has access to the appropriate resources, and these access tokens typically have a limited lifetime. This is done for various security reasons: for one, limiting the lifetime of the access token limits the amount of time an attacker can use a stolen token. In addition, the information contained in or referenced by the access token could become stale.</MudText>
+                <MudText Typo="Typo.body2" Class="mb-2">When access tokens expire or become invalid but the application still needs to access a protected resource, the application faces the problem of getting a new access token without forcing the user to once again grant permission. To solve this problem, OAuth 2.0 introduced an artifact called a refresh token. A refresh token allows an application to obtain a new access token without prompting the user.</MudText>
+            </MudExpansionPanel>
+        </MudExpansionPanels>
+
+        <MudText Typo="Typo.h6" GutterBottom="true" Class="mt-8">File Storage Settings</MudText>
+        <MudExpansionPanels Elevation="25">
+            <MudExpansionPanel Style="font-weight:500" Class="mb-2" Text="What can be done with File Storage Settings?">
+                <MudSimpleTable Hover="true">
+                    <thead>
+                        <tr>
+                            <th>Property</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                StorageType
+                            </td>
+                            <td>
+                                Gets or sets the storage type value. Defaults to 0 which represents On-Premise Storage.
+                            </td>
+                        </tr>
+                    </tbody>
+                </MudSimpleTable>
+            </MudExpansionPanel>
+            <MudExpansionPanel Style="font-weight:500" Class="mb-2" Text="What is the difference between On-Premise Storage and Cloud Storage?">
+                <MudText Typo="Typo.body2" Class="mb-2">On-Premise storage and cloud storage reside in two different locations. On-premise storage utilizes in-house hardware and software. That is, the hardware is owned and managed by the enterprise versus a cloud service provider.</MudText>
+                <MudText Typo="Typo.body2" Class="mb-2">Cloud storage resides in remote servers, across town or across the country. It is typically provided by one of the large cloud computing companies such as AWS, Microsoft Azure, or Google Cloud.</MudText>
+                <MudText Typo="Typo.button">On-Premise Storage</MudText>
+                <MudList>
+                    <MudListItem Icon="@Icons.Material.Outlined.Computer">
+                        <MudText Typo="Typo.body2" Class="mb-2">Storage resources are procured, owned, and managed by the enterprise.</MudText>
+                    </MudListItem>
+                    <MudListItem Icon="@Icons.Material.Outlined.Computer">
+                        <MudText Typo="Typo.body2" Class="mb-2">The enterprise is responsible for securing the storage resources and data.</MudText>
+                    </MudListItem>
+                    <MudListItem Icon="@Icons.Material.Outlined.Computer">
+                        <MudText Typo="Typo.body2" Class="mb-2">Storage resources remain dedicated to the company.</MudText>
+                    </MudListItem>
+                    <MudListItem Icon="@Icons.Material.Outlined.Computer">
+                        <MudText Typo="Typo.body2" Class="mb-2">The investment is considered a capital expense, which is typically a high cost.</MudText>
+                    </MudListItem>
+                </MudList>
+                <MudText Typo="Typo.button">Cloud Storage</MudText>
+                <MudList>
+                    <MudListItem Icon="@Icons.Material.Outlined.Cloud">
+                        <MudText Typo="Typo.body2" Class="mb-2">Storage resources are owned and managed by a third party.</MudText>
+                    </MudListItem>
+                    <MudListItem Icon="@Icons.Material.Outlined.Cloud">
+                        <MudText Typo="Typo.body2" Class="mb-2">Storage resources may be purchased on a pre-paid or pay-as-you-go basis.</MudText>
+                    </MudListItem>
+                    <MudListItem Icon="@Icons.Material.Outlined.Cloud">
+                        <MudText Typo="Typo.body2" Class="mb-2">Storage resources may be shared in a multi-tenant environment.</MudText>
+                    </MudListItem>
+                    <MudListItem Icon="@Icons.Material.Outlined.Cloud">
+                        <MudText Typo="Typo.body2" Class="mb-2">Software is kept up-to-date as part of an active subscription.</MudText>
+                    </MudListItem>
+                    <MudListItem Icon="@Icons.Material.Outlined.Cloud">
+                        <MudText Typo="Typo.body2" Class="mb-2">IT does not have to install software updates and patches.</MudText>
+                    </MudListItem>
+                    <MudListItem Icon="@Icons.Material.Outlined.Cloud">
+                        <MudText Typo="Typo.body2" Class="mb-2">The investment is considered operational expense, which is a lower monthly cost.</MudText>
+                    </MudListItem>
+                </MudList>
+                <MudText Typo="Typo.body2" Class="mb-2">To learn more about this topic, please read the full article from <MudLink Typo="Typo.body2" Href="https://www.enterprisestorageforum.com/cloud/on-premise-vs-cloud-storage/" Target="_blank">here.</MudLink></MudText>
+            </MudExpansionPanel>
+        </MudExpansionPanels>
+        <MudExpansionPanels Elevation="25">
+            <MudExpansionPanel Style="font-weight:500" Class="mb-2" Text="What are the supported storage providers in BlazorPlate?">
+                <MudText Typo="Typo.body2" Class="mb-2">BlazorPlate supports both On-Premise Storage and Azure Storage.</MudText>
+            </MudExpansionPanel>
+        </MudExpansionPanels>
+        <MudExpansionPanels Elevation="25">
+            <MudExpansionPanel Style="font-weight:500" Class="mb-2" Text="How to run BlazorPlate with Azure Storage enabled on my localhost machine?">
+                <MudText Typo="Typo.body2" Class="mb-2">You can run BlazorPlate with Azure Storage enabled on my localhost using Azurite emulator.</MudText>
+                <MudText Typo="Typo.body2" Class="mb-2">The Azurite open-source emulator provides a free local environment for testing your Azure blob, queue storage, and table storage applications. When you're satisfied with how your application is working locally, switch to using an Azure Storage account in the cloud. The emulator provides cross-platform support on Windows, Linux, and macOS.</MudText>
+                <MudText Typo="Typo.body2" Class="mb-2">Follow the following instructions in order to run Azurite emulator on your localhost machine.</MudText>
+                <MudListItem Icon="@Icons.Material.Outlined.Cloud">
+                    <MudText Typo="Typo.body2" Class="mb-2">Install <MudLink Typo="Typo.body2" Href="https://nodejs.org" Target="_blank">Node.js version 8.0 or later.</MudLink></MudText>
+                </MudListItem>
+                <MudListItem Icon="@Icons.Material.Outlined.Cloud">
+                    <MudText Typo="Typo.body2" Class="mb-2">After installing Node.js, execute this npm command <code>npm install -g azurite</code> to install Azurite.</MudText>
+                </MudListItem>
+                <MudListItem Icon="@Icons.Material.Outlined.Cloud">
+                    <MudText Typo="Typo.body2" Class="mb-2">From the command line, start Azurite by using this command: <code>azurite</code>.</MudText>
+                </MudListItem>
+                <MudListItem Icon="@Icons.Material.Outlined.Cloud">
+                    <MudText Typo="Typo.body2" Class="mb-2">Run BlazorPlate then try to update your avatar picture by uploading a new one.</MudText>
+                </MudListItem>
+                <MudListItem Icon="@Icons.Material.Outlined.Cloud">
+                    <MudText Typo="Typo.body2" Class="mb-2">Refresh the page then right-click on your avatar picture to inspect the image path.</MudText>
+                </MudListItem>
+                <MudListItem Icon="@Icons.Material.Outlined.Cloud">
+                    <MudText Typo="Typo.body2" Class="mb-2">You will note that your image path points to the azure BLOB server address which is <code>http://127.0.0.1:10000/devstoreaccount1</code>.</MudText>
+                </MudListItem>
+            </MudExpansionPanel>
+        </MudExpansionPanels>
+        <MudExpansionPanels Elevation="25">
+            <MudExpansionPanel Style="font-weight:500" Class="mb-2" Text="How to run BlazorPlate with a real Azure Storage account in the cloud">
+                <MudText Typo="Typo.body2" Class="mb-2">Login to your azure account and obtain a new connection string for Azure BLOB storage.</MudText>
+                <MudText Typo="Typo.body2" Class="mb-2">Go to <code>appsettings.json</code> within the <code>BlazorPlate.WebAPI</code> project.</MudText>
+                <MudText Typo="Typo.body2" Class="mb-2">In the <code>ConnectionStrings:AzureStorageConnection</code> section, replace <code>"UseDevelopmentStorage=true"</code> value with the real connection string that you've obtained from your Azure account.</MudText>
+            </MudExpansionPanel>
+        </MudExpansionPanels>
+        <MudExpansionPanels Elevation="25">
+            <MudExpansionPanel Style="font-weight:500" Class="mb-2" Text="Can I add a new storage provider in BlazorPlate?">
+                <MudText Typo="Typo.body2" Class="mb-2">Yes, of course! you can add as many storage providers as you need. All you need to do is to create a new service class, e.g., <code>AwsStorageService</code> that implements <code>IFileStorageService</code> interface.</MudText>
+            </MudExpansionPanel>
+        </MudExpansionPanels>
+        <MudExpansionPanels Elevation="25">
+            <MudExpansionPanel Style="font-weight:500" Class="mb-2" Text="How to change the maximum file upload size limit in BlazorPlate?">
+                <MudText Typo="Typo.body2" Class="mb-2">There are several places that should be taken into consideration in order to change the maximum file upload size limit.</MudText>
+                <MudListItem Icon="@Icons.Material.Outlined.UploadFile">
+                    <MudText Typo="Typo.body2" Class="mb-2">Go to <code>web.config</code> within the <code>BlazorPlate.WebAPI</code> project and change the value of <code>maxAllowedContentLength</code> as shown in the code snippet below.</MudText>
+                    <img width="100%" src="https://blazorplate.net/assets/img/code-screenshots/file-size-webconfig.png" />
+                </MudListItem>
+                <MudListItem Icon="@Icons.Material.Outlined.UploadFile">
+                    <MudText Typo="Typo.body2" Class="mb-2">Go to <code>Startup.cs</code> within the <code>BlazorPlate.WebAPI</code> project and change the value of <code>ValueLengthLimit</code> and <code>MultipartBodyLengthLimit</code> as shown in the code snippet below.</MudText>
+                    <img width="100%" src="https://blazorplate.net/assets/img/code-screenshots/file-size-startup.png" />
+                </MudListItem>
+                <MudListItem Icon="@Icons.Material.Outlined.UploadFile">
+                    <MudText Typo="Typo.body2" Class="mb-2">Go to <code>Shared/BpUploadFile.razor.cs</code> within the <code>BlazorPlate.BlazorApp</code> project and change the value of <code>MaxFileSize</code> as shown in the code snippet below.</MudText>
+                    <img width="100%" src="https://blazorplate.net/assets/img/code-screenshots/file-size-bpuploadfile.png" />
+                </MudListItem>
+            </MudExpansionPanel>
+        </MudExpansionPanels>
+        <MudText Typo="Typo.h6" GutterBottom="true" Class="mt-8">Tenant Settings</MudText>
+        <MudExpansionPanels Elevation="25">
+            <MudExpansionPanel Style="font-weight:500" Class="mb-2" Text="What are the tenant data isolation strategies and which one is used in BlazorPlate?">
+                <MudText Typo="Typo.body2" Class="mb-2">Per-tenant data isolation is one of the most important feature of BlazorPlate. This means that each tenant has access to its data and only its data. In other words, tenant data in a BlazorPlate application is logically isolated where the tenant doesn't have access to the other tenants' related data.</MudText>
+                <MudText Typo="Typo.body2" Class="mb-2">Depending on access to the data, there are essentially the following strategies that can be followed.</MudText>
+                <MudText Typo="Typo.button"></MudText>
+                <MudList>
+                    <MudListItem Icon="@Icons.Material.Filled.Check">
+                        <MudText Typo="Typo.body2" Class="mb-2">Single Database with Shared Schema <b>which is used in BlazorPlate</b></MudText>
+                    </MudListItem>
+                    <MudListItem Icon="@Icons.Material.Filled.Check">
+                        <MudText Typo="Typo.body2" Class="mb-2">Single Database with Separate Schema per Tenant</MudText>
+                    </MudListItem>
+                    <MudListItem Icon="@Icons.Material.Filled.Check">
+                        <MudText Typo="Typo.body2" Class="mb-2">Single Database per Tenant</MudText>
+                    </MudListItem>
+                </MudList>
+            </MudExpansionPanel>
+            <MudExpansionPanel Style="font-weight:500" Class="mb-2" Text="What are the tenant resolution strategies and which one is used in BlazorPlate?">
+                <MudText Typo="Typo.body2" Class="mb-2">How can we make the application know how it should behave, that is, what tenant should it be serving? For that, we need to consider a tenant identification (or resolution) strategy. One can think of several ones, but I’m going to present just three:</MudText>
+                <MudText Typo="Typo.button">Request Header</MudText>
+                <MudText Typo="Typo.body2" Class="mb-2">This is a more robust strategy to identify tenants. Each of the requests will have a Header with X-Tenant in it which represents the subdomain portion of the URL, e.g, tenant.example.com. The application then serves the request for that particular tenant.</MudText>
+                <MudText Typo="Typo.body2" Class="mb-2"><b>This strategy is used in BlazorPlate.</b></MudText>
+                <MudText Typo="Typo.button">Query String</MudText>
+                <MudText Typo="Typo.body2" Class="mb-2">This is a simple mechanism, where the tenant can be identified using a Query string. It’s as simple as passing <code>?TenantId=alpha</code> in the request URL and the application gets to know that this request is meant for tenant alpha. As this strategy has several vulnerabilities, it’s advised to use this approach only for testing and Development purposes.</MudText>
+                <MudText Typo="Typo.button">Source IP</MudText>
+                <MudText Typo="Typo.body2" Class="mb-2">You may want that requests originating from the same IPs get the same tenant all the time. The application can detect which tenant it belongs to. Although this is a secure approach, it’s not always convenient to use this.</MudText>
+                <MudText Typo="Typo.button">Claims</MudText>
+                <MudText Typo="Typo.body2" Class="mb-2">A more secure way to detect Tenants. In systems where JWT Tokens are involved for Authentication, the tenantId of the user can be encoded into the claims of the Token. This approach ensures that the request is both authenticated and belongs to a user from the mentioned tenant.</MudText>
+            </MudExpansionPanel>
+            <MudExpansionPanel Style="font-weight:500" Class="mb-2" Text="What are the tenant modes that are supported in BlazorPlate?">
+                <MudText Typo="Typo.button">Single Tenant Mode</MudText>
+                <MudText Typo="Typo.body2" Class="mb-2">Single tenant architecture uses a software application and a database for each tenant (client). What this means is that clients can’t share the database or application between them, because all of them have their own instances of database and applications.</MudText>
+                <MudText Typo="Typo.body2" Class="mb-2">Single tenant architecture has a specific design, making it unique, since it allows only one instance per every SaaS server. Moreover, it will enable people to build every piece of software purposefully for each client. When the software is installed locally, clients can change the UI (User Interface) at their own will after the installation is complete. That way, they can customize the software to fit their needs within a specific environment. However, they won’t have access to the underlying code.</MudText>
+                <MudText Typo="Typo.button">Multi-Tenant Mode</MudText>
+                <MudText Typo="Typo.body2" Class="mb-2">A multi-tenant architecture is an architecture in which every instance of software application is serving more than one tenant (client). The multi-client architecture means that all clients will share the same database and application information, unlike in the single tenant architecture where every tenant has its own database and application.</MudText>
+                <MudText Typo="Typo.body2" Class="mb-2">The multi-tenant architecture is the best solution for every business that wants to have a more comfortable startup experience and a lower hardware requirement. The multi-tenant architecture has become the standard within the enterprise SaaS environments</MudText>
+            </MudExpansionPanel>
+
+            <MudExpansionPanel Style="font-weight:500" Class="mb-2" Text="How to switch from single-tenant mode to multi-tenant mode and vice versa within BlazorPlate environment?">
+                <MudText Typo="Typo.body2" Class="mb-2">You can switch from single tenant mode to multi-tenant mode and vice versa by changing the value of <code>AppOptions:TenantModeOptions</code>  section in the <code>appsettings.json</code> you can set either 1 for single-tenant mode or 2 for multi-tenant mode.</MudText>
+            </MudExpansionPanel>
+            <MudExpansionPanel Style="font-weight:500" Class="mb-2" Text="What is the difference between Host and Tenant?">
+                <MudText Typo="Typo.body2" Class="mb-2">There are two main elements of a typical SaaS / Multi-tenant application:</MudText>con
+                <MudList>
+                    <MudListItem Icon="@Icons.Material.Filled.People">
+                        <MudText Typo="Typo.body2" Class="mb-2">A <b>Tenant</b> is a customer of the SaaS application that pays money to use the service.</MudText>
+                    </MudListItem>
+                    <MudListItem Icon="@Icons.Material.Filled.House">
+                        <MudText Typo="Typo.body2" Class="mb-2">The <b>Host</b> is the company that owns the SaaS application and manages the system.</MudText>
+                    </MudListItem>
+                </MudList>
+            </MudExpansionPanel>
+            <MudExpansionPanel Style="font-weight:500" Class="mb-2" Text="How to configure BlazorPlate to use wildcard subdomains on my localhost machine (*.localhost), e.g., demo-tenant.localhost:4333?">
+                <MudText Typo="Typo.body2" Class="mb-2">You can emulate your localhost/development machine to run as a multi-tenant server using BlazorPlate; here is how.</MudText>
+                <MudList>
+                    <MudListItem Icon="@Icons.Material.Filled.Check">
+                        <MudText Typo="Typo.body2" Class="mb-2">Open BlazorPlate project in Visual Studio and right-click on the solution and select <code>Open Folder in File Explorer</code> and navigate to <code>.vs\BinaryPlate\config</code> and open <code>applicationhost.config</code> in any code editor.</MudText>
+                    </MudListItem>
+                    <MudListItem Icon="@Icons.Material.Filled.Check">
+                        <MudText Typo="Typo.body2" Class="mb-2">Close Visual Studio.</MudText>
+                    </MudListItem>
+                    <MudListItem Icon="@Icons.Material.Filled.Check">
+                        <MudText Typo="Typo.body2" Class="mb-2">Press CTRL+F and search for <code>[name="D2W.WebPortal"]</code>(without brackets) until you reach the <code>sites</code> section then remove the portion <code>localhost</code> as shown in the following screenshot.</MudText>
+                    </MudListItem>
+                    <img width="100%" src="https://blazorplate.net/assets/img/code-screenshots/applicationhost.png" />
+                    <MudListItem Icon="@Icons.Material.Filled.Check">
+                        <MudText Typo="Typo.body2" Class="mb-2">The site block shall be look like the following screenshot after editing.</MudText>
+                    </MudListItem>
+                    <img width="100%" src="https://blazorplate.net/assets/img/code-screenshots/applicationhost-without-localhost.png" />
+                    <MudListItem Icon="@Icons.Material.Filled.Check">
+                        <MudText Typo="Typo.body2" Class="mb-2">Run Visual Studio as Administrator then open BlazorPlate.</MudText>
+                    </MudListItem>
+                    <MudListItem Icon="@Icons.Material.Filled.Check">
+                        <MudText Typo="Typo.body2" Class="mb-2">Right-click on the solution and select <code>Set Startup Projects..</code></MudText>
+                    </MudListItem>
+                    <MudListItem Icon="@Icons.Material.Filled.Check">
+                        <MudText Typo="Typo.body2" Class="mb-2">Click on the <code>Multiple start up projects</code> radio button and choose to run <code>BlazorPlate</code>, <code>WebApi</code> and <code>HostApp</code> projects as startup projects.</MudText>
+                    </MudListItem>
+                    <MudListItem Icon="@Icons.Material.Filled.Check">
+                        <MudText Typo="Typo.body2" Class="mb-2">Last but not least, hit F5.</MudText>
+                    </MudListItem>
+                </MudList>
+            </MudExpansionPanel>
+        </MudExpansionPanels>
+    </MudItem>
+</MudGrid>
+
+@code {
+
+    [Inject] private IBreadcrumbService BreadcrumbService { get; set; }
+
+    protected override void OnInitialized()
+    {
+        BreadcrumbService.SetBreadcrumbItems(new List<BreadcrumbItem>
+        {
+            new(Resource.Home, "/"),
+            new(Resource.Installation, "#", true)
+        });
+
+    }
+
+}

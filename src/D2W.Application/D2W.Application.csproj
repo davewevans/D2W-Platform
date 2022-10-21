@@ -1,0 +1,65 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <Compile Remove="Common\Queries\**" />
+	  <Compile Remove="Common\Resources\**" />
+	  <Compile Remove="Features\Identity\Account\Queries\**" />
+	  <Compile Remove="Migrations\**" />
+	  <EmbeddedResource Remove="Common\Queries\**" />
+	  <EmbeddedResource Remove="Common\Resources\**" />
+	  <EmbeddedResource Remove="Features\Identity\Account\Queries\**" />
+	  <EmbeddedResource Remove="Migrations\**" />
+	  <None Remove="Common\Queries\**" />
+	  <None Remove="Common\Resources\**" />
+	  <None Remove="Features\Identity\Account\Queries\**" />
+	  <None Remove="Migrations\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Remove="Common\Exceptions\IdentityException.cs" />
+	  <Compile Remove="Common\Exceptions\ValidationException.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AutoMapper" Version="12.0.0" />
+		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
+		<PackageReference Include="DocumentFormat.OpenXml" Version="2.18.0" />
+		<PackageReference Include="FluentValidation" Version="11.2.2" />
+		<PackageReference Include="Hangfire.Core" Version="1.7.31" />
+		<PackageReference Include="MediatR" Version="11.0.0" />
+		<PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.17" />
+		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.10" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+		<PackageReference Include="Microsoft.AspNetCore.SignalR.Core" Version="1.1.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.10" />
+		<PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.10" />
+
+		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.2" />
+
+		<PackageReference Include="morelinq" Version="3.3.2" />
+
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\D2W.BackendResources\D2W.BackendResources.csproj" />
+		<ProjectReference Include="..\D2W.Domain\D2W.Domain.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Reference Include="Microsoft.AspNetCore.SignalR.Core">
+	    <HintPath>..\..\..\..\..\..\..\..\Program Files\dotnet\shared\Microsoft.AspNetCore.App\6.0.3\Microsoft.AspNetCore.SignalR.Core.dll</HintPath>
+	  </Reference>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Features\Reports\" />
+	</ItemGroup>
+
+</Project>

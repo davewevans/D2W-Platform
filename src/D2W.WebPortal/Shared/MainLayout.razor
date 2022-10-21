@@ -1,0 +1,38 @@
+﻿@inherits LayoutComponentBase
+
+<MudThemeProvider @ref="@_mudThemeProvider" @bind-IsDarkMode="@IsDarkMode" />
+<MudSnackbarProvider />
+<MudRTLProvider RightToLeft="@IsRightToLeft">
+    <MudLayout>
+        <MudDialogProvider />
+        <MudAppBar>
+            <AppLogo />
+            <MudHidden Breakpoint="Breakpoint.MdAndUp">
+                <MudIconButton Icon="@Icons.Material.Outlined.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@(e => DrawerToggle())" />
+            </MudHidden>
+            <AppBrand />
+            <MudSpacer />
+            <HeaderButtons />
+            <MudDivider Vertical="true" FlexItem="true" />
+            <MudIconButton Color="Color.Inherit" OnClick="@(e => DarkModeToggle())" Size="Size.Medium" Icon="@(IsDarkMode ? "fa fa-sun-o" : "fa fa-moon-o")" />
+            <LanguageSwitcher />
+            <MudHidden Breakpoint="Breakpoint.Xs">
+                <LoginLinks />
+            </MudHidden>
+        </MudAppBar>
+        <MudDrawer @bind-Open="DrawerOpen" ClipMode="DrawerClipMode.Always">
+            <NavMenu />
+        </MudDrawer>
+        <MudMainContent>
+            <MudToolBar DisableGutters="true">
+                <MudIconButton Icon="@Icons.Material.Outlined.Menu" Color="Color.Inherit" OnClick="@(e => DrawerToggle())" Class="ml-3" />
+                <MudBreadcrumbs Items="BreadcrumbService.BreadcrumbItems"></MudBreadcrumbs>
+            </MudToolBar>
+            <MudContainer MaxWidth="MaxWidth.False" Class="mt-4">
+                <GlobalSpinner></GlobalSpinner>
+                @Body
+                <GlobalSpinner></GlobalSpinner>
+            </MudContainer>
+        </MudMainContent>
+    </MudLayout>
+</MudRTLProvider>

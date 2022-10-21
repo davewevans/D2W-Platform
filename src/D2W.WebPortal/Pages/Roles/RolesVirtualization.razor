@@ -1,0 +1,73 @@
+﻿@page "/roles/rolesVirtualization"
+@attribute [Authorize]
+
+<MudSimpleTable Style="max-height: 50px">
+    <MudTextField T="string"
+                  @bind-Value="Search"
+                  @onkeyup="(e) => Rerender(e)"
+                  Placeholder="@Resource.Search"
+                  Adornment="Adornment.Start"
+                  AdornmentIcon="@Icons.Material.Filled.Search"
+                  IconSize="Size.Small"
+                  Class="mt-0">
+    </MudTextField>
+    <thead>
+        <tr>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <Virtualize ItemsProvider="LoadRoles" Context="role">
+            <ItemContent>
+                <tr>
+                    <td class="align-middle">
+                        @role.Name
+                    </td>
+                </tr>
+            </ItemContent>
+        </Virtualize>
+    </tbody>
+</MudSimpleTable>
+@code{
+
+    [Parameter]
+    public List<RoleItem> RoleItems { get; set; }
+
+    [Parameter]
+    public int TotalSize { get; set; }
+    public string Search { get; set; }
+
+    [Inject] private IRolesClient RolesClient { get; set; }
+
+    private void Rerender(KeyboardEventArgs val)
+    {
+        Console.WriteLine(val.ToString());
+        Search = val.ToString();
+        StateHasChanged();
+    }
+    private async ValueTask<ItemsProviderResult<RoleItem>> LoadRoles(ItemsProviderRequest request)
+    {
+        var roleNum = Math.Min(request.Count, TotalSize - request.StartIndex);
+
+        var httpResponse = await RolesClient.GetRoles(new GetRolesQuery
+        {
+            SearchText = Search,
+            PageNumber = request.StartIndex + 1,
+            RowsPerPage = roleNum == 0 ? request.Count : roleNum
+        });
+
+        if (httpResponse.Success)
+        {
+            var successResult = httpResponse.Response as SuccessResult<RolesResponse>;
+            RoleItems = successResult.Result.Roles.Items.ToList();
+            TotalSize = successResult.Result.Roles.TotalRows;
+        }
+        else
+        {
+            var exceptionResult = httpResponse.Response as ExceptionResult;
+            //_serverSideValidator.Validate(exceptionResult);
+        }
+        return new ItemsProviderResult<RoleItem>(RoleItems, TotalSize);
+    }
+
+}

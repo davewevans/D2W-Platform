@@ -1,0 +1,34 @@
+﻿<ServerSideValidator @ref="ServerSideValidator" />
+<MudDialog>
+    <TitleContent>
+        <MudText Typo="Typo.h6">
+            <MudIcon Icon="@Icons.Material.Filled.SettingsApplications" Class="mr-3 mb-n1" />
+            @Resource.Recovery_Codes
+        </MudText>
+    </TitleContent>
+    <DialogContent>
+        <MudContainer Style="max-height:450px;overflow-y: scroll">
+            <MudAlert Severity="Severity.Info" NoIcon="true">@Resource.Put_these_codes_in_a_safe_place</MudAlert>
+            <MudPaper Width="100%">
+                <MudList Clickable="true">
+                    @if (RecoveryCode != null)
+                    {
+                        @for (var row = 0; row < RecoveryCode.Length; row += 2)
+                        {
+                            <MudListItem Text="@RecoveryCode[row]" Icon="@Icons.Filled.Bookmark" /><br />
+                            <MudListItem Text="@RecoveryCode[row+ 1]" Icon="@Icons.Filled.Bookmark" /><br />
+                        }
+                    }
+                </MudList>
+            </MudPaper>
+            <MudAlert Severity="Severity.Warning" NoIcon="true">@Resource.If_you_lose_your_device_and_dont_have_the_recovery_codes_you_will_lose_access_to_your_account</MudAlert>
+        </MudContainer>
+    </DialogContent>
+    <DialogActions>
+        <MudButton ButtonType="ButtonType.Submit" OnClick="Close" Style="float:right" Variant="Variant.Filled" Color="Color.Error">@Resource.Got_it</MudButton>
+    </DialogActions>
+</MudDialog>
+
+@code{
+
+}

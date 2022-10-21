@@ -1,0 +1,54 @@
+﻿<ServerSideValidator @ref="ServerSideValidator" />
+<EditForm Model="UpdateUserAvatarCommand" OnValidSubmit="UpdateUserAvatar">
+    <EditContextServerSideValidator @ref="EditContextServerSideValidator" />
+    <FluentValidationValidator />
+    <MudCard>
+        <MudCardHeader>
+            <CardHeaderContent>
+                <MudText Typo="Typo.h6">@Resource.My_Profile_Picture</MudText>
+            </CardHeaderContent>
+        </MudCardHeader>
+        <MudCardContent>
+            <MudPaper Class="pa-2" Outlined="true">
+                <div class="d-flex justify-center mb-4">
+                    <MudAvatar Image="@(AvatarImageSrc ?? UserAvatarForEditVm.AvatarUri)" Style="height: 200px; width: 200px;">
+                        <MudIcon Size="Size.Large"></MudIcon>
+                    </MudAvatar>
+                </div>
+                @if (!string.IsNullOrWhiteSpace(UserAvatarForEditVm.AvatarUri))
+                {
+                    <MudText Align="Align.Center">
+                        <MudFab OnClick="()=>{UserAvatarForEditVm.AvatarUri=null;}" Color="Color.Warning" Icon="@Icons.Material.Filled.Remove" aria-label="edit" />
+                    </MudText>
+                }
+            </MudPaper>
+        </MudCardContent>
+        <MudCardActions Class="d-flex justify-center">
+            <div class="form-group">
+                <BpUploadFile ButtonId="avatarInput"
+                              ButtonIcon="@Icons.Filled.PhotoCamera"
+                              ButtonName="@Resource.Upload_Avatar"
+                              AllowRename="true"
+                              AllowedExtensions=".jpg,.png,.jpg,.bmp"
+                              MaxFileSize="5242880"
+                              OnFileSelected="AvatarSelected"
+                              OnFileUnSelected="AvatarUnSelected" OnImageUpload="GetBase64StringImageUrl" />
+                <ValidationMessage For="@(() => UserAvatarForEditVm.AvatarUri)" />
+            </div>
+        </MudCardActions>
+        <MudCardActions Class="pb-4 pl-4">
+            <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto" FullWidth="true">@Resource.Save</MudButton>
+        </MudCardActions>
+        <MudDivider />
+        <MudExpansionPanels>
+            <MudExpansionPanel Text="@Resource.Validation_Summary" IsExpanded="true" Disabled="true" HideIcon="true">
+                <MudText Color="@Color.Error">
+                    <ValidationSummary />
+                </MudText>
+            </MudExpansionPanel>
+        </MudExpansionPanels>
+    </MudCard>
+</EditForm>
+@code {
+
+}

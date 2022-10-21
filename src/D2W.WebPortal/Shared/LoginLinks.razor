@@ -1,0 +1,23 @@
+﻿<AuthorizeView>
+    <Authorized>
+        <MudMenu Direction="Direction.Left" OffsetX="true" Dense="true" Class="mt-1 ml-4">
+            <ActivatorContent>
+                <MudAvatar Image="@context.User.Claims.FirstOrDefault(c=>c.Type == "AvatarUri").Value" />
+            </ActivatorContent>
+            <ChildContent>
+                <PersonCard FullName="@context.User.Claims.FirstOrDefault(c=>c.Type == "FullName").Value"
+                            AvatarUri="@context.User.Claims.FirstOrDefault(c=>c.Type == "AvatarUri").Value"
+                            JobTitle="@context.User.Claims.FirstOrDefault(c=>c.Type == "JobTitle").Value"
+                            Class="mt-n2" />
+
+                <MudDivider Class="mb-2" />
+                <MudListItem Text="@Resource.Account" Icon="@Icons.Material.Outlined.Person" Href="/account/manage/index" />
+                <MudListItem Text="@Resource.Logout" Icon="@Icons.Material.Outlined.Login" Href="/account/Logout" />
+            </ChildContent>
+        </MudMenu>
+    </Authorized>
+    <NotAuthorized>
+        <MudChip Link="/account/login" Icon="@Icons.Material.Filled.Login" Color="Color.Info">@Resource.Login</MudChip>
+        <MudChip Link="/account/register" Icon="@Icons.Material.Filled.PersonAdd" Color="Color.Success">@Resource.Register</MudChip>
+    </NotAuthorized>
+</AuthorizeView>

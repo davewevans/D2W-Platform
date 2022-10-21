@@ -1,0 +1,186 @@
+﻿@page "/users/AddUser"
+@attribute [Authorize]
+
+<MudText Typo="Typo.h5" Color="Color.Primary" Class="mb-4">@Resource.Add_User</MudText>
+<ServerSideValidator @ref="ServerSideValidator" />
+<EditForm Model="CreateUserCommand" OnValidSubmit="SubmitForm">
+    <EditContextServerSideValidator @ref="EditContextServerSideValidator" />
+    <FluentValidationValidator />
+    <MudCard>
+        <MudCardContent>
+            <MudTabs KeepPanelsAlive="true" Elevation="25" Color="Color.Transparent" Rounded="true" PanelClass="mt-6">
+                <MudTabPanel Text="@Resource.Avatar" Icon="@Icons.Material.Filled.Photo">
+                    <MudCard Elevation="25">
+                        <MudCardHeader>
+                            <CardHeaderContent>
+                                <MudText Typo="Typo.h6">@Resource.Profile_Picture</MudText>
+                            </CardHeaderContent>
+                        </MudCardHeader>
+                        <MudCardContent>
+                            <MudPaper Class="pa-2" Outlined="true">
+                                <div class="d-flex justify-center mb-4">
+                                    <MudAvatar Image="@AvatarImageSrc" Style="height: 200px; width: 200px;">
+                                        <MudIcon Size="Size.Large"></MudIcon>
+                                    </MudAvatar>
+                                </div>
+                            </MudPaper>
+                        </MudCardContent>
+                        <MudCardActions Class="d-flex justify-center">
+                            <div class="form-group">
+                                <BpUploadFile ButtonId="avatarInput"
+                                              ButtonIcon="@Icons.Filled.PhotoCamera"
+                                              ButtonName="@Resource.Upload_Avatar"
+                                              AllowRename="true"
+                                              AllowedExtensions=".jpg,.png,.jpg,.bmp"
+                                              MaxFileSize="5242880"
+                                              OnFileSelected="AvatarSelected"
+                                              OnFileUnSelected="AvatarUnSelected"
+                                              OnImageUpload="GetBase64StringImageUrl" />
+                                <ValidationMessage For="@(() => CreateUserCommand.AvatarUri)" />
+                            </div>
+                        </MudCardActions>
+                    </MudCard>
+                </MudTabPanel>
+                <MudTabPanel Text="@Resource.Profile" Icon="@Icons.Material.Filled.Person">
+                    <MudCard Elevation="25">
+                        <MudCardHeader>
+                            <CardHeaderContent>
+                                <MudText Typo="Typo.h6">@Resource.User_Profile</MudText>
+                            </CardHeaderContent>
+                        </MudCardHeader>
+                        <MudCardContent>
+                            <MudTextField Label="@Resource.Name"
+                                          Variant="Variant.Outlined"
+                                          @bind-Value="CreateUserCommand.Name"
+                                          For="@(() => CreateUserCommand.Name)" />
+
+                            <MudTextField Label="@Resource.Surname"
+                                          Variant="Variant.Outlined"
+                                          @bind-Value="CreateUserCommand.Surname"
+                                          For="@(() => CreateUserCommand.Surname)" />
+
+                            <MudTextField Label="@Resource.Job_Title"
+                                          Variant="Variant.Outlined"
+                                          @bind-Value="CreateUserCommand.JobTitle"
+                                          For="@(() => CreateUserCommand.JobTitle)" />
+
+                            <MudTextField Label="@Resource.Phone_Number"
+                                          Variant="Variant.Outlined"
+                                          @bind-Value="CreateUserCommand.PhoneNumber"
+                                          For="@(() => CreateUserCommand.PhoneNumber)" />
+                        </MudCardContent>
+                    </MudCard>
+                </MudTabPanel>
+                <MudTabPanel Text="@Resource.Account" Icon="@Icons.Material.Filled.Mail">
+                    <MudCard Elevation="25">
+                        <MudCardHeader>
+                            <CardHeaderContent>
+                                <MudText Typo="Typo.h6">@Resource.User_Account</MudText>
+                            </CardHeaderContent>
+                        </MudCardHeader>
+                        <MudCardContent>
+                            <MudTextField Label="@Resource.Email"
+                                          Variant="Variant.Outlined"
+                                          @bind-Value="CreateUserCommand.Email"
+                                          For="@(() => CreateUserCommand.Email)" />
+
+                            <MudSwitch Label="@Resource.Send_Activation_Email"
+                                       @bind-Checked="@CreateUserCommand.MustSendActivationEmail"
+                                       Disabled="SendActivationEmailDisabled"
+                                       Color="Color.Info" />
+
+                            <MudSwitch Label="@Resource.Suspend"
+                                       T="bool"
+                                       CheckedChanged="DoNotSendActivationEmail"
+                                       @bind-Value="@CreateUserCommand.IsSuspended"
+                                       Color="Color.Error" />
+                        </MudCardContent>
+                    </MudCard>
+                </MudTabPanel>
+                <MudTabPanel Text="@Resource.Password" Icon="@Icons.Material.Filled.VpnKey">
+                    <MudCard Elevation="25">
+                        <MudCardHeader>
+                            <CardHeaderContent>
+                                <MudText Typo="Typo.h6">@Resource.Password</MudText>
+                            </CardHeaderContent>
+                        </MudCardHeader>
+                        <MudCardContent>
+                            <MudSwitch @bind-Checked="@CreateUserCommand.SetRandomPassword" Label="@Resource.Set_Random_Password" Color="Color.Info" />
+                            <MudTextField Label="@Resource.Password"
+                                          Variant="Variant.Outlined"
+                                          @bind-Value="CreateUserCommand.Password"
+                                          For="@(() => CreateUserCommand.Password)"
+                                          InputType="@PasswordInput"
+                                          Adornment="Adornment.End"
+                                          AdornmentIcon="@PasswordInputIcon"
+                                          Disabled="CreateUserCommand.SetRandomPassword"
+                                          OnAdornmentClick="TogglePasswordVisibility" />
+
+                            <MudTextField Label="@Resource.Confirm_Password"
+                                          Variant="Variant.Outlined"
+                                          @bind-Value="CreateUserCommand.ConfirmPassword"
+                                          For="@(() => CreateUserCommand.ConfirmPassword)"
+                                          InputType="@PasswordInput"
+                                          Adornment="Adornment.End"
+                                          AdornmentIcon="@PasswordInputIcon"
+                                          Disabled="CreateUserCommand.SetRandomPassword"
+                                          OnAdornmentClick="TogglePasswordVisibility" />
+                        </MudCardContent>
+                    </MudCard>
+                </MudTabPanel>
+                <MudTabPanel Text="@Resource.Roles" Icon="@Icons.Material.Filled.GroupWork">
+                    <MudCard Elevation="25">
+                        <MudCardHeader>
+                            <CardHeaderContent>
+                                <MudText Typo="Typo.h6">@Resource.Assign_Roles</MudText>
+                            </CardHeaderContent>
+                        </MudCardHeader>
+                        <MudCardContent>
+                            <UserRolesForAdd OnAssignedRolesChanged="UpdateUserRoles"></UserRolesForAdd>
+                        </MudCardContent>
+                    </MudCard>
+                </MudTabPanel>
+                <MudTabPanel Text="@Resource.Documents" Icon="@Icons.Material.Filled.AttachFile">
+                    <MudCard Elevation="25">
+                        <MudCardHeader>
+                            <CardHeaderContent>
+                                <MudText Typo="Typo.h6">@Resource.User_Documents</MudText>
+                            </CardHeaderContent>
+                        </MudCardHeader>
+                        <MudCardContent>
+                            <MultipleFileUpload ButtonIcon="@Icons.Filled.UploadFile"
+                                                ButtonName="@Resource.Upload_Documents"
+                                                AllowRename="true"
+                                                AllowRemove="true"
+                                                MaxFileSize="5242880"
+                                                OnFileSelected="AttachmentSelected"
+                                                OnFileUnSelected="AttachmentUnSelected" />
+                            <ValidationMessage For="@(() => CreateUserCommand.NumberOfAttachments)" />
+                        </MudCardContent>
+                    </MudCard>
+                </MudTabPanel>
+            </MudTabs>
+        </MudCardContent>
+        <MudCardActions Class="pb-4 pl-4">
+            <MudButton ButtonType="ButtonType.Submit"
+                       Variant="Variant.Filled"
+                       Color="Color.Primary"
+                       Class="ml-auto"
+                       FullWidth="true">
+                @Resource.Save
+            </MudButton>
+        </MudCardActions>
+        <MudDivider />
+        <MudExpansionPanels>
+            <MudExpansionPanel Text="@Resource.Validation_Summary" IsExpanded="true" Disabled="true" HideIcon="true">
+                <MudText Color="@Color.Error">
+                    <ValidationSummary />
+                </MudText>
+            </MudExpansionPanel>
+        </MudExpansionPanels>
+    </MudCard>
+</EditForm>
+
+@code {
+
+}

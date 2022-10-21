@@ -1,0 +1,564 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Access_token_timespan_cannot_be_null" xml:space="preserve">
+    <value>لا يمكن أن يكون النطاق الزمني لرمز الوصول فارغًا.</value>
+  </data>
+  <data name="Access_token_timespan_is_required" xml:space="preserve">
+    <value>يلزم الوصول إلى النطاق الزمني لرمز الدخول.</value>
+  </data>
+  <data name="Allowed_username_characters_are_required" xml:space="preserve">
+    <value>مطلوب أحرف اسم المستخدم المسموح بها.</value>
+  </data>
+  <data name="An_unknown_failure_has_occurred" xml:space="preserve">
+    <value>حدث فشل غير معروف.</value>
+  </data>
+  <data name="Applicant_has_been_created_successfully" xml:space="preserve">
+    <value>تم إنشاء مقدم الطلب بنجاح</value>
+  </data>
+  <data name="Applicant_has_been_deleted_successfully" xml:space="preserve">
+    <value>تم حذف مقدم الطلب بنجاح.</value>
+  </data>
+  <data name="Applicant_has_been_updated_successfully" xml:space="preserve">
+    <value>تم تحديث مقدم الطلب بنجاح.</value>
+  </data>
+  <data name="A_user_with_this_login_already_exists" xml:space="preserve">
+    <value>يوجد بالفعل مستخدم مع تسجيل الدخول هذا.</value>
+  </data>
+  <data name="Cannot_disable_2FA_for_user_with_Id" xml:space="preserve">
+    <value>لا يمكن تعطيل المصادقة الثنائية لمستخدم برقم التعريف "{0}" لأنه غير ممكّن حاليًا.</value>
+  </data>
+  <data name="Cannot_generate_recovery_codes" xml:space="preserve">
+    <value>لا يمكن إنشاء رموز الاسترداد لاسم المستخدم "{0}" حيث لم يتم تمكين المصادقة الثنائية.</value>
+  </data>
+  <data name="Code_is_required" xml:space="preserve">
+    <value>الرمز مطلوب.</value>
+  </data>
+  <data name="Confirmation_link_to_change_email_has_been_sent" xml:space="preserve">
+    <value>تم إرسال رابط التأكيد لتغيير البريد الإلكتروني. من فضلك تفقد بريدك الالكتروني.</value>
+  </data>
+  <data name="Confirm_password_is_required" xml:space="preserve">
+    <value>تأكيد كلمة المرور مطلوب.</value>
+  </data>
+  <data name="Confirm_your_email" xml:space="preserve">
+    <value>قم بتأكيد بريدك الإلكتروني</value>
+  </data>
+  <data name="Date_of_Birth_is_required" xml:space="preserve">
+    <value>تاريخ الميلاد مطلوب</value>
+  </data>
+  <data name="Deletion_of_entity_failed" xml:space="preserve">
+    <value>فشل حذف الكيان "{0}" ({1}). {2}.</value>
+  </data>
+  <data name="Email_is_already_taken" xml:space="preserve">
+    <value>البريد الإلكتروني "{0}" مستخدم بالفعل.</value>
+  </data>
+  <data name="Email_is_invalid" xml:space="preserve">
+    <value>البريد الإلكتروني "{0}" غير صالح.</value>
+  </data>
+  <data name="Entity_with_key_was_not_found" xml:space="preserve">
+    <value>لم يتم العثور على الكيان "{0}" بالمفتاح "{1}".</value>
+  </data>
+  <data name="Error_changing_user_name" xml:space="preserve">
+    <value>خطأ في تغيير اسم المستخدم.</value>
+  </data>
+  <data name="Error_changing_your_user_name" xml:space="preserve">
+    <value>خطأ في تغيير اسم المستخدم الخاص بك.</value>
+  </data>
+  <data name="File_has_not_been_uploaded" xml:space="preserve">
+    <value>لم يتم تحميل الملف.</value>
+  </data>
+  <data name="File_is_empty" xml:space="preserve">
+    <value>الملف فارغ.</value>
+  </data>
+  <data name="File_storage_settings_have_been_updated_successfully" xml:space="preserve">
+    <value>تم تحديث إعدادات تخزين الملفات بنجاح.</value>
+  </data>
+  <data name="First_name_is_required" xml:space="preserve">
+    <value>الإسم الأول مطلوب.</value>
+  </data>
+  <data name="Height_is_required" xml:space="preserve">
+    <value>الارتفاع مطلوب.</value>
+  </data>
+  <data name="Identity_settings_have_been_updated_successfully" xml:space="preserve">
+    <value>تم تحديث إعدادات الهوية بنجاح.</value>
+  </data>
+  <data name="Incorrect_password" xml:space="preserve">
+    <value>كلمة سر خاطئة.</value>
+  </data>
+  <data name="Invalid_applicant_Id" xml:space="preserve">
+    <value>معرف مقدم الطلب غير صالح.</value>
+  </data>
+  <data name="Invalid_authenticator_code_entered" xml:space="preserve">
+    <value>تم إدخال رمز المصادقة غير صالح.</value>
+  </data>
+  <data name="Invalid_client_request" xml:space="preserve">
+    <value>طلب العميل غير صالح.</value>
+  </data>
+  <data name="Invalid_login_attempt" xml:space="preserve">
+    <value>محاولة تسجيل الدخول غير صحيحة.</value>
+  </data>
+  <data name="Invalid_recovery_code_entered" xml:space="preserve">
+    <value>تم إدخال رمز الاسترداد غير صالح.</value>
+  </data>
+  <data name="Invalid_report_Id" xml:space="preserve">
+    <value>معرف التقرير غير صالح.</value>
+  </data>
+  <data name="Invalid_role_Id" xml:space="preserve">
+    <value>معرف دور غير صالح.</value>
+  </data>
+  <data name="Invalid_tenant_name" xml:space="preserve">
+    <value>اسم المستأجر غير صالح.</value>
+  </data>
+  <data name="Invalid_token" xml:space="preserve">
+    <value>رمز غير صالح.</value>
+  </data>
+  <data name="Invalid_user_Id" xml:space="preserve">
+    <value>هوية مستخدم غير صالحه.</value>
+  </data>
+  <data name="Job_title_is_required" xml:space="preserve">
+    <value>المسمى الوظيفي مطلوب.</value>
+  </data>
+  <data name="Last_name_is_required" xml:space="preserve">
+    <value>إسم العائلة مطلوب</value>
+  </data>
+  <data name="Lockout_is_not_enabled_for_this_user" xml:space="preserve">
+    <value>لم يتم تمكين القفل لهذا المستخدم.</value>
+  </data>
+  <data name="Maximum_allowed_number_of_attachments_must_not_exceed_3" xml:space="preserve">
+    <value>يجب ألا يتجاوز الحد الأقصى المسموح به لعدد المرفقات 3.</value>
+  </data>
+  <data name="Method_cannot_be_null" xml:space="preserve">
+    <value>لا يمكن أن تكون الطريقة خالية.</value>
+  </data>
+  <data name="Minimum_allowed_number_of_attachments_must_be_at_least_1" xml:space="preserve">
+    <value>يجب ألا يقل عدد المرفقات المسموح به عن 1.</value>
+  </data>
+  <data name="New_password_is_required" xml:space="preserve">
+    <value>مطلوب كلمة مرور جديدة.</value>
+  </data>
+  <data name="New_password_must_be_at_least_6_characters" xml:space="preserve">
+    <value>يجب أن تتكون كلمة المرور الجديدة من 6 أحرف على الأقل.</value>
+  </data>
+  <data name="New_password_must_not_exceed_200_characters" xml:space="preserve">
+    <value>يجب ألا تتجاوز كلمة المرور الجديدة 200 حرف.</value>
+  </data>
+  <data name="N_A" xml:space="preserve">
+    <value>غير متوفر</value>
+  </data>
+  <data name="Old_password_is_required" xml:space="preserve">
+    <value>كلمة المرور القديمة مطلوبة.</value>
+  </data>
+  <data name="Only_those_between_the_ages_of_18_and_28_are_allowed_for_enlisting" xml:space="preserve">
+    <value>يُسمح فقط لمن تتراوح أعمارهم بين 18 و 28 عامًا بالتجنيد.</value>
+  </data>
+  <data name="Only_those_whose_BMI_between_18_5_and_24_9_are_allowed_for_enlisting" xml:space="preserve">
+    <value>فقط أولئك الذين مؤشر كتلة الجسم لديهم بين 18.5 و 24.9 مسموح لهم بالتجنيد.</value>
+  </data>
+  <data name="Only_those_whose_heights_between_100_and_250_with_normal_BMI_are_allowed_for_enlisting" xml:space="preserve">
+    <value>يُسمح فقط للأشخاص الذين يتراوح ارتفاعهم بين 100 و 250 بمؤشر كتلة جسم طبيعي بالتجنيد.</value>
+  </data>
+  <data name="Only_those_who_weigh_between_50_and_200_with_normal_BMI_are_allowed_for_enlisting" xml:space="preserve">
+    <value>يُسمح فقط للأشخاص الذين يتراوح وزنهم بين 50 و 200 مع مؤشر كتلة الجسم الطبيعي بالتجنيد.</value>
+  </data>
+  <data name="Optimistic_concurrency_failure" xml:space="preserve">
+    <value>فشل التزامن المتفائل ، تم تعديل الكائن.</value>
+  </data>
+  <data name="Passwords_must_be_at_least_length_characters" xml:space="preserve">
+    <value>يجب أن تتكون كلمات المرور من {0} حرف على الأقل.</value>
+  </data>
+  <data name="Passwords_must_have_at_least_one_digit" xml:space="preserve">
+    <value>يجب أن تحتوي كلمات المرور على رقم واحد على الأقل ("0" - "9").</value>
+  </data>
+  <data name="Passwords_must_have_at_least_one_lowercase" xml:space="preserve">
+    <value>يجب أن تحتوي كلمات المرور على حرف صغير واحد على الأقل ("a" - "z").</value>
+  </data>
+  <data name="Passwords_must_have_at_least_one_non_alphanumeric_character" xml:space="preserve">
+    <value>يجب أن تحتوي كلمات المرور على حرف واحد على الأقل ليس أبجديًا رقميًا.</value>
+  </data>
+  <data name="Passwords_must_have_at_least_one_uppercase" xml:space="preserve">
+    <value>يجب أن تحتوي كلمات المرور على حرف كبير واحد على الأقل ("A" - "Z").</value>
+  </data>
+  <data name="Password_cannot_contain_password" xml:space="preserve">
+    <value>لا يمكن أن تحتوي كلمة المرور على "كلمة مرور".</value>
+  </data>
+  <data name="Password_cannot_contain_username" xml:space="preserve">
+    <value>لا يمكن أن تحتوي كلمة المرور على اسم مستخدم.</value>
+  </data>
+  <data name="Password_is_required" xml:space="preserve">
+    <value>كلمة المرور مطلوبة.</value>
+  </data>
+  <data name="Password_must_be_at_least_6_characters" xml:space="preserve">
+    <value>يجب أن تتكون كلمة المرور من 6 أحرف على الأقل.</value>
+  </data>
+  <data name="Password_must_not_exceed_200_characters" xml:space="preserve">
+    <value>يجب ألا تتجاوز كلمة المرور 200 حرف.</value>
+  </data>
+  <data name="Password_reset_link_was_sent" xml:space="preserve">
+    <value>تم إرسال رابط إعادة تعيين كلمة المرور. من فضلك تفقد بريدك الالكتروني.</value>
+  </data>
+  <data name="Phone_number_is_required" xml:space="preserve">
+    <value>رقم الهاتف مطلوب.!</value>
+  </data>
+  <data name="Please_confirm_your_account_by_clicking_here" xml:space="preserve">
+    <value>الرجاء تأكيد حسابك &lt;a href='{0}'&gt; بالنقر هنا &lt;/a&gt;.</value>
+  </data>
+  <data name="Please_confirm_your_email" xml:space="preserve">
+    <value>برجاء تأكيد بريدك الالكترونى.</value>
+  </data>
+  <data name="Please_reset_your_password_by_clicking_here" xml:space="preserve">
+    <value>الرجاء إعادة تعيين كلمة المرور من خلال &lt;a href='{0}'&gt; النقر هنا &lt;/a&gt;.</value>
+  </data>
+  <data name="Please_specify_the_application_tenant_mode" xml:space="preserve">
+    <value>يرجى تحديد وضع مستأجر التطبيق.</value>
+  </data>
+  <data name="Profile_picture_is_required" xml:space="preserve">
+    <value>الصورة الشخصية مطلوبة.</value>
+  </data>
+  <data name="Recovery_Code_is_required" xml:space="preserve">
+    <value>رمز الاسترداد مطلوب.</value>
+  </data>
+  <data name="Recovery_Code_Redemption_Failed" xml:space="preserve">
+    <value>فشل استرداد التعليمات البرمجية الاسترداد</value>
+  </data>
+  <data name="Reference_name_is_required" xml:space="preserve">
+    <value>الاسم مطلوب.</value>
+  </data>
+  <data name="Refresh_token_timespan_cannot_be_null" xml:space="preserve">
+    <value>لا يمكن أن يكون النطاق الزمني لرمز التحديث فارغًا.</value>
+  </data>
+  <data name="Refresh_token_timespan_is_required" xml:space="preserve">
+    <value>مطلوب تحديث النطاق الزمني للرمز المميز.</value>
+  </data>
+  <data name="Refresh_token_timespan_must_be_greater_than_access_token_expiry_time" xml:space="preserve">
+    <value>يجب أن يكون النطاق الزمني لرمز التحديث أكبر من وقت انتهاء صلاحية رمز الوصول.</value>
+  </data>
+  <data name="Repeated_Ones_are_not_valid_Social_security_number" xml:space="preserve">
+    <value>111111111 ليس رقم ضمان اجتماعي صالحًا.</value>
+  </data>
+  <data name="Repeated_Threes_are_not_valid_Social_security_number" xml:space="preserve">
+    <value>رقم 333333333 ليس رقم ضمان اجتماعي صالحًا.</value>
+  </data>
+  <data name="Reset_your_password" xml:space="preserve">
+    <value>اعد ضبط كلمه السر</value>
+  </data>
+  <data name="Role_has_been_created_successfully" xml:space="preserve">
+    <value>تم إنشاء الدور بنجاح.</value>
+  </data>
+  <data name="Role_has_been_deleted_successfully" xml:space="preserve">
+    <value>تم حذف الدور بنجاح.</value>
+  </data>
+  <data name="Role_has_been_updated_successfully" xml:space="preserve">
+    <value>تم تحديث الدور بنجاح.</value>
+  </data>
+  <data name="Role_name_is_already_taken" xml:space="preserve">
+    <value>اسم الدور "{0}" مستخدم بالفعل.</value>
+  </data>
+  <data name="Role_name_is_invalid" xml:space="preserve">
+    <value>اسم الدور "{0}" غير صالح.</value>
+  </data>
+  <data name="Role_name_is_required" xml:space="preserve">
+    <value>اسم الدور مطلوب.</value>
+  </data>
+  <data name="Social_security_number_is_required" xml:space="preserve">
+    <value>مطلوب رقم الضمان الاجتماعي</value>
+  </data>
+  <data name="Social_security_number_must_contain_only_9_digits" xml:space="preserve">
+    <value>يجب أن يحتوي رقم الضمان الاجتماعي على 9 أرقام فقط.</value>
+  </data>
+  <data name="Social_security_number_must_not_contain_consecutive_digits" xml:space="preserve">
+    <value>يجب ألا يحتوي رقم الضمان الاجتماعي على أرقام متتالية.</value>
+  </data>
+  <data name="Surname_is_required" xml:space="preserve">
+    <value>اللقب مطلوب.</value>
+  </data>
+  <data name="Tenant_has_been_created_successfully" xml:space="preserve">
+    <value>تم إنشاء المستأجر بنجاح.</value>
+  </data>
+  <data name="The_applicant_is_not_found" xml:space="preserve">
+    <value>لم يتم العثور على مقدم الطلب.</value>
+  </data>
+  <data name="The_password_and_confirmation_password_do_not_match" xml:space="preserve">
+    <value>كلمة المرور وكلمة المرور التأكيدية غير متطابقتين.</value>
+  </data>
+  <data name="The_specified_role_is_already_registered" xml:space="preserve">
+    <value>الدور المحدد مسجل بالفعل.</value>
+  </data>
+  <data name="The_specified_role_is_already_registered_in_the_given_tenant" xml:space="preserve">
+    <value>الدور المحدد مسجل بالفعل في المستأجر المحدد.</value>
+  </data>
+  <data name="The_specified_username_and_email_are_already_registered" xml:space="preserve">
+    <value>تم تسجيل اسم المستخدم والبريد الإلكتروني المحددين بالفعل.</value>
+  </data>
+  <data name="The_specified_username_and_email_are_already_registered_in_the_given_tenant" xml:space="preserve">
+    <value>تم تسجيل اسم المستخدم والبريد الإلكتروني المحددين بالفعل في المستأجر المحدد.</value>
+  </data>
+  <data name="Token_settings_have_been_updated_successfully" xml:space="preserve">
+    <value>تم تحديث إعدادات الرمز المميز بنجاح.</value>
+  </data>
+  <data name="Two_factor_authentication_code_is_required" xml:space="preserve">
+    <value>مطلوب رمز المصادقة الثنائي.</value>
+  </data>
+  <data name="Two_factor_authentication_code_must_be_at_least_6_character_long" xml:space="preserve">
+    <value>يجب أن يكون رمز المصادقة الثنائي مكونًا من 6 أحرف على الأقل.</value>
+  </data>
+  <data name="Two_factor_authentication_code_must_not_exceed_7_characters" xml:space="preserve">
+    <value>يجب ألا يتجاوز كود المصادقة الثنائي 7 أحرف.</value>
+  </data>
+  <data name="Two_factor_authentication_has_been_disabled" xml:space="preserve">
+    <value>تم تعطيل 2Fa. يمكنك إعادة تمكين المصادقة الثنائية عند إعداد تطبيق المصادقة.</value>
+  </data>
+  <data name="Two_factor_authentication_required" xml:space="preserve">
+    <value>مطلوب مصادقة ثنائية.</value>
+  </data>
+  <data name="Unable_to_create_new_tenant_in_single_tenant_mode" xml:space="preserve">
+    <value>غير قادر على إنشاء مستأجر جديد في وضع المستأجر الفردي.</value>
+  </data>
+  <data name="Unable_to_delete_static_role" xml:space="preserve">
+    <value>تعذر حذف الدور الثابت.</value>
+  </data>
+  <data name="Unable_to_delete_static_user" xml:space="preserve">
+    <value>تعذر حذف المستخدم الثابت.</value>
+  </data>
+  <data name="Unable_to_load_applicant" xml:space="preserve">
+    <value>تعذر تحميل مقدم الطلب.</value>
+  </data>
+  <data name="Unable_to_load_report" xml:space="preserve">
+    <value>غير قادر على تحميل التقرير.</value>
+  </data>
+  <data name="Unable_to_load_role" xml:space="preserve">
+    <value>تعذر تحميل الدور.</value>
+  </data>
+  <data name="Unable_to_load_user" xml:space="preserve">
+    <value>تعذر تحميل المستخدم.</value>
+  </data>
+  <data name="Unable_to_update_static_user" xml:space="preserve">
+    <value>تعذر تحديث المستخدم الثابت.</value>
+  </data>
+  <data name="Unexpected_error_occurred_deleting_user_with_Id" xml:space="preserve">
+    <value>حدث خطأ غير متوقع أثناء حذف المستخدم بالمعرف "{0}".</value>
+  </data>
+  <data name="Unexpected_error_occurred_disabling_2FA" xml:space="preserve">
+    <value>حدث خطأ غير متوقع أثناء تعطيل المصادقة الثنائية للمستخدم ذي المعرف "{0}".</value>
+  </data>
+  <data name="Username_has_been_confirmed_successfully" xml:space="preserve">
+    <value>تم تأكيد اسم المستخدم بنجاح.</value>
+  </data>
+  <data name="Username_is_already_taken" xml:space="preserve">
+    <value>اسم المستخدم "{0}" مستخدم بالفعل.</value>
+  </data>
+  <data name="Username_is_invalid" xml:space="preserve">
+    <value>اسم المستخدم "{0}" غير صالح ، يمكن أن يحتوي فقط على أحرف أو أرقام.</value>
+  </data>
+  <data name="Username_is_required" xml:space="preserve">
+    <value>اسم المستخدم مطلوب.</value>
+  </data>
+  <data name="Username_must_be_at_least_6_characters" xml:space="preserve">
+    <value>يجب أن يتكون اسم المستخدم من 6 أحرف على الأقل.</value>
+  </data>
+  <data name="Username_must_not_exceed_200_characters" xml:space="preserve">
+    <value>يجب ألا يتجاوز اسم المستخدم 200 حرف.</value>
+  </data>
+  <data name="User_already_has_a_password_set" xml:space="preserve">
+    <value>تم تعيين كلمة مرور للمستخدم بالفعل.</value>
+  </data>
+  <data name="User_already_in_role" xml:space="preserve">
+    <value>المستخدم بالفعل في الدور "{0}".</value>
+  </data>
+  <data name="User_has_been_added_without_files" xml:space="preserve">
+    <value>تمت إضافة المستخدم بدون ملفات.</value>
+  </data>
+  <data name="User_has_been_created_successfully" xml:space="preserve">
+    <value>تم إنشاء المستخدم بنجاح.</value>
+  </data>
+  <data name="User_has_been_deleted_successfully" xml:space="preserve">
+    <value>تم حذف المستخدم بنجاح.</value>
+  </data>
+  <data name="User_has_been_updated_successfully" xml:space="preserve">
+    <value>تم تحديث المستخدم بنجاح.</value>
+  </data>
+  <data name="User_has_been_updated_successfully_without_updating_his_her_roles_as_the_user_is_static_type" xml:space="preserve">
+    <value>تم تحديث المستخدم بنجاح دون تحديث أدواره حيث أن المستخدم من النوع الثابت.</value>
+  </data>
+  <data name="User_Id_is_required" xml:space="preserve">
+    <value>معرف المستخدم مطلوب.</value>
+  </data>
+  <data name="User_permissions_have_been_updated_successfully" xml:space="preserve">
+    <value>تم تحديث أذونات المستخدم بنجاح.</value>
+  </data>
+  <data name="User_with_Id_deleted" xml:space="preserve">
+    <value>تم حذف المستخدم بالمعرف "{0}".</value>
+  </data>
+  <data name="User_with_Id_UserId_logged_in_with_2Fa" xml:space="preserve">
+    <value>سجّل المستخدم الذي يحمل المعرّف "{0}" الدخول باستخدام المصادقة الثنائية.</value>
+  </data>
+  <data name="value_cannot_be_null" xml:space="preserve">
+    <value>لا يمكن أن يكون {0} فارغًا</value>
+  </data>
+  <data name="Verification_code_is_invalid" xml:space="preserve">
+    <value>رمز التحقق غير صالح.</value>
+  </data>
+  <data name="Verification_email_has_been_sent" xml:space="preserve">
+    <value>تم إرسال البريد الإلكتروني للتحقق. من فضلك تفقد بريدك الالكتروني.</value>
+  </data>
+  <data name="Weight_is_required" xml:space="preserve">
+    <value>الوزن مطلوب.</value>
+  </data>
+  <data name="Your_account_is_deactivated_Please_contact_your_administrator" xml:space="preserve">
+    <value>حسابك معطل. الرجاء الاتصال بالمسؤول الخاص بك.</value>
+  </data>
+  <data name="Your_authenticator_app_has_been_verified" xml:space="preserve">
+    <value>تم التحقق من تطبيق المصدق الخاص بك.</value>
+  </data>
+  <data name="Your_authenticator_app_key_has_been_reset" xml:space="preserve">
+    <value>تمت إعادة تعيين مفتاح تطبيق المصدق الخاص بك ، وسوف تحتاج إلى تكوين تطبيق المصادقة الخاص بك باستخدام المفتاح الجديد.</value>
+  </data>
+  <data name="Your_email_has_been_changed_successfully" xml:space="preserve">
+    <value>تم تغيير بريدك الإلكتروني بنجاح.</value>
+  </data>
+  <data name="Your_email_has_been_successfully_changed" xml:space="preserve">
+    <value>تم تغيير بريدك الإلكتروني بنجاح.</value>
+  </data>
+  <data name="Your_email_is_unchanged" xml:space="preserve">
+    <value>بريدك الإلكتروني لم يتغير.</value>
+  </data>
+  <data name="Your_password_has_been_changed" xml:space="preserve">
+    <value>تم تغيير كلمة السر الخاصة بك.</value>
+  </data>
+  <data name="Your_password_has_been_reset" xml:space="preserve">
+    <value>تم إعادة تعيين كلمة المرور الخاصة بك.</value>
+  </data>
+  <data name="Your_password_has_been_set" xml:space="preserve">
+    <value>تم تعيين كلمة المرور الخاصة بك.</value>
+  </data>
+  <data name="You_are_forbidden" xml:space="preserve">
+    <value>أنت ممنوع من الوصول إلى {0}.</value>
+  </data>
+  <data name="You_are_locked_out" xml:space="preserve">
+    <value>أنت مغلق.</value>
+  </data>
+  <data name="You_are_not_authorized" xml:space="preserve">
+    <value>لست مخولاً للوصول إلى {0}.</value>
+  </data>
+  <data name="You_have_generated_new_recovery_codes" xml:space="preserve">
+    <value>لقد قمت بإنشاء رموز استرداد جديدة.</value>
+  </data>
+  <data name="You_have_successfully_created_a_new_account" xml:space="preserve">
+    <value>لقد قمت بإنشاء حساب جديد بنجاح.</value>
+  </data>
+</root>
