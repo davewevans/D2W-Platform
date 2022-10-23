@@ -2,7 +2,7 @@
 
 [Route("api/[controller]")]
 [ApiController]
-[BpAuthorize]
+[CustomAuthorize]
 public class RolesController : ApiController
 {
     #region Public Methods

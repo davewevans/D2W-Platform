@@ -12,6 +12,8 @@
 		<LangVersion>preview</LangVersion>
 		<RunAnalyzersDuringBuild>true</RunAnalyzersDuringBuild>
 		<UserSecretsId>bb4e7319-f24b-40a1-aee7-575912f7b1c6</UserSecretsId>
+		<!--<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>-->
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

@@ -66,7 +66,11 @@ public class TenantInterceptorMiddleware
                         if (tenantName.Count == 0)
                             tenantName = string.Empty;
 
-                        var tenantId = dbContext.Tenants.FirstOrDefault(t => t.Name == tenantName.FirstOrDefault())?.Id;
+                        string tenantNameValue = tenantName.FirstOrDefault();
+                        
+                        var tenant = dbContext.Tenants.FirstOrDefault(t => t.Name.Equals(tenantNameValue));
+
+                        var tenantId = tenant?.Id;
 
                         if (httpContext.Request.Path.Value is { } pathValue
                             && tenantId is null

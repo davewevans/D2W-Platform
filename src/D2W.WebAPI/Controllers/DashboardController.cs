@@ -2,7 +2,7 @@
 
 [Route("api/[controller]")]
 [ApiController]
-[BpAuthorize]
+[CustomAuthorize]
 public class DashboardController : ApiController
 {
     #region Private Fields

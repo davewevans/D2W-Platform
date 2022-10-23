@@ -1,7 +1,7 @@
 ﻿namespace D2W.WebAPI.Filters;
 
 [AttributeUsage(AttributeTargets.Class)]
-public class BpAuthorizeAttribute : Attribute, IAsyncAuthorizationFilter
+public class CustomAuthorizeAttribute : Attribute, IAsyncAuthorizationFilter
 {
     #region Public Methods
 

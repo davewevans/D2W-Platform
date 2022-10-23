@@ -1,6 +1,6 @@
 ﻿namespace D2W.WebAPI.Controllers;
 
-[BpAuthorize]
+[CustomAuthorize]
 public class PermissionsController : ApiController
 {
     #region Public Methods

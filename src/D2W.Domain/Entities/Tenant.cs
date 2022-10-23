@@ -13,5 +13,8 @@ public class Tenant : IAuditable
     public string DeletedBy { get; set; }
     public DateTime? DeletedOn { get; set; }
 
+    // TODO add with migration
+    public string StorageFileNamePrefix { get; set; }
+
     #endregion Public Properties
 }

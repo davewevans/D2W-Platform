@@ -1,0 +1,19 @@
+﻿@inherits LayoutComponentBase
+
+<MudThemeProvider Theme="_currentTheme" />
+<MudDialogProvider />
+<MudSnackbarProvider />
+<MudRTLProvider RightToLeft="@IsRightToLeft">
+    <MudLayout>
+        <MudAppBar>
+            <AppLogo />
+            <AppBrand />
+            <MudSpacer />
+            @*<MudIconButton Color="Color.Inherit" OnClick="@((e) => DarkMode())" Size="Size.Medium" Icon="@(IsDarkMode ?"fa fa-sun-o":"fa fa-moon-o")" />*@
+            <LanguageSwitcher />
+        </MudAppBar>
+        <MudMainContent>
+            @Body
+        </MudMainContent>
+    </MudLayout>
+</MudRTLProvider>

@@ -63,4 +63,8 @@
     <ProjectReference Include="..\D2W.Application\D2W.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Persistence\MockData\" />
+  </ItemGroup>
+
 </Project>

@@ -6,6 +6,8 @@
 		<GenerateAssemblyInfo>true</GenerateAssemblyInfo>
 		<GenerateMvcApplicationPartsAssemblyAttributes>false</GenerateMvcApplicationPartsAssemblyAttributes>
 		<PublishTrimmed>true</PublishTrimmed>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
 	</PropertyGroup>
 
 	<PropertyGroup>
@@ -35,6 +37,7 @@
 
 	<ItemGroup>
 	  <Folder Include="Models\Reporting\" />
+	  <Folder Include="wwwroot\images\" />
 	</ItemGroup>
 
 	<ProjectExtensions><VisualStudio><UserProperties /></VisualStudio></ProjectExtensions>

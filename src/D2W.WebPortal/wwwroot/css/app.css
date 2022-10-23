@@ -8,3 +8,9 @@
     line-height: 1.66;
     letter-spacing: .03333em;
 }
+
+.registration-image {
+    max-width: 100%;
+    overflow: hidden;
+    position: absolute;
+}

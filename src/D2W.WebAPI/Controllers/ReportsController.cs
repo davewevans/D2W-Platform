@@ -2,7 +2,7 @@
 
 [Route("api/[controller]")]
 [ApiController]
-[BpAuthorize]
+[CustomAuthorize]
 public class ReportsController : ApiController
 {
     #region Public Methods
