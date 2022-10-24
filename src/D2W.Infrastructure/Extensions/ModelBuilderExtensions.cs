@@ -1,4 +1,6 @@
-﻿namespace D2W.Infrastructure.Extensions;
+﻿using D2W.Application.Common.Managers;
+
+namespace D2W.Infrastructure.Extensions;
 
 /*
     Copyright Phil Haack

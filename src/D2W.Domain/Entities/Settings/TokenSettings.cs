@@ -10,6 +10,7 @@ public class TokenSettings : ISettingsSchema, IMayHaveTenant
     public int RefreshTokenUoT { get; set; }
     public double? RefreshTokenTimeSpan { get; set; }
     public Guid? TenantId { get; set; }
+    public bool IgnoreTenantId { get; set; }
 
     #endregion Public Properties
 }

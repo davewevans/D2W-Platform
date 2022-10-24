@@ -44,22 +44,29 @@ public class ApplicationUserManager : UserManager<ApplicationUser>
     {
         if (directUserPermissionsIds?.Any() == true)
         {
-            var addedUserPermissions = directUserPermissionsIds.Where(aup => user.Claims.All(uc => uc.ClaimValue != dbContext.ApplicationPermissions.FirstOrDefault(c => c.Id == aup)?.Name)).ToList();
+            var permissionsInDb = await dbContext.ApplicationPermissions.ToListAsync();
 
-            var removedUserPermissions = user.Claims.Where(uc => directUserPermissionsIds.All(aup => aup != dbContext.ApplicationPermissions.FirstOrDefault(c => c.Name == uc.ClaimValue)?.Id)).ToList();
+            bool NotInUserClaims(Guid dup) => user.Claims
+                                                  .All(uc => uc.ClaimValue != permissionsInDb.FirstOrDefault(p => p.Id == dup)?.Name);
 
-            foreach (var addedUserPermission in addedUserPermissions)
-            {
-                var permission = await dbContext.ApplicationPermissions.Where(ap => ap.Id == addedUserPermission).Select(ap => ap.Name).FirstOrDefaultAsync();
+            var addedUserPermissionIds = directUserPermissionsIds.Where(NotInUserClaims).ToList();
 
-                user.Claims.Add(new ApplicationUserClaim()
-                {
-                    UserId = user.Id,
-                    ClaimType = "permissions",
-                    ClaimValue = permission,
-                    IsExcluded = false,
-                });
-            }
+            bool NotInDirectUserPermissions(ApplicationUserClaim uc) => directUserPermissionsIds
+                .All(dup => dup != permissionsInDb.FirstOrDefault(c => c.Name == uc.ClaimValue)?.Id);
+
+            var addedUserPermissions = from aud in addedUserPermissionIds
+                                       join pid in permissionsInDb on aud equals pid.Id
+                                       select new ApplicationUserClaim()
+                                       {
+                                           UserId = user.Id,
+                                           ClaimType = "permissions",
+                                           ClaimValue = pid.Name,
+                                           IsExcluded = false,
+                                       };
+
+            user.Claims.AddRange(addedUserPermissions);
+
+            var removedUserPermissions = user.Claims.Where(NotInDirectUserPermissions).ToList();
 
             foreach (var removedUserPermission in removedUserPermissions)
                 user.Claims.Remove(removedUserPermission);
@@ -85,7 +92,7 @@ public class ApplicationUserManager : UserManager<ApplicationUser>
         user.Claims.AddRange(from removedUserPermission in userPermissionsToBeRemoved
                              select new ApplicationUserClaim()
                              {
-                                 ClaimType = "permissions",
+                                 ClaimType = "excluded",
                                  ClaimValue = removedUserPermission,
                                  IsExcluded = true,
                              });

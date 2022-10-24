@@ -58,6 +58,8 @@ public class MultiTenantRoleValidator : RoleValidator<ApplicationRole>
         }
         else if (roleInterfaces.Any(i => !i.IsGenericType && i.Name == nameof(IMayHaveTenant)))
         {
+            if (role.IgnoreTenantId) return;
+
             var tenantId = tenantResolver.GetTenantId();
             var propertyInfo = role.GetType().GetProperty("TenantId");
             if (propertyInfo != null && propertyInfo.GetValue(role) == null)

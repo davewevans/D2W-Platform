@@ -194,23 +194,23 @@ public class TenantUseCase : ITenantUseCase
         // ref: https://www.c-sharpcorner.com/article/seed-data-in-net-core-identity/
         // Should these roles should be global and not per tenant
 
-        var designerRole = new ApplicationRole
-        {
-            Name = "Designer",
-            IsStatic = true
-        };
+        //var designerRole = new ApplicationRole
+        //{
+        //    Name = "Designer",
+        //    IsStatic = true
+        //};
 
-        var clientRole = new ApplicationRole
-        {
-            Name = "Client",
-            IsStatic = true
-        };
+        //var clientRole = new ApplicationRole
+        //{
+        //    Name = "Client",
+        //    IsStatic = true
+        //};
 
-        var workroomRole = new ApplicationRole
-        {
-            Name = "Workroom",
-            IsStatic = true
-        };
+        //var workroomRole = new ApplicationRole
+        //{
+        //    Name = "Workroom",
+        //    IsStatic = true
+        //};
 
         if (!await _roleManager.RoleExistsAsync(adminRole.Name))
             await _roleManager.CreateAsync(adminRole);
@@ -230,14 +230,14 @@ public class TenantUseCase : ITenantUseCase
         if (!await _roleManager.RoleExistsAsync(driverRole.Name))
             await _roleManager.CreateAsync(driverRole);
 
-        if (!await _roleManager.RoleExistsAsync(designerRole.Name))
-            await _roleManager.CreateAsync(designerRole);
+        //if (!await _roleManager.RoleExistsAsync(designerRole.Name))
+        //    await _roleManager.CreateAsync(designerRole);
 
-        if (!await _roleManager.RoleExistsAsync(clientRole.Name))
-            await _roleManager.CreateAsync(clientRole);
+        //if (!await _roleManager.RoleExistsAsync(clientRole.Name))
+        //    await _roleManager.CreateAsync(clientRole);
 
-        if (!await _roleManager.RoleExistsAsync(workroomRole.Name))
-            await _roleManager.CreateAsync(workroomRole);
+        //if (!await _roleManager.RoleExistsAsync(workroomRole.Name))
+        //    await _roleManager.CreateAsync(workroomRole);
     }
 
     #endregion Private Methods

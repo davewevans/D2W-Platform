@@ -1,3 +1,5 @@
+using D2W.Application.Common.Managers;
+
 namespace D2W.Infrastructure.Persistence;
 
 public class ApplicationDbContext : IdentityDbContext<ApplicationUser,
@@ -64,6 +66,12 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser,
 
     public DbSet<Report> Reports { get; set; }
 
+    public DbSet<TenantWorkroomModel> TenantsWorkrooms { get; set; }
+    public DbSet<TenantClientModel> TenantsClients { get; set; }
+    public DbSet<ContactDetailsModel> ContactDetails { get; set; }
+    public DbSet<CountryModel> Countries { get; set; }
+
+
     #endregion Public Properties
 
     #region Private Properties
@@ -129,6 +137,8 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser,
 
             foreach (var entry in ChangeTracker.Entries<IMayHaveTenant>())
             {
+                if (entry.Entity.IgnoreTenantId) continue;
+
                 switch (entry.State)
                 {
                     case EntityState.Added:
@@ -188,6 +198,10 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser,
         ConfigureSoftDeletableEntities(modelBuilder);
 
         ConfigureSettingsSchemaEntities(modelBuilder);
+
+        ConfigureManyToManyRelationships(modelBuilder);
+
+        ConfigureOneToOneRelationships(modelBuilder);
 
         base.OnModelCreating(modelBuilder);
 
@@ -256,6 +270,24 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser,
             builder.Entity(entityType.ClrType).Property<bool>("IsDeleted").IsRequired();
 
         builder.SetQueryFilterOnAllEntities<ISoftDeletable>(p => EF.Property<bool>(p, "IsDeleted") == false);
+    }
+
+    private static void ConfigureManyToManyRelationships(ModelBuilder modelBuilder)
+    {
+        // Configuring many-to-many relationships
+
+        modelBuilder.Entity<TenantWorkroomModel>().HasKey(x => new { x.TenantId, x.ApplicationUserId });
+        modelBuilder.Entity<TenantClientModel>().HasKey(x => new { x.TenantId, x.ApplicationUserId });
+    }
+
+    private static void ConfigureOneToOneRelationships(ModelBuilder modelBuilder)
+    {
+        // Configuring one-to-one relationships
+
+        modelBuilder.Entity<ApplicationUser>()
+            .HasOne(b => b.ContactDetails)
+            .WithOne(i => i.ApplicationUser)
+            .HasForeignKey<ContactDetailsModel>(b => b.ApplicationUserId);
     }
 
     private void InitiateTenantMode()

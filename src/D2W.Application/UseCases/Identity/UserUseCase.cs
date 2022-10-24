@@ -1,5 +1,4 @@
 ﻿using D2W.Application.Common.Managers;
-using Microsoft.EntityFrameworkCore;
 
 namespace D2W.Application.UseCases.Identity;
 
@@ -131,22 +130,15 @@ public class UserUseCase : IUserUseCase
         return Envelope<CreateUserResponse>.Result.Ok(createUserResponse);
     }
 
-    private async Task AssignRolesToUser(IList<string> assignedRoleIds, ApplicationUser user)
-    {
-        var defaultRoles = await _roleManager.Roles.Where(r => r.IsDefault).Select(r => r.Id).ToListAsync();
-
-        _userManager.AssignRolesToUser(assignedRoleIds, user, defaultRoles);
-    }
-
     public async Task<Envelope<string>> EditUser(UpdateUserCommand request)
     {
         var user = await _userManager.Users.Include(u => u.UserRoles)
-            .ThenInclude(r => r.Role)
-            .ThenInclude(r => r.RoleClaims)
-            .Include(u => u.UserAttachments)
-            .Include(u => u.Claims)
-            .Where(u => u.Id == request.Id)
-            .FirstOrDefaultAsync();
+                                           .ThenInclude(r => r.Role)
+                                           .ThenInclude(r => r.RoleClaims)
+                                           .Include(u => u.UserAttachments)
+                                           .Include(u => u.Claims)
+                                           .Where(u => u.Id == request.Id)
+                                           .FirstOrDefaultAsync();
 
         if (user == null)
             return Envelope<string>.Result.NotFound(Resource.Unable_to_load_user);
@@ -243,10 +235,10 @@ public class UserUseCase : IUserUseCase
 
         var userClaims = claimsPrincipal.Claims.ToList(); // To get all inherited and direct claims
 
-        var selectedPermissions = from uc in userClaims
-                                  join ap in _dbContext.ApplicationPermissions
-                                      on uc.Value equals ap.Name
-                                  select new PermissionItem { Id = ap.Id, Name = ap.Name };
+        var grantedPermissions = from uc in userClaims
+                                 join ap in _dbContext.ApplicationPermissions
+                                     on uc.Value equals ap.Name
+                                 select new PermissionItem { Id = ap.Id, Name = ap.Name };
 
         var excludedPermissions = await (from uc in _dbContext.UserClaims
                                          join ap in _dbContext.ApplicationPermissions
@@ -254,7 +246,7 @@ public class UserUseCase : IUserUseCase
                                          where uc.IsExcluded && uc.UserId == user.Id
                                          select new PermissionItem { Id = ap.Id, Name = ap.Name }).ToListAsync();
 
-        var selectedNonExcludedPermissions = selectedPermissions.Except(excludedPermissions, ProjectionEqualityComparer<PermissionItem>.Create(a => a.Id)).ToList();
+        var selectedNonExcludedPermissions = grantedPermissions.Except(excludedPermissions, ProjectionEqualityComparer<PermissionItem>.Create(a => a.Id)).ToList();
 
         return selectedNonExcludedPermissions;
     }
@@ -294,4 +286,15 @@ public class UserUseCase : IUserUseCase
     }
 
     #endregion Public Methods
+
+    #region Private Methods
+
+    private async Task AssignRolesToUser(IList<string> assignedRoleIds, ApplicationUser user)
+    {
+        var defaultRoles = await _roleManager.Roles.Where(r => r.IsDefault).Select(r => r.Id).ToListAsync();
+
+        _userManager.AssignRolesToUser(assignedRoleIds, user, defaultRoles);
+    }
+
+    #endregion Private Methods
 }

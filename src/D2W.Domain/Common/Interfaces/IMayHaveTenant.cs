@@ -6,5 +6,7 @@ public interface IMayHaveTenant
 
     Guid? TenantId { get; set; }
 
+    public bool IgnoreTenantId { get; set; }
+
     #endregion Public Properties
 }

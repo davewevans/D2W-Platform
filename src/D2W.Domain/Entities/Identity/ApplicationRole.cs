@@ -17,6 +17,7 @@ public class ApplicationRole : IdentityRole, IAuditable, IMayHaveTenant
     public bool IsStatic { get; set; }
     public bool IsDefault { get; set; }
     public Guid? TenantId { get; set; }
+    public bool IgnoreTenantId { get; set; }
     public ICollection<ApplicationUserRole> UserRoles { get; set; }
     public ICollection<ApplicationRoleClaim> RoleClaims { get; set; }
 

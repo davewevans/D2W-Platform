@@ -63,4 +63,8 @@
 		<ProjectReference Include="..\D2W.Infrastructure\D2W.Infrastructure.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+		<Folder Include="wwwroot\RequestedReports\Applicants\" />
+	</ItemGroup>
+
 </Project>

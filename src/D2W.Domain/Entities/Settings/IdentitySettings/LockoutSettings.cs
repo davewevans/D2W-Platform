@@ -9,6 +9,7 @@ public class LockoutSettings : ISettingsSchema, IMayHaveTenant
     public int MaxFailedAccessAttempts { get; set; }
     public int DefaultLockoutTimeSpan { get; set; }
     public Guid? TenantId { get; set; }
+    public bool IgnoreTenantId { get; set; }
 
     #endregion Public Properties
 }

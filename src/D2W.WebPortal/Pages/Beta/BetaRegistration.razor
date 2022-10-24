@@ -10,14 +10,14 @@
                 <EditForm Model="@RegisterCommand" OnValidSubmit="RegisterUser">
                     <EditContextServerSideValidator @ref="EditContextServerSideValidator" />
                     <FluentValidationValidator />
-                   @* <MudText Typo="Typo.h5" GutterBottom="true">@Resource.Sign_Up_For_Free_Trial</MudText>
+                    @* <MudText Typo="Typo.h5" GutterBottom="true">@Resource.Sign_Up_For_Free_Trial</MudText>
                     <MudText Typo="Typo.caption" GutterBottom="true">@Resource.No_Credit_Card_Required</MudText>*@
                     <MudText Class="my-4">
                         @Resource.Already_have_an_account <MudLink Href="/account/login">@Resource.Sign_in</MudLink>
                     </MudText>
 
                     <div class="d-flex gap-4 mb-4">
-                      @*  <MudTextField Label="@Resource.FullName"
+                        @*  <MudTextField Label="@Resource.FullName"
                                       Variant="Variant.Outlined"
                                       @bind-Value="RegisterCommand.FullName"
                                       For="@(() => RegisterCommand.FullName)"
@@ -35,7 +35,7 @@
                     </div>
 
 
-            @*        <MudTextField Label="@Resource.Your_Channel_Name"
+                    @*        <MudTextField Label="@Resource.Your_Channel_Name"
                                   Variant="Variant.Outlined"
                                   @bind-Value="RegisterCommand.ChannelName"
                                   For="@(() => RegisterCommand.ChannelName)"
@@ -66,7 +66,7 @@
                     </div>
 
 
-                 @*   <MudSelect T="string" Class="mb-2"
+                    @*   <MudSelect T="string" Class="mb-2"
                                Label="@Resource.How_Did_You_Hear_About_Us"
                                @bind-Value="RegisterCommand.HeardAboutUsFrom"
                                AnchorOrigin="Origin.BottomCenter"
@@ -80,7 +80,7 @@
 
                     <MudDivider />
 
-               @*     <MudButton ButtonType="ButtonType.Submit"
+                    @*     <MudButton ButtonType="ButtonType.Submit"
                                Style="margin-top:4px"
                                Variant="Variant.Filled"
                                Color="Color.Primary"
@@ -103,6 +103,20 @@
                         }
                     </MudExpansionPanels>
                 </EditForm>
+                
+                
+                
+                
+                <p>1</p>
+                <p>2</p>
+                <p>3</p>
+                <p>4</p>
+                <p>5</p>
+                <p>1</p>
+                <p>2</p>
+                <p>3</p>
+                <p>4</p>
+                <p>5</p>
             </MudPaper>
         </MudContainer>
     </MudItem>

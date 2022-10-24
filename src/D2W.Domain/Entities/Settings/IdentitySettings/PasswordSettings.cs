@@ -12,6 +12,7 @@ public class PasswordSettings : ISettingsSchema, IMayHaveTenant
     public bool RequireUppercase { get; set; }
     public bool RequireDigit { get; set; }
     public Guid? TenantId { get; set; }
+    public bool IgnoreTenantId { get; set; }
 
     #endregion Public Properties
 }

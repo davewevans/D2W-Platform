@@ -4,6 +4,8 @@ public class ApplicationUser : IdentityUser, IAuditable, IMayHaveTenant
 {
     #region Public Constructors
 
+    // TODO one-to-one with WorkroomInfoModel
+
     public ApplicationUser()
     {
         Claims = new List<ApplicationUserClaim>();
@@ -20,6 +22,7 @@ public class ApplicationUser : IdentityUser, IAuditable, IMayHaveTenant
     public string Name { get; set; }
     public string Surname { get; set; }
     public string FullName => $"{Name} {Surname}";
+    //public ApplicationUserType AppUserType { get; set; } = ApplicationUserType.Designer;
     public string JobTitle { get; set; }
     public string AvatarUri { get; set; }
     public bool IsSuspended { get; set; }
@@ -29,6 +32,7 @@ public class ApplicationUser : IdentityUser, IAuditable, IMayHaveTenant
     public string RefreshToken { get; set; }
     public DateTime RefreshTokenTimeSpan { get; set; }
     public Guid? TenantId { get; set; }
+    public bool IgnoreTenantId { get; set; }
     public List<ApplicationUserClaim> Claims { get; set; }
     public List<ApplicationUserLogin> Logins { get; set; }
     public List<ApplicationUserToken> Tokens { get; set; }
@@ -42,4 +46,12 @@ public class ApplicationUser : IdentityUser, IAuditable, IMayHaveTenant
     public DateTime? DeletedOn { get; set; }
 
     #endregion Public Properties
+
+    #region Navigational Properties
+
+    public ICollection<TenantWorkroomModel> TenantsWorkrooms { get; set; }
+    public ICollection<TenantClientModel> TenantsClients { get; set; }
+    public ContactDetailsModel ContactDetails { get; set; }
+
+    #endregion
 }

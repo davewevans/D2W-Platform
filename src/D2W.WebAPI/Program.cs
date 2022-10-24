@@ -1,3 +1,4 @@
+using D2W.Application.Common.Managers;
 using FluentValidation;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -68,6 +69,9 @@ using (var scope = app.Services.CreateScope())
         await context.Database.EnsureCreatedAsync();
         var permissionScannerService = services.GetRequiredService<IPermissionScannerService>();
         await ApplicationDbContextSeeder.SeedAsync(permissionScannerService);
+
+        var roleManager = services.GetRequiredService<ApplicationRoleManager>();
+        await ApplicationDbContextSeeder.SeedStaticRoles(roleManager);
     }
     catch (Exception ex)
     {

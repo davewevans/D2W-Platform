@@ -17,4 +17,11 @@ public class Tenant : IAuditable
     public string StorageFileNamePrefix { get; set; }
 
     #endregion Public Properties
+
+    #region Navigational Properties
+
+    public ICollection<TenantWorkroomModel> TenantsWorkrooms { get; set; }
+    public ICollection<TenantClientModel> TenantsClients { get; set; }
+
+    #endregion
 }

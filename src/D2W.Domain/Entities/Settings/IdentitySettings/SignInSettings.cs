@@ -11,6 +11,7 @@ public class SignInSettings : ISettingsSchema, IMayHaveTenant
     public bool RequireConfirmedAccount { get; set; }
 
     public Guid? TenantId { get; set; }
+    public bool IgnoreTenantId { get; set; }
 
     #endregion Public Properties
 }
