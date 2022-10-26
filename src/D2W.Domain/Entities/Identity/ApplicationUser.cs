@@ -22,7 +22,7 @@ public class ApplicationUser : IdentityUser, IAuditable, IMayHaveTenant
     public string Name { get; set; }
     public string Surname { get; set; }
     public string FullName => $"{Name} {Surname}";
-    //public ApplicationUserType AppUserType { get; set; } = ApplicationUserType.Designer;
+    public ApplicationUserType AppUserType { get; set; } = ApplicationUserType.Designer;
     public string JobTitle { get; set; }
     public string AvatarUri { get; set; }
     public bool IsSuspended { get; set; }

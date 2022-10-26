@@ -10,6 +10,8 @@ namespace D2W.Domain.Enums
     {
         Designer,
         Client,
-        Workroom
+        Workroom,
+        Admin,
+        BetaTester
     }
 }

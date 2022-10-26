@@ -20,6 +20,27 @@ public static class ApplicationDbContextSeeder
             IgnoreTenantId = true
         };
 
+        var salesRole = new ApplicationRole
+        {
+            Name = "Sales",
+            IsStatic = true,
+            IgnoreTenantId = true
+        };
+
+        var onboardingSpecilistRole = new ApplicationRole
+        {
+            Name = "OnboardingSpecialist",
+            IsStatic = true,
+            IgnoreTenantId = true
+        };
+
+        var developerRole = new ApplicationRole
+        {
+            Name = "Developer",
+            IsStatic = true,
+            IgnoreTenantId = true
+        };
+
         var designerRole = new ApplicationRole
         {
             Name = "Designer",
@@ -43,6 +64,15 @@ public static class ApplicationDbContextSeeder
 
         if (!await roleManager.RoleExistsAsync(adminRole.Name))
             await roleManager.CreateAsync(adminRole);
+
+        if (!await roleManager.RoleExistsAsync(salesRole.Name))
+            await roleManager.CreateAsync(salesRole);
+
+        if (!await roleManager.RoleExistsAsync(onboardingSpecilistRole.Name))
+            await roleManager.CreateAsync(onboardingSpecilistRole);
+
+        if (!await roleManager.RoleExistsAsync(developerRole.Name))
+            await roleManager.CreateAsync(developerRole);
 
         if (!await roleManager.RoleExistsAsync(designerRole.Name))
             await roleManager.CreateAsync(designerRole);

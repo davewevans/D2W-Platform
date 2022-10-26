@@ -1,6 +1,6 @@
 ﻿dotnet ef commands:
 
-cd ElevateOTT.Infrastructure
+cd D2W.Infrastructure
 dotnet ef migrations add --startup-project ..\D2W.WebAPI\ MigrationName
 dotnet ef database update --startup-project ..\D2W.WebAPI\
 

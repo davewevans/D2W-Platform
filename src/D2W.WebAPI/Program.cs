@@ -65,8 +65,9 @@ using (var scope = app.Services.CreateScope())
 
     try
     {
-        var context = services.GetRequiredService<ApplicationDbContext>();
-        await context.Database.EnsureCreatedAsync();
+        //var context = services.GetRequiredService<ApplicationDbContext>();
+        //await context.Database.EnsureCreatedAsync();
+
         var permissionScannerService = services.GetRequiredService<IPermissionScannerService>();
         await ApplicationDbContextSeeder.SeedAsync(permissionScannerService);
 
