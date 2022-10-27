@@ -4,8 +4,6 @@ public class ApplicationUser : IdentityUser, IAuditable, IMayHaveTenant
 {
     #region Public Constructors
 
-    // TODO one-to-one with WorkroomInfoModel
-
     public ApplicationUser()
     {
         Claims = new List<ApplicationUserClaim>();
@@ -29,6 +27,7 @@ public class ApplicationUser : IdentityUser, IAuditable, IMayHaveTenant
     public bool IsStatic { get; set; }
     public bool IsDemo { get; set; }
     public bool IsSuperAdmin { get; set; }
+    public string HeardAboutUsFrom { get; set; }
     public string RefreshToken { get; set; }
     public DateTime RefreshTokenTimeSpan { get; set; }
     public Guid? TenantId { get; set; }

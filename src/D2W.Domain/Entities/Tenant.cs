@@ -6,6 +6,7 @@ public class Tenant : IAuditable
 
     public Guid Id { get; set; }
     public string Name { get; set; }
+    public string FullName { get; set; }
     public string CreatedBy { get; set; }
     public DateTime CreatedOn { get; set; }
     public string ModifiedBy { get; set; }
@@ -15,6 +16,7 @@ public class Tenant : IAuditable
 
     // TODO add with migration
     public string StorageFileNamePrefix { get; set; }
+
 
     #endregion Public Properties
 

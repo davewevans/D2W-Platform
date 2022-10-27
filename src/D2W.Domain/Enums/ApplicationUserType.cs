@@ -12,6 +12,9 @@ namespace D2W.Domain.Enums
         Client,
         Workroom,
         Admin,
+        Sales,
+        Developer,
+        OnboardingSpecialist,
         BetaTester
     }
 }

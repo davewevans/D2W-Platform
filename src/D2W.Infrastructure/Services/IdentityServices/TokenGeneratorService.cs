@@ -8,6 +8,7 @@ public class TokenGeneratorService : ITokenGeneratorService
     private readonly IConfigReaderService _configReaderService;
     private readonly IAppSettingsUseCase _appSettingsUseCase;
     private readonly IUserUseCase _userUseCase;
+    private readonly ITenantResolver _tenantResolver;
 
     #endregion Private Fields
 
@@ -16,12 +17,14 @@ public class TokenGeneratorService : ITokenGeneratorService
     public TokenGeneratorService(UserManager<ApplicationUser> userManager,
                                  IConfigReaderService configReaderService,
                                  IAppSettingsUseCase appSettingsUseCase,
-                                 IUserUseCase userUseCase)
+                                 IUserUseCase userUseCase, 
+                                 ITenantResolver tenantResolver)
     {
         _userManager = userManager;
         _configReaderService = configReaderService;
         _appSettingsUseCase = appSettingsUseCase;
         _userUseCase = userUseCase;
+        _tenantResolver = tenantResolver;
     }
 
     #endregion Public Constructors
@@ -102,19 +105,25 @@ public class TokenGeneratorService : ITokenGeneratorService
 
     private async Task<List<Claim>> BuildUserClaims(ApplicationUser user)
     {
+
+        // TODO add title ex: Designer, Client, Onboarding Specialist, etc
+
+        string tenantName = _tenantResolver.GetTenantName();
+
         var claims = new List<Claim>
-                     {
-                         new(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                         new(JwtRegisteredClaimNames.Sub, user.Id),
-                         new(ClaimTypes.NameIdentifier, user.Id),
-                         new(ClaimTypes.Name, user.UserName),
-                         new(ClaimTypes.Email, user.Email),
-                         new("IsSuperAdmin", user.IsSuperAdmin.ToString().ToLower()),
-                         new("AvatarUri", user.AvatarUri ?? string.Empty),
-                         new("FullName", string.IsNullOrWhiteSpace(user.FullName) ? user.UserName : user.FullName),
-                         new("JobTitle", user.JobTitle ?? string.Empty),
-                         new("refreshAt", ((DateTimeOffset) user.RefreshTokenTimeSpan).ToUnixTimeSeconds().ToString()),
-                     };
+         {
+             new(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+             new(JwtRegisteredClaimNames.Sub, user.Id),
+             new(ClaimTypes.NameIdentifier, user.Id),
+             new(ClaimTypes.Name, user.UserName),
+             new(ClaimTypes.Email, user.Email),
+             new("TenantName", tenantName),
+             new("IsSuperAdmin", user.IsSuperAdmin.ToString().ToLower()),
+             new("AvatarUri", user.AvatarUri ?? string.Empty),
+             new("FullName", string.IsNullOrWhiteSpace(user.FullName) ? user.UserName : user.FullName),
+             new("JobTitle", user.JobTitle ?? string.Empty),
+             new("refreshAt", ((DateTimeOffset) user.RefreshTokenTimeSpan).ToUnixTimeSeconds().ToString()),
+         };
 
         await GetUserRolesAsClaims(user, claims);
 

@@ -51,6 +51,21 @@ public class TenantInterceptorMiddleware
 
             case TenantMode.MultiTenant:
                 {
+                    // If 'callback' in path, then request is from a webhook.
+                    // In webhook callbacks, tenants are set in the webhook services.
+                    if (httpContext.Request.Path.Value != null &&
+                        httpContext.Request.Path.Value.Contains("callback")) break;
+
+                    // If registration workflow, then no tenant exists yet.
+                    // Tenant created before app user in registration workflow.
+                    if (httpContext.Request.Path.Value != null &&
+                        httpContext.Request.Path.Value.ToLower().Contains("account/register")) break;
+
+
+                    // If login workflow, then tenant not yet known
+                    if (httpContext.Request.Path.Value != null &&
+                        httpContext.Request.Path.Value.ToLower().Contains("account/login")) break;
+
                     var xTenantHeader = httpContext.Request.Headers["X-Tenant"];
 
                     if (!xTenantHeader.Any())
@@ -75,7 +90,9 @@ public class TenantInterceptorMiddleware
                         if (httpContext.Request.Path.Value is { } pathValue
                             && tenantId is null
                             && !pathValue.Contains("hangfire")
-                            && !pathValue.Contains("/Hubs/"))
+                            && !pathValue.Contains("/Hubs/")
+                            && !pathValue.Contains("callback")
+                            && !pathValue.ToLower().Contains("account/register"))
                             throw new Exception(Resource.Invalid_tenant_name);
 
                         tenantResolver.SetTenantId(tenantId);

@@ -1502,6 +1502,15 @@ namespace D2W.FrontendResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Email is Required.
+        /// </summary>
+        public static string Email_Is_Required {
+            get {
+                return ResourceManager.GetString("Email_Is_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Employee broke a finger while writing some code.
         /// </summary>
         public static string Employee_broke_a_finger_while_writing_some_code {
@@ -1871,6 +1880,15 @@ namespace D2W.FrontendResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Full Name is Required.
+        /// </summary>
+        public static string Full_Name_Is_Required {
+            get {
+                return ResourceManager.GetString("Full_Name_Is_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Full Name.
         /// </summary>
         public static string FullName {
@@ -2057,6 +2075,15 @@ namespace D2W.FrontendResources {
         public static string Hour {
             get {
                 return ResourceManager.GetString("Hour", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to How did you hear about us?.
+        /// </summary>
+        public static string How_Did_You_Hear_About_Us {
+            get {
+                return ResourceManager.GetString("How_Did_You_Hear_About_Us", resourceCulture);
             }
         }
         
@@ -2721,6 +2748,15 @@ namespace D2W.FrontendResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No Credit Card Required.
+        /// </summary>
+        public static string No_Credit_Card_Required {
+            get {
+                return ResourceManager.GetString("No_Credit_Card_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No data available..
         /// </summary>
         public static string No_data_available {
@@ -3153,6 +3189,15 @@ namespace D2W.FrontendResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Register As A Beta Tester.
+        /// </summary>
+        public static string Register_As_A_Beta_Tester {
+            get {
+                return ResourceManager.GetString("Register_As_A_Beta_Tester", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Register as a new user.
         /// </summary>
         public static string Register_as_a_new_user {
@@ -3167,6 +3212,15 @@ namespace D2W.FrontendResources {
         public static string Register_Confirmation {
             get {
                 return ResourceManager.GetString("Register_Confirmation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to By providing your email address and clicking the button to sign up, you agree to Design to the Workroom&apos;s Terms of Service and Privacy Policy. You can change your communication preferences anytime..
+        /// </summary>
+        public static string Registration_Disclaimer {
+            get {
+                return ResourceManager.GetString("Registration_Disclaimer", resourceCulture);
             }
         }
         
@@ -3711,6 +3765,24 @@ namespace D2W.FrontendResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Beta Tester Registration.
+        /// </summary>
+        public static string Sign_Up_As_Beta_Tester {
+            get {
+                return ResourceManager.GetString("Sign_Up_As_Beta_Tester", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sign up for a Free Trial.
+        /// </summary>
+        public static string Sign_Up_For_Free_Trial {
+            get {
+                return ResourceManager.GetString("Sign_Up_For_Free_Trial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Solar.
         /// </summary>
         public static string Solar {
@@ -3779,6 +3851,15 @@ namespace D2W.FrontendResources {
         public static string Start_SignalR_Connection {
             get {
                 return ResourceManager.GetString("Start_SignalR_Connection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start Your Free Trial.
+        /// </summary>
+        public static string Start_Your_Free_Trial {
+            get {
+                return ResourceManager.GetString("Start_Your_Free_Trial", resourceCulture);
             }
         }
         

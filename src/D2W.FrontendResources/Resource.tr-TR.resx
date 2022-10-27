@@ -597,6 +597,9 @@
   <data name="Email_Confirmed" xml:space="preserve">
     <value>Onaylanan E-posta</value>
   </data>
+  <data name="Email_Is_Required" xml:space="preserve">
+    <value>E-mail gereklidir</value>
+  </data>
   <data name="Employee_broke_a_finger_while_writing_some_code" xml:space="preserve">
     <value>Çalışan bazı kod yazarken parmağını kırdı</value>
   </data>
@@ -723,6 +726,9 @@
   <data name="Full_DateTime_Pattern" xml:space="preserve">
     <value>Tam DateTime Deseni</value>
   </data>
+  <data name="Full_Name_Is_Required" xml:space="preserve">
+    <value>Tam adınız zorunludur.</value>
+  </data>
   <data name="Gas" xml:space="preserve">
     <value>Gaz</value>
   </data>
@@ -782,6 +788,9 @@
   </data>
   <data name="Hour" xml:space="preserve">
     <value>Saat</value>
+  </data>
+  <data name="How_Did_You_Hear_About_Us" xml:space="preserve">
+    <value>Bizden nasıl haberdar oldunuz?</value>
   </data>
   <data name="Hydro" xml:space="preserve">
     <value>Hidro</value>
@@ -1008,6 +1017,9 @@
   <data name="November" xml:space="preserve">
     <value>Kasım</value>
   </data>
+  <data name="No_Credit_Card_Required" xml:space="preserve">
+    <value>Kredi kartına gerek yok</value>
+  </data>
   <data name="No_data_available" xml:space="preserve">
     <value>Kullanılabilir veri yok.</value>
   </data>
@@ -1146,11 +1158,17 @@
   <data name="Register" xml:space="preserve">
     <value>Kaydolmak</value>
   </data>
+  <data name="Register_As_A_Beta_Tester" xml:space="preserve">
+    <value>Beta Test Kullanıcısı Olarak Kaydolun!</value>
+  </data>
   <data name="Register_as_a_new_user" xml:space="preserve">
     <value>Yeni kullanıcı olarak kaydolun</value>
   </data>
   <data name="Register_Confirmation" xml:space="preserve">
     <value>Kayıt Onayı</value>
+  </data>
+  <data name="Registration_Disclaimer" xml:space="preserve">
+    <value>E-posta adresinizi vererek ve kaydolmak için düğmeye tıklayarak, Çalışma Odasının Hizmet Şartları ve Gizlilik Politikası'nı tasarlamayı kabul etmiş olursunuz. İletişim tercihlerinizi istediğiniz zaman değiştirebilirsiniz.!</value>
   </data>
   <data name="Remember_me" xml:space="preserve">
     <value>Beni hatırladın mı?</value>
@@ -1332,6 +1350,12 @@
   <data name="Sign_up" xml:space="preserve">
     <value>Kaydol</value>
   </data>
+  <data name="Sign_Up_As_Beta_Tester" xml:space="preserve">
+    <value>Beta Tester Kaydı!</value>
+  </data>
+  <data name="Sign_Up_For_Free_Trial" xml:space="preserve">
+    <value>"Deneme sürümü için kaydol":</value>
+  </data>
   <data name="Solar" xml:space="preserve">
     <value>Güneş</value>
   </data>
@@ -1355,6 +1379,9 @@
   </data>
   <data name="Start_SignalR_Connection" xml:space="preserve">
     <value>SignalR Bağlantısını Başlat!</value>
+  </data>
+  <data name="Start_Your_Free_Trial" xml:space="preserve">
+    <value>ÜCRETSİZ DENEMENİZİ BAŞLATIN!</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>Durum</value>

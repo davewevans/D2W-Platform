@@ -10,14 +10,16 @@
                 <EditForm Model="@RegisterCommand" OnValidSubmit="RegisterUser">
                     <EditContextServerSideValidator @ref="EditContextServerSideValidator" />
                     <FluentValidationValidator />
-                    @* <MudText Typo="Typo.h5" GutterBottom="true">@Resource.Sign_Up_For_Free_Trial</MudText>
-                    <MudText Typo="Typo.caption" GutterBottom="true">@Resource.No_Credit_Card_Required</MudText>*@
+
+                    <MudText Typo="Typo.h5" GutterBottom="true">@Resource.Sign_Up_For_Free_Trial</MudText>
+                    <MudText Typo="Typo.caption" GutterBottom="true">@Resource.No_Credit_Card_Required</MudText>
+
                     <MudText Class="my-4">
                         @Resource.Already_have_an_account <MudLink Href="/account/login">@Resource.Sign_in</MudLink>
                     </MudText>
 
                     <div class="d-flex gap-4 mb-4">
-                        @*  <MudTextField Label="@Resource.FullName"
+                        <MudTextField Label="@Resource.FullName"
                                       Variant="Variant.Outlined"
                                       @bind-Value="RegisterCommand.FullName"
                                       For="@(() => RegisterCommand.FullName)"
@@ -31,18 +33,11 @@
                                       For="@(() => RegisterCommand.Email)"
                                       Required="true"
                                       RequiredError="@Resource.Email_Is_Required"
-                                      InputType="InputType.Email" />*@
+                                      InputType="InputType.Email" />
                     </div>
-
-
-                    @*        <MudTextField Label="@Resource.Your_Channel_Name"
-                                  Variant="Variant.Outlined"
-                                  @bind-Value="RegisterCommand.ChannelName"
-                                  For="@(() => RegisterCommand.ChannelName)"
-                                  Required="true"
-                                  RequiredError="@Resource.Channel_Name_Is_Required"
-                                  MaxLength="40"
-                                  Class="mb-2" />*@
+                    
+                    
+                    <MudTextField T="string" Label="@Resource.Phone_Number" InputType="InputType.Telephone" />
 
 
                     <div class="d-flex gap-4 mb-2">
@@ -66,21 +61,22 @@
                     </div>
 
 
-                    @*   <MudSelect T="string" Class="mb-2"
+                       <MudSelect T="string" Class="mb-2"
                                Label="@Resource.How_Did_You_Hear_About_Us"
                                @bind-Value="RegisterCommand.HeardAboutUsFrom"
                                AnchorOrigin="Origin.BottomCenter"
                                Variant="Variant.Outlined">
                         <MudSelectItem Value="@("Search engine")" />
                         <MudSelectItem Value="@("YouTube")" />
-                        <MudSelectItem Value="@("Facebook / Instagram")" />
+                        <MudSelectItem Value="@("Facebook")" />
+                        <MudSelectItem Value="@("Instagram")" />
                         <MudSelectItem Value="@("Recommendation")" />
                         <MudSelectItem Value="@("Other")" />
-                    </MudSelect>*@
+                    </MudSelect>
 
                     <MudDivider />
 
-                    @*     <MudButton ButtonType="ButtonType.Submit"
+                         <MudButton ButtonType="ButtonType.Submit"
                                Style="margin-top:4px"
                                Variant="Variant.Filled"
                                Color="Color.Primary"
@@ -88,9 +84,9 @@
                                FullWidth="true"
                                Disabled="SubmitButtonDisabled"
                                Class="mb-2">
-                        @Resource.Start_Your_Free_Trial
-                    </MudButton>*@
-                    @*<MudText Typo="Typo.caption" Class="mt-2">@Resource.Registration_Disclaimer</MudText>*@
+                        @Resource.Register_As_A_Beta_Tester
+                    </MudButton>
+                    <MudText Typo="Typo.caption" Class="mt-2">@Resource.Registration_Disclaimer</MudText>
                     <MudExpansionPanels>
                         <MudExpansionPanel Text="@Resource.Validation_Summary" IsExpanded="true" Disabled="true" HideIcon="true">
                             <MudText Color="@Color.Error">

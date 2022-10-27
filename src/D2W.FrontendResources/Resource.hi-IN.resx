@@ -597,6 +597,9 @@
   <data name="Email_Confirmed" xml:space="preserve">
     <value>ईमेल की पुष्टि</value>
   </data>
+  <data name="Email_Is_Required" xml:space="preserve">
+    <value>ईमेल ज़रूरी है</value>
+  </data>
   <data name="Employee_broke_a_finger_while_writing_some_code" xml:space="preserve">
     <value>कर्मचारी एक उंगली तोड़ दिया, जबकि कुछ कोड लिख</value>
   </data>
@@ -723,6 +726,9 @@
   <data name="Full_DateTime_Pattern" xml:space="preserve">
     <value>पूर्ण तिथि समय पैटर्न</value>
   </data>
+  <data name="Full_Name_Is_Required" xml:space="preserve">
+    <value>पूरा नाम ज़रूरी है</value>
+  </data>
   <data name="Gas" xml:space="preserve">
     <value>गैस</value>
   </data>
@@ -782,6 +788,9 @@
   </data>
   <data name="Hour" xml:space="preserve">
     <value>घंटा</value>
+  </data>
+  <data name="How_Did_You_Hear_About_Us" xml:space="preserve">
+    <value>आपको हमारे बारे में कैसे पता चला</value>
   </data>
   <data name="Hydro" xml:space="preserve">
     <value>पन</value>
@@ -1008,6 +1017,9 @@
   <data name="November" xml:space="preserve">
     <value>नवंबर</value>
   </data>
+  <data name="No_Credit_Card_Required" xml:space="preserve">
+    <value>कोई क्रेडिट कार्ड नहीं</value>
+  </data>
   <data name="No_data_available" xml:space="preserve">
     <value>कोई डेटा उपलब्ध नहीं है।</value>
   </data>
@@ -1146,11 +1158,17 @@
   <data name="Register" xml:space="preserve">
     <value>पंजीकृत करें</value>
   </data>
+  <data name="Register_As_A_Beta_Tester" xml:space="preserve">
+    <value>एक बीटा परीक्षक के रूप में रजिस्टर!</value>
+  </data>
   <data name="Register_as_a_new_user" xml:space="preserve">
     <value>एक नए उपयोगकर्ता के रूप में रजिस्टर करें</value>
   </data>
   <data name="Register_Confirmation" xml:space="preserve">
     <value>रजिस्टर पुष्टि</value>
+  </data>
+  <data name="Registration_Disclaimer" xml:space="preserve">
+    <value>अपना ईमेल पता प्रदान करके और साइन अप करने के लिए बटन पर क्लिक करके, आप वर्करूम की सेवा की शर्तों और गोपनीयता नीति के लिए डिज़ाइन करने के लिए सहमत हैं। आप कभी भी अपनी संचार वरीयताओं को बदल सकते हैं.!</value>
   </data>
   <data name="Remember_me" xml:space="preserve">
     <value>मुझे याद है?</value>
@@ -1332,6 +1350,12 @@
   <data name="Sign_up" xml:space="preserve">
     <value>नाम लिखो</value>
   </data>
+  <data name="Sign_Up_As_Beta_Tester" xml:space="preserve">
+    <value>बीटा परीक्षक पंजीकरण!</value>
+  </data>
+  <data name="Sign_Up_For_Free_Trial" xml:space="preserve">
+    <value>आज ही नि:शुल्क परीक्षण के लिए साइन अप करें।</value>
+  </data>
   <data name="Solar" xml:space="preserve">
     <value>सौर</value>
   </data>
@@ -1355,6 +1379,9 @@
   </data>
   <data name="Start_SignalR_Connection" xml:space="preserve">
     <value>सिग्नलर कनेक्शन शुरू करें!</value>
+  </data>
+  <data name="Start_Your_Free_Trial" xml:space="preserve">
+    <value>अपना निःशुल्क परीक्षण शुरू करें</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>ओहदा</value>

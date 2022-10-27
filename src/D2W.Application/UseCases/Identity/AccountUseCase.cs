@@ -159,20 +159,24 @@ public class AccountUseCase : IAccountUseCase
 
         AssignDefaultRolesToUser(user);
 
+
         await SetInitialActivation(user);
 
         var result = await _userManager.CreateAsync(user, request.Password);
 
         if (!result.Succeeded)
-            return Envelope<RegisterResponse>.Result.AddErrors(result.Errors.ToApplicationResult(), ResponseType.ServerError, rollbackDisabled: true);
-
-        if (_tenantResolver.TenantMode == TenantMode.SingleTenant || _tenantResolver.IsHost)
         {
-            var registerAsSuperAdminIfNotExistResult = await RegisterAsSuperAdminIfNotExist(user);
-
-            if (registerAsSuperAdminIfNotExistResult.IsError)
-                return Envelope<RegisterResponse>.Result.AddErrors(result.Errors.ToApplicationResult(), ResponseType.ServerError, rollbackDisabled: true);
+            await AssignDesignerRoleToUser(user);
+            return Envelope<RegisterResponse>.Result.AddErrors(result.Errors.ToApplicationResult(), ResponseType.ServerError, rollbackDisabled: true);
         }
+
+        //if (_tenantResolver.TenantMode == TenantMode.SingleTenant || _tenantResolver.IsHost)
+        //{
+        //    var registerAsSuperAdminIfNotExistResult = await RegisterAsSuperAdminIfNotExist(user);
+
+        //    if (registerAsSuperAdminIfNotExistResult.IsError)
+        //        return Envelope<RegisterResponse>.Result.AddErrors(result.Errors.ToApplicationResult(), ResponseType.ServerError, rollbackDisabled: true);
+        //}
 
         if (_userManager.Options.SignIn.RequireConfirmedAccount)
         {
@@ -398,6 +402,18 @@ public class AccountUseCase : IAccountUseCase
         await _userManager.AddToRoleAsync(user, adminRole);
 
         return Envelope<ApplicationUser>.Result.Ok(user);
+    }
+
+    private async Task AssignDesignerRoleToUser(ApplicationUser user)
+    {
+        var designerRole = "Designer";
+
+        var isDesignerRoleExists = await _roleManager.RoleExistsAsync(designerRole);
+
+        if (isDesignerRoleExists)
+            await _userManager.AddToRoleAsync(user, designerRole);
+
+        user.JobTitle = "Designer";
     }
 
     private async Task SetInitialActivation(ApplicationUser user)
