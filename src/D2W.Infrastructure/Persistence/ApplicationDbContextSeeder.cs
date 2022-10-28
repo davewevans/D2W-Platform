@@ -62,6 +62,7 @@ public static class ApplicationDbContextSeeder
             IgnoreTenantId = true
         };
 
+
         if (!await roleManager.RoleExistsAsync(adminRole.Name))
             await roleManager.CreateAsync(adminRole);
 
@@ -82,6 +83,64 @@ public static class ApplicationDbContextSeeder
 
         if (!await roleManager.RoleExistsAsync(workroomRole.Name))
             await roleManager.CreateAsync(workroomRole);
+
+
+        #region Demo roles
+
+        // TODO remove for production
+
+        var userRole = new ApplicationRole
+        {
+            Name = "User",
+            IsStatic = true,
+            IgnoreTenantId = true
+        };
+
+        var auditorRole = new ApplicationRole
+        {
+            Name = "Auditor",
+            IsStatic = true,
+            IgnoreTenantId = true
+        };
+
+        var accountantRole = new ApplicationRole
+        {
+            Name = "Accountant",
+            IsStatic = true,
+            IgnoreTenantId = true
+        };
+
+        var ceoRole = new ApplicationRole
+        {
+            Name = "CEO",
+            IsStatic = true,
+            IgnoreTenantId = true
+        };
+
+        var driverRole = new ApplicationRole
+        {
+            Name = "Driver",
+            IsStatic = true,
+            IgnoreTenantId = true
+        };
+
+        if (!await roleManager.RoleExistsAsync(userRole.Name))
+            await roleManager.CreateAsync(userRole);
+
+        if (!await roleManager.RoleExistsAsync(auditorRole.Name))
+            await roleManager.CreateAsync(auditorRole);
+
+        if (!await roleManager.RoleExistsAsync(accountantRole.Name))
+            await roleManager.CreateAsync(accountantRole);
+
+        if (!await roleManager.RoleExistsAsync(ceoRole.Name))
+            await roleManager.CreateAsync(ceoRole);
+
+        if (!await roleManager.RoleExistsAsync(driverRole.Name))
+            await roleManager.CreateAsync(driverRole);
+
+        #endregion
+
     }
 
     #endregion Public Methods

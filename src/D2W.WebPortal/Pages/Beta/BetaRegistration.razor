@@ -11,15 +11,14 @@
                     <EditContextServerSideValidator @ref="EditContextServerSideValidator" />
                     <FluentValidationValidator />
 
-                    <MudText Typo="Typo.h5" GutterBottom="true">@Resource.Sign_Up_For_Free_Trial</MudText>
+                    <MudText Typo="Typo.h5" GutterBottom="true">@Resource.Sign_Up_As_Beta_Tester</MudText>
                     <MudText Typo="Typo.caption" GutterBottom="true">@Resource.No_Credit_Card_Required</MudText>
 
                     <MudText Class="my-4">
                         @Resource.Already_have_an_account <MudLink Href="/account/login">@Resource.Sign_in</MudLink>
                     </MudText>
 
-                    <div class="d-flex gap-4 mb-4">
-                        <MudTextField Label="@Resource.FullName"
+                    <MudTextField Label="@Resource.FullName"
                                       Variant="Variant.Outlined"
                                       @bind-Value="RegisterCommand.FullName"
                                       For="@(() => RegisterCommand.FullName)"
@@ -27,6 +26,7 @@
                                       RequiredError="@Resource.Full_Name_Is_Required"
                                       MaxLength="60" />
 
+                    <div class="d-flex gap-4 mb-4">
                         <MudTextField Label="@Resource.Email"
                                       Variant="Variant.Outlined"
                                       @bind-Value="RegisterCommand.Email"
@@ -34,10 +34,15 @@
                                       Required="true"
                                       RequiredError="@Resource.Email_Is_Required"
                                       InputType="InputType.Email" />
+
+                        <MudTextField Label="@Resource.Phone_Number"
+                                      Variant="Variant.Outlined"
+                                      @bind-Value="RegisterCommand.Phone"
+                                      For="@(() => RegisterCommand.Phone)"
+                                      Required="true"
+                                      RequiredError="@Resource.Phone_number_is_required"
+                                      InputType="InputType.Telephone" />
                     </div>
-                    
-                    
-                    <MudTextField T="string" Label="@Resource.Phone_Number" InputType="InputType.Telephone" />
 
 
                     <div class="d-flex gap-4 mb-2">
@@ -99,28 +104,15 @@
                         }
                     </MudExpansionPanels>
                 </EditForm>
-                
-                
-                
-                
-                <p>1</p>
-                <p>2</p>
-                <p>3</p>
-                <p>4</p>
-                <p>5</p>
-                <p>1</p>
-                <p>2</p>
-                <p>3</p>
-                <p>4</p>
-                <p>5</p>
+
             </MudPaper>
         </MudContainer>
     </MudItem>
 
     <MudHidden Breakpoint="Breakpoint.SmAndDown">
         <MudItem md="6">
-            <MudPaper Style="background-color:#00ffff;height:100%;">
-                <img class="registration-image" src="images/NJRhhmEYBN3kWZsW2GMf6e.jpg" />
+            <MudPaper Style="background-color:#ffffff;height:100%;">
+                <img class="registration-image" src="images/pexels-lyubov-makuha-8873801.jpg" />
             </MudPaper>
         </MudItem>
     </MudHidden>

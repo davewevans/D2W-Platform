@@ -4,7 +4,6 @@ public class CreateTenantCommand : IRequest<Envelope<CreateTenantResponse>>
 {
     #region Public Properties
 
-    public string TenantName { get; set; }
     public string FullName { get; set; }
 
     #endregion Public Properties
@@ -30,15 +29,15 @@ public class CreateTenantCommand : IRequest<Envelope<CreateTenantResponse>>
     {
         #region Private Fields
 
-        private readonly ITenantUseCase _roleUseCase;
+        private readonly ITenantUseCase _tenantUseCase;
 
         #endregion Private Fields
 
         #region Public Constructors
 
-        public CreateTenantCommandHandler(ITenantUseCase roleUseCase)
+        public CreateTenantCommandHandler(ITenantUseCase tenantUseCase)
         {
-            _roleUseCase = roleUseCase;
+            _tenantUseCase = tenantUseCase;
         }
 
         #endregion Public Constructors
@@ -47,7 +46,7 @@ public class CreateTenantCommand : IRequest<Envelope<CreateTenantResponse>>
 
         public async Task<Envelope<CreateTenantResponse>> Handle(CreateTenantCommand request, CancellationToken cancellationToken)
         {
-            return await _roleUseCase.AddTenant(request);
+            return await _tenantUseCase.AddTenant(request);
         }
 
         #endregion Public Methods

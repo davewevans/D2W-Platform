@@ -1,4 +1,5 @@
 ﻿using DocumentFormat.OpenXml.Wordprocessing;
+using Microsoft.AspNetCore.Mvc;
 
 namespace D2W.Application.Features.Identity.Account.Commands.Register;
 
@@ -12,7 +13,7 @@ public class RegisterCommand : IRequest<Envelope<RegisterResponse>>
     public string Password { get; set; }
     public string ConfirmPassword { get; set; }
     public string ReturnUrl { get; set; }
-    public bool IsBetaUser { get; set; }
+    public bool IsBetaTester { get; set; }
     public string HeardAboutUsFrom { get; set; }
 
     #endregion Public Properties
@@ -48,7 +49,7 @@ public class RegisterCommand : IRequest<Envelope<RegisterResponse>>
             HeardAboutUsFrom = HeardAboutUsFrom,
             Name = firstName,
             Surname = lastName,
-            AppUserType = IsBetaUser ? ApplicationUserType.BetaTester : ApplicationUserType.Designer
+            AppUserType = IsBetaTester ? ApplicationUserType.BetaTester : ApplicationUserType.Designer
         };
     }
 
@@ -77,6 +78,12 @@ public class RegisterCommand : IRequest<Envelope<RegisterResponse>>
 
         public async Task<Envelope<RegisterResponse>> Handle(RegisterCommand request, CancellationToken cancellationToken)
         {
+            if (request.IsBetaTester && await _accountUseCase.IsMaxBetaTestersReached())
+            {
+                return Envelope<RegisterResponse>.Result.Unauthorized(
+                    "Sorry, maximum number of beta testers has been reached.");
+            }
+
             return await _accountUseCase.Register(request);
         }
 

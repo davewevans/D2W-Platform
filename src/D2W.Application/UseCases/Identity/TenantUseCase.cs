@@ -55,19 +55,25 @@ public class TenantUseCase : ITenantUseCase
         };
 
         _tenantResolver.SetTenantId(tenant.Id);
+        _tenantResolver.SetTenantName(tenant.Name);
+
+        await AddTenantStorageNamePrefixIfNotExists();
         await CreateSampleApplicants();
-        await AddStaticRoles();
 
-        var result = await CreateTenantSuperAdmin();
+        return Envelope<CreateTenantResponse>.Result.Ok(payload);
 
-        if (result.IsError)
-            return Envelope<CreateTenantResponse>.Result.AddErrors(result.ModelStateErrors, ResponseType.ServerError, result.Message);
+        //await AddStaticRoles();
 
-        result = await _demoIdentitySeeder.SeedDemoOfficersUsers();
+        //var result = await CreateTenantSuperAdmin();
 
-        return result.IsError
-            ? Envelope<CreateTenantResponse>.Result.ServerError(result.Message)
-            : Envelope<CreateTenantResponse>.Result.Ok(payload);
+        //if (result.IsError)
+        //    return Envelope<CreateTenantResponse>.Result.AddErrors(result.ModelStateErrors, ResponseType.ServerError, result.Message);
+
+        //result = await _demoIdentitySeeder.SeedDemoOfficersUsers();
+
+        //return result.IsError
+        //    ? Envelope<CreateTenantResponse>.Result.ServerError(result.Message)
+        //    : Envelope<CreateTenantResponse>.Result.Ok(payload);
     }
 
     public async Task AddTenantStorageNamePrefixIfNotExists()
@@ -150,95 +156,95 @@ public class TenantUseCase : ITenantUseCase
         return !result.Succeeded ? Envelope<ApplicationUser>.Result.AddErrors(result.Errors.ToApplicationResult(), ResponseType.BadRequest) : Envelope<ApplicationUser>.Result.Ok(adminUser);
     }
 
-    private async Task AddStaticRoles()
-    {
-        var adminRole = new ApplicationRole
-        {
-            Name = "Admin",
-            IsStatic = true
-        };
+    //private async Task AddStaticRoles()
+    //{
+    //    var adminRole = new ApplicationRole
+    //    {
+    //        Name = "Admin",
+    //        IsStatic = true
+    //    };
 
-        var userRole = new ApplicationRole
-        {
-            Name = "User",
-            IsStatic = false
-        };
+    //    var userRole = new ApplicationRole
+    //    {
+    //        Name = "User",
+    //        IsStatic = false
+    //    };
 
-        var auditorRole = new ApplicationRole
-        {
-            Name = "Auditor",
-            IsStatic = false
-        };
+    //    var auditorRole = new ApplicationRole
+    //    {
+    //        Name = "Auditor",
+    //        IsStatic = false
+    //    };
 
-        var accountantRole = new ApplicationRole
-        {
-            Name = "Accountant",
-            IsStatic = false
-        };
+    //    var accountantRole = new ApplicationRole
+    //    {
+    //        Name = "Accountant",
+    //        IsStatic = false
+    //    };
 
-        var ceoRole = new ApplicationRole
-        {
-            Name = "CEO",
-            IsStatic = false
-        };
+    //    var ceoRole = new ApplicationRole
+    //    {
+    //        Name = "CEO",
+    //        IsStatic = false
+    //    };
 
-        var driverRole = new ApplicationRole
-        {
-            Name = "Driver",
-            IsStatic = false
-        };
+    //    var driverRole = new ApplicationRole
+    //    {
+    //        Name = "Driver",
+    //        IsStatic = false
+    //    };
 
 
 
-        // TODO seed roles in dbcontext???
-        // ref: https://www.c-sharpcorner.com/article/seed-data-in-net-core-identity/
-        // Should these roles should be global and not per tenant
+    //    // TODO seed roles in dbcontext???
+    //    // ref: https://www.c-sharpcorner.com/article/seed-data-in-net-core-identity/
+    //    // Should these roles should be global and not per tenant
 
-        //var designerRole = new ApplicationRole
-        //{
-        //    Name = "Designer",
-        //    IsStatic = true
-        //};
+    //    //var designerRole = new ApplicationRole
+    //    //{
+    //    //    Name = "Designer",
+    //    //    IsStatic = true
+    //    //};
 
-        //var clientRole = new ApplicationRole
-        //{
-        //    Name = "Client",
-        //    IsStatic = true
-        //};
+    //    //var clientRole = new ApplicationRole
+    //    //{
+    //    //    Name = "Client",
+    //    //    IsStatic = true
+    //    //};
 
-        //var workroomRole = new ApplicationRole
-        //{
-        //    Name = "Workroom",
-        //    IsStatic = true
-        //};
+    //    //var workroomRole = new ApplicationRole
+    //    //{
+    //    //    Name = "Workroom",
+    //    //    IsStatic = true
+    //    //};
 
-        if (!await _roleManager.RoleExistsAsync(adminRole.Name))
-            await _roleManager.CreateAsync(adminRole);
+    //    if (!await _roleManager.RoleExistsAsync(adminRole.Name))
+    //        await _roleManager.CreateAsync(adminRole);
 
-        if (!await _roleManager.RoleExistsAsync(userRole.Name))
-            await _roleManager.CreateAsync(userRole);
+    //    if (!await _roleManager.RoleExistsAsync(userRole.Name))
+    //        await _roleManager.CreateAsync(userRole);
 
-        if (!await _roleManager.RoleExistsAsync(auditorRole.Name))
-            await _roleManager.CreateAsync(auditorRole);
+    //    if (!await _roleManager.RoleExistsAsync(auditorRole.Name))
+    //        await _roleManager.CreateAsync(auditorRole);
 
-        if (!await _roleManager.RoleExistsAsync(accountantRole.Name))
-            await _roleManager.CreateAsync(accountantRole);
+    //    if (!await _roleManager.RoleExistsAsync(accountantRole.Name))
+    //        await _roleManager.CreateAsync(accountantRole);
 
-        if (!await _roleManager.RoleExistsAsync(ceoRole.Name))
-            await _roleManager.CreateAsync(ceoRole);
+    //    if (!await _roleManager.RoleExistsAsync(ceoRole.Name))
+    //        await _roleManager.CreateAsync(ceoRole);
 
-        if (!await _roleManager.RoleExistsAsync(driverRole.Name))
-            await _roleManager.CreateAsync(driverRole);
+    //    if (!await _roleManager.RoleExistsAsync(driverRole.Name))
+    //        await _roleManager.CreateAsync(driverRole);
 
-        //if (!await _roleManager.RoleExistsAsync(designerRole.Name))
-        //    await _roleManager.CreateAsync(designerRole);
+    //    //if (!await _roleManager.RoleExistsAsync(designerRole.Name))
+    //    //    await _roleManager.CreateAsync(designerRole);
 
-        //if (!await _roleManager.RoleExistsAsync(clientRole.Name))
-        //    await _roleManager.CreateAsync(clientRole);
+    //    //if (!await _roleManager.RoleExistsAsync(clientRole.Name))
+    //    //    await _roleManager.CreateAsync(clientRole);
 
-        //if (!await _roleManager.RoleExistsAsync(workroomRole.Name))
-        //    await _roleManager.CreateAsync(workroomRole);
-    }
+    //    //if (!await _roleManager.RoleExistsAsync(workroomRole.Name))
+    //    //    await _roleManager.CreateAsync(workroomRole);
+    //}
 
     #endregion Private Methods
 }

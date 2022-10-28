@@ -1,59 +1,126 @@
-﻿@layout AccountLayout
-@page "/account/register"
+﻿@layout RegistrationLayout
+@page "/registrations/new"
 
-<ServerSideValidator @ref="ServerSideValidator" />
-<EditForm Model="@RegisterCommand" OnValidSubmit="RegisterUser">
-    <EditContextServerSideValidator @ref="EditContextServerSideValidator" />
-    <FluentValidationValidator />
-    <MudText Typo="Typo.h4" GutterBottom="true">@Resource.Sign_up</MudText>
-    <MudText>
-        @Resource.Already_have_an_account <MudLink Href="/account/login">@Resource.Sign_in</MudLink>
-    </MudText>
+<!-- TODO Resource -->
+<MudGrid>
+    <MudItem md="6" xs="12">
+        <MudContainer MaxWidth="MaxWidth.Small" Class="my-16">
+            <MudPaper Elevation="3" Class="pa-6">
+                <ServerSideValidator @ref="ServerSideValidator" />
+                <EditForm Model="@RegisterCommand" OnValidSubmit="RegisterUser">
+                    <EditContextServerSideValidator @ref="EditContextServerSideValidator" />
+                    <FluentValidationValidator />
 
-    <MudTextField Label="@Resource.Email"
-                  Variant="Variant.Outlined"
-                  @bind-Value="RegisterCommand.Email"
-                  For="@(() => RegisterCommand.Email)" />
+                    <MudText Typo="Typo.h5" GutterBottom="true">@Resource.Sign_Up_For_Free_Trial</MudText>
+                    <MudText Typo="Typo.caption" GutterBottom="true">@Resource.No_Credit_Card_Required</MudText>
 
-    <MudTextField Label="@Resource.Password"
-                  Variant="Variant.Outlined"
-                  @bind-Value="RegisterCommand.Password"
-                  For="@(() => RegisterCommand.Password)"
-                  InputType="@PasswordInput"
-                  Adornment="Adornment.End"
-                  AdornmentIcon="@PasswordInputIcon"
-                  OnAdornmentClick="TogglePasswordVisibility" />
+                    <MudText Class="my-4">
+                        @Resource.Already_have_an_account <MudLink Href="/account/login">@Resource.Sign_in</MudLink>
+                    </MudText>
 
-    <MudTextField Label="@Resource.Confirm_Password"
-                  Variant="Variant.Outlined"
-                  @bind-Value="RegisterCommand.ConfirmPassword"
-                  For="@(() => RegisterCommand.ConfirmPassword)"
-                  InputType="@PasswordInput"
-                  Adornment="Adornment.End"
-                  AdornmentIcon="@PasswordInputIcon"
-                  OnAdornmentClick="TogglePasswordVisibility" />
-    <MudDivider />
-    <MudButton ButtonType="ButtonType.Submit"
-               Style="margin-top:4px"
-               Variant="Variant.Filled"
-               Color="Color.Primary"
-               Size="Size.Large"
-               FullWidth="true"
-               Disabled="SubmitButtonDisabled">
-        @Resource.Register
-    </MudButton>
-    <MudExpansionPanels>
-        <MudExpansionPanel Text="@Resource.Validation_Summary" IsExpanded="true" Disabled="true" HideIcon="true">
-            <MudText Color="@Color.Error">
-                <ValidationSummary />
-            </MudText>
-        </MudExpansionPanel>
-        @if (SubmitButtonDisabled)
-        {
-            <MudProgressLinear Color="Color.Secondary" Indeterminate="true" Class="my-7" />
-        }
-    </MudExpansionPanels>
-</EditForm>
+                    <MudTextField Label="@Resource.FullName"
+                                      Variant="Variant.Outlined"
+                                      @bind-Value="RegisterCommand.FullName"
+                                      For="@(() => RegisterCommand.FullName)"
+                                      Required="true"
+                                      RequiredError="@Resource.Full_Name_Is_Required"
+                                      MaxLength="60" />
+
+                    <div class="d-flex gap-4 mb-4">
+                        <MudTextField Label="@Resource.Email"
+                                      Variant="Variant.Outlined"
+                                      @bind-Value="RegisterCommand.Email"
+                                      For="@(() => RegisterCommand.Email)"
+                                      Required="true"
+                                      RequiredError="@Resource.Email_Is_Required"
+                                      InputType="InputType.Email" />
+
+                        <MudTextField Label="@Resource.Phone_Number"
+                                      Variant="Variant.Outlined"
+                                      @bind-Value="RegisterCommand.Phone"
+                                      For="@(() => RegisterCommand.Phone)"
+                                      Required="true"
+                                      RequiredError="@Resource.Phone_number_is_required"
+                                      InputType="InputType.Telephone" />
+                    </div>
+
+
+                    <div class="d-flex gap-4 mb-2">
+                        <MudTextField Label="@Resource.Password"
+                                      Variant="Variant.Outlined"
+                                      @bind-Value="RegisterCommand.Password"
+                                      For="@(() => RegisterCommand.Password)"
+                                      InputType="@PasswordInput"
+                                      Adornment="Adornment.End"
+                                      AdornmentIcon="@PasswordInputIcon"
+                                      OnAdornmentClick="TogglePasswordVisibility" />
+
+                        <MudTextField Label="@Resource.Confirm_Password"
+                                      Variant="Variant.Outlined"
+                                      @bind-Value="RegisterCommand.ConfirmPassword"
+                                      For="@(() => RegisterCommand.ConfirmPassword)"
+                                      InputType="@PasswordInput"
+                                      Adornment="Adornment.End"
+                                      AdornmentIcon="@PasswordInputIcon"
+                                      OnAdornmentClick="TogglePasswordVisibility" />
+                    </div>
+
+
+                       <MudSelect T="string" Class="mb-2"
+                               Label="@Resource.How_Did_You_Hear_About_Us"
+                               @bind-Value="RegisterCommand.HeardAboutUsFrom"
+                               AnchorOrigin="Origin.BottomCenter"
+                               Variant="Variant.Outlined">
+                        <MudSelectItem Value="@("Search engine")" />
+                        <MudSelectItem Value="@("YouTube")" />
+                        <MudSelectItem Value="@("Facebook")" />
+                        <MudSelectItem Value="@("Instagram")" />
+                        <MudSelectItem Value="@("Recommendation")" />
+                        <MudSelectItem Value="@("Other")" />
+                    </MudSelect>
+
+                    <MudDivider />
+
+                         <MudButton ButtonType="ButtonType.Submit"
+                               Style="margin-top:4px"
+                               Variant="Variant.Filled"
+                               Color="Color.Primary"
+                               Size="Size.Large"
+                               FullWidth="true"
+                               Disabled="SubmitButtonDisabled"
+                               Class="mb-2">
+                        @Resource.Start_Your_Free_Trial
+                    </MudButton>
+                    <MudText Typo="Typo.caption" Class="mt-2">@Resource.Registration_Disclaimer</MudText>
+                    <MudExpansionPanels>
+                        <MudExpansionPanel Text="@Resource.Validation_Summary" IsExpanded="true" Disabled="true" HideIcon="true">
+                            <MudText Color="@Color.Error">
+                                <ValidationSummary />
+                            </MudText>
+                        </MudExpansionPanel>
+                        @if (SubmitButtonDisabled)
+                        {
+                            <MudProgressLinear Color="Color.Secondary" Indeterminate="true" Class="my-7" />
+                        }
+                    </MudExpansionPanels>
+                </EditForm>
+
+            </MudPaper>
+        </MudContainer>
+    </MudItem>
+
+    <MudHidden Breakpoint="Breakpoint.SmAndDown">
+        <MudItem md="6">
+            <MudPaper Style="background-color:#ffffff;height:100%;">
+                <img class="registration-image" src="images/pexels-lyubov-makuha-8873801.jpg" />
+            </MudPaper>
+        </MudItem>
+    </MudHidden>
+</MudGrid>
+
+
+
+
 
 @code {
 

@@ -1,5 +1,6 @@
 ﻿using D2W.Application.Common.Managers;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Configuration;
 
 namespace D2W.Application.UseCases.Identity;
 
@@ -19,6 +20,7 @@ public class AccountUseCase : IAccountUseCase
     private readonly IApplicationDbContext _dbContext;
     private readonly ITenantResolver _tenantResolver;
     private readonly IDemoUserPasswordSetterService _demoUserPasswordSetterService;
+    private readonly IConfiguration _configuration;
 
     #endregion Private Fields
 
@@ -35,7 +37,7 @@ public class AccountUseCase : IAccountUseCase
                           IAppSettingsUseCase appSettingsUseCase,
                           IApplicationDbContext dbContext,
                           ITenantResolver tenantResolver,
-                          IDemoUserPasswordSetterService demoUserPasswordSetterService)
+                          IDemoUserPasswordSetterService demoUserPasswordSetterService, IConfiguration configuration)
     {
         _userManager = userManager;
         _signInManager = signInManager;
@@ -49,6 +51,7 @@ public class AccountUseCase : IAccountUseCase
         _dbContext = dbContext;
         _tenantResolver = tenantResolver;
         _demoUserPasswordSetterService = demoUserPasswordSetterService;
+        _configuration = configuration;
     }
 
     #endregion Public Constructors
@@ -157,7 +160,7 @@ public class AccountUseCase : IAccountUseCase
     {
         var user = request.MapToEntity();
 
-        AssignDefaultRolesToUser(user);
+        // AssignDefaultRolesToUser(user);
 
 
         await SetInitialActivation(user);
@@ -166,9 +169,11 @@ public class AccountUseCase : IAccountUseCase
 
         if (!result.Succeeded)
         {
-            await AssignDesignerRoleToUser(user);
             return Envelope<RegisterResponse>.Result.AddErrors(result.Errors.ToApplicationResult(), ResponseType.ServerError, rollbackDisabled: true);
         }
+
+        await AssignDesignerRoleToUser(user);
+
 
         //if (_tenantResolver.TenantMode == TenantMode.SingleTenant || _tenantResolver.IsHost)
         //{
@@ -277,6 +282,15 @@ public class AccountUseCase : IAccountUseCase
         };
 
         return Envelope<ResendEmailConfirmationResponse>.Result.Ok(payload);
+    }
+
+    public async Task<bool> IsMaxBetaTestersReached()
+    {
+        var maxBetaTestersStr = _configuration["Beta:MaxBetaUsersAllowed"];
+        int maxBetaTestersAllowed = int.Parse(maxBetaTestersStr);
+
+        int betaTestersCount = await _userManager.Users.CountAsync(u => u.AppUserType == ApplicationUserType.BetaTester);
+        return betaTestersCount >= maxBetaTestersAllowed;
     }
 
     public async Task<Envelope<ForgetPasswordResponse>> ForgotPassword(ForgetPasswordCommand request)
@@ -412,8 +426,6 @@ public class AccountUseCase : IAccountUseCase
 
         if (isDesignerRoleExists)
             await _userManager.AddToRoleAsync(user, designerRole);
-
-        user.JobTitle = "Designer";
     }
 
     private async Task SetInitialActivation(ApplicationUser user)

@@ -1,4 +1,6 @@
-﻿namespace D2W.WebAPI.Controllers;
+﻿using D2W.Application.Common.Interfaces.UseCases.Identity;
+
+namespace D2W.WebAPI.Controllers;
 
 public class AccountController : ApiController
 {
@@ -28,24 +30,6 @@ public class AccountController : ApiController
     [HttpPost("Register")]
     public async Task<IActionResult> Register(RegisterCommand request)
     {
-        var createTenantResponse = await Mediator.Send(new CreateTenantCommand
-        {
-            FullName = request.FullName,
-        });
-
-        var response = await Mediator.Send(request);
-        return TryGetResult(response);
-    }
-
-    [HttpPost("RegisterBetaUser")]
-    public async Task<IActionResult> RegisterBetaUser(RegisterCommand request)
-    {
-        // TODO check for number of beta user
-        // get max beta users from config
-        // if maxed out return payload from here
-        // don't create tenant if reached max beta users
-
-
         var createTenantResponse = await Mediator.Send(new CreateTenantCommand
         {
             FullName = request.FullName,

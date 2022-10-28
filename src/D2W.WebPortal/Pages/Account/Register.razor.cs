@@ -39,6 +39,8 @@ public partial class Register
 
     private async Task RegisterUser()
     {
+        Console.WriteLine("RegisterUser invoked");
+
         SubmitButtonDisabled = true;
 
         var httpResponseWrapper = await AccountsClient.Register(RegisterCommand);

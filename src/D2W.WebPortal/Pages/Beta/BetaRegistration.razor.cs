@@ -42,7 +42,10 @@
 
         private async Task RegisterUser()
         {
+            Console.WriteLine("Beta RegisterUser invoked");
+
             SubmitButtonDisabled = true;
+            RegisterCommand.IsBetaTester = true;
 
             var httpResponseWrapper = await AccountsClient.Register(RegisterCommand);
 

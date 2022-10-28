@@ -22,5 +22,7 @@ public interface IAccountUseCase
 
     Task<Envelope<ResendEmailConfirmationResponse>> ResendEmailConfirmation(ResendEmailConfirmationCommand request);
 
+    Task<bool> IsMaxBetaTestersReached();
+
     #endregion Public Methods
 }

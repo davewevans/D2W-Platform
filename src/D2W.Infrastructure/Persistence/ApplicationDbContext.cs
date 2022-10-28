@@ -327,7 +327,7 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser,
 
     private void SetQueryFilterOnMultiTenantsEntities(ModelBuilder builder)
     {
-        builder.SetQueryFilterOnAllEntities<IMayHaveTenant>(p => p.TenantId == _tenantResolver.GetTenantId());
+        builder.SetQueryFilterOnAllEntities<IMayHaveTenant>(p => p.IgnoreTenantId || p.TenantId == _tenantResolver.GetTenantId());
 
         builder.SetQueryFilterOnAllEntities<IMustHaveTenant>(p => p.TenantId == _tenantResolver.GetTenantId());
     }
