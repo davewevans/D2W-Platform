@@ -11,6 +11,8 @@ public class ApplicationUser : IdentityUser, IAuditable, IMayHaveTenant
         Tokens = new List<ApplicationUserToken>();
         UserRoles = new List<ApplicationUserRole>();
         UserAttachments = new List<ApplicationUserAttachment>();
+        TenantsWorkrooms = new List<TenantWorkroomModel>();
+        TenantsClients = new List<TenantClientModel>();
     }
 
     #endregion Public Constructors

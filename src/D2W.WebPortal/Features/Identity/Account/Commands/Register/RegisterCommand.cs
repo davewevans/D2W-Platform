@@ -10,7 +10,7 @@ public class RegisterCommand
     public string Password { get; set; }
     public string ConfirmPassword { get; set; }
     public string? HeardAboutUsFrom { get; set; }
-    public bool IsBetaTester { get; set; }
+    public ApplicationUserType AppUserType { get; set; }
 
     #endregion Public Properties
 }

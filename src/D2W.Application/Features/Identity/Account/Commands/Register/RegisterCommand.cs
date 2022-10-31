@@ -13,7 +13,7 @@ public class RegisterCommand : IRequest<Envelope<RegisterResponse>>
     public string Password { get; set; }
     public string ConfirmPassword { get; set; }
     public string ReturnUrl { get; set; }
-    public bool IsBetaTester { get; set; }
+    public ApplicationUserType AppUserType { get; set; }
     public string HeardAboutUsFrom { get; set; }
 
     #endregion Public Properties
@@ -49,7 +49,7 @@ public class RegisterCommand : IRequest<Envelope<RegisterResponse>>
             HeardAboutUsFrom = HeardAboutUsFrom,
             Name = firstName,
             Surname = lastName,
-            AppUserType = IsBetaTester ? ApplicationUserType.BetaTester : ApplicationUserType.Designer
+            AppUserType = AppUserType
         };
     }
 
@@ -78,13 +78,29 @@ public class RegisterCommand : IRequest<Envelope<RegisterResponse>>
 
         public async Task<Envelope<RegisterResponse>> Handle(RegisterCommand request, CancellationToken cancellationToken)
         {
-            if (request.IsBetaTester && await _accountUseCase.IsMaxBetaTestersReached())
+            if (request.AppUserType == ApplicationUserType.BetaTester && await _accountUseCase.IsMaxBetaTestersReached())
             {
                 return Envelope<RegisterResponse>.Result.Unauthorized(
                     "Sorry, maximum number of beta testers has been reached.");
             }
 
-            return await _accountUseCase.Register(request);
+            switch (request.AppUserType)
+            {
+                case ApplicationUserType.Designer:
+                    return await _accountUseCase.Register(request);
+                //case ApplicationUserType.Admin:
+                //    break;
+                //case ApplicationUserType.Sales:
+                //    break;
+                //case ApplicationUserType.Developer:
+                //    break;
+                //case ApplicationUserType.OnboardingSpecialist:
+                //    break;
+                case ApplicationUserType.BetaTester:
+                    return await _accountUseCase.Register(request);
+                default:
+                    return Envelope<RegisterResponse>.Result.Unauthorized("Unrecognized application user type.", rollbackDisabled: true);
+            }
         }
 
         #endregion Public Methods

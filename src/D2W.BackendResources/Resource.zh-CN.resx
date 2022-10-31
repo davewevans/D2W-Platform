@@ -147,6 +147,9 @@
   <data name="Cannot_generate_recovery_codes" xml:space="preserve">
     <value>不能生成用户名"{0}"的恢复代码，因为它们没有启用双重身份验证。</value>
   </data>
+  <data name="Client_already_added" xml:space="preserve">
+    <value>客户端已添加。</value>
+  </data>
   <data name="Code_is_required" xml:space="preserve">
     <value>需要代码。</value>
   </data>
@@ -447,6 +450,9 @@
   <data name="Unable_to_load_user" xml:space="preserve">
     <value>无法加载用户。</value>
   </data>
+  <data name="Unable_to_update_static_role" xml:space="preserve">
+    <value>无法更新静态角色</value>
+  </data>
   <data name="Unable_to_update_static_user" xml:space="preserve">
     <value>无法更新静态用户。</value>
   </data>
@@ -519,6 +525,9 @@
   <data name="Weight_is_required" xml:space="preserve">
     <value>需要重量。</value>
   </data>
+  <data name="Workroom_already_added" xml:space="preserve">
+    <value>已添加工作室。</value>
+  </data>
   <data name="Your_account_is_deactivated_Please_contact_your_administrator" xml:space="preserve">
     <value>您的帐户已停用。请联系您的管理员。</value>
   </data>
@@ -557,6 +566,12 @@
   </data>
   <data name="You_have_generated_new_recovery_codes" xml:space="preserve">
     <value>您已生成新的恢复代码。</value>
+  </data>
+  <data name="You_have_successfully_added_a_client" xml:space="preserve">
+    <value>客户端添加成功。</value>
+  </data>
+  <data name="You_have_successfully_added_a_workroom" xml:space="preserve">
+    <value>已成功添加工作室。</value>
   </data>
   <data name="You_have_successfully_created_a_new_account" xml:space="preserve">
     <value>您已成功创建了一个新帐户。</value>

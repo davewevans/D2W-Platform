@@ -2,6 +2,12 @@ namespace D2W.Domain.Entities;
 
 public class Tenant : IAuditable
 {
+    public Tenant()
+    {
+        TenantsWorkrooms = new List<TenantWorkroomModel>();
+        TenantsClients = new List<TenantClientModel>();
+    }
+
     #region Public Properties
 
     public Guid Id { get; set; }

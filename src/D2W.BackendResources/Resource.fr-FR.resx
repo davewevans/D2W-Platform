@@ -147,6 +147,9 @@
   <data name="Cannot_generate_recovery_codes" xml:space="preserve">
     <value>Impossible de générer des codes de récupération pour le nom d’utilisateur '{0}' car l’authentification à deux facteurs n’est pas activée.</value>
   </data>
+  <data name="Client_already_added" xml:space="preserve">
+    <value>Client déjà ajouté.</value>
+  </data>
   <data name="Code_is_required" xml:space="preserve">
     <value>Le code est requis.</value>
   </data>
@@ -447,6 +450,9 @@
   <data name="Unable_to_load_user" xml:space="preserve">
     <value>Impossible de charger l’utilisateur.</value>
   </data>
+  <data name="Unable_to_update_static_role" xml:space="preserve">
+    <value>Impossible de mettre à jour le rôle statique</value>
+  </data>
   <data name="Unable_to_update_static_user" xml:space="preserve">
     <value>Impossible de mettre à jour l’utilisateur statique.</value>
   </data>
@@ -519,6 +525,9 @@
   <data name="Weight_is_required" xml:space="preserve">
     <value>Le poids est requis.</value>
   </data>
+  <data name="Workroom_already_added" xml:space="preserve">
+    <value>Workroom déjà ajouté.</value>
+  </data>
   <data name="Your_account_is_deactivated_Please_contact_your_administrator" xml:space="preserve">
     <value>Votre compte est désactivé. Veuillez contacter votre administrateur.</value>
   </data>
@@ -557,6 +566,12 @@
   </data>
   <data name="You_have_generated_new_recovery_codes" xml:space="preserve">
     <value>Vous avez généré de nouveaux codes de récupération.</value>
+  </data>
+  <data name="You_have_successfully_added_a_client" xml:space="preserve">
+    <value>Client ajouté avec succès.</value>
+  </data>
+  <data name="You_have_successfully_added_a_workroom" xml:space="preserve">
+    <value>Workroom ajouté avec succès.</value>
   </data>
   <data name="You_have_successfully_created_a_new_account" xml:space="preserve">
     <value>Vous avez créé un nouveau compte avec succès.</value>

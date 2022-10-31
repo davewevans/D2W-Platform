@@ -1,4 +1,8 @@
 ﻿using D2W.Application.Common.Managers;
+using D2W.Application.Features.Identity.Account.Commands.RegisterClient;
+using D2W.Application.Features.Identity.Account.Commands.RegisterWorkroom;
+using D2W.Domain.Entities.Identity;
+using DocumentFormat.OpenXml.EMMA;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 
@@ -60,6 +64,16 @@ public class AccountUseCase : IAccountUseCase
 
     public async Task<Envelope<LoginResponse>> Login(LoginCommand request)
     {
+        var userEntity = await _userManager.Users.IgnoreQueryFilters()
+            .FirstOrDefaultAsync(u => u.Email.Equals(request.Email));
+
+        if (userEntity != null && _dbContext.Tenants != null)
+        {
+            var tenant = await _dbContext.Tenants.FirstOrDefaultAsync(t => t.Id.Equals(userEntity.TenantId));
+            _tenantResolver.SetTenantId(tenant?.Id);
+            _tenantResolver.SetTenantName(tenant?.Name ?? string.Empty);
+        }
+
         var result = await _signInManager.PasswordSignInAsync(request.Email, request.Password, request.RememberMe, lockoutOnFailure: true);
 
         if (result.Succeeded)
@@ -233,6 +247,102 @@ public class AccountUseCase : IAccountUseCase
         }
     }
 
+    public async Task<Envelope<RegisterClientResponse>> RegisterClient(RegisterClientCommand request)
+    {
+        var user = request.MapToEntity();
+
+        var userExists =  _userManager.Users.Any(u => u.Email.Equals(request.Email));
+
+        if (!userExists)
+        {
+            var result = await _userManager.CreateAsync(user);
+
+            if (!result.Succeeded)
+            {
+                return Envelope<RegisterClientResponse>.Result.AddErrors(result.Errors.ToApplicationResult(), ResponseType.ServerError, rollbackDisabled: true);
+            }
+
+            // Manually confirm email 
+            string confirmationToken = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+            result = await _userManager.ConfirmEmailAsync(user, confirmationToken);
+        }
+
+        var userEntity = await _userManager.FindByEmailAsync(request.Email);
+        var tenantId = _tenantResolver.GetTenantId();
+
+        // many-to-many relationship with designer if not already exist
+        bool clientDesignerExists = await _dbContext.TenantsClients.AnyAsync(tc =>
+            tc.TenantId.Equals(tenantId) && tc.ApplicationUserId.Equals(userEntity.Id));
+
+        if (!clientDesignerExists && tenantId is not null)
+        {
+            _dbContext.TenantsClients.Add(new TenantClientModel
+            {
+                ApplicationUserId = userEntity.Id,
+                TenantId = tenantId.Value
+            });
+
+            await _dbContext.SaveChangesAsync();
+        }
+
+        var payload = new RegisterClientResponse
+        {
+            RequireConfirmedAccount = false,
+            DisplayConfirmAccountLink = false,
+            Email = user.Email,
+            SuccessMessage = clientDesignerExists ? Resource.Client_already_added : Resource.You_have_successfully_added_a_client
+        };
+        return Envelope<RegisterClientResponse>.Result.Ok(payload);
+    }
+
+    public async Task<Envelope<RegisterWorkroomResponse>> RegisterWorkroom(RegisterWorkroomCommand request)
+    {
+        var user = request.MapToEntity();
+
+        var userExists = _userManager.Users.Any(u => u.Email.Equals(request.Email));
+
+        if (!userExists)
+        {
+            var result = await _userManager.CreateAsync(user);
+
+            if (!result.Succeeded)
+            {
+                return Envelope<RegisterWorkroomResponse>.Result.AddErrors(result.Errors.ToApplicationResult(), ResponseType.ServerError, rollbackDisabled: true);
+            }
+
+            // Manually confirm email 
+            string confirmationToken = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+            result = await _userManager.ConfirmEmailAsync(user, confirmationToken);
+        }
+
+        var userEntity = await _userManager.FindByEmailAsync(request.Email);
+        var tenantId = _tenantResolver.GetTenantId();
+
+        // many-to-many relationship with designer if not already exist
+        bool workroomDesignerExists = await _dbContext.TenantsWorkrooms.AnyAsync(tc =>
+            tc.TenantId.Equals(tenantId) && tc.ApplicationUserId.Equals(userEntity.Id));
+
+        if (!workroomDesignerExists && tenantId is not null)
+        {
+            _dbContext.TenantsWorkrooms.Add(new TenantWorkroomModel
+            {
+                ApplicationUserId = userEntity.Id,
+                TenantId = tenantId.Value
+            });
+
+            await _dbContext.SaveChangesAsync();
+        }
+
+        var payload = new RegisterWorkroomResponse
+        {
+            RequireConfirmedAccount = false,
+            DisplayConfirmAccountLink = false,
+            Email = user.Email,
+            SuccessMessage = workroomDesignerExists ? Resource.Workroom_already_added : Resource.You_have_successfully_added_a_workroom
+        };
+        return Envelope<RegisterWorkroomResponse>.Result.Ok(payload);
+    }
+    
     public async Task<Envelope<string>> ConfirmEmail(string userId, string code)
     {
         if (string.IsNullOrWhiteSpace(userId))

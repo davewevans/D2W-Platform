@@ -27,6 +27,11 @@ public interface IApplicationDbContext : IDisposable
     DbContext Current { get; }
     DatabaseFacade Database { get; }
 
+    DbSet<TenantWorkroomModel> TenantsWorkrooms { get; set; }
+    DbSet<TenantClientModel> TenantsClients { get; set; }
+    DbSet<ContactDetailsModel> ContactDetails { get; set; }
+    DbSet<CountryModel> Countries { get; set; }
+
     #endregion Public Properties
 
     #region Public Methods

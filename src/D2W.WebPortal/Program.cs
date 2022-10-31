@@ -1,3 +1,5 @@
+using Syncfusion.Blazor;
+
 namespace D2W.WebPortal;
 
 public class Program
@@ -9,6 +11,12 @@ public class Program
         var builder = WebAssemblyHostBuilder.CreateDefault(args);
 
         builder.RootComponents.Add<App>("#app");
+
+        Syncfusion.Licensing.SyncfusionLicenseProvider
+            .RegisterLicense(builder.Configuration["SyncfusionLicenseKey"]);
+
+        // Syncfusion
+        builder.Services.AddSyncfusionBlazor();
 
         builder.Services.AddScoped<SpinnerService>();
 

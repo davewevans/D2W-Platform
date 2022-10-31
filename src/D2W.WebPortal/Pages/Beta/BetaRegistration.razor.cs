@@ -45,7 +45,7 @@
             Console.WriteLine("Beta RegisterUser invoked");
 
             SubmitButtonDisabled = true;
-            RegisterCommand.IsBetaTester = true;
+            RegisterCommand.AppUserType = ApplicationUserType.BetaTester;
 
             var httpResponseWrapper = await AccountsClient.Register(RegisterCommand);
 

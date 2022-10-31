@@ -1,4 +1,7 @@
-﻿namespace D2W.Application.Common.Interfaces.UseCases.Identity;
+﻿using D2W.Application.Features.Identity.Account.Commands.RegisterClient;
+using D2W.Application.Features.Identity.Account.Commands.RegisterWorkroom;
+
+namespace D2W.Application.Common.Interfaces.UseCases.Identity;
 
 public interface IAccountUseCase
 {
@@ -13,6 +16,10 @@ public interface IAccountUseCase
     Task<Envelope<AuthResponse>> RefreshToken(RefreshTokenCommand request);
 
     Task<Envelope<RegisterResponse>> Register(RegisterCommand request);
+
+    Task<Envelope<RegisterClientResponse>> RegisterClient(RegisterClientCommand request);
+
+    Task<Envelope<RegisterWorkroomResponse>> RegisterWorkroom(RegisterWorkroomCommand request);
 
     Task<Envelope<string>> ConfirmEmail(string userId, string code);
 

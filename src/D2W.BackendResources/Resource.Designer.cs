@@ -151,6 +151,15 @@ namespace D2W.BackendResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Client already added..
+        /// </summary>
+        public static string Client_already_added {
+            get {
+                return ResourceManager.GetString("Client_already_added", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Code is required..
         /// </summary>
         public static string Code_is_required {
@@ -1279,6 +1288,15 @@ namespace D2W.BackendResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Workroom already added..
+        /// </summary>
+        public static string Workroom_already_added {
+            get {
+                return ResourceManager.GetString("Workroom_already_added", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You are forbidden to access {0}..
         /// </summary>
         public static string You_are_forbidden {
@@ -1311,6 +1329,24 @@ namespace D2W.BackendResources {
         public static string You_have_generated_new_recovery_codes {
             get {
                 return ResourceManager.GetString("You_have_generated_new_recovery_codes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Client added successfully..
+        /// </summary>
+        public static string You_have_successfully_added_a_client {
+            get {
+                return ResourceManager.GetString("You_have_successfully_added_a_client", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Workroom added successfully..
+        /// </summary>
+        public static string You_have_successfully_added_a_workroom {
+            get {
+                return ResourceManager.GetString("You_have_successfully_added_a_workroom", resourceCulture);
             }
         }
         

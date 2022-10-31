@@ -14,6 +14,8 @@ public partial class Applicants : IAsyncDisposable
     [Inject] private ISnackbar Snackbar { get; set; }
     [Inject] private NavigationManager NavigationManager { get; set; }
 
+    private string title = "Applicants";
+    private string description = "Army applicatants demo page.";
     private string SearchString { get; set; }
     private bool IsHubConnectionClosed { get; set; }
     private ApplicantsResponse ApplicantsResponse { get; set; }

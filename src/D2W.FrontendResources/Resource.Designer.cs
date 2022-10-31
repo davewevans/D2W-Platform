@@ -826,6 +826,15 @@ namespace D2W.FrontendResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Clients.
+        /// </summary>
+        public static string Clients {
+            get {
+                return ResourceManager.GetString("Clients", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Close.
         /// </summary>
         public static string Close {
@@ -1246,6 +1255,15 @@ namespace D2W.FrontendResources {
             get {
                 return ResourceManager.GetString("Deleting_this_data_will_permanently_remove_your_account_and_this_cannot_be_recove" +
                         "red", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Design Concepts.
+        /// </summary>
+        public static string Design_Concepts {
+            get {
+                return ResourceManager.GetString("Design_Concepts", resourceCulture);
             }
         }
         
@@ -3936,6 +3954,15 @@ namespace D2W.FrontendResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Swatches.
+        /// </summary>
+        public static string Swatches {
+            get {
+                return ResourceManager.GetString("Swatches", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sweden.
         /// </summary>
         public static string Sweden {
@@ -4391,6 +4418,24 @@ namespace D2W.FrontendResources {
         public static string Wind {
             get {
                 return ResourceManager.GetString("Wind", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Work Orders.
+        /// </summary>
+        public static string Work_Orders {
+            get {
+                return ResourceManager.GetString("Work_Orders", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Workrooms.
+        /// </summary>
+        public static string Workrooms {
+            get {
+                return ResourceManager.GetString("Workrooms", resourceCulture);
             }
         }
         

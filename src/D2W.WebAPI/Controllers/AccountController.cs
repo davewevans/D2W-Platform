@@ -1,4 +1,6 @@
 ﻿using D2W.Application.Common.Interfaces.UseCases.Identity;
+using D2W.Application.Features.Identity.Account.Commands.RegisterClient;
+using D2W.Application.Features.Identity.Account.Commands.RegisterWorkroom;
 
 namespace D2W.WebAPI.Controllers;
 
@@ -35,6 +37,20 @@ public class AccountController : ApiController
             FullName = request.FullName,
         });
 
+        var response = await Mediator.Send(request);
+        return TryGetResult(response);
+    }
+
+    [HttpPost("ClientRegister")]
+    public async Task<IActionResult> RegisterClient(RegisterClientCommand request)
+    {
+        var response = await Mediator.Send(request);
+        return TryGetResult(response);
+    }
+
+    [HttpPost("WorkroomRegister")]
+    public async Task<IActionResult> RegisterWorkroom(RegisterWorkroomCommand request)
+    {
         var response = await Mediator.Send(request);
         return TryGetResult(response);
     }

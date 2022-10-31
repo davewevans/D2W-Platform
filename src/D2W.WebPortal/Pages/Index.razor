@@ -4,6 +4,14 @@
     <MudTabPanel OnClick="InitiateSignalRHub" Text="@Resource.Realtime_Data">
         <ServerSideValidator @ref="ServerSideValidator" />
         <MudText Typo="Typo.h5" Color="Color.Primary" Class="mb-4">@Resource.Dashboard<MudChip Label="true" Color="Color.Default">@Resource.Live_data_powered_by_SignalR</MudChip></MudText>
+
+
+        <MudText Typo="Typo.h5">font awesome icons</MudText>
+        <MudIcon Icon="fas fa-cog fa-spin" Color="Color.Primary" />
+        <MudIcon Icon="fa fa-sun-o" Color="Color.Primary" Class="mx-4" Style="width: 54px; height: 54px;"></MudIcon>
+
+
+
         <MudGrid>
             <MudItem xs="12" sm="6" md="3">
                 <MudPaper Elevation="25" Class="d-flex flex-row pt-6 pb-4" Style="height: 100px;">
@@ -159,7 +167,7 @@
     </MudTabPanel>
     <MudTabPanel OnClick="CloseHubConnection" Text="@Resource.Master_Details_Form">
         <D2W.WebPortal.Pages.POC.Army.AddApplicant />
-    </MudTabPanel> 
+    </MudTabPanel>
     <MudTabPanel OnClick="CloseHubConnection" Text="@Resource.Global_Settings">
         <MudTabs KeepPanelsAlive="false" Elevation="4" Rounded="true" Color="@Color.Primary">
             <MudTabPanel Text="@Resource.Identity_Settings">

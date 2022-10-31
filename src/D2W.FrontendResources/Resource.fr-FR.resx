@@ -366,6 +366,9 @@
   <data name="click_here_to_log_in" xml:space="preserve">
     <value>cliquez ici pour vous connecter</value>
   </data>
+  <data name="Clients" xml:space="preserve">
+    <value>Les clients</value>
+  </data>
   <data name="Client_Side_Authorization" xml:space="preserve">
     <value>Autorisation côté client</value>
   </data>
@@ -512,6 +515,9 @@
   </data>
   <data name="Deleting_this_data_will_permanently_remove_your_account_and_this_cannot_be_recovered" xml:space="preserve">
     <value>La suppression de ces données supprimera définitivement votre compte, et cela ne peut pas être récupéré.</value>
+  </data>
+  <data name="Design_Concepts" xml:space="preserve">
+    <value>Concepts de conception</value>
   </data>
   <data name="Disable_2FA" xml:space="preserve">
     <value>Désactiver l’authentification à deux facteurs</value>
@@ -1407,6 +1413,9 @@
   <data name="Suspend" xml:space="preserve">
     <value>Suspendre</value>
   </data>
+  <data name="Swatches" xml:space="preserve">
+    <value>Échantillons</value>
+  </data>
   <data name="Sweden" xml:space="preserve">
     <value>Suède</value>
   </data>
@@ -1559,6 +1568,12 @@
   </data>
   <data name="Wind" xml:space="preserve">
     <value>Vent</value>
+  </data>
+  <data name="Workrooms" xml:space="preserve">
+    <value>Salles de travail</value>
+  </data>
+  <data name="Work_Orders" xml:space="preserve">
+    <value>Ordres de travail</value>
   </data>
   <data name="Year_Month_Pattern" xml:space="preserve">
     <value>Modèle année-mois</value>

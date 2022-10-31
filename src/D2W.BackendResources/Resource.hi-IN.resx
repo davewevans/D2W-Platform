@@ -147,6 +147,9 @@
   <data name="Cannot_generate_recovery_codes" xml:space="preserve">
     <value>उपयोगकर्ता नाम '{0}' के लिए रिकवरी कोड उत्पन्न नहीं कर सकते क्योंकि उनके पास टू-फैक्टर ऑथेंटिकेशन सक्षम नहीं है।</value>
   </data>
+  <data name="Client_already_added" xml:space="preserve">
+    <value>क्लाइंट पहले से ही जोड़ा गया है।</value>
+  </data>
   <data name="Code_is_required" xml:space="preserve">
     <value>कोड की आवश्यकता है।</value>
   </data>
@@ -447,6 +450,9 @@
   <data name="Unable_to_load_user" xml:space="preserve">
     <value>उपयोगकर्ता लोड करने में असमर्थ।</value>
   </data>
+  <data name="Unable_to_update_static_role" xml:space="preserve">
+    <value>स्थैतिक भूमिका अद्यतन करने में असमर्थ</value>
+  </data>
   <data name="Unable_to_update_static_user" xml:space="preserve">
     <value>स्थिर उपयोगकर्ता को अपडेट करने में असमर्थ।</value>
   </data>
@@ -519,6 +525,9 @@
   <data name="Weight_is_required" xml:space="preserve">
     <value>वजन की आवश्यकता है।</value>
   </data>
+  <data name="Workroom_already_added" xml:space="preserve">
+    <value>वर्करूम पहले से ही जोड़ा गया है।</value>
+  </data>
   <data name="Your_account_is_deactivated_Please_contact_your_administrator" xml:space="preserve">
     <value>आपका खाता निष्क्रिय कर दिया जाता है. कृपया अपने प्रशासक से संपर्क करें।</value>
   </data>
@@ -557,6 +566,12 @@
   </data>
   <data name="You_have_generated_new_recovery_codes" xml:space="preserve">
     <value>आपने नए रिकवरी कोड जेनरेट किए हैं।</value>
+  </data>
+  <data name="You_have_successfully_added_a_client" xml:space="preserve">
+    <value>क्लाइंट सफलतापूर्वक जोड़ा गया।</value>
+  </data>
+  <data name="You_have_successfully_added_a_workroom" xml:space="preserve">
+    <value>वर्करूम सफलतापूर्वक जोड़ा गया।</value>
   </data>
   <data name="You_have_successfully_created_a_new_account" xml:space="preserve">
     <value>आपने सफलतापूर्वक एक नया खाता बनाया है।</value>

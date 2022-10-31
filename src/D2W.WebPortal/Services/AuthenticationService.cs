@@ -33,6 +33,8 @@ public class AuthenticationService : IAuthenticationService
 
         await _localStorageService.SetItemAsync(TokenType.RefreshToken, authResponse.RefreshToken);
 
+        await StoreTenantName();
+
         ((AuthStateProvider)_authStateProvider).NotifyUserAuthentication(authResponse.AccessToken);
 
         _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", authResponse.AccessToken);
@@ -45,6 +47,8 @@ public class AuthenticationService : IAuthenticationService
         await _localStorageService.SetItemAsync(TokenType.AccessToken, authResponse.AccessToken);
 
         await _localStorageService.SetItemAsync(TokenType.RefreshToken, authResponse.RefreshToken);
+
+        await StoreTenantName();
 
         ((AuthStateProvider)_authStateProvider).NotifyUserAuthentication(authResponse.AccessToken);
 
@@ -76,7 +80,18 @@ public class AuthenticationService : IAuthenticationService
 
         await _localStorageService.RemoveItemAsync(TokenType.RefreshToken);
 
+        await _localStorageService.RemoveItemAsync(Constants.TenantNameStorageKey);
+
         _httpClient.DefaultRequestHeaders.Authorization = null;
+    }
+
+     private async Task StoreTenantName()
+    {
+        var authenticationState = await _authStateProvider.GetAuthenticationStateAsync();
+        var tenantNameClaim = authenticationState.User.Claims.FirstOrDefault(x => x.Type.Equals("TenantName"));
+        string tenantName = tenantNameClaim is not null ? tenantNameClaim.Value : string.Empty;
+
+        await _localStorageService.SetItemAsync(Constants.TenantNameStorageKey, tenantName);
     }
 
     #endregion Private Methods

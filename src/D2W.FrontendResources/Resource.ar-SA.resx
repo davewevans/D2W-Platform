@@ -366,6 +366,9 @@
   <data name="click_here_to_log_in" xml:space="preserve">
     <value>انقر هنا لتسجيل الدخول</value>
   </data>
+  <data name="Clients" xml:space="preserve">
+    <value>العملاء</value>
+  </data>
   <data name="Client_Side_Authorization" xml:space="preserve">
     <value>التفويض من جانب العميل</value>
   </data>
@@ -512,6 +515,9 @@
   </data>
   <data name="Deleting_this_data_will_permanently_remove_your_account_and_this_cannot_be_recovered" xml:space="preserve">
     <value>سيؤدي حذف هذه البيانات إلى إزالة حسابك نهائيًا ، ولا يمكن استرداد ذلك.</value>
+  </data>
+  <data name="Design_Concepts" xml:space="preserve">
+    <value>مفاهيم التصميم</value>
   </data>
   <data name="Disable_2FA" xml:space="preserve">
     <value>تعطيل المصادقة الثنائية</value>
@@ -1407,6 +1413,9 @@
   <data name="Suspend" xml:space="preserve">
     <value>تعليق</value>
   </data>
+  <data name="Swatches" xml:space="preserve">
+    <value>الحوامل</value>
+  </data>
   <data name="Sweden" xml:space="preserve">
     <value>السويد</value>
   </data>
@@ -1559,6 +1568,12 @@
   </data>
   <data name="Wind" xml:space="preserve">
     <value>رياح</value>
+  </data>
+  <data name="Workrooms" xml:space="preserve">
+    <value>غرف العمل</value>
+  </data>
+  <data name="Work_Orders" xml:space="preserve">
+    <value>أوامر العمل</value>
   </data>
   <data name="Year_Month_Pattern" xml:space="preserve">
     <value>سنة نمط الشهر</value>

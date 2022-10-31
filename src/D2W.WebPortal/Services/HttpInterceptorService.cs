@@ -10,6 +10,7 @@ public class HttpInterceptorService : IDisposable
     private readonly NavigationManager _navigationManager;
     private readonly IRefreshTokenService _refreshTokenService;
     private readonly IAuthenticationService _authenticationService;
+    private readonly ILocalStorageService _localStorageService;
 
     #endregion Private Fields
 
@@ -20,7 +21,8 @@ public class HttpInterceptorService : IDisposable
                                   SpinnerService spinnerService,
                                   NavigationManager navigationManager,
                                   IRefreshTokenService refreshTokenService,
-                                  IAuthenticationService authenticationService)
+                                  IAuthenticationService authenticationService,
+                                  ILocalStorageService localStorageService)
     {
         _httpClient = httpClientFactory.CreateClient("HttpInterceptorService");
         _httpClientInterceptor = httpClientInterceptor;
@@ -30,6 +32,7 @@ public class HttpInterceptorService : IDisposable
         _authenticationService = authenticationService;
         _httpClientInterceptor.BeforeSendAsync += async (s, e) => await HttpClientInterceptor_BeforeSendAsync(s, e);
         _httpClientInterceptor.AfterSendAsync += async (s, e) => await HttpClientInterceptor_AfterSendAsync(s, e);
+        _localStorageService = localStorageService;
     }
 
     #endregion Public Constructors
@@ -51,10 +54,16 @@ public class HttpInterceptorService : IDisposable
     {
         _spinnerService.Show();
 
-        var subDomain = _navigationManager.GetSubDomain();
+        // var subDomain = _navigationManager.GetSubDomain();
 
-        if (subDomain != null)
-            e.Request.Headers.Add("X-Tenant", subDomain);
+         var tenantName = await _localStorageService.GetItemAsync<string>(Constants.TenantNameStorageKey);
+
+        Console.WriteLine($"tenantName: {tenantName}");
+
+        e.Request.Headers.Add("X-Tenant", tenantName);
+
+        // if (subDomain != null)
+        //     e.Request.Headers.Add("X-Tenant", subDomain);
 
         if (e.Request.Headers.Authorization != null)
         {
