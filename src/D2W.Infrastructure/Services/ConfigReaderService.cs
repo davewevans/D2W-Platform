@@ -6,7 +6,8 @@ public class ConfigReaderService : IConfigReaderService
 
     private readonly AppOptions _appOptionsSnapshot;
     private readonly JwtOptions _jwtOptionsSnapshot;
-    private readonly SmtpOption _smtpOptionSnapshot;
+    private readonly SmtpOptions _smtpOptionsSnapshot;
+    private readonly SmsOptions _smsOptionsSnapshot;
     private readonly ClientAppOptions _clientAppOptionsSnapshot;
     private readonly IHttpContextAccessor _httpContextAccessor;
 
@@ -17,14 +18,16 @@ public class ConfigReaderService : IConfigReaderService
     public ConfigReaderService(IOptionsSnapshot<AppOptions> appOptionsSnapshot,
                                IOptionsSnapshot<JwtOptions> jwtOptionsSnapshot,
                                IOptionsSnapshot<ClientAppOptions> clientAppOptionsSnapshot,
-                               IOptionsSnapshot<SmtpOption> smtpOptionSnapshot,
-                               IHttpContextAccessor httpContextAccessor)
+                               IOptionsSnapshot<SmtpOptions> smtpOptionSnapshot,
+                               IHttpContextAccessor httpContextAccessor,
+                               IOptionsSnapshot<SmsOptions> smsOptionsSnapshot)
     {
         _appOptionsSnapshot = appOptionsSnapshot.Value;
         _jwtOptionsSnapshot = jwtOptionsSnapshot.Value;
         _clientAppOptionsSnapshot = clientAppOptionsSnapshot.Value;
-        _smtpOptionSnapshot = smtpOptionSnapshot.Value;
+        _smtpOptionsSnapshot = smtpOptionSnapshot.Value;
         _httpContextAccessor = httpContextAccessor;
+        _smsOptionsSnapshot = smsOptionsSnapshot.Value;
     }
 
     #endregion Public Constructors
@@ -66,9 +69,14 @@ public class ConfigReaderService : IConfigReaderService
         return _jwtOptionsSnapshot;
     }
 
-    public SmtpOption GetSmtpOption()
+    public SmtpOptions GetSmtpOptions()
     {
-        return _smtpOptionSnapshot;
+        return _smtpOptionsSnapshot;
+    }
+
+    public SmsOptions GetSmsOptions()
+    {
+        return _smsOptionsSnapshot;
     }
 
     public ClientAppOptions GetClientAppOptions()

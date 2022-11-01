@@ -18,7 +18,9 @@ public interface IConfigReaderService
 
     JwtOptions GetJwtOptions();
 
-    SmtpOption GetSmtpOption();
+    SmtpOptions GetSmtpOptions();
+
+    SmsOptions GetSmsOptions();
 
     ClientAppOptions GetClientAppOptions();
 

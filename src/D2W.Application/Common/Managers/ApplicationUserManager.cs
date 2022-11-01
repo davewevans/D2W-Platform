@@ -294,9 +294,9 @@ public class ApplicationUserManager : UserManager<ApplicationUser>
 
         var clientAppOptions = configReaderService.GetClientAppOptions();
 
-        var tenantHostName = httpContextAccessor.GetClientAppHostName();
+        var hostName = httpContextAccessor.GetClientAppHostNameWithoutTenant();
 
-        var url = $"{tenantHostName}/{clientAppOptions.ConfirmEmailUrl}";
+        var url = $"{hostName}/{clientAppOptions.ConfirmEmailUrl}";
 
         var callbackUrl = string.Format(url, user.Id, code);
 
@@ -324,9 +324,9 @@ public class ApplicationUserManager : UserManager<ApplicationUser>
 
             var clientAppOptions = configReaderService.GetClientAppOptions();
 
-            var tenantHostName = httpContextAccessor.GetClientAppHostName();
+            var hostName = httpContextAccessor.GetClientAppHostNameWithoutTenant();
 
-            var url = $"{tenantHostName}/{clientAppOptions.ConfirmEmailChangeUrl}";
+            var url = $"{hostName}/{clientAppOptions.ConfirmEmailUrl}";
 
             callbackUrl = string.Format(url, user.Id, newEmail, code);
 

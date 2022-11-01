@@ -8,7 +8,8 @@ public static class AppSettingsExtensions
     {
         services.Configure<AppOptions>(configuration.GetSection(AppOptions.Section));
         services.Configure<JwtOptions>(configuration.GetSection(JwtOptions.Section));
-        services.Configure<SmtpOption>(configuration.GetSection(SmtpOption.Section));
+        services.Configure<SmtpOptions>(configuration.GetSection(SmtpOptions.Section));
+        services.Configure<SmsOptions>(configuration.GetSection(SmsOptions.Section));
         services.Configure<ClientAppOptions>(configuration.GetSection(ClientAppOptions.Section));
         return services;
     }

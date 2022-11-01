@@ -51,5 +51,13 @@ public static class HttpContextExtensions
         };
     }
 
+    public static string GetClientAppHostNameWithoutTenant(this IHttpContextAccessor httpContextAccessor)
+    {
+        var configReaderService = httpContextAccessor.HttpContext.RequestServices.GetRequiredService<IConfigReaderService>();
+        var tenantResolver = httpContextAccessor.HttpContext.RequestServices.GetRequiredService<ITenantResolver>();
+        var clientAppOptions = configReaderService.GetClientAppOptions();
+        return clientAppOptions.MultiTenantHostName;
+    }
+
     #endregion Public Methods
 }

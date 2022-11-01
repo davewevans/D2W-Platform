@@ -90,7 +90,7 @@ public class AccountUseCase : IAccountUseCase
             var loginResponse = new LoginResponse
             {
                 AuthResponse = authResponse,
-                RequiresTwoFactor = false,
+                RequiresTwoFactor = true,
             };
 
             return Envelope<LoginResponse>.Result.Ok(loginResponse);
@@ -204,7 +204,7 @@ public class AccountUseCase : IAccountUseCase
             var payload = new RegisterResponse
             {
                 RequireConfirmedAccount = true,
-                DisplayConfirmAccountLink = true,
+                DisplayConfirmAccountLink = false,
                 Email = user.Email,
                 EmailConfirmationUrl = HttpUtility.UrlEncode(callbackUrl),
                 AuthResponse = null,
