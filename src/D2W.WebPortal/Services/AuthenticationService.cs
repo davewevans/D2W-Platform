@@ -27,13 +27,15 @@ public class AuthenticationService : IAuthenticationService
 
     public async Task Login(AuthResponse authResponse)
     {
+        System.Console.WriteLine("Login invoked");
+
         await Logout();
 
         await _localStorageService.SetItemAsync(TokenType.AccessToken, authResponse.AccessToken);
 
         await _localStorageService.SetItemAsync(TokenType.RefreshToken, authResponse.RefreshToken);
 
-        await StoreTenantName();
+        await StoreTenantNameFromClaim();
 
         ((AuthStateProvider)_authStateProvider).NotifyUserAuthentication(authResponse.AccessToken);
 
@@ -42,13 +44,15 @@ public class AuthenticationService : IAuthenticationService
 
     public async Task ReAuthenticate(AuthResponse authResponse)
     {
+        System.Console.WriteLine("ReAuthenticate invoked");
+
         await CleanUp();
 
         await _localStorageService.SetItemAsync(TokenType.AccessToken, authResponse.AccessToken);
 
         await _localStorageService.SetItemAsync(TokenType.RefreshToken, authResponse.RefreshToken);
 
-        await StoreTenantName();
+        await StoreTenantNameFromClaim();
 
         ((AuthStateProvider)_authStateProvider).NotifyUserAuthentication(authResponse.AccessToken);
 
@@ -65,9 +69,21 @@ public class AuthenticationService : IAuthenticationService
         {
             await _localStorageService.RemoveItemAsync(TokenType.AccessToken);
             await _localStorageService.RemoveItemAsync(TokenType.RefreshToken);
+            await _localStorageService.RemoveItemAsync(Constants.TenantNameStorageKey);
             ((AuthStateProvider)_authStateProvider).NotifyUserLogout();
             _httpClient.DefaultRequestHeaders.Authorization = null;
         }
+    }
+
+    public async Task StoreTenantName(string tenantName)
+    {
+        System.Console.WriteLine("StoreTenantName invoked");
+        await _localStorageService.SetItemAsync(Constants.TenantNameStorageKey, tenantName);
+    }
+
+    public async Task RemoveTenantName()
+    {
+        await _localStorageService.RemoveItemAsync(Constants.TenantNameStorageKey);
     }
 
     #endregion Public Methods
@@ -85,8 +101,11 @@ public class AuthenticationService : IAuthenticationService
         _httpClient.DefaultRequestHeaders.Authorization = null;
     }
 
-     private async Task StoreTenantName()
+    private async Task StoreTenantNameFromClaim()
     {
+
+        System.Console.WriteLine("StoreTenantNameFromClaim invoked");
+
         var authenticationState = await _authStateProvider.GetAuthenticationStateAsync();
         var tenantNameClaim = authenticationState.User.Claims.FirstOrDefault(x => x.Type.Equals("TenantName"));
         string tenantName = tenantNameClaim is not null ? tenantNameClaim.Value : string.Empty;

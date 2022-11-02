@@ -204,6 +204,9 @@
   <data name="Incorrect_password" xml:space="preserve">
     <value>Falsches Passwort.</value>
   </data>
+  <data name="Invalid_2fa_provider" xml:space="preserve">
+    <value>Ungültiger 2FA-Anbieter</value>
+  </data>
   <data name="Invalid_applicant_Id" xml:space="preserve">
     <value>Ungültige Bewerber-ID.</value>
   </data>
@@ -212,6 +215,9 @@
   </data>
   <data name="Invalid_client_request" xml:space="preserve">
     <value>Ungültige Clientanforderung.</value>
+  </data>
+  <data name="Invalid_code_entered" xml:space="preserve">
+    <value>Ungültiger Code eingegeben.</value>
   </data>
   <data name="Invalid_login_attempt" xml:space="preserve">
     <value>Ungültiger Anmeldeversuch.</value>

@@ -322,6 +322,15 @@ namespace D2W.BackendResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Invalid 2FA Provider.
+        /// </summary>
+        public static string Invalid_2fa_provider {
+            get {
+                return ResourceManager.GetString("Invalid_2fa_provider", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invalid applicant ID..
         /// </summary>
         public static string Invalid_applicant_Id {
@@ -345,6 +354,15 @@ namespace D2W.BackendResources {
         public static string Invalid_client_request {
             get {
                 return ResourceManager.GetString("Invalid_client_request", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid code entered..
+        /// </summary>
+        public static string Invalid_code_entered {
+            get {
+                return ResourceManager.GetString("Invalid_code_entered", resourceCulture);
             }
         }
         

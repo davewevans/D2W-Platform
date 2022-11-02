@@ -204,6 +204,9 @@
   <data name="Incorrect_password" xml:space="preserve">
     <value>गलत पासवर्ड।</value>
   </data>
+  <data name="Invalid_2fa_provider" xml:space="preserve">
+    <value>अमान्य 2FA प्रदाता</value>
+  </data>
   <data name="Invalid_applicant_Id" xml:space="preserve">
     <value>अमान्य आवेदक आईडी।</value>
   </data>
@@ -212,6 +215,9 @@
   </data>
   <data name="Invalid_client_request" xml:space="preserve">
     <value>अमान्य ग्राहक अनुरोध।</value>
+  </data>
+  <data name="Invalid_code_entered" xml:space="preserve">
+    <value>अमान्य कोड दर्ज किया गया.</value>
   </data>
   <data name="Invalid_login_attempt" xml:space="preserve">
     <value>अमान्य लॉगिन प्रयास।</value>

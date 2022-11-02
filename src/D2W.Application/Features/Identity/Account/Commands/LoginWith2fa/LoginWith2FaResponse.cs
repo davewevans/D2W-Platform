@@ -3,6 +3,7 @@
 public class LoginWith2FaResponse
 {
     #region Public Properties
+    public string ReturnUrl { get; set; }
 
     public AuthResponse AuthResponse { get; set; }
 

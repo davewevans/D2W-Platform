@@ -10,5 +10,9 @@ public interface IAuthenticationService
 
     Task Logout();
 
+    Task StoreTenantName(string tenantName);
+
+    Task RemoveTenantName();
+
     #endregion Public Methods
 }

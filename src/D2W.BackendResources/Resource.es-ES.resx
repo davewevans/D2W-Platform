@@ -204,6 +204,9 @@
   <data name="Incorrect_password" xml:space="preserve">
     <value>Contraseña incorrecta.</value>
   </data>
+  <data name="Invalid_2fa_provider" xml:space="preserve">
+    <value>Proveedor 2FA no válido</value>
+  </data>
   <data name="Invalid_applicant_Id" xml:space="preserve">
     <value>Identificación de solicitante no válida.</value>
   </data>
@@ -212,6 +215,9 @@
   </data>
   <data name="Invalid_client_request" xml:space="preserve">
     <value>Solicitud de cliente no válida.</value>
+  </data>
+  <data name="Invalid_code_entered" xml:space="preserve">
+    <value>Código introducido no válido.</value>
   </data>
   <data name="Invalid_login_attempt" xml:space="preserve">
     <value>Intento de inicio de sesión no válido.</value>

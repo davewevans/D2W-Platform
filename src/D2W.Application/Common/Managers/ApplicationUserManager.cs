@@ -2,6 +2,8 @@
 
 public class ApplicationUserManager : UserManager<ApplicationUser>
 {
+    private readonly ITenantResolver _tenantResolver;
+
     #region Public Constructors
 
     public ApplicationUserManager(IUserStore<ApplicationUser> store,
@@ -12,7 +14,8 @@ public class ApplicationUserManager : UserManager<ApplicationUser>
                                   ILookupNormalizer keyNormalizer,
                                   IdentityErrorDescriber errors,
                                   IServiceProvider services,
-                                  ILogger<UserManager<ApplicationUser>> logger) : base(store,
+                                  ILogger<UserManager<ApplicationUser>> logger, 
+                                  ITenantResolver tenantResolver) : base(store,
                                                                                        optionsAccessor,
                                                                                        passwordHasher,
                                                                                        userValidators,
@@ -22,6 +25,7 @@ public class ApplicationUserManager : UserManager<ApplicationUser>
                                                                                        services,
                                                                                        logger)
     {
+        _tenantResolver = tenantResolver;
     }
 
     #endregion Public Constructors
@@ -298,12 +302,14 @@ public class ApplicationUserManager : UserManager<ApplicationUser>
 
         var url = $"{hostName}/{clientAppOptions.ConfirmEmailUrl}";
 
-        var callbackUrl = string.Format(url, user.Id, code);
+        var callbackUrl = string.Format(url, user.Id, code, _tenantResolver.GetTenantName());
+
+        //var callbackUrlEncoded = HtmlEncoder.Default.Encode(callbackUrl);
 
         await notificationService.SendEmailAsync(user.Email,
                                                  Resource.Confirm_your_email,
                                                  string.Format(Resource.Please_confirm_your_account_by_clicking_here,
-                                                               HtmlEncoder.Default.Encode(callbackUrl)));
+                                                     callbackUrl));
 
         return callbackUrl;
     }

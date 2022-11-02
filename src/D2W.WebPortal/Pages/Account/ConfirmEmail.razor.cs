@@ -6,6 +6,8 @@ public partial class ConfirmEmail
 
     private string _userId;
     private string _code;
+
+    private string _tenantName;
     private string _returnUrl;
 
     #endregion Private Fields
@@ -16,6 +18,8 @@ public partial class ConfirmEmail
     [Inject] private NavigationManager NavigationManager { get; set; }
     [Inject] private IAccountsClient AccountsClient { get; set; }
 
+    [Inject ] private IAuthenticationService AuthService {get; set; }
+    
     private ServerSideValidator ServerSideValidator { get; set; }
     private ConfirmEmailCommand ConfirmEmailCommand { get; set; } = new();
 
@@ -29,7 +33,17 @@ public partial class ConfirmEmail
 
         NavigationManager.TryGetQueryString("code", out _code);
 
+        NavigationManager.TryGetQueryString("tenantName", out _tenantName);
+
         NavigationManager.TryGetQueryString("returnUrl", out _returnUrl);
+
+        System.Console.WriteLine("userId: " + _userId);
+        System.Console.WriteLine("code: " + _code);
+        System.Console.WriteLine("tenantName: " + _tenantName);
+
+        if (!string.IsNullOrWhiteSpace(_tenantName)) {
+            await AuthService.StoreTenantName(_tenantName);
+        }
 
         ConfirmEmailCommand = new ConfirmEmailCommand
         {

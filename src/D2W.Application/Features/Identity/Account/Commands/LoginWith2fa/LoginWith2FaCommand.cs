@@ -1,13 +1,16 @@
-﻿namespace D2W.Application.Features.Identity.Account.Commands.LoginWith2fa;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace D2W.Application.Features.Identity.Account.Commands.LoginWith2fa;
 
 public class LoginWith2FaCommand : IRequest<Envelope<LoginWith2FaResponse>>
 {
     #region Public Properties
 
-    public string UserName { get; set; }
+    public string Email { get; set; }
+
+    [DataType(DataType.Text)]
     public string TwoFactorCode { get; set; }
-    public bool RememberMachine { get; set; }
-    public bool RememberMe { get; set; }
+    public string ReturnUrl { get; set; }
 
     #endregion Public Properties
 

@@ -104,7 +104,7 @@ public class NotificationService : INotificationService
         //};
 
         //client.UseDefaultCredentials = _configReaderService.GetSmtpOption().UseDefaultCredentials;
-        //client.Credentials = new NetworkCredential(_configReaderService.GetSmtpOption().UserName, _configReaderService.GetSmtpOption().Password);
+        //client.Credentials = new NetworkCredential(_configReaderService.GetSmtpOption().Email, _configReaderService.GetSmtpOption().Password);
         //client.Send(message);
 
         return Task.CompletedTask;

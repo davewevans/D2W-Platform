@@ -1,4 +1,6 @@
 ﻿using D2W.Application.Common.Interfaces.UseCases.Identity;
+using D2W.Application.Features.Identity.Account.Commands.GetLoginVerificationCodeCommand;
+using D2W.Application.Features.Identity.Account.Commands.LoginWithCode;
 using D2W.Application.Features.Identity.Account.Commands.RegisterClient;
 using D2W.Application.Features.Identity.Account.Commands.RegisterWorkroom;
 
@@ -15,19 +17,33 @@ public class AccountController : ApiController
         return TryGetResult(response);
     }
 
-    [HttpPost("LoginWith2Fa")]
-    public async Task<IActionResult> LoginWith2Fa(LoginWith2FaCommand request)
+    [HttpPost("GetLoginVerificationCode")]
+    public async Task<IActionResult> GetLoginCodeVerification(GetLoginVerificationCodeCommand request)
     {
         var response = await Mediator.Send(request);
         return TryGetResult(response);
     }
 
-    [HttpPost("LoginWithRecoveryCode")]
-    public async Task<IActionResult> LoginWithRecoveryCode(LoginWithRecoveryCodeCommand request)
+    [HttpPost("CodeVerificationLogin")]
+    public async Task<IActionResult> LoginWithCodeVerification(LoginWithCodeCommand request)
     {
         var response = await Mediator.Send(request);
         return TryGetResult(response);
     }
+
+    //[HttpPost("LoginWith2Fa")]
+    //public async Task<IActionResult> LoginWith2Fa(LoginWith2FaCommand request)
+    //{
+    //    var response = await Mediator.Send(request);
+    //    return TryGetResult(response);
+    //}
+
+    //[HttpPost("LoginWithRecoveryCode")]
+    //public async Task<IActionResult> LoginWithRecoveryCode(LoginWithRecoveryCodeCommand request)
+    //{
+    //    var response = await Mediator.Send(request);
+    //    return TryGetResult(response);
+    //}
 
     [HttpPost("Register")]
     public async Task<IActionResult> Register(RegisterCommand request)
