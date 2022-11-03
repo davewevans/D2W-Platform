@@ -13,6 +13,7 @@ namespace D2W.Domain.Entities
     public class ContactDetailsModel : IAuditable
     {
         public Guid Id { get; set; }
+        public string CompanyName { get; set; }
 
         [Phone]
         public string AltPhone1 { get; set; }
@@ -34,7 +35,6 @@ namespace D2W.Domain.Entities
         public string ContactName3 { get; set; }
         public string ContactName4 { get; set; }
         public string ContactName5 { get; set; }
-        public string CompanyName { get; set; }
         public string AddressLine1 { get; set; }
         public string AddressLine2 { get; set; }
         public string City { get; set; }

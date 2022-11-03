@@ -1,6 +1,7 @@
 ﻿using D2W.Application.Features.Identity.Account.Commands.RegisterWorkroom;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,9 +12,27 @@ public class RegisterWorkroomCommand : IRequest<Envelope<RegisterWorkroomRespons
 {
     #region Public Properties
 
-    public string FullName { get; set; }
     public string Email { get; set; }
     public string PhoneNumber { get; set; }
+
+
+    public string CompanyName { get; set; }
+
+    [Phone]
+    public string AltPhone { get; set; }
+
+    [EmailAddress]
+    public string AltEmailAddress { get; set; }
+
+    public string ContactName1 { get; set; }
+    public string ContactName2 { get; set; }
+    public string AddressLine1 { get; set; }
+    public string AddressLine2 { get; set; }
+    public string City { get; set; }
+    public string Region { get; set; }
+    public string PostalCode { get; set; }
+    public Guid CountryId { get; set; }
+    public string LogoUri { get; set; }
 
     #endregion Public Properties
 
@@ -21,36 +40,28 @@ public class RegisterWorkroomCommand : IRequest<Envelope<RegisterWorkroomRespons
 
     public ApplicationUser MapToEntity()
     {
-        var nameSplit = FullName?.Split(' ');
-        string firstName = string.Empty;
-        string lastName = string.Empty;
-        if (nameSplit != null)
-        {
-            firstName = nameSplit[0];
-            lastName = nameSplit[^1];
-        }
-
-        // TODO remove for production
-
-        string[] defaultProfilePics = new[]
-        {
-            "https://elevateottstoragedev.blob.core.windows.net/elevate-ott-dev-image-container/2DDDE973-40EC-4004-ABC0-73FD4CD6D042-200w.jpeg",
-            "https://elevateottstoragedev.blob.core.windows.net/elevate-ott-dev-image-container/2DDDE973-40EC-4004-ABC0-73FD4CD6D042-200w.jpeg",
-            "https://elevateottstoragedev.blob.core.windows.net/elevate-ott-dev-image-container/344CFC24-61FB-426C-B3D1-CAD5BCBD3209-200w.jpeg",
-            "https://elevateottstoragedev.blob.core.windows.net/elevate-ott-dev-image-container/852EC6E1-347C-4187-9D42-DF264CCF17BF-200w.jpeg"
-        };
-
-        var randomizer = new Random();
-
         return new()
         {
             UserName = Email,
             Email = Email,
             PhoneNumber = PhoneNumber,
-            Name = firstName,
-            Surname = lastName,
+            Name = CompanyName,
             AppUserType = ApplicationUserType.Workroom,
-            AvatarUri = defaultProfilePics[randomizer.Next(defaultProfilePics.Length)]
+            ContactDetails = new ContactDetailsModel
+            {
+                CompanyName = CompanyName,
+                AltPhone1 = AltPhone,
+                AltEmailAddress1 = AltEmailAddress,
+                ContactName1 = ContactName1,
+                ContactName2 = ContactName2,
+                AddressLine1 = AddressLine1,
+                AddressLine2 = AddressLine2,
+                City = City,
+                Region = Region,
+                PostalCode = PostalCode,
+                LogoUri = LogoUri,
+                CountryId = CountryId
+            }
         };
     }
 

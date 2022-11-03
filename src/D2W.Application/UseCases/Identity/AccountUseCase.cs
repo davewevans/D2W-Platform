@@ -27,6 +27,8 @@ public class AccountUseCase : IAccountUseCase
     private readonly ITenantResolver _tenantResolver;
     private readonly IDemoUserPasswordSetterService _demoUserPasswordSetterService;
     private readonly IConfiguration _configuration;
+    private readonly IDemoIdentitySeeder _demoIdentitySeeder;
+
 
     #endregion Private Fields
 
@@ -43,7 +45,9 @@ public class AccountUseCase : IAccountUseCase
                           IAppSettingsUseCase appSettingsUseCase,
                           IApplicationDbContext dbContext,
                           ITenantResolver tenantResolver,
-                          IDemoUserPasswordSetterService demoUserPasswordSetterService, IConfiguration configuration)
+                          IDemoUserPasswordSetterService demoUserPasswordSetterService, 
+                          IConfiguration configuration, 
+                          IDemoIdentitySeeder demoIdentitySeeder)
     {
         _userManager = userManager;
         _signInManager = signInManager;
@@ -58,6 +62,7 @@ public class AccountUseCase : IAccountUseCase
         _tenantResolver = tenantResolver;
         _demoUserPasswordSetterService = demoUserPasswordSetterService;
         _configuration = configuration;
+        _demoIdentitySeeder = demoIdentitySeeder;
     }
 
     #endregion Public Constructors
@@ -275,6 +280,12 @@ public class AccountUseCase : IAccountUseCase
 
         await AssignDesignerRoleToUser(user);
 
+        if (user.AppUserType == ApplicationUserType.BetaTester)
+        {
+            await _demoIdentitySeeder.SeedDemoClients();
+            await _demoIdentitySeeder.SeedDemoWorkrooms();
+        }
+
 
         //if (_tenantResolver.TenantMode == TenantMode.SingleTenant || _tenantResolver.IsHost)
         //{
@@ -286,6 +297,8 @@ public class AccountUseCase : IAccountUseCase
 
         if (_userManager.Options.SignIn.RequireConfirmedAccount)
         {
+            // TODO replace this with new code verification workflow
+
             var callbackUrl = await _userManager.SendActivationEmailAsync(user, _configReaderService, _notificationService, _httpContextAccessor);
 
             var payload = new RegisterResponse

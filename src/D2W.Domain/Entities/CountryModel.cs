@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace D2W.Domain.Entities
 {
-    [Table("ContactInfo")]
+    [Table("Countries")]
     public class CountryModel
     {
         public Guid Id { get; set; }

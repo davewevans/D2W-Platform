@@ -73,6 +73,9 @@ using (var scope = app.Services.CreateScope())
 
         var roleManager = services.GetRequiredService<ApplicationRoleManager>();
         await ApplicationDbContextSeeder.SeedStaticRoles(roleManager);
+
+        var dbContext = services.GetRequiredService<IApplicationDbContext>();
+        await ApplicationDbContextSeeder.SeedCountries(dbContext);
     }
     catch (Exception ex)
     {

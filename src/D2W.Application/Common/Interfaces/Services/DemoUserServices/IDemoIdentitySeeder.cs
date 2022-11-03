@@ -6,5 +6,8 @@ public interface IDemoIdentitySeeder
 
     Task<Envelope<ApplicationUser>> SeedDemoOfficersUsers();
 
+    Task SeedDemoClients();
+    Task SeedDemoWorkrooms();
+
     #endregion Public Methods
 }

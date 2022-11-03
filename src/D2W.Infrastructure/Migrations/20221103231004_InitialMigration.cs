@@ -93,6 +93,7 @@ namespace D2W.Infrastructure.Migrations
                     IsStatic = table.Column<bool>(type: "bit", nullable: false),
                     IsDemo = table.Column<bool>(type: "bit", nullable: false),
                     IsSuperAdmin = table.Column<bool>(type: "bit", nullable: false),
+                    HeardAboutUsFrom = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     RefreshToken = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     RefreshTokenTimeSpan = table.Column<DateTime>(type: "datetime2", nullable: false),
                     TenantId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
@@ -124,7 +125,7 @@ namespace D2W.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ContactInfo",
+                name: "Countries",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -133,7 +134,7 @@ namespace D2W.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ContactInfo", x => x.Id);
+                    table.PrimaryKey("PK_Countries", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -233,6 +234,7 @@ namespace D2W.Infrastructure.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    FullName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -439,8 +441,10 @@ namespace D2W.Infrastructure.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CompanyName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     AltPhone1 = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     AltPhone2 = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Fax = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     AltEmailAddress1 = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     AltEmailAddress2 = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ContactName1 = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -454,6 +458,7 @@ namespace D2W.Infrastructure.Migrations
                     Region = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PostalCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CountryId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    LogoUri = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -634,7 +639,7 @@ namespace D2W.Infrastructure.Migrations
                 name: "ContactDetails");
 
             migrationBuilder.DropTable(
-                name: "ContactInfo");
+                name: "Countries");
 
             migrationBuilder.DropTable(
                 name: "FileStorageSettings",

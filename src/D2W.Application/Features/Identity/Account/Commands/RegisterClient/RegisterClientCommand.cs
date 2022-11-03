@@ -13,6 +13,7 @@ public class RegisterClientCommand : IRequest<Envelope<RegisterClientResponse>>
     public string FullName { get; set; }
     public string Email { get; set; }
     public string PhoneNumber { get; set; }
+    public string AvatarUri { get; set; }
 
     #endregion Public Properties
 
@@ -31,16 +32,6 @@ public class RegisterClientCommand : IRequest<Envelope<RegisterClientResponse>>
 
         // TODO remove for production
 
-        string[] defaultProfilePics = new[]
-        {
-            "https://elevateottstoragedev.blob.core.windows.net/elevate-ott-dev-image-container/2DDDE973-40EC-4004-ABC0-73FD4CD6D042-200w.jpeg",
-            "https://elevateottstoragedev.blob.core.windows.net/elevate-ott-dev-image-container/2DDDE973-40EC-4004-ABC0-73FD4CD6D042-200w.jpeg",
-            "https://elevateottstoragedev.blob.core.windows.net/elevate-ott-dev-image-container/344CFC24-61FB-426C-B3D1-CAD5BCBD3209-200w.jpeg",
-            "https://elevateottstoragedev.blob.core.windows.net/elevate-ott-dev-image-container/852EC6E1-347C-4187-9D42-DF264CCF17BF-200w.jpeg"
-        };
-
-        var randomizer = new Random();
-
         return new()
         {
             UserName = Email,
@@ -49,7 +40,7 @@ public class RegisterClientCommand : IRequest<Envelope<RegisterClientResponse>>
             Name = firstName,
             Surname = lastName,
             AppUserType = ApplicationUserType.Client,
-            AvatarUri = defaultProfilePics[randomizer.Next(defaultProfilePics.Length)]
+            AvatarUri = AvatarUri
         };
     }
 

@@ -126,7 +126,7 @@ namespace D2W.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ContactInfo");
+                    b.ToTable("Countries");
                 });
 
             modelBuilder.Entity("D2W.Domain.Entities.Identity.ApplicationPermission", b =>
@@ -342,7 +342,7 @@ namespace D2W.Infrastructure.Migrations
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
 
-                    b.Property<string>("Email")
+                    b.Property<string>("UserName")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace D2W.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221028152244_Migration1000")]
-    partial class Migration1000
+    [Migration("20221103231004_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -128,7 +128,7 @@ namespace D2W.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ContactInfo");
+                    b.ToTable("Countries");
                 });
 
             modelBuilder.Entity("D2W.Domain.Entities.Identity.ApplicationPermission", b =>
@@ -344,7 +344,7 @@ namespace D2W.Infrastructure.Migrations
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
 
-                    b.Property<string>("Email")
+                    b.Property<string>("UserName")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 

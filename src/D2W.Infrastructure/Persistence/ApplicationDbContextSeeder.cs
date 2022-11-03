@@ -143,5 +143,83 @@ public static class ApplicationDbContextSeeder
 
     }
 
+    public static async Task SeedCountries(IApplicationDbContext dbContext)
+    {
+        // USA
+        // Spain
+        // Japan
+        // England
+        // Canada
+        // Turkey
+
+        var country1 = new CountryModel
+        {
+            CountryCode = "US",
+            CountryName = "USA"
+        };
+
+        var country2 = new CountryModel
+        {
+            CountryCode = "ES",
+            CountryName = "Spain"
+        };
+
+        var country3 = new CountryModel
+        {
+            CountryCode = "JP",
+            CountryName = "Japan"
+        };
+
+        var country4 = new CountryModel
+        {
+            CountryCode = "GB",
+            CountryName = "United Kingdom"
+        };
+
+        var country5 = new CountryModel
+        {
+            CountryCode = "CA",
+            CountryName = "Canada"
+        };
+
+        var country6 = new CountryModel
+        {
+            CountryCode = "TR",
+            CountryName = "Turkey"
+        };
+
+        if (!dbContext.Countries.Any(c => c.CountryCode.Equals(country1.CountryCode)))
+        {
+            await dbContext.Countries.AddAsync(country1);
+        }
+
+        if (!dbContext.Countries.Any(c => c.CountryCode.Equals(country2.CountryCode)))
+        {
+            await dbContext.Countries.AddAsync(country2);
+        }
+
+        if (!dbContext.Countries.Any(c => c.CountryCode.Equals(country3.CountryCode)))
+        {
+            await dbContext.Countries.AddAsync(country3);
+        }
+
+        if (!dbContext.Countries.Any(c => c.CountryCode.Equals(country4.CountryCode)))
+        {
+            await dbContext.Countries.AddAsync(country4);
+        }
+
+        if (!dbContext.Countries.Any(c => c.CountryCode.Equals(country5.CountryCode)))
+        {
+            await dbContext.Countries.AddAsync(country5);
+        }
+
+        if (!dbContext.Countries.Any(c => c.CountryCode.Equals(country6.CountryCode)))
+        {
+            await dbContext.Countries.AddAsync(country6);
+        }
+
+        await dbContext.SaveChangesAsync();
+    }
+
     #endregion Public Methods
 }
