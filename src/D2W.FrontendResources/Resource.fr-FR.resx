@@ -921,6 +921,9 @@
   <data name="Login_With_Recovery_Code" xml:space="preserve">
     <value>Connectez-vous avec le code de récupération</value>
   </data>
+  <data name="Login_with_verification_code" xml:space="preserve">
+    <value>Connectez-vous avec le code de vérification</value>
+  </data>
   <data name="Logout" xml:space="preserve">
     <value>Déconnexion</value>
   </data>

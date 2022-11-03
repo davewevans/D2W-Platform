@@ -1,8 +1,8 @@
 ﻿using D2W.Application.Common.Managers;
-using D2W.Application.Features.Identity.Account.Commands.GetLoginVerificationCodeCommand;
 using D2W.Application.Features.Identity.Account.Commands.LoginWithCode;
 using D2W.Application.Features.Identity.Account.Commands.RegisterClient;
 using D2W.Application.Features.Identity.Account.Commands.RegisterWorkroom;
+using D2W.Application.Features.Identity.Account.Commands.SendLoginVerificationCodeCommand;
 using D2W.Domain.Entities.Identity;
 using DocumentFormat.OpenXml.EMMA;
 using Microsoft.AspNetCore.Identity;
@@ -109,54 +109,72 @@ public class AccountUseCase : IAccountUseCase
         }
     }
 
-    public async Task<Envelope<GetLoginVerificationCodeResponse>> GetLoginVerificationCode(GetLoginVerificationCodeCommand request)
+    public async Task<Envelope<SendLoginVerificationCodeResponse>> SendLoginVerificationCode(SendLoginVerificationCodeCommand request)
     {
-        var user = await _userManager.FindByEmailAsync(request.Email);
+        var userEntity = await _userManager.Users.IgnoreQueryFilters()
+            .FirstOrDefaultAsync(u => u.Email.Equals(request.Email));
 
-        if (user == null)
-            return Envelope<GetLoginVerificationCodeResponse>.Result.NotFound(Resource.Unable_to_load_user);
-
-        var providers = await _userManager.GetValidTwoFactorProvidersAsync(user);
-        if (!providers.Contains(request.Provider))
+        if (userEntity != null && _dbContext.Tenants != null)
         {
-            return Envelope<GetLoginVerificationCodeResponse>.Result.ServerError(Resource.Invalid_2fa_provider);
+            var tenant = await _dbContext.Tenants.FirstOrDefaultAsync(t => t.Id.Equals(userEntity.TenantId));
+            _tenantResolver.SetTenantId(tenant?.Id);
+            _tenantResolver.SetTenantName(tenant?.Name ?? string.Empty);
         }
 
-        var token = await _userManager.GenerateTwoFactorTokenAsync(user, "Email");
+        if (userEntity == null)
+            return Envelope<SendLoginVerificationCodeResponse>.Result.NotFound(Resource.Unable_to_load_user);
 
-        await _notificationService.SendEmailAsync(user.Email,
+        var providers = await _userManager.GetValidTwoFactorProvidersAsync(userEntity);
+        if (!providers.Contains(request.Provider))
+        {
+            return Envelope<SendLoginVerificationCodeResponse>.Result.ServerError(Resource.Invalid_2fa_provider);
+        }
+
+        var token = await _userManager.GenerateTwoFactorTokenAsync(userEntity, request.Provider);
+
+        // TODO format HTML message
+
+        await _notificationService.SendEmailAsync(userEntity.Email,
             "D2W One-time Password",
             token);
 
 
-        var response = new GetLoginVerificationCodeResponse
+        var response = new SendLoginVerificationCodeResponse
         {
             ReturnUrl = request.ReturnUrl,
             TwoFactorCodeSent = true
         };
 
-        return Envelope<GetLoginVerificationCodeResponse>.Result.Ok(response);
+        return Envelope<SendLoginVerificationCodeResponse>.Result.Ok(response);
     }
 
     public async Task<Envelope<LoginWithCodeResponse>> LoginWithCode(LoginWithCodeCommand request)
     {
-        var user = await _userManager.FindByEmailAsync(request.Email);
+        var userEntity = await _userManager.Users.IgnoreQueryFilters()
+            .FirstOrDefaultAsync(u => u.Email.Equals(request.Email));
 
-        if (user == null)
+        if (userEntity != null && _dbContext.Tenants != null)
+        {
+            var tenant = await _dbContext.Tenants.FirstOrDefaultAsync(t => t.Id.Equals(userEntity.TenantId));
+            _tenantResolver.SetTenantId(tenant?.Id);
+            _tenantResolver.SetTenantName(tenant?.Name ?? string.Empty);
+        }
+
+        if (userEntity == null)
             return Envelope<LoginWithCodeResponse>.Result.NotFound(Resource.Unable_to_load_user);
 
-        var validVerification = await _userManager.VerifyTwoFactorTokenAsync(user, request.Provider, request.TwoFactorCode);
+        var validVerification = await _userManager.VerifyTwoFactorTokenAsync(userEntity, request.Provider, request.TwoFactorCode);
 
         if (validVerification)
         {
-            _logger.LogInformation(Resource.User_with_Id_UserId_logged_in_with_2Fa, user.Id);
+            _logger.LogInformation(Resource.User_with_Id_UserId_logged_in_with_2Fa, userEntity.Id);
 
-            var accessToken = await GenerateTokens(user);
+            var accessToken = await GenerateTokens(userEntity);
 
             var authResponse = new AuthResponse
             {
                 AccessToken = accessToken.Payload,
-                RefreshToken = user.RefreshToken,
+                RefreshToken = userEntity.RefreshToken,
             };
 
             var response = new LoginWithCodeResponse
@@ -165,13 +183,13 @@ public class AccountUseCase : IAccountUseCase
                 ReturnUrl = request.ReturnUrl
             };
 
-            await _userManager.UpdateAsync(user);
-            await _userManager.ResetAccessFailedCountAsync(user);
+            await _userManager.UpdateAsync(userEntity);
+            await _userManager.ResetAccessFailedCountAsync(userEntity);
 
             return Envelope<LoginWithCodeResponse>.Result.Ok(response);
         }
 
-        _logger.LogWarning($"Invalid code entered for user with ID '{user.UserName}'");
+        _logger.LogWarning($"Invalid code entered for user with ID '{userEntity.UserName}'");
 
         return Envelope<LoginWithCodeResponse>.Result.BadRequest(Resource.Invalid_code_entered);
     }

@@ -1,4 +1,8 @@
-﻿namespace D2W.WebPortal.Interfaces.Consumers;
+﻿
+using D2W.WebPortal.Features.Identity.Account.Commands.LoginWithCodeCommand;
+using D2W.WebPortal.Features.Identity.Account.Commands.SendLoginVerificationCodeCommand;
+
+namespace D2W.WebPortal.Interfaces.Consumers;
 
 public interface IAccountsClient
 {
@@ -7,6 +11,10 @@ public interface IAccountsClient
     Task<HttpResponseWrapper<object>> Register(RegisterCommand request);
 
     Task<HttpResponseWrapper<object>> Login(LoginCommand request);
+
+    Task<HttpResponseWrapper<object>> SendVerificationCode(SendLoginVerificationCodeCommand request);
+
+    Task<HttpResponseWrapper<object>> LoginWithVerificationCode(LoginWithCodeCommand request);
 
     Task<HttpResponseWrapper<object>> ForgetPassword(ForgetPasswordCommand request);
 

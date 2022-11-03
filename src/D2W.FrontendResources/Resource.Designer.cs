@@ -2496,6 +2496,15 @@ namespace D2W.FrontendResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Login with Verification Code.
+        /// </summary>
+        public static string Login_with_verification_code {
+            get {
+                return ResourceManager.GetString("Login_with_verification_code", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Logout.
         /// </summary>
         public static string Logout {

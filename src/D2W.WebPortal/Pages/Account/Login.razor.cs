@@ -43,7 +43,7 @@ public partial class Login
 
             if (successResult.Result.RequiresTwoFactor)
             {
-                NavigationManager.NavigateTo($"account/loginWith2Fa/{LoginCommand.Email}");
+                NavigationManager.NavigateTo($"account/LoginWithVerificationCode/{LoginCommand.Email}");
             }
             else
             {

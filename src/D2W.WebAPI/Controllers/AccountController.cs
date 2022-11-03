@@ -1,8 +1,8 @@
 ﻿using D2W.Application.Common.Interfaces.UseCases.Identity;
-using D2W.Application.Features.Identity.Account.Commands.GetLoginVerificationCodeCommand;
 using D2W.Application.Features.Identity.Account.Commands.LoginWithCode;
 using D2W.Application.Features.Identity.Account.Commands.RegisterClient;
 using D2W.Application.Features.Identity.Account.Commands.RegisterWorkroom;
+using D2W.Application.Features.Identity.Account.Commands.SendLoginVerificationCodeCommand;
 
 namespace D2W.WebAPI.Controllers;
 
@@ -17,14 +17,14 @@ public class AccountController : ApiController
         return TryGetResult(response);
     }
 
-    [HttpPost("GetLoginVerificationCode")]
-    public async Task<IActionResult> GetLoginCodeVerification(GetLoginVerificationCodeCommand request)
+    [HttpPost("LoginSendVerificationCode")]
+    public async Task<IActionResult> SendLoginCodeVerification(SendLoginVerificationCodeCommand request)
     {
         var response = await Mediator.Send(request);
         return TryGetResult(response);
     }
 
-    [HttpPost("CodeVerificationLogin")]
+    [HttpPost("LoginCodeVerification")]
     public async Task<IActionResult> LoginWithCodeVerification(LoginWithCodeCommand request)
     {
         var response = await Mediator.Send(request);

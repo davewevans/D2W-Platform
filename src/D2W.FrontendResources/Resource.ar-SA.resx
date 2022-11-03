@@ -921,6 +921,9 @@
   <data name="Login_With_Recovery_Code" xml:space="preserve">
     <value>تسجيل الدخول بواسطة رمز الاسترداد</value>
   </data>
+  <data name="Login_with_verification_code" xml:space="preserve">
+    <value>تسجيل الدخول باستخدام رمز التحقق</value>
+  </data>
   <data name="Logout" xml:space="preserve">
     <value>تسجيل خروج</value>
   </data>

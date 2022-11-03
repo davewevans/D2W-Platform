@@ -1,0 +1,44 @@
+@layout AccountLayout
+@page "/account/LoginWithVerificationCode/{username}"
+
+
+<h4>@Username</h4>
+
+<ServerSideValidator @ref="ServerSideValidator" />
+<EditForm Model="@LoginWithCodeCommand" OnValidSubmit="Submit">
+    <EditContextServerSideValidator @ref="EditContextServerSideValidator" />
+    <FluentValidationValidator />
+    <MudText Typo="Typo.h4" GutterBottom="true">@Resource.Login_with_verification_code</MudText>
+
+    <MudTextField Label="@Resource.Recovery_Code"
+                  Variant="Variant.Outlined"
+                  @bind-Value="LoginWithCodeCommand.TwoFactorCode"
+                  For="@(() => LoginWithCodeCommand.TwoFactorCode)" />
+
+    <MudDivider />
+
+    <MudButton ButtonType="ButtonType.Submit"
+               Style="margin-top: 4px"
+               Variant="Variant.Filled"
+               Color="Color.Primary"
+               Size="Size.Large"
+               FullWidth="true"
+               Disabled="SubmitButtonDisabled">
+               @Resource.Submit
+    </MudButton>
+    <MudExpansionPanels>
+        <MudExpansionPanel Text="@Resource.Validation_Summary" IsExpanded="true" Disabled="true" HideIcon="true">
+            <MudText Color="@Color.Error">
+                <ValidationSummary />
+            </MudText>
+        </MudExpansionPanel>
+        @if (SubmitButtonDisabled)
+        {
+            <MudProgressLinear Color="Color.Secondary" Indeterminate="true" Class="my-7" />
+        }
+    </MudExpansionPanels>
+</EditForm>
+
+@code {
+
+}

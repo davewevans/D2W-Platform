@@ -1,4 +1,7 @@
-﻿namespace D2W.WebPortal.Consumers;
+﻿using D2W.WebPortal.Features.Identity.Account.Commands.LoginWithCodeCommand;
+using D2W.WebPortal.Features.Identity.Account.Commands.SendLoginVerificationCodeCommand;
+
+namespace D2W.WebPortal.Consumers;
 
 public class AccountsClient : IAccountsClient
 {
@@ -32,6 +35,16 @@ public class AccountsClient : IAccountsClient
     public async Task<HttpResponseWrapper<object>> Login(LoginCommand request)
     {
         return await _httpService.Post<LoginCommand, LoginResponse>("account/Login", request);
+    }
+
+    public async Task<HttpResponseWrapper<object>> SendVerificationCode(SendLoginVerificationCodeCommand request)
+    {
+        return await _httpService.Post<SendLoginVerificationCodeCommand, SendLoginVerificationCodeResponse>("account/LoginSendVerificationCode", request);
+    }
+
+    public async Task<HttpResponseWrapper<object>> LoginWithVerificationCode(LoginWithCodeCommand request)
+    {
+        return await _httpService.Post<LoginWithCodeCommand, LoginWithCodeResponse>("account/LoginCodeVerification", request);
     }
 
     public async Task<HttpResponseWrapper<object>> LoginWith2Fa(LoginWith2FaCommand request)

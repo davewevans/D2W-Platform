@@ -921,6 +921,9 @@
   <data name="Login_With_Recovery_Code" xml:space="preserve">
     <value>回復コードを使用したログイン</value>
   </data>
+  <data name="Login_with_verification_code" xml:space="preserve">
+    <value>確認コードでログイン</value>
+  </data>
   <data name="Logout" xml:space="preserve">
     <value>ログアウト</value>
   </data>

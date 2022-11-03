@@ -1,4 +1,6 @@
-﻿namespace D2W.WebPortal.Pages.Account;
+﻿
+using D2W.WebPortal.Features.Identity.Account.Commands.LoginWithCodeCommand;
+namespace D2W.WebPortal.Pages.Account;
 
 public partial class LoginWithRecoveryCode
 {
@@ -29,6 +31,7 @@ public partial class LoginWithRecoveryCode
         SubmitButtonDisabled = true;
 
         LoginWithRecoveryCodeCommand.UserName = Username;
+        
 
         var httpResponseWrapper = await AccountsClient.LoginWithRecoveryCode(LoginWithRecoveryCodeCommand);
 

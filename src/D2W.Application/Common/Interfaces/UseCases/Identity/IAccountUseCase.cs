@@ -1,7 +1,7 @@
-﻿using D2W.Application.Features.Identity.Account.Commands.GetLoginVerificationCodeCommand;
-using D2W.Application.Features.Identity.Account.Commands.LoginWithCode;
+﻿using D2W.Application.Features.Identity.Account.Commands.LoginWithCode;
 using D2W.Application.Features.Identity.Account.Commands.RegisterClient;
 using D2W.Application.Features.Identity.Account.Commands.RegisterWorkroom;
+using D2W.Application.Features.Identity.Account.Commands.SendLoginVerificationCodeCommand;
 
 namespace D2W.Application.Common.Interfaces.UseCases.Identity;
 
@@ -11,7 +11,7 @@ public interface IAccountUseCase
 
     Task<Envelope<LoginResponse>> Login(LoginCommand request);
 
-    Task<Envelope<GetLoginVerificationCodeResponse>> GetLoginVerificationCode(GetLoginVerificationCodeCommand request);
+    Task<Envelope<SendLoginVerificationCodeResponse>> SendLoginVerificationCode(SendLoginVerificationCodeCommand request);
 
     Task<Envelope<LoginWithCodeResponse>> LoginWithCode(LoginWithCodeCommand request);
 
