@@ -10,7 +10,6 @@ using Serilog.Formatting.Json;
 Log.Logger = new LoggerConfiguration()
     .WriteTo.Console(new JsonFormatter())
     .WriteTo.Seq("http://localhost:5341")
-    .WriteTo.File(new JsonFormatter(), "log.txt")
     .MinimumLevel.Override("Microsoft.AspNetCore", LogEventLevel.Warning)
     .CreateLogger();
 
