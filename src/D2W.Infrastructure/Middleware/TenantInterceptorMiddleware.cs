@@ -66,6 +66,11 @@ public class TenantInterceptorMiddleware
                     if (httpContext.Request.Path.Value != null &&
                         httpContext.Request.Path.Value.ToLower().Contains("account/login")) break;
 
+                    // If test endpoint, ignore tenant
+                    if (httpContext.Request.Path.Value != null &&
+                        httpContext.Request.Path.Value.ToLower().Contains("api/test")) break;
+
+
                     var xTenantHeader = httpContext.Request.Headers["X-Tenant"];
 
                     if (!xTenantHeader.Any())

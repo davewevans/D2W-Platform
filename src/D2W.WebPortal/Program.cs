@@ -1,3 +1,4 @@
+using Serilog;
 using Syncfusion.Blazor;
 
 namespace D2W.WebPortal;
@@ -8,6 +9,17 @@ public class Program
 
     public static async Task Main(string[] args)
     {
+
+        // TODO serilog set up
+        // Can we send logs to Azure app insights????
+        // ref: https://stackoverflow.com/questions/71220619/use-serilog-as-logging-provider-in-blazor-webassembly-client-app?rq=1
+
+        //Log.Logger = new LoggerConfiguration()
+        //    .WriteTo.
+        //    .CreateLogger();
+
+        //Log.Information("Starting web host");
+
         var builder = WebAssemblyHostBuilder.CreateDefault(args);
 
         builder.RootComponents.Add<App>("#app");
