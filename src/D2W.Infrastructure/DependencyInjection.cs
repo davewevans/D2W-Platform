@@ -1,4 +1,6 @@
+using D2W.Application.Common.Interfaces.UseCases;
 using D2W.Application.Common.Managers;
+using D2W.Application.UseCases;
 
 namespace D2W.Infrastructure;
 
@@ -101,6 +103,8 @@ public static class DependencyInjection
         services.AddScoped<ITenantUseCase, TenantUseCase>();
         services.AddScoped<IApplicantUseCase, ApplicantUseCase>();
         services.AddScoped<IReportUseCase, ReportUseCase>();
+
+        services.AddScoped<IClientUseCase, ClientUseCase>();
 
         return services;
     }

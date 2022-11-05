@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace D2W.WebPortal.Features.Clients.Queries.GetClients
 {
-    public class GetClientsQuery
+    public class GetClientsQuery : FilterableQuery
     {
 
     }

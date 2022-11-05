@@ -1,7 +1,6 @@
 ﻿using D2W.Application.Common.Managers;
 using D2W.Application.Features.Identity.Account.Commands.RegisterClient;
 using D2W.Application.Features.Identity.Account.Commands.RegisterWorkroom;
-
 namespace D2W.Application.Services.Demo;
 
 public class DemoIdentitySeeder : IDemoIdentitySeeder
@@ -126,7 +125,7 @@ public class DemoIdentitySeeder : IDemoIdentitySeeder
             FullName = "Aleece McGeever",
             Email = "amcgeeverv@bigcartel.com",
             PhoneNumber = "954-917-0238",
-            AvatarUri = defaultProfilePics[randomizer.Next(defaultProfilePics.Length)]
+            AvatarUri = "https://eu.ui-avatars.com/api/?name=Aleece+McGeever&size=250"
         };
 
 
@@ -162,40 +161,41 @@ public class DemoIdentitySeeder : IDemoIdentitySeeder
         await _mediator.Send(request5);
     }
 
-    public Task SeedDemoWorkrooms()
+    public async Task SeedDemoWorkrooms()
     {
-        //{
-        //    "id": 5,
-        //    "name": "Kassulke-Kozey",
-        //    "email": "ehyder4@csmonitor.com",
-        //    "phone": "212-511-7953",
-        //    "address": "689 Gateway Terrace",
-        //    "city": "New York City",
-        //    "state": "New York",
-        //    "postalCode": "10009"
-        //},
-        //{
-        //    "id": 8,
-        //    "name": "Hansen Group",
-        //    "email": "nwhiskerd7@typepad.com",
-        //    "phone": "720-845-5418",
-        //    "address": "4756 Moland Lane",
-        //    "city": "Denver",
-        //    "state": "Colorado",
-        //    "postalCode": "80255"
-        //},
+        var country = await _dbContext.Countries.FirstOrDefaultAsync(c => c.CountryCode.Equals("US"));
 
         var request1 = new RegisterWorkroomCommand
         {
             CompanyName = "Hansen Group",
+            Email = "ehyder4@csmonitor.com",
+            PhoneNumber = "212-511-7953",
+            AltPhone = "212-504-4624",
+            ContactName1 = "Coraline Duffyn",
+            AddressLine1 = "689 Gateway Terrace",
+            City = "New York City",
+            Region = "New York",
+            PostalCode = "10009",
+            CountryId = country.Id
+        };
+
+        var request2 = new RegisterWorkroomCommand
+        {
+            CompanyName = "Kassulke-Kozey",
             Email = "lwaszczyky@t.co",
             PhoneNumber = "687-570-5617",
+            AltPhone = "687-687-8797",
+            ContactName1 = "Roze Marnane",
+            AddressLine1 = "4756 Moland Lane",
+            City = "Denver",
+            Region = "Colorado",
+            PostalCode = "10009",
+            CountryId = country.Id
         };
 
 
-        // RegisterWorkroomCommand
-        // await Mediator.Send(request);
-        throw new NotImplementedException();
+        await _mediator.Send(request1);
+        await _mediator.Send(request2);
     }
 
     #endregion Public Methods

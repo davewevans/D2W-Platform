@@ -3,26 +3,30 @@ using FluentValidation;
 using Serilog;
 using Serilog.Events;
 using Serilog.Formatting.Json;
+using Serilog.Sinks.SystemConsole.Themes;
+using D2W.Application.Common.Extensions;
+using Microsoft.ApplicationInsights.AspNetCore.Extensions;
+using Microsoft.ApplicationInsights.Extensibility;
+using Microsoft.Extensions.DependencyInjection;
 
 // Serilog
 // ref: https://code-maze.com/structured-logging-in-asp-net-core-with-serilog/
 
 Log.Logger = new LoggerConfiguration()
-    .WriteTo.Console(new JsonFormatter())
+    .WriteTo.Console(theme: AnsiConsoleTheme.Code)
     .WriteTo.Seq("http://localhost:5341")
     .MinimumLevel.Override("Microsoft.AspNetCore", LogEventLevel.Warning)
-    .CreateLogger();
+    .CreateBootstrapLogger();
 
 try
 {
     Log.Information("Starting web host");
     var builder = WebApplication.CreateBuilder(args);
 
-    builder.Host.UseSerilog((ctx, lc) => lc
-        .WriteTo.Console(new JsonFormatter())
-        .WriteTo.Seq("http://localhost:5341")
-        .WriteTo.File(new JsonFormatter(), "log.txt")
-        .MinimumLevel.Override("Microsoft.AspNetCore", LogEventLevel.Warning));
+    // Enables Application Insights telemetry collection.
+    builder.ConfigureApplcationInsightsTelemetry();
+
+    builder.ConfigureSerilog();
 
     // Add services to the container.
 
@@ -63,12 +67,28 @@ try
     // options.HttpsPort = 44388;
     //});
 
-    builder.Services.AddCors(options =>
-    {
-        options.AddPolicy("CorsPolicy", policyBuilder => policyBuilder.AllowAnyOrigin()
-                                                                      .AllowAnyMethod()
-                                                                      .AllowAnyHeader());
-    });
+    // TODO do we need memory cache or ip rate limits ?????
+
+    //builder.Services.AddMemoryCache();
+
+    //builder.Services.Configure<IpRateLimitOptions>((options) =>
+    //{
+    //    options.GeneralRules = new List<RateLimitRule>()
+    //    {
+    //        // Limits API requests to prevent DDOS attacks
+    //        new RateLimitRule()
+    //        {
+    //            Endpoint = "*",
+    //            Limit = 20,
+    //            Period = "2m"
+    //        }
+    //    };
+    //});
+
+    //builder.Services.AddInMemoryRateLimiting();
+    //builder.Services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
+
+    builder.ConfigureCors();
 
     builder.Services.AddSignalR();
 

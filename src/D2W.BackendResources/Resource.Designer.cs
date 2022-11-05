@@ -160,6 +160,15 @@ namespace D2W.BackendResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Client has been updated successfully..
+        /// </summary>
+        public static string Client_has_been_updated_successfully {
+            get {
+                return ResourceManager.GetString("Client_has_been_updated_successfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Code is required..
         /// </summary>
         public static string Code_is_required {
@@ -336,6 +345,15 @@ namespace D2W.BackendResources {
         public static string Invalid_applicant_Id {
             get {
                 return ResourceManager.GetString("Invalid_applicant_Id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid Application User ID.
+        /// </summary>
+        public static string Invalid_ApplicationUser_Id {
+            get {
+                return ResourceManager.GetString("Invalid_ApplicationUser_Id", resourceCulture);
             }
         }
         
@@ -1049,6 +1067,15 @@ namespace D2W.BackendResources {
         public static string Unable_to_load_applicant {
             get {
                 return ResourceManager.GetString("Unable_to_load_applicant", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to load client..
+        /// </summary>
+        public static string Unable_to_load_Client {
+            get {
+                return ResourceManager.GetString("Unable_to_load_Client", resourceCulture);
             }
         }
         

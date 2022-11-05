@@ -150,6 +150,9 @@
   <data name="Client_already_added" xml:space="preserve">
     <value>Client bereits hinzugefügt.</value>
   </data>
+  <data name="Client_has_been_updated_successfully" xml:space="preserve">
+    <value>Client wurde erfolgreich aktualisiert.</value>
+  </data>
   <data name="Code_is_required" xml:space="preserve">
     <value>Code ist erforderlich.</value>
   </data>
@@ -209,6 +212,9 @@
   </data>
   <data name="Invalid_applicant_Id" xml:space="preserve">
     <value>Ungültige Bewerber-ID.</value>
+  </data>
+  <data name="Invalid_ApplicationUser_Id" xml:space="preserve">
+    <value>Ungültige Anwendungsbenutzer-ID</value>
   </data>
   <data name="Invalid_authenticator_code_entered" xml:space="preserve">
     <value>Ungültiger Authentifikatorcode eingegeben.</value>
@@ -446,6 +452,9 @@
   </data>
   <data name="Unable_to_load_applicant" xml:space="preserve">
     <value>Bewerber kann nicht geladen werden.</value>
+  </data>
+  <data name="Unable_to_load_Client" xml:space="preserve">
+    <value>Client kann nicht geladen werden.</value>
   </data>
   <data name="Unable_to_load_report" xml:space="preserve">
     <value>Bericht kann nicht geladen werden.</value>

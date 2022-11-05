@@ -34,6 +34,7 @@
 		<PackageReference Include="Hangfire.Core" Version="1.7.31" />
 		<PackageReference Include="MediatR" Version="11.0.0" />
 		<PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+		<PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.21.0" />
 		<PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
 		<PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.17" />
 		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.10" />
@@ -48,6 +49,8 @@
 		<PackageReference Include="morelinq" Version="3.3.2" />
 
 		<PackageReference Include="Serilog.AspNetCore" Version="6.1.0-dev-00285" />
+
+		<PackageReference Include="Serilog.Sinks.ApplicationInsights" Version="4.0.0" />
 
 		<PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
 
@@ -67,6 +70,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Folder Include="Features\DesignConcepts\" />
+	  <Folder Include="Features\WorkOrders\" />
+	  <Folder Include="Features\Workrooms\" />
 	  <Folder Include="Features\Reports\" />
 	</ItemGroup>
 

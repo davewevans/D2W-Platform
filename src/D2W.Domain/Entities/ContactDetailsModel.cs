@@ -10,7 +10,7 @@ using D2W.Domain.Entities.Identity;
 namespace D2W.Domain.Entities
 {
     [Table("ContactDetails")]
-    public class ContactDetailsModel : IAuditable
+    public class ContactDetailsModel : IAuditable // No IMustHaveTenant since contact details are shared among tenants
     {
         public Guid Id { get; set; }
         public string CompanyName { get; set; }

@@ -150,6 +150,9 @@
   <data name="Client_already_added" xml:space="preserve">
     <value>İstemci zaten eklendi.</value>
   </data>
+  <data name="Client_has_been_updated_successfully" xml:space="preserve">
+    <value>İstemci başarıyla güncelleştirildi.</value>
+  </data>
   <data name="Code_is_required" xml:space="preserve">
     <value>Kod gereklidir.</value>
   </data>
@@ -209,6 +212,9 @@
   </data>
   <data name="Invalid_applicant_Id" xml:space="preserve">
     <value>Geçersiz başvuru kimliği.</value>
+  </data>
+  <data name="Invalid_ApplicationUser_Id" xml:space="preserve">
+    <value>Geçersiz Uygulama Kullanıcı Kimliği</value>
   </data>
   <data name="Invalid_authenticator_code_entered" xml:space="preserve">
     <value>Geçersiz kimlik doğrulayıcı kodu girildi.</value>
@@ -446,6 +452,9 @@
   </data>
   <data name="Unable_to_load_applicant" xml:space="preserve">
     <value>Başvuran yüklenemiyor.</value>
+  </data>
+  <data name="Unable_to_load_Client" xml:space="preserve">
+    <value>İstemci yüklenemiyor.</value>
   </data>
   <data name="Unable_to_load_report" xml:space="preserve">
     <value>Rapor yüklenemiyor.</value>

@@ -1,9 +1,9 @@
 ﻿namespace D2W.WebAPI.Controllers
 {
-    [Route("api/workroom")]
+    [Route("api/workrooms")]
     [ApiController]
     [Authorize(Roles = "Workroom,Designer")]
-    public class WorkroomController : ApiController
+    public class WorkroomsController : ApiController
     {
 
     }

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using D2W.WebPortal.Features.Clients.Queries.GetClients;
 
 namespace D2W.WebPortal.Pages.Clients
 {
@@ -13,7 +14,7 @@ namespace D2W.WebPortal.Pages.Clients
     public int ActivePanelIndex { get; set; } = 0;
     [Inject] private IAccessTokenProvider AccessTokenProvider { get; set; }
     [Inject] private IApiUrlProvider ApiUrlProvider { get; set; }
-    [Inject] private IApplicantsClient ApplicantsClient { get; set; }
+    [Inject] private IClientsClient ClientsClient { get; set; }
     [Inject] private IBreadcrumbService BreadcrumbService { get; set; }
     [Inject] private IDialogService DialogService { get; set; }
     [Inject] private IJSRuntime Js { get; set; }
@@ -24,11 +25,11 @@ namespace D2W.WebPortal.Pages.Clients
     private string description = "List of clients for interior designers.";
     private string SearchString { get; set; }
     private bool IsHubConnectionClosed { get; set; }
-    private ApplicantsResponse ApplicantsResponse { get; set; }
+    private ClientsResponse ClientsResponse { get; set; }
     private ServerSideValidator ServerSideValidator { get; set; }
-    private GetApplicantsQuery GetApplicantsQuery { get; set; } = new();
+    private GetClientsQuery GetClientsQuery { get; set; } = new();
     private HubConnection HubConnection { get; set; }
-    private MudTable<ApplicantItem> Table { get; set; }
+    private MudTable<ClientItem> Table { get; set; }
 
     #endregion Private Properties
 
@@ -59,40 +60,40 @@ namespace D2W.WebPortal.Pages.Clients
         BreadcrumbService.SetBreadcrumbItems(new List<BreadcrumbItem>
         {
             new(Resource.Home, "/"),
-            new(Resource.Applicants, "#", true)
+            new(Resource.Clients, "#", true)
         });
 
-        await StartHubConnection();
+        // await StartHubConnection();
 
-        HubConnection.On("NotifyReportIssuer", (Func<FileMetaData, ReportStatus, Task>)(async (fileMetaData, reportStatus) =>
-        {
-            switch (reportStatus)
-            {
-                case ReportStatus.Pending:
-                    Snackbar.Add(Resource.Your_report_is_being_initiated, Severity.Info);
-                    break;
+        // HubConnection.On("NotifyReportIssuer", (Func<FileMetaData, ReportStatus, Task>)(async (fileMetaData, reportStatus) =>
+        // {
+        //     switch (reportStatus)
+        //     {
+        //         case ReportStatus.Pending:
+        //             Snackbar.Add(Resource.Your_report_is_being_initiated, Severity.Info);
+        //             break;
 
-                case ReportStatus.InProgress:
-                    Snackbar.Add(Resource.Your_report_is_being_generated,
-                Severity.Warning);
-                    break;
+        //         case ReportStatus.InProgress:
+        //             Snackbar.Add(Resource.Your_report_is_being_generated,
+        //         Severity.Warning);
+        //             break;
 
-                case ReportStatus.Completed:
-                    Snackbar.Add(
-                string.Format(Resource.Your_report_0_is_ready_to_download, fileMetaData.FileName),
-                Severity.Success);
-                    await ShowDownloadFileDialogue(fileMetaData, reportStatus);
-                    break;
+        //         case ReportStatus.Completed:
+        //             Snackbar.Add(
+        //         string.Format(Resource.Your_report_0_is_ready_to_download, fileMetaData.FileName),
+        //         Severity.Success);
+        //             await ShowDownloadFileDialogue(fileMetaData, reportStatus);
+        //             break;
 
-                case ReportStatus.Failed:
-                    Snackbar.Add(Resource.Your_report_generation_has_failed,
-                Severity.Error);
-                    break;
+        //         case ReportStatus.Failed:
+        //             Snackbar.Add(Resource.Your_report_generation_has_failed,
+        //         Severity.Error);
+        //             break;
 
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(reportStatus), reportStatus, null);
-            }
-        }));
+        //         default:
+        //             throw new ArgumentOutOfRangeException(nameof(reportStatus), reportStatus, null);
+        //     }
+        // }));
     }
 
     #endregion Protected Methods
@@ -127,22 +128,22 @@ namespace D2W.WebPortal.Pages.Clients
         }
     }
 
-    private void AddApplicant()
+    private void AddClient()
     {
-        NavigationManager.NavigateTo("poc/army/addApplicant");
+        NavigationManager.NavigateTo("AddClient");
     }
 
-    private void EditApplicant(string id)
+    private void EditClient(string id)
     {
-        NavigationManager.NavigateTo($"poc/army/editApplicant/{id}");
+        NavigationManager.NavigateTo($"EditClient/{id}");
     }
 
-    private void ViewApplicant(string id)
+    private void ViewClient(string id)
     {
-        NavigationManager.NavigateTo($"poc/army/viewApplicant/{id}");
+        NavigationManager.NavigateTo($"ViewClient/{id}");
     }
 
-    private async Task DeleteApplicant(string id)
+    private async Task DeleteClient(string id)
     {
         var parameters = new DialogParameters
         {
@@ -159,7 +160,7 @@ namespace D2W.WebPortal.Pages.Clients
 
         if (!result.Cancelled)
         {
-            var httpResponseWrapper = await ApplicantsClient.DeleteApplicant(id);
+            var httpResponseWrapper = await ClientsClient.DeleteClient(id);
 
             if (httpResponseWrapper.Success)
             {
@@ -175,113 +176,113 @@ namespace D2W.WebPortal.Pages.Clients
         }
     }
 
-    private void FilterApplicants(string searchString)
+    private void FilterClients(string searchString)
     {
-        if (ApplicantsResponse is null)
+        if (ClientsResponse is null)
             return;
         SearchString = searchString;
         Table.ReloadServerData();
     }
 
-    private async Task ImmediateExportApplicantToPdf()
+    // private async Task ImmediateExportApplicantToPdf()
+    // {
+    //     var parameters = new DialogParameters
+    //         {
+    //             {"ContentText", Resource.Exporting_data_may_take_a_while},
+    //             {"ButtonText", Resource.ExportAsPdfImmediate},
+    //             {"Color", Color.Error}
+    //         };
+
+    //     var options = new DialogOptions() { CloseButton = true, MaxWidth = MaxWidth.ExtraSmall };
+
+    //     var dialog = DialogService.Show<DialogModal>(Resource.Export, parameters, options);
+
+    //     var result = await dialog.Result;
+
+    //     if (!result.Cancelled)
+    //     {
+    //         var httpResponseWrapper = await ClientsClient.ExportAsPdf(new ExportApplicantsQuery
+    //         {
+    //             SearchText = GetClientsQuery.SearchText,
+    //             SortBy = GetClientsQuery.SortBy,
+    //             IsImmediate = true
+    //         });
+
+    //         if (httpResponseWrapper.Success)
+    //         {
+    //             if (httpResponseWrapper.Response is SuccessResult<ExportApplicantsResponse> successResult)
+    //             {
+    //                 Snackbar.Add(successResult.Result.FileUrl, Severity.Success);
+    //                 await Js.InvokeVoidAsync("triggerFileDownload", successResult.Result.FileName, successResult.Result.FileUrl);
+    //             }
+    //         }
+    //         else
+    //         {
+    //             var exceptionResult = httpResponseWrapper.Response as ExceptionResult;
+    //             ServerSideValidator.Validate(exceptionResult);
+    //         }
+    //     }
+    // }
+
+    // private async Task PostponedExportApplicantToPdf()
+    // {
+    //     ActivePanelIndex = 0;
+
+    //     var parameters = new DialogParameters
+    //     {
+    //         {"ContentText", Resource.Exporting_data_may_take_a_while},
+    //         {"ButtonText", Resource.ExportAsPdfInBackground},
+    //         {"Color", Color.Error}
+    //     };
+
+    //     if (HubConnection.State == HubConnectionState.Connected)
+    //     {
+    //         var options = new DialogOptions() { CloseButton = true, MaxWidth = MaxWidth.ExtraSmall };
+
+    //         var dialog = DialogService.Show<DialogModal>(Resource.Export, parameters, options);
+
+    //         var result = await dialog.Result;
+
+    //         if (!result.Cancelled)
+    //         {
+    //             await HubConnection.SendAsync("ExportApplicantToPdf", new ExportApplicantsQuery
+    //             {
+    //                 SearchText = GetClientsQuery.SearchText,
+    //                 SortBy = GetClientsQuery.SortBy,
+    //                 IsImmediate = false
+    //             });
+
+    //             ActivePanelIndex = 1;
+    //         }
+    //     }
+    //     else
+    //     {
+    //         Snackbar.Add($@"Reporting Hub is not active.", Severity.Warning);
+    //     }
+    // }
+
+    private async Task<TableData<ClientItem>> ServerReload(TableState state)
     {
-        var parameters = new DialogParameters
-            {
-                {"ContentText", Resource.Exporting_data_may_take_a_while},
-                {"ButtonText", Resource.ExportAsPdfImmediate},
-                {"Color", Color.Error}
-            };
+        GetClientsQuery.SearchText = SearchString;
 
-        var options = new DialogOptions() { CloseButton = true, MaxWidth = MaxWidth.ExtraSmall };
+        GetClientsQuery.PageNumber = state.Page + 1;
 
-        var dialog = DialogService.Show<DialogModal>(Resource.Export, parameters, options);
+        GetClientsQuery.RowsPerPage = state.PageSize;
 
-        var result = await dialog.Result;
+        GetClientsQuery.SortBy = state.SortDirection == SortDirection.None ? string.Empty : $"{state.SortLabel} {state.SortDirection}";
 
-        if (!result.Cancelled)
-        {
-            var httpResponseWrapper = await ApplicantsClient.ExportAsPdf(new ExportApplicantsQuery
-            {
-                SearchText = GetApplicantsQuery.SearchText,
-                SortBy = GetApplicantsQuery.SortBy,
-                IsImmediate = true
-            });
+        var responseWrapper = await ClientsClient.GetClients(GetClientsQuery);
 
-            if (httpResponseWrapper.Success)
-            {
-                if (httpResponseWrapper.Response is SuccessResult<ExportApplicantsResponse> successResult)
-                {
-                    Snackbar.Add(successResult.Result.FileUrl, Severity.Success);
-                    await Js.InvokeVoidAsync("triggerFileDownload", successResult.Result.FileName, successResult.Result.FileUrl);
-                }
-            }
-            else
-            {
-                var exceptionResult = httpResponseWrapper.Response as ExceptionResult;
-                ServerSideValidator.Validate(exceptionResult);
-            }
-        }
-    }
-
-    private async Task PostponedExportApplicantToPdf()
-    {
-        ActivePanelIndex = 0;
-
-        var parameters = new DialogParameters
-        {
-            {"ContentText", Resource.Exporting_data_may_take_a_while},
-            {"ButtonText", Resource.ExportAsPdfInBackground},
-            {"Color", Color.Error}
-        };
-
-        if (HubConnection.State == HubConnectionState.Connected)
-        {
-            var options = new DialogOptions() { CloseButton = true, MaxWidth = MaxWidth.ExtraSmall };
-
-            var dialog = DialogService.Show<DialogModal>(Resource.Export, parameters, options);
-
-            var result = await dialog.Result;
-
-            if (!result.Cancelled)
-            {
-                await HubConnection.SendAsync("ExportApplicantToPdf", new ExportApplicantsQuery
-                {
-                    SearchText = GetApplicantsQuery.SearchText,
-                    SortBy = GetApplicantsQuery.SortBy,
-                    IsImmediate = false
-                });
-
-                ActivePanelIndex = 1;
-            }
-        }
-        else
-        {
-            Snackbar.Add($@"Reporting Hub is not active.", Severity.Warning);
-        }
-    }
-
-    private async Task<TableData<ApplicantItem>> ServerReload(TableState state)
-    {
-        GetApplicantsQuery.SearchText = SearchString;
-
-        GetApplicantsQuery.PageNumber = state.Page + 1;
-
-        GetApplicantsQuery.RowsPerPage = state.PageSize;
-
-        GetApplicantsQuery.SortBy = state.SortDirection == SortDirection.None ? string.Empty : $"{state.SortLabel} {state.SortDirection}";
-
-        var responseWrapper = await ApplicantsClient.GetApplicants(GetApplicantsQuery);
-
-        var tableData = new TableData<ApplicantItem>();
+        var tableData = new TableData<ClientItem>();
 
         if (responseWrapper.Success)
         {
-            var successResult = responseWrapper.Response as SuccessResult<ApplicantsResponse>;
+            var successResult = responseWrapper.Response as SuccessResult<ClientsResponse>;
             if (successResult != null)
-                ApplicantsResponse = successResult.Result;
+                ClientsResponse = successResult.Result;
 
-            tableData = new TableData<ApplicantItem>()
-            { TotalItems = ApplicantsResponse.Applicants.TotalRows, Items = ApplicantsResponse.Applicants.Items };
+            tableData = new TableData<ClientItem>()
+            { TotalItems = ClientsResponse.Clients.TotalRows, Items = ClientsResponse.Clients.Items };
         }
         else
         {

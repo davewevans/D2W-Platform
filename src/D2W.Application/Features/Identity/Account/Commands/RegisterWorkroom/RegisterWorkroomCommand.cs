@@ -59,7 +59,6 @@ public class RegisterWorkroomCommand : IRequest<Envelope<RegisterWorkroomRespons
                 City = City,
                 Region = Region,
                 PostalCode = PostalCode,
-                LogoUri = LogoUri,
                 CountryId = CountryId
             }
         };

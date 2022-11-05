@@ -150,6 +150,9 @@
   <data name="Client_already_added" xml:space="preserve">
     <value>क्लाइंट पहले से ही जोड़ा गया है।</value>
   </data>
+  <data name="Client_has_been_updated_successfully" xml:space="preserve">
+    <value>क्लाइंट सफलतापूर्वक अद्यतन किया गया है।</value>
+  </data>
   <data name="Code_is_required" xml:space="preserve">
     <value>कोड की आवश्यकता है।</value>
   </data>
@@ -209,6 +212,9 @@
   </data>
   <data name="Invalid_applicant_Id" xml:space="preserve">
     <value>अमान्य आवेदक आईडी।</value>
+  </data>
+  <data name="Invalid_ApplicationUser_Id" xml:space="preserve">
+    <value>अमान्य अनुप्रयोग उपयोगकर्ता ID</value>
   </data>
   <data name="Invalid_authenticator_code_entered" xml:space="preserve">
     <value>अमान्य प्रमाणक कोड दर्ज किया गया।</value>
@@ -446,6 +452,9 @@
   </data>
   <data name="Unable_to_load_applicant" xml:space="preserve">
     <value>आवेदक लोड करने में असमर्थ।</value>
+  </data>
+  <data name="Unable_to_load_Client" xml:space="preserve">
+    <value>क्लाइंट लोड करने में असमर्थ.</value>
   </data>
   <data name="Unable_to_load_report" xml:space="preserve">
     <value>रिपोर्ट लोड करने में असमर्थ.</value>

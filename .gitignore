@@ -369,4 +369,4 @@ MigrationBackup/
 FodyWeavers.xsd
 /src/BinaryPlate.Host/Properties/ServiceDependencies/BinaryPlateHost - Web Deploy1/profile.arm.json
 /src/BinaryPlate.Infrastructure/Migrations
-src/D2W.WebAPI/log.txt
+src/D2W.WebAPI/Logs/log.txt

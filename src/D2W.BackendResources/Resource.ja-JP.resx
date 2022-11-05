@@ -150,6 +150,9 @@
   <data name="Client_already_added" xml:space="preserve">
     <value>クライアントはすでに追加されています。</value>
   </data>
+  <data name="Client_has_been_updated_successfully" xml:space="preserve">
+    <value>クライアントが正常に更新されました。</value>
+  </data>
   <data name="Code_is_required" xml:space="preserve">
     <value>コードが必要です。</value>
   </data>
@@ -209,6 +212,9 @@
   </data>
   <data name="Invalid_applicant_Id" xml:space="preserve">
     <value>申請者 ID が無効です。</value>
+  </data>
+  <data name="Invalid_ApplicationUser_Id" xml:space="preserve">
+    <value>無効なアプリケーション・ユーザー ID</value>
   </data>
   <data name="Invalid_authenticator_code_entered" xml:space="preserve">
     <value>無効な認証コードが入力されました。</value>
@@ -446,6 +452,9 @@
   </data>
   <data name="Unable_to_load_applicant" xml:space="preserve">
     <value>申請者を読み込めません。</value>
+  </data>
+  <data name="Unable_to_load_Client" xml:space="preserve">
+    <value>クライアントを読み込めません。</value>
   </data>
   <data name="Unable_to_load_report" xml:space="preserve">
     <value>レポートを読み込めません。</value>

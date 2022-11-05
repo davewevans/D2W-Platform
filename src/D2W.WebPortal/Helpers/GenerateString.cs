@@ -1,8 +1,8 @@
 ﻿namespace D2W.WebPortal.Helpers;
 
-public class GenerateString
+public class RandomValuesHelper
 {
-    public static string GenerateNewString(int stringLength)
+    public static string GenerateRandomAlphanumericValue(int stringLength)
     {
         string lowers = "abcdefghijklmnopqrstuvwxyz";
         string uppers = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";

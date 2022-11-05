@@ -7,6 +7,13 @@ namespace D2W.WebPortal.Features.Clients.Commands.UpdateClient
 {
     public class UpdateClientCommand
     {
-        
+        #region Public Properties
+        public string Id { get; set; }
+        public string FullName { get; set; }
+        public string Email { get; set; }
+        public string PhoneNumber { get; set; }
+        public string AvatarUri { get; set; }
+
+        #endregion Public Properties
     }
 }

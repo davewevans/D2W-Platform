@@ -112,6 +112,9 @@ public class Program
 
         services.AddScoped<IDashboardClient, DashboardClient>();
 
+
+        services.AddScoped<IClientsClient, ClientsClient>();
+
         services.AddLocalization();
 
         services.AddBlazoredLocalStorage();

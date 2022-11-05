@@ -150,6 +150,9 @@
   <data name="Client_already_added" xml:space="preserve">
     <value>客户端已添加。</value>
   </data>
+  <data name="Client_has_been_updated_successfully" xml:space="preserve">
+    <value>客户端已成功更新。</value>
+  </data>
   <data name="Code_is_required" xml:space="preserve">
     <value>需要代码。</value>
   </data>
@@ -209,6 +212,9 @@
   </data>
   <data name="Invalid_applicant_Id" xml:space="preserve">
     <value>无效申请人 ID。</value>
+  </data>
+  <data name="Invalid_ApplicationUser_Id" xml:space="preserve">
+    <value>无效的应用程序用户标识</value>
   </data>
   <data name="Invalid_authenticator_code_entered" xml:space="preserve">
     <value>输入无效身份验证器代码。</value>
@@ -446,6 +452,9 @@
   </data>
   <data name="Unable_to_load_applicant" xml:space="preserve">
     <value>无法加载申请人。</value>
+  </data>
+  <data name="Unable_to_load_Client" xml:space="preserve">
+    <value>无法加载客户端。</value>
   </data>
   <data name="Unable_to_load_report" xml:space="preserve">
     <value>无法加载报告。</value>
