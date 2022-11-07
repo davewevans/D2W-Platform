@@ -31,6 +31,11 @@ public interface IApplicationDbContext : IDisposable
     DbSet<TenantClientModel> TenantsClients { get; set; }
     DbSet<ContactDetailsModel> ContactDetails { get; set; }
     DbSet<CountryModel> Countries { get; set; }
+    DbSet<DesignConceptModel> DesignConcepts { get; set; }
+    DbSet<WorkOrderModel> WorkOrders { get; set; }
+    DbSet<WindowMeasurementsModel> WindowMeasurements { get; set; }
+    DbSet<DraperyCalculationsModel> DraperyCalculations { get; set; }
+
 
     #endregion Public Properties
 

@@ -15,21 +15,28 @@ public class DesignConceptModel : IAuditable, IMustHaveTenant
 
     public string ImageUrl { get; set; }
 
-    public Guid DesignerId { get; set; }
-
     public Guid ClientId { get; set; }
 
     public bool IsArchived { get; set; }
 
+    public bool ApprovedByClient { get; set; }
+
+    public string ClientNotes { get; set; }
+
     // diminsions
     // calculations
-    // approved by client
-    // notes by client
-
+    
     public string CreatedBy { get; set; }
     public DateTime CreatedOn { get; set; }
     public string ModifiedBy { get; set; }
     public DateTime? ModifiedOn { get; set; }
     public string DeletedBy { get; set; }
     public DateTime? DeletedOn { get; set; }
+
+
+    #region Navigational Properties
+    public WindowMeasurementsModel WindowMeasurements { get; set; }
+    public DraperyCalculationsModel DraperyCalculations { get; set; }
+
+    #endregion Navigational Properties
 }

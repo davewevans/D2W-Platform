@@ -21,7 +21,7 @@ namespace D2W.WebAPI.Controllers
             return TryGetResult(response);
         }
 
-        [Authorize("Designer")]
+        //[Authorize("Designer")]
         [HttpPost("GetClients")]
         public async Task<IActionResult> GetClients(GetClientsQuery request)
         {

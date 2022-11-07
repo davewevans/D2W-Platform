@@ -13,6 +13,7 @@ public class ApplicationUser : IdentityUser, IAuditable, IMayHaveTenant
         UserAttachments = new List<ApplicationUserAttachment>();
         TenantsWorkrooms = new List<TenantWorkroomModel>();
         TenantsClients = new List<TenantClientModel>();
+        ContactDetails = new List<ContactDetailsModel>();
     }
 
     #endregion Public Constructors
@@ -52,7 +53,7 @@ public class ApplicationUser : IdentityUser, IAuditable, IMayHaveTenant
 
     public ICollection<TenantWorkroomModel> TenantsWorkrooms { get; set; }
     public ICollection<TenantClientModel> TenantsClients { get; set; }
-    public ContactDetailsModel ContactDetails { get; set; }
+    public ICollection<ContactDetailsModel> ContactDetails { get; set; }
 
     #endregion
 }

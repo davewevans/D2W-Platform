@@ -19,7 +19,7 @@ public class RegisterWorkroomCommand : IRequest<Envelope<RegisterWorkroomRespons
     public string CompanyName { get; set; }
 
     [Phone]
-    public string AltPhone { get; set; }
+    public string AltPhone1 { get; set; }
 
     [EmailAddress]
     public string AltEmailAddress { get; set; }
@@ -46,21 +46,25 @@ public class RegisterWorkroomCommand : IRequest<Envelope<RegisterWorkroomRespons
             Email = Email,
             PhoneNumber = PhoneNumber,
             Name = CompanyName,
-            AppUserType = ApplicationUserType.Workroom,
-            ContactDetails = new ContactDetailsModel
-            {
-                CompanyName = CompanyName,
-                AltPhone1 = AltPhone,
-                AltEmailAddress1 = AltEmailAddress,
-                ContactName1 = ContactName1,
-                ContactName2 = ContactName2,
-                AddressLine1 = AddressLine1,
-                AddressLine2 = AddressLine2,
-                City = City,
-                Region = Region,
-                PostalCode = PostalCode,
-                CountryId = CountryId
-            }
+            AppUserType = ApplicationUserType.Workroom
+        };
+    }
+
+    public ContactDetailsModel MapToContactDetailsEntity()
+    {
+        return new ContactDetailsModel()
+        {
+            CompanyName = CompanyName,
+            AltPhone1 = AltPhone1,
+            AltEmailAddress1 = AltEmailAddress,
+            ContactName1 = ContactName1,
+            ContactName2 = ContactName2,
+            AddressLine1 = AddressLine1,
+            AddressLine2 = AddressLine2,
+            City = City,
+            Region = Region,
+            PostalCode = PostalCode,
+            CountryId = CountryId
         };
     }
 

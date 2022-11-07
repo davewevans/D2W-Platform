@@ -9,6 +9,11 @@ namespace D2W.Domain.Entities;
 [Table("WorkOrders")]
 public class WorkOrderModel : IAuditable, IMustHaveTenant
 {
+    public WorkOrderModel()
+    {
+        //WorkOrderItems = new List<WorkOrderItemModel>();
+    }
+
     public Guid Id { get; set; }
 
     public int WorkOrderNumber { get; set; }
@@ -21,6 +26,13 @@ public class WorkOrderModel : IAuditable, IMustHaveTenant
     public string DeletedBy { get; set; }
     public DateTime? DeletedOn { get; set; }
 
-    public List<WorkOrderItemModel> WorkOrderItems { get; set; } = null!;
+
+    #region Navigational Properties
+
+    // TODO may not need work order items
+
+    // public ICollection<WorkOrderItemModel> WorkOrderItems { get; set; }
+
+    #endregion Navigational Properties
 
 }

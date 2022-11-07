@@ -10,9 +10,11 @@ using D2W.Domain.Entities.Identity;
 namespace D2W.Domain.Entities
 {
     [Table("ContactDetails")]
-    public class ContactDetailsModel : IAuditable // No IMustHaveTenant since contact details are shared among tenants
+    public class ContactDetailsModel : IAuditable, IMustHaveTenant 
     {
         public Guid Id { get; set; }
+        public Guid TenantId { get; set; }
+
         public string CompanyName { get; set; }
 
         [Phone]
@@ -49,6 +51,7 @@ namespace D2W.Domain.Entities
         public string DeletedBy { get; set; }
         public DateTime? DeletedOn { get; set; }
 
+        [ForeignKey(nameof(ApplicationUser))]
         public string ApplicationUserId { get; set; }
 
         #region Navigational Properties
@@ -56,5 +59,6 @@ namespace D2W.Domain.Entities
         public ApplicationUser ApplicationUser { get; set; }
 
         #endregion
+
     }
 }

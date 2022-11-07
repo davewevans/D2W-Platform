@@ -70,7 +70,9 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser,
     public DbSet<TenantClientModel> TenantsClients { get; set; }
     public DbSet<ContactDetailsModel> ContactDetails { get; set; }
     public DbSet<CountryModel> Countries { get; set; }
-
+    public DbSet<DesignConceptModel> DesignConcepts { get; set; }
+    public DbSet<WindowMeasurementsModel> WindowMeasurements { get; set; }
+    public DbSet<DraperyCalculationsModel> DraperyCalculations { get; set; }
 
     #endregion Public Properties
 
@@ -284,10 +286,15 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser,
     {
         // Configuring one-to-one relationships
 
-        modelBuilder.Entity<ApplicationUser>()
-            .HasOne(b => b.ContactDetails)
-            .WithOne(i => i.ApplicationUser)
-            .HasForeignKey<ContactDetailsModel>(b => b.ApplicationUserId);
+        modelBuilder.Entity<DesignConceptModel>()
+            .HasOne(b => b.WindowMeasurements)
+            .WithOne(i => i.DesignConcept)
+            .HasForeignKey<WindowMeasurementsModel>(b => b.DesignConceptId);
+
+        modelBuilder.Entity<DesignConceptModel>()
+            .HasOne(b => b.DraperyCalculations)
+            .WithOne(i => i.DesignConcept)
+            .HasForeignKey<DraperyCalculationsModel>(b => b.DesignConceptId);
     }
 
     private void InitiateTenantMode()

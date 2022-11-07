@@ -368,6 +368,11 @@ public class AccountUseCase : IAccountUseCase
         }
 
         var userEntity = await _userManager.FindByEmailAsync(request.Email);
+
+        var contactDetails = request.MapToContactDetailsEntity();
+        await _dbContext.ContactDetails.AddAsync(contactDetails);
+        await _dbContext.SaveChangesAsync();
+
         var tenantId = _tenantResolver.GetTenantId();
 
         // many-to-many relationship with designer if not already exist
@@ -416,6 +421,11 @@ public class AccountUseCase : IAccountUseCase
         }
 
         var userEntity = await _userManager.FindByEmailAsync(request.Email);
+
+        var contactDetails = request.MapToContactDetailsEntity();
+        await _dbContext.ContactDetails.AddAsync(contactDetails);
+        await _dbContext.SaveChangesAsync();
+
         var tenantId = _tenantResolver.GetTenantId();
 
         // many-to-many relationship with designer if not already exist
