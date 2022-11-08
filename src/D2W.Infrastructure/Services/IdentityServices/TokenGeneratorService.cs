@@ -120,7 +120,7 @@ public class TokenGeneratorService : ITokenGeneratorService
              new("TenantName", tenantName),
              new("IsSuperAdmin", user.IsSuperAdmin.ToString().ToLower()),
              new("AvatarUri", user.AvatarUri ?? string.Empty),
-             new("Name", string.IsNullOrWhiteSpace(user.FullName) ? user.UserName : user.FullName),
+             new("FullName", string.IsNullOrWhiteSpace(user.FullName) ? user.UserName : user.FullName),
              new("JobTitle", user.JobTitle ?? string.Empty),
              new("refreshAt", ((DateTimeOffset) user.RefreshTokenTimeSpan).ToUnixTimeSeconds().ToString()),
          };

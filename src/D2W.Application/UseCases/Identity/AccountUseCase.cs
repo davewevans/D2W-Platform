@@ -370,6 +370,7 @@ public class AccountUseCase : IAccountUseCase
         var userEntity = await _userManager.FindByEmailAsync(request.Email);
 
         var contactDetails = request.MapToContactDetailsEntity();
+        contactDetails.ApplicationUserId = userEntity.Id;
         await _dbContext.ContactDetails.AddAsync(contactDetails);
         await _dbContext.SaveChangesAsync();
 
@@ -392,9 +393,7 @@ public class AccountUseCase : IAccountUseCase
 
         var payload = new RegisterClientResponse
         {
-            RequireConfirmedAccount = false,
-            DisplayConfirmAccountLink = false,
-            Email = user.Email,
+            Id = user.Id,
             SuccessMessage = clientDesignerExists ? Resource.Client_already_added : Resource.You_have_successfully_added_a_client
         };
         return Envelope<RegisterClientResponse>.Result.Ok(payload);
@@ -423,6 +422,7 @@ public class AccountUseCase : IAccountUseCase
         var userEntity = await _userManager.FindByEmailAsync(request.Email);
 
         var contactDetails = request.MapToContactDetailsEntity();
+        contactDetails.ApplicationUserId = userEntity.Id;
         await _dbContext.ContactDetails.AddAsync(contactDetails);
         await _dbContext.SaveChangesAsync();
 

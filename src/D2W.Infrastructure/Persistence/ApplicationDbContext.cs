@@ -71,8 +71,10 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser,
     public DbSet<ContactDetailsModel> ContactDetails { get; set; }
     public DbSet<CountryModel> Countries { get; set; }
     public DbSet<DesignConceptModel> DesignConcepts { get; set; }
+    public DbSet<WorkOrderModel> WorkOrders { get; set; }
     public DbSet<WindowMeasurementsModel> WindowMeasurements { get; set; }
     public DbSet<DraperyCalculationsModel> DraperyCalculations { get; set; }
+    public DbSet<FabricModel> Fabrics { get; set; }
 
     #endregion Public Properties
 

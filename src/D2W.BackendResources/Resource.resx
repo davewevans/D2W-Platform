@@ -465,6 +465,9 @@
   <data name="Unable_to_load_user" xml:space="preserve">
     <value>Unable to load user.</value>
   </data>
+  <data name="Unable_to_load_Workroom" xml:space="preserve">
+    <value>Unable to load Workroom.</value>
+  </data>
   <data name="Unable_to_update_static_role" xml:space="preserve">
 	  <value>Unable to update static role</value>
   </data>
@@ -542,6 +545,9 @@
   </data>
   <data name="Workroom_already_added" xml:space="preserve">
     <value>Workroom already added.</value>
+  </data>
+  <data name="Workroom_has_been_updated_successfully" xml:space="preserve">
+    <value>Workroom has been updated successfully.</value>
   </data>
   <data name="Your_account_is_deactivated_Please_contact_your_administrator" xml:space="preserve">
     <value>Your account is deactivated. Please contact your administrator.</value>

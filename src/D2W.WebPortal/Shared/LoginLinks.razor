@@ -7,8 +7,7 @@
             <ChildContent>
                 <PersonCard FullName="@context.User.Claims.FirstOrDefault(c=>c.Type == "FullName").Value"
                             AvatarUri="@context.User.Claims.FirstOrDefault(c=>c.Type == "AvatarUri").Value"
-                            JobTitle="@context.User.Claims.FirstOrDefault(c=>c.Type == "JobTitle").Value"
-                            Class="mt-n2" />
+                    Class="mt-n2" />
 
                 <MudDivider Class="mb-2" />
                 <MudListItem Text="@Resource.Account" Icon="@Icons.Material.Outlined.Person" Href="/account/manage/index" />

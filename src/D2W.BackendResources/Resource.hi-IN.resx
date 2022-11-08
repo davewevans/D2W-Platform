@@ -465,6 +465,9 @@
   <data name="Unable_to_load_user" xml:space="preserve">
     <value>उपयोगकर्ता लोड करने में असमर्थ।</value>
   </data>
+  <data name="Unable_to_load_Workroom" xml:space="preserve">
+    <value>वर्करूम लोड करने में असमर्थ.</value>
+  </data>
   <data name="Unable_to_update_static_role" xml:space="preserve">
     <value>स्थैतिक भूमिका अद्यतन करने में असमर्थ</value>
   </data>
@@ -542,6 +545,9 @@
   </data>
   <data name="Workroom_already_added" xml:space="preserve">
     <value>वर्करूम पहले से ही जोड़ा गया है।</value>
+  </data>
+  <data name="Workroom_has_been_updated_successfully" xml:space="preserve">
+    <value>वर्करूम सफलतापूर्वक अद्यतन किया गया है.</value>
   </data>
   <data name="Your_account_is_deactivated_Please_contact_your_administrator" xml:space="preserve">
     <value>आपका खाता निष्क्रिय कर दिया जाता है. कृपया अपने प्रशासक से संपर्क करें।</value>

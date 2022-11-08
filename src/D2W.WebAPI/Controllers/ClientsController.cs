@@ -38,7 +38,7 @@ namespace D2W.WebAPI.Controllers
 
         [Authorize("Client,Designer")]
         [HttpPut("UpdateClient")]
-        public async Task<IActionResult> UpdateClient(UpdateClientCommand request)
+        public async Task<IActionResult> UpdateClient(UpdateWorkroomCommand request)
         {
             var response = await Mediator.Send(request);
             return TryGetResult(response);

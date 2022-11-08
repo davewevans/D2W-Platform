@@ -47,10 +47,10 @@ public class RegisterClientCommand : IRequest<Envelope<RegisterClientResponse>>
     {
         return new ContactDetailsModel()
         {
-            ContactName1 = FullName.Trim(),
-            ContactName2 = ContactName2.Trim(),
-            AltPhone1 = AltPhone1,
-            AltEmailAddress1 = AltEmailAddress,
+            ContactName1 = FullName?.Trim(),
+            ContactName2 = ContactName2?.Trim(),
+            AltPhone1 = AltPhone1?.Trim(),
+            AltEmailAddress1 = AltEmailAddress?.Trim(),
 
         };
     }

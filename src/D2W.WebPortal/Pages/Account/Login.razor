@@ -6,11 +6,11 @@
     <EditContextServerSideValidator @ref="EditContextServerSideValidator" />
     <FluentValidationValidator />
     <MudText Typo="Typo.h4" GutterBottom="true">@Resource.Login</MudText>
-    <MudText>
-        @Resource.Dont_have_an_account <MudLink Href="/account/register">@Resource.Register</MudLink>
+    <MudText Class="mb-4">
+        @Resource.Dont_have_an_account <MudLink Href="/beta/registrations/new">@Resource.Register</MudLink>
     </MudText>
 
-    <MudTextField Label="@Resource.Email"
+    <MudTextField Class="mb-4" Label="@Resource.Email"
                   Variant="Variant.Outlined"
                   @bind-Value="LoginCommand.Email"
                   For="@(() => LoginCommand.Email)" />
@@ -24,10 +24,12 @@
                   AdornmentIcon="@PasswordInputIcon"
                   OnAdornmentClick="TogglePasswordVisibility" />
 
-    <MudElement HtmlTag="h4">@Resource.Default_Admin_Credentials</MudElement>
+    @* <MudElement HtmlTag="h4">@Resource.Default_Admin_Credentials</MudElement> *@
     <hr />
-    <MudChip Color="Color.Primary" Label="true">@Resource.Username: admin@demo</MudChip>
-    <MudChip Color="Color.Secondary" Label="true">@Resource.Password: 123456</MudChip>
+
+    @* <MudChip Color="Color.Primary" Label="true">@Resource.Username: admin@demo</MudChip>
+    <MudChip Color="Color.Secondary" Label="true">@Resource.Password: 123456</MudChip> *@
+
     <div Class="d-flex justify-space-between align-center">
         <MudCheckBox T="bool" Label="@Resource.Remember_me" Color="Color.Primary" Class="ml-n1 my-3"></MudCheckBox>
         <MudLink Href="/account/forgotPassword">@Resource.Forgot_your_password</MudLink>

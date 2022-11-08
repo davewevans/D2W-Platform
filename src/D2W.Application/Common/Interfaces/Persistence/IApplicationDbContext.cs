@@ -35,7 +35,7 @@ public interface IApplicationDbContext : IDisposable
     DbSet<WorkOrderModel> WorkOrders { get; set; }
     DbSet<WindowMeasurementsModel> WindowMeasurements { get; set; }
     DbSet<DraperyCalculationsModel> DraperyCalculations { get; set; }
-
+    DbSet<FabricModel> Fabrics { get; set; }
 
     #endregion Public Properties
 

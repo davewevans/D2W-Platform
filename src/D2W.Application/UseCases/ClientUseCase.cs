@@ -54,16 +54,20 @@ public class ClientUseCase : IClientUseCase
 
     public async Task<Envelope<ClientsResponse>> GetClients(GetClientsQuery request)
     {
-        var query = _dbContext.Users.AsQueryable();
+        var query = _dbContext.TenantsClients.AsQueryable();
 
         if (!string.IsNullOrWhiteSpace(request.SearchText))
-            query = query.Where(a => a.Name.Contains(request.SearchText) || a.Surname.Contains(request.SearchText));
+            query = query.Where(tc => tc.Client.Name.Contains(request.SearchText) || tc.Client.Surname.Contains(request.SearchText));
 
         query = !string.IsNullOrWhiteSpace(request.SortBy)
             ? query.SortBy(request.SortBy)
-            : query.OrderBy(a => a.Name).ThenBy(a => a.Surname);
+            : query.OrderBy(tc => tc.Client.Name).ThenBy(tc => tc.Client.Surname);
 
-        var clientItems = await query.Select(q => ClientItem.MapFromEntity(q)).AsNoTracking().ToPagedListAsync(request.PageNumber, request.RowsPerPage);
+        var clientItems = await query
+            .Include(q => q.Client.ContactDetails)
+            .Select(q => ClientItem.MapFromEntity(q.Client, q.TenantId))
+            .AsNoTracking()
+            .ToPagedListAsync(request.PageNumber, request.RowsPerPage);
 
         var clientsResponse = new ClientsResponse
         {
@@ -76,24 +80,24 @@ public class ClientUseCase : IClientUseCase
 
     // Use register client command instead
 
-    //public async Task<Envelope<CreateClientResponse>> AddClient(CreateClientCommand request)
+    //public async Task<Envelope<RegisterClientResponse>> AddClient(CreateClientCommand request)
     //{
     //    var Client = request.MapToEntity();
 
-    //    await _dbContext.Clients.AddAsync(Client);
+    //    await _dbContext.Workrooms.AddAsync(Client);
 
     //    await _dbContext.SaveChangesAsync();
 
-    //    var createClientResponse = new CreateClientResponse
+    //    var createClientResponse = new RegisterClientResponse
     //    {
     //        Id = Client.Id.ToString(),
     //        SuccessMessage = Resource.Client_has_been_created_successfully
     //    };
 
-    //    return Envelope<CreateClientResponse>.Result.Ok(createClientResponse);
+    //    return Envelope<RegisterClientResponse>.Result.Ok(createClientResponse);
     //}
 
-    public async Task<Envelope<string>> EditClient(UpdateClientCommand request)
+    public async Task<Envelope<string>> EditClient(UpdateWorkroomCommand request)
     {
         if (string.IsNullOrEmpty(request.Id))
             return Envelope<string>.Result.BadRequest(Resource.Invalid_ApplicationUser_Id);
@@ -112,7 +116,7 @@ public class ClientUseCase : IClientUseCase
         return Envelope<string>.Result.Ok(Resource.Client_has_been_updated_successfully);
     }
 
-    public async Task<Envelope<string>> DeleteClient(DeleteClientCommand request)
+    public async Task<Envelope<string>> DeleteClient(DeleteWorkroomCommand request)
     {
 
         throw new NotImplementedException();
@@ -123,12 +127,12 @@ public class ClientUseCase : IClientUseCase
         //if (!Guid.TryParse(request.Id, out var ClientId))
         //    return Envelope<string>.Result.BadRequest(Resource.Invalid_Client_Id);
 
-        //var Client = await _dbContext.Clients.Where(p => p.Id == ClientId).FirstOrDefaultAsync();
+        //var Client = await _dbContext.Workrooms.Where(p => p.Id == ClientId).FirstOrDefaultAsync();
 
         //if (Client == null)
         //    return Envelope<string>.Result.NotFound(Resource.The_Client_is_not_found);
 
-        //_dbContext.Clients.Remove(Client);
+        //_dbContext.Workrooms.Remove(Client);
 
         //await _dbContext.SaveChangesAsync();
 

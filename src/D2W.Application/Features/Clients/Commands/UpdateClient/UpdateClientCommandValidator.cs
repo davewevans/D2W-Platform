@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace D2W.Application.Features.Clients.Commands.UpdateClient;
 
-public class UpdateClientCommandValidator : AbstractValidator<UpdateClientCommand>
+public class UpdateWorkroomCommandValidator : AbstractValidator<UpdateWorkroomCommand>
 {
     #region Public Constructors
 
-    public UpdateClientCommandValidator()
+    public UpdateWorkroomCommandValidator()
     {
         //RuleFor(a => a.Ssn).Cascade(CascadeMode.Stop)
         //    .NotEmpty().WithMessage(Resource.Social_security_number_is_required)

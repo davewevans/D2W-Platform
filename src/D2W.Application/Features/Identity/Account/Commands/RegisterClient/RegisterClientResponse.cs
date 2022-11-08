@@ -5,13 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace D2W.Application.Features.Identity.Account.Commands.RegisterClient;
+
 public class RegisterClientResponse
 {
     #region Public Properties
 
-    public string Email { get; set; }
-    public bool DisplayConfirmAccountLink { get; set; }
-    public bool RequireConfirmedAccount { get; set; }
+    public string Id { get; set; }
     public string SuccessMessage { get; set; }
 
     #endregion Public Properties

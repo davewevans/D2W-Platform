@@ -22,7 +22,7 @@ public class HubNotificationService : IHubNotificationService
     public async Task NotifyReportIssuer(string userNameIdentifier, FileMetaData fileMetaData, ReportStatus status)
     {
         await _hubContext.Clients.User(userNameIdentifier).SendAsync("NotifyReportIssuer", fileMetaData, status);
-        //await _hubContext.Clients.All.SendAsync("NotifyReportSubscriber", $"Hi=>{userName}");
+        //await _hubContext.Workrooms.All.SendAsync("NotifyReportSubscriber", $"Hi=>{userName}");
     }
 
     public async Task RefreshReportsViewer(string userNameIdentifier)

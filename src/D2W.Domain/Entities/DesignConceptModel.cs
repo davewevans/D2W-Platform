@@ -23,9 +23,13 @@ public class DesignConceptModel : IAuditable, IMustHaveTenant
 
     public string ClientNotes { get; set; }
 
-    // diminsions
-    // calculations
-    
+    public Guid? MainFabric { get; set; }
+    public Guid? AccentFabric1 { get; set; }
+    public Guid? AccentFabric2 { get; set; }
+    public Guid? AccentFabric3 { get; set; }
+    public Guid? AccentFabric4 { get; set; }
+    public Guid? AccentFabric5 { get; set; }
+
     public string CreatedBy { get; set; }
     public DateTime CreatedOn { get; set; }
     public string ModifiedBy { get; set; }

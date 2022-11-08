@@ -147,6 +147,9 @@
   <data name="Add_Authenticator_App" xml:space="preserve">
     <value>أضف تطبيق Authenticator</value>
   </data>
+  <data name="Add_Client" xml:space="preserve">
+    <value>إضافة عميل</value>
+  </data>
   <data name="Add_New_File" xml:space="preserve">
     <value>أضف ملف جديد</value>
   </data>
@@ -167,6 +170,9 @@
   </data>
   <data name="Add_User" xml:space="preserve">
     <value>إضافة مستخدم</value>
+  </data>
+  <data name="Add_Workroom" xml:space="preserve">
+    <value>إضافة غرفة عمل</value>
   </data>
   <data name="All" xml:space="preserve">
     <value>الكل</value>
@@ -365,6 +371,9 @@
   </data>
   <data name="click_here_to_log_in" xml:space="preserve">
     <value>انقر هنا لتسجيل الدخول</value>
+  </data>
+  <data name="Client" xml:space="preserve">
+    <value>عميل</value>
   </data>
   <data name="Clients" xml:space="preserve">
     <value>العملاء</value>
@@ -1497,6 +1506,9 @@
   <data name="UI_Culture_Code" xml:space="preserve">
     <value>كود ثقافة واجهة المستخدم</value>
   </data>
+  <data name="Unable_to_load_Workroom" xml:space="preserve">
+    <value>غير قادر على تحميل غرفة العمل.</value>
+  </data>
   <data name="Unable_to_upload_an_empty_file" xml:space="preserve">
     <value>تعذر تحميل ملف فارغ.</value>
   </data>
@@ -1572,8 +1584,17 @@
   <data name="Wind" xml:space="preserve">
     <value>رياح</value>
   </data>
+  <data name="Workroom" xml:space="preserve">
+    <value>ورشه</value>
+  </data>
   <data name="Workrooms" xml:space="preserve">
     <value>غرف العمل</value>
+  </data>
+  <data name="Workroom_has_been_updated_successfully" xml:space="preserve">
+    <value>تم تحديث غرفة العمل بنجاح.</value>
+  </data>
+  <data name="Workroom_Name" xml:space="preserve">
+    <value>اسم غرفة العمل</value>
   </data>
   <data name="Work_Orders" xml:space="preserve">
     <value>أوامر العمل</value>

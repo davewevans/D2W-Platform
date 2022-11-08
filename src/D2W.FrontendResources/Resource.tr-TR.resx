@@ -147,6 +147,9 @@
   <data name="Add_Authenticator_App" xml:space="preserve">
     <value>Kimlik Doğrulayıcı Uygulaması Ekle</value>
   </data>
+  <data name="Add_Client" xml:space="preserve">
+    <value>İstemci Ekle</value>
+  </data>
   <data name="Add_New_File" xml:space="preserve">
     <value>Yeni Dosya Ekle</value>
   </data>
@@ -167,6 +170,9 @@
   </data>
   <data name="Add_User" xml:space="preserve">
     <value>Kullanıcı Ekle</value>
+  </data>
+  <data name="Add_Workroom" xml:space="preserve">
+    <value>Çalışma Odası Ekle</value>
   </data>
   <data name="All" xml:space="preserve">
     <value>Tüm</value>
@@ -365,6 +371,9 @@
   </data>
   <data name="click_here_to_log_in" xml:space="preserve">
     <value>Giriş yapmak için burayı tıklatın</value>
+  </data>
+  <data name="Client" xml:space="preserve">
+    <value>Müşteri</value>
   </data>
   <data name="Clients" xml:space="preserve">
     <value>Istemci</value>
@@ -1497,6 +1506,9 @@
   <data name="UI_Culture_Code" xml:space="preserve">
     <value>Kullanıcı Arabirimi Kültür Kodu</value>
   </data>
+  <data name="Unable_to_load_Workroom" xml:space="preserve">
+    <value>Çalışma Odası yüklenemiyor.</value>
+  </data>
   <data name="Unable_to_upload_an_empty_file" xml:space="preserve">
     <value>Boş bir dosya yüklenemiyor.</value>
   </data>
@@ -1572,8 +1584,17 @@
   <data name="Wind" xml:space="preserve">
     <value>Rüzgar</value>
   </data>
+  <data name="Workroom" xml:space="preserve">
+    <value>Çalışma odası</value>
+  </data>
   <data name="Workrooms" xml:space="preserve">
     <value>Çalışma odaları</value>
+  </data>
+  <data name="Workroom_has_been_updated_successfully" xml:space="preserve">
+    <value>Çalışma odası başarıyla güncelleştirildi.</value>
+  </data>
+  <data name="Workroom_Name" xml:space="preserve">
+    <value>Çalışma Odası Adı</value>
   </data>
   <data name="Work_Orders" xml:space="preserve">
     <value>İş Emirleri</value>

@@ -15,7 +15,6 @@ public class RegisterWorkroomCommand : IRequest<Envelope<RegisterWorkroomRespons
     public string Email { get; set; }
     public string PhoneNumber { get; set; }
 
-
     public string CompanyName { get; set; }
 
     [Phone]

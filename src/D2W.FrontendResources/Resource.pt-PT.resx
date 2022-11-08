@@ -147,6 +147,9 @@
   <data name="Add_Authenticator_App" xml:space="preserve">
     <value>Adicionar App Autenticador</value>
   </data>
+  <data name="Add_Client" xml:space="preserve">
+    <value>Adicionar Cliente</value>
+  </data>
   <data name="Add_New_File" xml:space="preserve">
     <value>Adicionar novo arquivo</value>
   </data>
@@ -167,6 +170,9 @@
   </data>
   <data name="Add_User" xml:space="preserve">
     <value>Adicionar utilizador</value>
+  </data>
+  <data name="Add_Workroom" xml:space="preserve">
+    <value>Adicionar sala de trabalho</value>
   </data>
   <data name="All" xml:space="preserve">
     <value>Todos os</value>
@@ -365,6 +371,9 @@
   </data>
   <data name="click_here_to_log_in" xml:space="preserve">
     <value>clique aqui para iniciar sessão</value>
+  </data>
+  <data name="Client" xml:space="preserve">
+    <value>Cliente</value>
   </data>
   <data name="Clients" xml:space="preserve">
     <value>Clientes</value>
@@ -1497,6 +1506,9 @@
   <data name="UI_Culture_Code" xml:space="preserve">
     <value>Código de Cultura da UI</value>
   </data>
+  <data name="Unable_to_load_Workroom" xml:space="preserve">
+    <value>Incapaz de carregar workroom.</value>
+  </data>
   <data name="Unable_to_upload_an_empty_file" xml:space="preserve">
     <value>Incapaz de carregar um ficheiro vazio.</value>
   </data>
@@ -1572,8 +1584,17 @@
   <data name="Wind" xml:space="preserve">
     <value>Vento</value>
   </data>
+  <data name="Workroom" xml:space="preserve">
+    <value>Sala de trabalho</value>
+  </data>
   <data name="Workrooms" xml:space="preserve">
     <value>Salas de trabalho</value>
+  </data>
+  <data name="Workroom_has_been_updated_successfully" xml:space="preserve">
+    <value>A sala de trabalho foi atualizada com sucesso.</value>
+  </data>
+  <data name="Workroom_Name" xml:space="preserve">
+    <value>Nome da sala de trabalho</value>
   </data>
   <data name="Work_Orders" xml:space="preserve">
     <value>Ordens de Trabalho</value>

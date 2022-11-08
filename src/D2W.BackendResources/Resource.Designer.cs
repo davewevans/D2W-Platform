@@ -1107,6 +1107,15 @@ namespace D2W.BackendResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unable to load Workroom..
+        /// </summary>
+        public static string Unable_to_load_Workroom {
+            get {
+                return ResourceManager.GetString("Unable_to_load_Workroom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unable to update static role.
         /// </summary>
         public static string Unable_to_update_static_role {
@@ -1338,6 +1347,15 @@ namespace D2W.BackendResources {
         public static string Workroom_already_added {
             get {
                 return ResourceManager.GetString("Workroom_already_added", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Workroom has been updated successfully..
+        /// </summary>
+        public static string Workroom_has_been_updated_successfully {
+            get {
+                return ResourceManager.GetString("Workroom_has_been_updated_successfully", resourceCulture);
             }
         }
         

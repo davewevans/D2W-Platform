@@ -465,6 +465,9 @@
   <data name="Unable_to_load_user" xml:space="preserve">
     <value>No se puede cargar el usuario.</value>
   </data>
+  <data name="Unable_to_load_Workroom" xml:space="preserve">
+    <value>No se puede cargar Workroom.</value>
+  </data>
   <data name="Unable_to_update_static_role" xml:space="preserve">
     <value>No se puede actualizar el rol estático</value>
   </data>
@@ -542,6 +545,9 @@
   </data>
   <data name="Workroom_already_added" xml:space="preserve">
     <value>Sala de trabajo ya agregada.</value>
+  </data>
+  <data name="Workroom_has_been_updated_successfully" xml:space="preserve">
+    <value>Workroom se ha actualizado correctamente.</value>
   </data>
   <data name="Your_account_is_deactivated_Please_contact_your_administrator" xml:space="preserve">
     <value>Su cuenta está desactivada. Póngase en contacto con su administrador.</value>

@@ -11,7 +11,7 @@ using D2W.Application.Features.Clients.Queries.GetClients;
 
 namespace D2W.Application.Features.Clients.Commands.UpdateClient;
 
-public class UpdateClientCommand : IRequest<Envelope<string>>
+public class UpdateWorkroomCommand : IRequest<Envelope<string>>
 {
     #region Public Properties
     public string Id { get; set; }
@@ -51,7 +51,7 @@ public class UpdateClientCommand : IRequest<Envelope<string>>
 
     #region Public Classes
 
-    public class UpdateClientCommandHandler : IRequestHandler<UpdateClientCommand, Envelope<string>>
+    public class UpdateClientCommandHandler : IRequestHandler<UpdateWorkroomCommand, Envelope<string>>
     {
         #region Private Fields
 
@@ -70,7 +70,7 @@ public class UpdateClientCommand : IRequest<Envelope<string>>
 
         #region Public Methods
 
-        public async Task<Envelope<string>> Handle(UpdateClientCommand request, CancellationToken cancellationToken)
+        public async Task<Envelope<string>> Handle(UpdateWorkroomCommand request, CancellationToken cancellationToken)
         {
             return await _clientUseCase.EditClient(request);
         }

@@ -2,7 +2,7 @@
 
 @using D2W.WebPortal.Features.Clients.Queries.GetClients
 
-<h3>Clients</h3>
+<h3>@title</h3>
 
 <PageTitle>@title</PageTitle>
 
@@ -32,7 +32,7 @@
                             Icon="@Icons.Material.Filled.PictureAsPdf" OnClick="ImmediateExportClientToPdf" />
                 </MudTooltip> *@
 
-                <MudToggleIconButton Style="margin-left: 20px; margin-top: 10px"
+                @* <MudToggleIconButton Style="margin-left: 20px; margin-top: 10px"
                                      Size="Size.Medium"
                                      Icon="@Icons.Material.Outlined.StopCircle"
                                      Color="@Color.Error"
@@ -41,7 +41,7 @@
                                      ToggledChanged="OnHubConnectionToggledChanged"
                                      ToggledIcon="@Icons.Material.Outlined.PlayCircle"
                                      ToggledColor="@Color.Success"
-                                     ToggledTitle="@Resource.Start_SignalR_Connection" />
+                                     ToggledTitle="@Resource.Start_SignalR_Connection" /> *@
 
                 <MudSpacer />
 
@@ -76,18 +76,21 @@
                                    StartIcon="@Icons.Material.Filled.ViewModule"
                                    Size="Size.Small"
                                    Color="Color.Default"
+                                   Disabled="@disableOptionButtons"
                                    OnClick="@(() => ViewClient(Client.Id))">@Resource.View</MudButton>
 
                         <MudButton Variant="Variant.Filled"
                                    StartIcon="@Icons.Material.Filled.Edit"
                                    Size="Size.Small"
                                    Color="Color.Default"
+                                   Disabled="@disableOptionButtons"
                                    OnClick="@(() => EditClient(Client.Id))">@Resource.Edit</MudButton>
 
                         <MudButton Variant="Variant.Filled"
                                    StartIcon="@Icons.Material.Filled.Delete"
                                    Size="Size.Small"
                                    Color="Color.Error"
+                                   Disabled="@disableOptionButtons"
                                    OnClick="@(() => DeleteClient(Client.Id))">@Resource.Delete</MudButton>
                     </MudButtonGroup>
                 </MudTd>

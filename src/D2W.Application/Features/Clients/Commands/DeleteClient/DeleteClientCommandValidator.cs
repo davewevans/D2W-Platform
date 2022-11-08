@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 
 namespace D2W.Application.Features.Clients.Commands.DeleteClient;
 
-public class DeleteClientCommandValidator
+public class DeleteWorkroomCommandValidator
 {
 }

@@ -11,105 +11,36 @@ namespace D2W.WebPortal.Pages.Clients
     {
         #region Private Properties
 
-    public int ActivePanelIndex { get; set; } = 0;
-    [Inject] private IAccessTokenProvider AccessTokenProvider { get; set; }
-    [Inject] private IApiUrlProvider ApiUrlProvider { get; set; }
-    [Inject] private IClientsClient ClientsClient { get; set; }
-    [Inject] private IBreadcrumbService BreadcrumbService { get; set; }
-    [Inject] private IDialogService DialogService { get; set; }
-    [Inject] private IJSRuntime Js { get; set; }
-    [Inject] private ISnackbar Snackbar { get; set; }
-    [Inject] private NavigationManager NavigationManager { get; set; }
+        public int ActivePanelIndex { get; set; } = 0;
+        [Inject] private IAccessTokenProvider AccessTokenProvider { get; set; }
+        [Inject] private IApiUrlProvider ApiUrlProvider { get; set; }
+        [Inject] private IClientsClient ClientsClient { get; set; }
+        [Inject] private IBreadcrumbService BreadcrumbService { get; set; }
+        [Inject] private IDialogService DialogService { get; set; }
+        [Inject] private IJSRuntime Js { get; set; }
+        [Inject] private ISnackbar Snackbar { get; set; }
+        [Inject] private NavigationManager NavigationManager { get; set; }
 
-    private string title = "Clients";
-    private string description = "List of clients for interior designers.";
-    private string SearchString { get; set; }
-    private bool IsHubConnectionClosed { get; set; }
-    private ClientsResponse ClientsResponse { get; set; }
-    private ServerSideValidator ServerSideValidator { get; set; }
-    private GetClientsQuery GetClientsQuery { get; set; } = new();
-    private HubConnection HubConnection { get; set; }
-    private MudTable<ClientItem> Table { get; set; }
+        private bool disableOptionButtons = true;
 
-    #endregion Private Properties
+        private string title = "Clients";
+        private string description = "List of clients for interior designers.";
+        private string SearchString { get; set; }
+        private bool IsHubConnectionClosed { get; set; }
+        private ClientsResponse ClientsResponse { get; set; }
+        private ServerSideValidator ServerSideValidator { get; set; }
+        private GetClientsQuery GetClientsQuery { get; set; } = new();
+        private HubConnection HubConnection { get; set; }
+        private MudTable<ClientItem> Table { get; set; }
 
-    #region Public Methods
+        #endregion Private Properties
 
-    public async ValueTask DisposeAsync()
-    {
-        if (HubConnection is not null && HubConnection.State == HubConnectionState.Connected)
+        #region Public Methods
+
+        public async ValueTask DisposeAsync()
         {
-            try
+            if (HubConnection is not null && HubConnection.State == HubConnectionState.Connected)
             {
-                await HubConnection.StopAsync();
-            }
-            finally
-            {
-                await HubConnection.DisposeAsync();
-                Snackbar.Add("Reporting Hub is closed.", Severity.Error);
-            }
-        }
-    }
-
-    #endregion Public Methods
-
-    #region Protected Methods
-
-    protected override async Task OnInitializedAsync()
-    {
-        BreadcrumbService.SetBreadcrumbItems(new List<BreadcrumbItem>
-        {
-            new(Resource.Home, "/"),
-            new(Resource.Clients, "#", true)
-        });
-
-        // await StartHubConnection();
-
-        // HubConnection.On("NotifyReportIssuer", (Func<FileMetaData, ReportStatus, Task>)(async (fileMetaData, reportStatus) =>
-        // {
-        //     switch (reportStatus)
-        //     {
-        //         case ReportStatus.Pending:
-        //             Snackbar.Add(Resource.Your_report_is_being_initiated, Severity.Info);
-        //             break;
-
-        //         case ReportStatus.InProgress:
-        //             Snackbar.Add(Resource.Your_report_is_being_generated,
-        //         Severity.Warning);
-        //             break;
-
-        //         case ReportStatus.Completed:
-        //             Snackbar.Add(
-        //         string.Format(Resource.Your_report_0_is_ready_to_download, fileMetaData.FileName),
-        //         Severity.Success);
-        //             await ShowDownloadFileDialogue(fileMetaData, reportStatus);
-        //             break;
-
-        //         case ReportStatus.Failed:
-        //             Snackbar.Add(Resource.Your_report_generation_has_failed,
-        //         Severity.Error);
-        //             break;
-
-        //         default:
-        //             throw new ArgumentOutOfRangeException(nameof(reportStatus), reportStatus, null);
-        //     }
-        // }));
-    }
-
-    #endregion Protected Methods
-
-    #region Private Methods
-
-    public async Task CloseHubConnection()
-    {
-        ActivePanelIndex = 0;
-
-        if (HubConnection is null)
-            return;
-
-        switch (HubConnection.State)
-        {
-            case HubConnectionState.Connected:
                 try
                 {
                     await HubConnection.StopAsync();
@@ -117,266 +48,337 @@ namespace D2W.WebPortal.Pages.Clients
                 finally
                 {
                     await HubConnection.DisposeAsync();
-                    IsHubConnectionClosed = true;
                     Snackbar.Add("Reporting Hub is closed.", Severity.Error);
                 }
-                break;
-
-            case HubConnectionState.Disconnected:
-                Snackbar.Add("Reporting Hub is already closed.", Severity.Success);
-                break;
+            }
         }
-    }
 
-    private void AddClient()
-    {
-        NavigationManager.NavigateTo("AddClient");
-    }
+        #endregion Public Methods
 
-    private void EditClient(string id)
-    {
-        NavigationManager.NavigateTo($"EditClient/{id}");
-    }
+        #region Protected Methods
 
-    private void ViewClient(string id)
-    {
-        NavigationManager.NavigateTo($"ViewClient/{id}");
-    }
+        protected override async Task OnInitializedAsync()
+        {
+            BreadcrumbService.SetBreadcrumbItems(new List<BreadcrumbItem>
+        {
+            new(Resource.Home, "/"),
+            new(Resource.Clients, "#", true)
+        });
 
-    private async Task DeleteClient(string id)
-    {
-        var parameters = new DialogParameters
+            // await StartHubConnection();
+
+            // HubConnection.On("NotifyReportIssuer", (Func<FileMetaData, ReportStatus, Task>)(async (fileMetaData, reportStatus) =>
+            // {
+            //     switch (reportStatus)
+            //     {
+            //         case ReportStatus.Pending:
+            //             Snackbar.Add(Resource.Your_report_is_being_initiated, Severity.Info);
+            //             break;
+
+            //         case ReportStatus.InProgress:
+            //             Snackbar.Add(Resource.Your_report_is_being_generated,
+            //         Severity.Warning);
+            //             break;
+
+            //         case ReportStatus.Completed:
+            //             Snackbar.Add(
+            //         string.Format(Resource.Your_report_0_is_ready_to_download, fileMetaData.FileName),
+            //         Severity.Success);
+            //             await ShowDownloadFileDialogue(fileMetaData, reportStatus);
+            //             break;
+
+            //         case ReportStatus.Failed:
+            //             Snackbar.Add(Resource.Your_report_generation_has_failed,
+            //         Severity.Error);
+            //             break;
+
+            //         default:
+            //             throw new ArgumentOutOfRangeException(nameof(reportStatus), reportStatus, null);
+            //     }
+            // }));
+        }
+
+        #endregion Protected Methods
+
+        #region Private Methods
+
+        public async Task CloseHubConnection()
+        {
+            ActivePanelIndex = 0;
+
+            if (HubConnection is null)
+                return;
+
+            switch (HubConnection.State)
+            {
+                case HubConnectionState.Connected:
+                    try
+                    {
+                        await HubConnection.StopAsync();
+                    }
+                    finally
+                    {
+                        await HubConnection.DisposeAsync();
+                        IsHubConnectionClosed = true;
+                        Snackbar.Add("Reporting Hub is closed.", Severity.Error);
+                    }
+                    break;
+
+                case HubConnectionState.Disconnected:
+                    Snackbar.Add("Reporting Hub is already closed.", Severity.Success);
+                    break;
+            }
+        }
+
+        private void AddClient()
+        {
+            NavigationManager.NavigateTo("AddClient");
+        }
+
+        private void EditClient(string id)
+        {
+            NavigationManager.NavigateTo($"EditClient/{id}");
+        }
+
+        private void ViewClient(string id)
+        {
+            NavigationManager.NavigateTo($"ViewClient/{id}");
+        }
+
+        private async Task DeleteClient(string id)
+        {
+            var parameters = new DialogParameters
         {
             {"ContentText", Resource.Do_you_really_want_to_delete_this_record},
             {"ButtonText", Resource.Delete},
             {"Color", Color.Error}
         };
 
-        var options = new DialogOptions() { CloseButton = true, MaxWidth = MaxWidth.ExtraSmall };
+            var options = new DialogOptions() { CloseButton = true, MaxWidth = MaxWidth.ExtraSmall };
 
-        var dialog = DialogService.Show<DialogModal>(Resource.Delete, parameters, options);
+            var dialog = DialogService.Show<DialogModal>(Resource.Delete, parameters, options);
 
-        var result = await dialog.Result;
+            var result = await dialog.Result;
 
-        if (!result.Cancelled)
-        {
-            var httpResponseWrapper = await ClientsClient.DeleteClient(id);
-
-            if (httpResponseWrapper.Success)
+            if (!result.Cancelled)
             {
-                var successResult = httpResponseWrapper.Response as SuccessResult<string>;
-                Snackbar.Add(successResult.Result, Severity.Success);
-                await Table.ReloadServerData();
+                var httpResponseWrapper = await ClientsClient.DeleteClient(id);
+
+                if (httpResponseWrapper.Success)
+                {
+                    var successResult = httpResponseWrapper.Response as SuccessResult<string>;
+                    Snackbar.Add(successResult.Result, Severity.Success);
+                    await Table.ReloadServerData();
+                }
+                else
+                {
+                    var exceptionResult = httpResponseWrapper.Response as ExceptionResult;
+                    ServerSideValidator.Validate(exceptionResult);
+                }
+            }
+        }
+
+        private void FilterClients(string searchString)
+        {
+            if (ClientsResponse is null)
+                return;
+            SearchString = searchString;
+            Table.ReloadServerData();
+        }
+
+        // private async Task ImmediateExportApplicantToPdf()
+        // {
+        //     var parameters = new DialogParameters
+        //         {
+        //             {"ContentText", Resource.Exporting_data_may_take_a_while},
+        //             {"ButtonText", Resource.ExportAsPdfImmediate},
+        //             {"Color", Color.Error}
+        //         };
+
+        //     var options = new DialogOptions() { CloseButton = true, MaxWidth = MaxWidth.ExtraSmall };
+
+        //     var dialog = DialogService.Show<DialogModal>(Resource.Export, parameters, options);
+
+        //     var result = await dialog.Result;
+
+        //     if (!result.Cancelled)
+        //     {
+        //         var httpResponseWrapper = await ClientsClient.ExportAsPdf(new ExportApplicantsQuery
+        //         {
+        //             SearchText = GetClientsQuery.SearchText,
+        //             SortBy = GetClientsQuery.SortBy,
+        //             IsImmediate = true
+        //         });
+
+        //         if (httpResponseWrapper.Success)
+        //         {
+        //             if (httpResponseWrapper.Response is SuccessResult<ExportApplicantsResponse> successResult)
+        //             {
+        //                 Snackbar.Add(successResult.Result.FileUrl, Severity.Success);
+        //                 await Js.InvokeVoidAsync("triggerFileDownload", successResult.Result.FileName, successResult.Result.FileUrl);
+        //             }
+        //         }
+        //         else
+        //         {
+        //             var exceptionResult = httpResponseWrapper.Response as ExceptionResult;
+        //             ServerSideValidator.Validate(exceptionResult);
+        //         }
+        //     }
+        // }
+
+        // private async Task PostponedExportApplicantToPdf()
+        // {
+        //     ActivePanelIndex = 0;
+
+        //     var parameters = new DialogParameters
+        //     {
+        //         {"ContentText", Resource.Exporting_data_may_take_a_while},
+        //         {"ButtonText", Resource.ExportAsPdfInBackground},
+        //         {"Color", Color.Error}
+        //     };
+
+        //     if (HubConnection.State == HubConnectionState.Connected)
+        //     {
+        //         var options = new DialogOptions() { CloseButton = true, MaxWidth = MaxWidth.ExtraSmall };
+
+        //         var dialog = DialogService.Show<DialogModal>(Resource.Export, parameters, options);
+
+        //         var result = await dialog.Result;
+
+        //         if (!result.Cancelled)
+        //         {
+        //             await HubConnection.SendAsync("ExportApplicantToPdf", new ExportApplicantsQuery
+        //             {
+        //                 SearchText = GetClientsQuery.SearchText,
+        //                 SortBy = GetClientsQuery.SortBy,
+        //                 IsImmediate = false
+        //             });
+
+        //             ActivePanelIndex = 1;
+        //         }
+        //     }
+        //     else
+        //     {
+        //         Snackbar.Add($@"Reporting Hub is not active.", Severity.Warning);
+        //     }
+        // }
+
+        private async Task<TableData<ClientItem>> ServerReload(TableState state)
+        {
+            GetClientsQuery.SearchText = SearchString;
+
+            GetClientsQuery.PageNumber = state.Page + 1;
+
+            GetClientsQuery.RowsPerPage = state.PageSize;
+
+            GetClientsQuery.SortBy = state.SortDirection == SortDirection.None ? string.Empty : $"{state.SortLabel} {state.SortDirection}";
+
+            var responseWrapper = await ClientsClient.GetClients(GetClientsQuery);
+
+            var tableData = new TableData<ClientItem>();
+
+            if (responseWrapper.Success)
+            {
+                var successResult = responseWrapper.Response as SuccessResult<ClientsResponse>;
+                if (successResult != null)
+                    ClientsResponse = successResult.Result;
+
+                tableData = new TableData<ClientItem>()
+                { TotalItems = ClientsResponse.Clients.TotalRows, Items = ClientsResponse.Clients.Items };
             }
             else
             {
-                var exceptionResult = httpResponseWrapper.Response as ExceptionResult;
+                var exceptionResult = responseWrapper.Response as ExceptionResult;
                 ServerSideValidator.Validate(exceptionResult);
             }
+
+            return tableData;
         }
-    }
 
-    private void FilterClients(string searchString)
-    {
-        if (ClientsResponse is null)
-            return;
-        SearchString = searchString;
-        Table.ReloadServerData();
-    }
-
-    // private async Task ImmediateExportApplicantToPdf()
-    // {
-    //     var parameters = new DialogParameters
-    //         {
-    //             {"ContentText", Resource.Exporting_data_may_take_a_while},
-    //             {"ButtonText", Resource.ExportAsPdfImmediate},
-    //             {"Color", Color.Error}
-    //         };
-
-    //     var options = new DialogOptions() { CloseButton = true, MaxWidth = MaxWidth.ExtraSmall };
-
-    //     var dialog = DialogService.Show<DialogModal>(Resource.Export, parameters, options);
-
-    //     var result = await dialog.Result;
-
-    //     if (!result.Cancelled)
-    //     {
-    //         var httpResponseWrapper = await ClientsClient.ExportAsPdf(new ExportApplicantsQuery
-    //         {
-    //             SearchText = GetClientsQuery.SearchText,
-    //             SortBy = GetClientsQuery.SortBy,
-    //             IsImmediate = true
-    //         });
-
-    //         if (httpResponseWrapper.Success)
-    //         {
-    //             if (httpResponseWrapper.Response is SuccessResult<ExportApplicantsResponse> successResult)
-    //             {
-    //                 Snackbar.Add(successResult.Result.FileUrl, Severity.Success);
-    //                 await Js.InvokeVoidAsync("triggerFileDownload", successResult.Result.FileName, successResult.Result.FileUrl);
-    //             }
-    //         }
-    //         else
-    //         {
-    //             var exceptionResult = httpResponseWrapper.Response as ExceptionResult;
-    //             ServerSideValidator.Validate(exceptionResult);
-    //         }
-    //     }
-    // }
-
-    // private async Task PostponedExportApplicantToPdf()
-    // {
-    //     ActivePanelIndex = 0;
-
-    //     var parameters = new DialogParameters
-    //     {
-    //         {"ContentText", Resource.Exporting_data_may_take_a_while},
-    //         {"ButtonText", Resource.ExportAsPdfInBackground},
-    //         {"Color", Color.Error}
-    //     };
-
-    //     if (HubConnection.State == HubConnectionState.Connected)
-    //     {
-    //         var options = new DialogOptions() { CloseButton = true, MaxWidth = MaxWidth.ExtraSmall };
-
-    //         var dialog = DialogService.Show<DialogModal>(Resource.Export, parameters, options);
-
-    //         var result = await dialog.Result;
-
-    //         if (!result.Cancelled)
-    //         {
-    //             await HubConnection.SendAsync("ExportApplicantToPdf", new ExportApplicantsQuery
-    //             {
-    //                 SearchText = GetClientsQuery.SearchText,
-    //                 SortBy = GetClientsQuery.SortBy,
-    //                 IsImmediate = false
-    //             });
-
-    //             ActivePanelIndex = 1;
-    //         }
-    //     }
-    //     else
-    //     {
-    //         Snackbar.Add($@"Reporting Hub is not active.", Severity.Warning);
-    //     }
-    // }
-
-    private async Task<TableData<ClientItem>> ServerReload(TableState state)
-    {
-        GetClientsQuery.SearchText = SearchString;
-
-        GetClientsQuery.PageNumber = state.Page + 1;
-
-        GetClientsQuery.RowsPerPage = state.PageSize;
-
-        GetClientsQuery.SortBy = state.SortDirection == SortDirection.None ? string.Empty : $"{state.SortLabel} {state.SortDirection}";
-
-        var responseWrapper = await ClientsClient.GetClients(GetClientsQuery);
-
-        var tableData = new TableData<ClientItem>();
-
-        if (responseWrapper.Success)
+        private async Task ShowDownloadFileDialogue(FileMetaData fileMetaData, ReportStatus reportStatus)
         {
-            var successResult = responseWrapper.Response as SuccessResult<ClientsResponse>;
-            if (successResult != null)
-                ClientsResponse = successResult.Result;
-
-            tableData = new TableData<ClientItem>()
-            { TotalItems = ClientsResponse.Clients.TotalRows, Items = ClientsResponse.Clients.Items };
-        }
-        else
-        {
-            var exceptionResult = responseWrapper.Response as ExceptionResult;
-            ServerSideValidator.Validate(exceptionResult);
-        }
-
-        return tableData;
-    }
-
-    private async Task ShowDownloadFileDialogue(FileMetaData fileMetaData, ReportStatus reportStatus)
-    {
-        var parameters = new DialogParameters
+            var parameters = new DialogParameters
         {
             {"ContentText", Resource.Your_report_is_ready_to_download},
             {"ButtonText", Resource.Download},
             {"Color", Color.Error}
         };
 
-        var options = new DialogOptions() { CloseButton = true, MaxWidth = MaxWidth.ExtraSmall };
+            var options = new DialogOptions() { CloseButton = true, MaxWidth = MaxWidth.ExtraSmall };
 
-        var dialog = DialogService.Show<DialogModal>(Resource.Export, parameters, options);
+            var dialog = DialogService.Show<DialogModal>(Resource.Export, parameters, options);
 
-        var result = await dialog.Result;
+            var result = await dialog.Result;
 
-        if (!result.Cancelled)
-            await Js.InvokeVoidAsync("triggerFileDownload", fileMetaData.FileName, fileMetaData.FileUri);
-    }
+            if (!result.Cancelled)
+                await Js.InvokeVoidAsync("triggerFileDownload", fileMetaData.FileName, fileMetaData.FileUri);
+        }
 
-    private async Task StartHubConnection()
-    {
-        if (HubConnection is null || HubConnection.State == HubConnectionState.Disconnected)
+        private async Task StartHubConnection()
         {
-            Snackbar.Add("Reporting Hub is being initialized.", Severity.Info);
-
-            var subDomain = NavigationManager.GetSubDomain();
-
-            HubConnection = new HubConnectionBuilder()
-                .WithUrl($"{ApiUrlProvider.BaseHubUrl}/Hubs/DataExportHub?X-Tenant={subDomain}&Accept-Language={CultureInfo.CurrentCulture}",
-                    options =>
-                    {
-                        //options.Headers.Add("X-Tenant", subDomain); //Doesn't Work
-                        //options.Headers.Add("Accept-Language", culture); //Doesn't Work
-                        options.AccessTokenProvider = () => AccessTokenProvider.TryGetAccessToken();
-                    }).Build();
-
-            try
+            if (HubConnection is null || HubConnection.State == HubConnectionState.Disconnected)
             {
-                await HubConnection.StartAsync();
+                Snackbar.Add("Reporting Hub is being initialized.", Severity.Info);
+
+                var subDomain = NavigationManager.GetSubDomain();
+
+                HubConnection = new HubConnectionBuilder()
+                    .WithUrl($"{ApiUrlProvider.BaseHubUrl}/Hubs/DataExportHub?X-Tenant={subDomain}&Accept-Language={CultureInfo.CurrentCulture}",
+                        options =>
+                        {
+                            //options.Headers.Add("X-Tenant", subDomain); //Doesn't Work
+                            //options.Headers.Add("Accept-Language", culture); //Doesn't Work
+                            options.AccessTokenProvider = () => AccessTokenProvider.TryGetAccessToken();
+                        }).Build();
+
+                try
+                {
+                    await HubConnection.StartAsync();
+                }
+                catch (Exception e)
+                {
+                    Snackbar.Add($@"Unable to connect to the reporting hub due to an error: {e.Message}", Severity.Error);
+                }
+
+                if (HubConnection.State == HubConnectionState.Connected)
+                {
+                    IsHubConnectionClosed = false;
+                    Snackbar.Add("Reporting Hub is now connected.", Severity.Success);
+                }
+
+                HubConnection.Closed += OnHubConnectionClosed;
             }
-            catch (Exception e)
+        }
+
+        private async Task OnHubConnectionToggledChanged(bool toggled)
+        {
+            if (toggled)
             {
-                Snackbar.Add($@"Unable to connect to the reporting hub due to an error: {e.Message}", Severity.Error);
+                await CloseHubConnection();
             }
-
-            if (HubConnection.State == HubConnectionState.Connected)
+            else
             {
-                IsHubConnectionClosed = false;
-                Snackbar.Add("Reporting Hub is now connected.", Severity.Success);
+                await StartHubConnection();
+            }
+        }
+
+        private Task OnHubConnectionClosed(Exception exception)
+        {
+            switch (exception)
+            {
+                case null:
+                    Snackbar.Add("Reporting Hub is closed.", Severity.Error);
+                    break;
+
+                default:
+                    Snackbar.Add($@"Reporting Hub connection closed due to an error: {exception.Message}", Severity.Error);
+                    IsHubConnectionClosed = true;
+                    break;
             }
 
-            HubConnection.Closed += OnHubConnectionClosed;
-        }
-    }
-
-    private async Task OnHubConnectionToggledChanged(bool toggled)
-    {
-        if (toggled)
-        {
-            await CloseHubConnection();
-        }
-        else
-        {
-            await StartHubConnection();
-        }
-    }
-
-    private Task OnHubConnectionClosed(Exception exception)
-    {
-        switch (exception)
-        {
-            case null:
-                Snackbar.Add("Reporting Hub is closed.", Severity.Error);
-                break;
-
-            default:
-                Snackbar.Add($@"Reporting Hub connection closed due to an error: {exception.Message}", Severity.Error);
-                IsHubConnectionClosed = true;
-                break;
+            return Task.CompletedTask;
         }
 
-        return Task.CompletedTask;
-    }
-
-    #endregion Private Methods
+        #endregion Private Methods
     }
 }

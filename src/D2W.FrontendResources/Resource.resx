@@ -147,6 +147,9 @@
   <data name="Add_Authenticator_App" xml:space="preserve">
     <value>Add Authenticator App</value>
   </data>
+  <data name="Add_Client" xml:space="preserve">
+    <value>Add Client</value>
+  </data>
   <data name="Add_New_File" xml:space="preserve">
     <value>Add New File</value>
   </data>
@@ -167,6 +170,9 @@
   </data>
   <data name="Add_User" xml:space="preserve">
     <value>Add User</value>
+  </data>
+  <data name="Add_Workroom" xml:space="preserve">
+    <value>Add Workroom</value>
   </data>
   <data name="All" xml:space="preserve">
     <value>All</value>
@@ -365,6 +371,9 @@
   </data>
   <data name="click_here_to_log_in" xml:space="preserve">
     <value>click here to log in</value>
+  </data>
+  <data name="Client" xml:space="preserve">
+    <value>Client</value>
   </data>
   <data name="Clients" xml:space="preserve">
     <value>Clients</value>
@@ -1497,6 +1506,9 @@
   <data name="UI_Culture_Code" xml:space="preserve">
     <value>UI Culture Code</value>
   </data>
+  <data name="Unable_to_load_Workroom" xml:space="preserve">
+    <value>Unable to load Workroom.</value>
+  </data>
   <data name="Unable_to_upload_an_empty_file" xml:space="preserve">
     <value>Unable to upload an empty file.</value>
   </data>
@@ -1572,8 +1584,17 @@
   <data name="Wind" xml:space="preserve">
     <value>Wind</value>
   </data>
+  <data name="Workroom" xml:space="preserve">
+    <value>Workroom</value>
+  </data>
   <data name="Workrooms" xml:space="preserve">
     <value>Workrooms</value>
+  </data>
+  <data name="Workroom_has_been_updated_successfully" xml:space="preserve">
+    <value>Workroom has been updated successfully.</value>
+  </data>
+  <data name="Workroom_Name" xml:space="preserve">
+    <value>Workroom Name</value>
   </data>
   <data name="Work_Orders" xml:space="preserve">
     <value>Work Orders</value>

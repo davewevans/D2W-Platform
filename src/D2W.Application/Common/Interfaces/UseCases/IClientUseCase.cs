@@ -18,10 +18,10 @@ public interface IClientUseCase
     Task<Envelope<ClientsResponse>> GetClients(GetClientsQuery request);
 
     // Use RegisterClient instead
-    //Task<Envelope<CreateClientResponse>> AddClient(CreateClientCommand request);
+    //Task<Envelope<RegisterClientResponse>> AddClient(CreateClientCommand request);
 
-    Task<Envelope<string>> EditClient(UpdateClientCommand request);
-    Task<Envelope<string>> DeleteClient(DeleteClientCommand request);
+    Task<Envelope<string>> EditClient(UpdateWorkroomCommand request);
+    Task<Envelope<string>> DeleteClient(DeleteWorkroomCommand request);
 
 
     #endregion Public Methods

@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using D2W.WebPortal.Features.Clients.Commands.CreateClient;
 using D2W.WebPortal.Features.Clients.Commands.UpdateClient;
 using D2W.WebPortal.Features.Clients.Queries.GetClientForEdit;
 using D2W.WebPortal.Features.Clients.Queries.GetClients;
@@ -36,9 +35,9 @@ namespace D2W.WebPortal.Consumers
             return await _httpService.Post<GetClientsQuery, ClientsResponse>("clients/GetClients", request);
         }
 
-        public async Task<HttpResponseWrapper<object>> CreateClient(CreateClientCommand request)
+        public async Task<HttpResponseWrapper<object>> CreateClient(RegisterClientCommand request)
         {
-            return await _httpService.Post<CreateClientCommand, CreateClientResponse>("clients/CreateClient", request);
+            return await _httpService.Post<RegisterClientCommand, RegisterClientResponse>("account/ClientRegister", request);
         }
 
         public async Task<HttpResponseWrapper<object>> UpdateClient(UpdateClientCommand request)

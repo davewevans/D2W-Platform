@@ -105,6 +105,8 @@ public static class DependencyInjection
         services.AddScoped<IReportUseCase, ReportUseCase>();
 
         services.AddScoped<IClientUseCase, ClientUseCase>();
+        services.AddScoped<IWorkroomUseCase, WorkroomUseCase>();
+
 
         return services;
     }

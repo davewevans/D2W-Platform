@@ -72,7 +72,6 @@
 	<ItemGroup>
 	  <Folder Include="Features\DesignConcepts\" />
 	  <Folder Include="Features\WorkOrders\" />
-	  <Folder Include="Features\Workrooms\" />
 	  <Folder Include="Features\Reports\" />
 	</ItemGroup>
 

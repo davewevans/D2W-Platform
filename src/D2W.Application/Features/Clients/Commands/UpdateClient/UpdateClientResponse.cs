@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace D2W.Application.Features.Clients.Commands.UpdateClient;
 
-public class UpdateClientResponse
+public class UpdateWorkroomResponse
 {
     #region Public Properties
 

@@ -147,6 +147,9 @@
   <data name="Add_Authenticator_App" xml:space="preserve">
     <value>認証アプリケーションの追加</value>
   </data>
+  <data name="Add_Client" xml:space="preserve">
+    <value>クライアントの追加</value>
+  </data>
   <data name="Add_New_File" xml:space="preserve">
     <value>新しいファイルの追加</value>
   </data>
@@ -167,6 +170,9 @@
   </data>
   <data name="Add_User" xml:space="preserve">
     <value>ユーザーの追加</value>
+  </data>
+  <data name="Add_Workroom" xml:space="preserve">
+    <value>ワークルームの追加</value>
   </data>
   <data name="All" xml:space="preserve">
     <value>すべての</value>
@@ -365,6 +371,9 @@
   </data>
   <data name="click_here_to_log_in" xml:space="preserve">
     <value>ここをクリックしてログイン</value>
+  </data>
+  <data name="Client" xml:space="preserve">
+    <value>クライアント</value>
   </data>
   <data name="Clients" xml:space="preserve">
     <value>クライアント</value>
@@ -1497,6 +1506,9 @@
   <data name="UI_Culture_Code" xml:space="preserve">
     <value>UI カルチャ コード</value>
   </data>
+  <data name="Unable_to_load_Workroom" xml:space="preserve">
+    <value>ワークルームを読み込めません。</value>
+  </data>
   <data name="Unable_to_upload_an_empty_file" xml:space="preserve">
     <value>空のファイルをアップロードできません。</value>
   </data>
@@ -1572,8 +1584,17 @@
   <data name="Wind" xml:space="preserve">
     <value>風</value>
   </data>
+  <data name="Workroom" xml:space="preserve">
+    <value>仕事部屋</value>
+  </data>
   <data name="Workrooms" xml:space="preserve">
     <value>ワークルーム</value>
+  </data>
+  <data name="Workroom_has_been_updated_successfully" xml:space="preserve">
+    <value>ワークルームが正常に更新されました。</value>
+  </data>
+  <data name="Workroom_Name" xml:space="preserve">
+    <value>ワークルーム名</value>
   </data>
   <data name="Work_Orders" xml:space="preserve">
     <value>作業指示書</value>

@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 
 namespace D2W.Application.Features.Clients.Commands.DeleteClient;
 
-public class DeleteClientCommand
+public class DeleteWorkroomCommand
 {
 }

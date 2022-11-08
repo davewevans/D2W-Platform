@@ -115,6 +115,9 @@ public class Program
 
         services.AddScoped<IClientsClient, ClientsClient>();
 
+        services.AddScoped<IWorkroomsClient, WorkroomsClient>();
+
+
         services.AddLocalization();
 
         services.AddBlazoredLocalStorage();

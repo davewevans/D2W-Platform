@@ -151,6 +151,15 @@ namespace D2W.FrontendResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Client.
+        /// </summary>
+        public static string Add_Client {
+            get {
+                return ResourceManager.GetString("Add_Client", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add New File.
         /// </summary>
         public static string Add_New_File {
@@ -210,6 +219,15 @@ namespace D2W.FrontendResources {
         public static string Add_User {
             get {
                 return ResourceManager.GetString("Add_User", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Workroom.
+        /// </summary>
+        public static string Add_Workroom {
+            get {
+                return ResourceManager.GetString("Add_Workroom", resourceCulture);
             }
         }
         
@@ -804,6 +822,15 @@ namespace D2W.FrontendResources {
         public static string click_here_to_log_in {
             get {
                 return ResourceManager.GetString("click_here_to_log_in", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Client.
+        /// </summary>
+        public static string Client {
+            get {
+                return ResourceManager.GetString("Client", resourceCulture);
             }
         }
         
@@ -4206,6 +4233,15 @@ namespace D2W.FrontendResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unable to load Workroom..
+        /// </summary>
+        public static string Unable_to_load_Workroom {
+            get {
+                return ResourceManager.GetString("Unable_to_load_Workroom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unable to upload an empty file..
         /// </summary>
         public static string Unable_to_upload_an_empty_file {
@@ -4436,6 +4472,33 @@ namespace D2W.FrontendResources {
         public static string Work_Orders {
             get {
                 return ResourceManager.GetString("Work_Orders", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Workroom.
+        /// </summary>
+        public static string Workroom {
+            get {
+                return ResourceManager.GetString("Workroom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Workroom has been updated successfully..
+        /// </summary>
+        public static string Workroom_has_been_updated_successfully {
+            get {
+                return ResourceManager.GetString("Workroom_has_been_updated_successfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Workroom Name.
+        /// </summary>
+        public static string Workroom_Name {
+            get {
+                return ResourceManager.GetString("Workroom_Name", resourceCulture);
             }
         }
         

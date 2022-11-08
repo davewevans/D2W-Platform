@@ -20,8 +20,10 @@ public class ClientItem : AuditableDto
 
     #region Public Methods
 
-    public static ClientItem MapFromEntity(ApplicationUser appUser)
+    public static ClientItem MapFromEntity(ApplicationUser appUser, Guid tenantId)
     {
+        var contactDetails = appUser.ContactDetails.FirstOrDefault(c => c.TenantId.Equals(tenantId));
+
         return new()
         {
             Id = appUser.Id,
