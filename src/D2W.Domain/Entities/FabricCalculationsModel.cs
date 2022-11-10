@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace D2W.Domain.Entities;
 
-[Table("DraperyCalculations")]
-public class DraperyCalculationsModel : IAuditable, IMustHaveTenant
+[Table("FabricCalculations")]
+public class FabricCalculationsModel : IAuditable, IMustHaveTenant
 {
     public Guid Id { get; set; }
     public Guid TenantId { get; set; }
     public MeasurementSystem MeasurementSystem { get; set; }
-
+    public FabricPriority FabricPriority { get; set; }
     public float FinishedLength { get; set; }
     public float TrimOff { get; set; }
     public float Hems { get; set; }
@@ -34,10 +34,16 @@ public class DraperyCalculationsModel : IAuditable, IMustHaveTenant
     public string DeletedBy { get; set; }
     public DateTime? DeletedOn { get; set; }
 
+
     public Guid DesignConceptId { get; set; }
+    public Guid? FabricId { get; set; }
+
 
     #region Navigational Properties
+
     public DesignConceptModel DesignConcept { get; set; }
+    public FabricModel Fabric { get; set; }
+
     #endregion Navigational Properties
 
 }

@@ -269,7 +269,7 @@ namespace D2W.Infrastructure.Migrations
                     b.HasIndex("DesignConceptId")
                         .IsUnique();
 
-                    b.ToTable("DraperyCalculations");
+                    b.ToTable("FabricCalculations");
                 });
 
             modelBuilder.Entity("D2W.Domain.Entities.FabricModel", b =>
@@ -1200,7 +1200,7 @@ namespace D2W.Infrastructure.Migrations
             modelBuilder.Entity("D2W.Domain.Entities.DraperyCalculationsModel", b =>
                 {
                     b.HasOne("D2W.Domain.Entities.DesignConceptModel", "DesignConcept")
-                        .WithOne("DraperyCalculations")
+                        .WithOne("FabricCalculations")
                         .HasForeignKey("D2W.Domain.Entities.DraperyCalculationsModel", "DesignConceptId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1353,7 +1353,7 @@ namespace D2W.Infrastructure.Migrations
 
             modelBuilder.Entity("D2W.Domain.Entities.DesignConceptModel", b =>
                 {
-                    b.Navigation("DraperyCalculations");
+                    b.Navigation("FabricCalculations");
 
                     b.Navigation("WindowMeasurements");
                 });

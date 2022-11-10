@@ -35,7 +35,14 @@ public class WorkroomItem : AuditableDto
             CreatedOn = appUser.CreatedOn,
             CreatedBy = appUser.CreatedBy,
             ModifiedOn = appUser.ModifiedOn,
-            ModifiedBy = appUser.ModifiedBy
+            ModifiedBy = appUser.ModifiedBy,
+
+            // Contact details
+            CompanyName = contactDetails?.CompanyName,
+            ContactName1 = contactDetails?.ContactName1,
+            ContactName2 = contactDetails?.ContactName2,
+            AltEmailAddress = contactDetails?.AltEmailAddress1,
+            AltPhone1 = contactDetails?.AltPhone1
         };
     }
 

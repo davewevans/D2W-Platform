@@ -160,6 +160,15 @@ namespace D2W.FrontendResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Design Concept.
+        /// </summary>
+        public static string Add_Design_Concept {
+            get {
+                return ResourceManager.GetString("Add_Design_Concept", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add New File.
         /// </summary>
         public static string Add_New_File {

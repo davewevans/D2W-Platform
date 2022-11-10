@@ -284,6 +284,8 @@ public class AccountUseCase : IAccountUseCase
         {
             await _demoIdentitySeeder.SeedDemoClients();
             await _demoIdentitySeeder.SeedDemoWorkrooms();
+            // await _demoIdentitySeeder.SeedDemoFabrics();
+            user.AvatarUri = _demoIdentitySeeder.GetRandomProfilePic();
         }
 
 
@@ -368,15 +370,21 @@ public class AccountUseCase : IAccountUseCase
         }
 
         var userEntity = await _userManager.FindByEmailAsync(request.Email);
-
-        var contactDetails = request.MapToContactDetailsEntity();
-        contactDetails.ApplicationUserId = userEntity.Id;
-        await _dbContext.ContactDetails.AddAsync(contactDetails);
-        await _dbContext.SaveChangesAsync();
-
         var tenantId = _tenantResolver.GetTenantId();
 
-        // many-to-many relationship with designer if not already exist
+        // Save contact details
+        var contactDetailsExists = await _dbContext.ContactDetails.AnyAsync(cd =>
+            cd.ApplicationUserId.Equals(userEntity.Id) && cd.TenantId.Equals(tenantId));
+
+        if (!contactDetailsExists)
+        {
+            var contactDetails = request.MapToContactDetailsEntity();
+            contactDetails.ApplicationUserId = userEntity.Id;
+            await _dbContext.ContactDetails.AddAsync(contactDetails);
+            await _dbContext.SaveChangesAsync();
+        }
+
+        // many-to-many relationship with designer (app user) if not already exist
         bool clientDesignerExists = await _dbContext.TenantsClients.AnyAsync(tc =>
             tc.TenantId.Equals(tenantId) && tc.ApplicationUserId.Equals(userEntity.Id));
 
@@ -420,13 +428,19 @@ public class AccountUseCase : IAccountUseCase
         }
 
         var userEntity = await _userManager.FindByEmailAsync(request.Email);
-
-        var contactDetails = request.MapToContactDetailsEntity();
-        contactDetails.ApplicationUserId = userEntity.Id;
-        await _dbContext.ContactDetails.AddAsync(contactDetails);
-        await _dbContext.SaveChangesAsync();
-
         var tenantId = _tenantResolver.GetTenantId();
+
+        // Save contact details
+        var contactDetailsExists = await _dbContext.ContactDetails.AnyAsync(cd =>
+            cd.ApplicationUserId.Equals(userEntity.Id) && cd.TenantId.Equals(tenantId));
+
+        if (!contactDetailsExists)
+        {
+            var contactDetails = request.MapToContactDetailsEntity();
+            contactDetails.ApplicationUserId = userEntity.Id;
+            await _dbContext.ContactDetails.AddAsync(contactDetails);
+            await _dbContext.SaveChangesAsync();
+        }
 
         // many-to-many relationship with designer if not already exist
         bool workroomDesignerExists = await _dbContext.TenantsWorkrooms.AnyAsync(tc =>

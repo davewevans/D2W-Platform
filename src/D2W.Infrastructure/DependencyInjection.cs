@@ -106,6 +106,9 @@ public static class DependencyInjection
 
         services.AddScoped<IClientUseCase, ClientUseCase>();
         services.AddScoped<IWorkroomUseCase, WorkroomUseCase>();
+        services.AddScoped<IDesignConceptUseCase, DesignConceptUseCase>();
+        services.AddScoped<IFabricUseCase, FabricUseCase>();
+
 
 
         return services;

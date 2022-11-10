@@ -9,4 +9,5 @@ namespace D2W.Application.UseCases;
 
 public class FabricUseCase : IFabricUseCase
 {
+
 }

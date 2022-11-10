@@ -223,6 +223,15 @@ namespace D2W.BackendResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Design Concept has been created successfully..
+        /// </summary>
+        public static string Design_Concept_has_been_created_successfully {
+            get {
+                return ResourceManager.GetString("Design_Concept_has_been_created_successfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email &apos;{0}&apos; is already taken..
         /// </summary>
         public static string Email_is_already_taken {

@@ -86,7 +86,7 @@ namespace D2W.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "DraperyCalculations",
+                name: "FabricCalculations",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -164,7 +164,7 @@ namespace D2W.Infrastructure.Migrations
 
             migrationBuilder.CreateIndex(
                 name: "IX_DraperyCalculations_DesignConceptId",
-                table: "DraperyCalculations",
+                table: "FabricCalculations",
                 column: "DesignConceptId",
                 unique: true);
 
@@ -178,7 +178,7 @@ namespace D2W.Infrastructure.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "DraperyCalculations");
+                name: "FabricCalculations");
 
             migrationBuilder.DropTable(
                 name: "Fabrics");

@@ -150,6 +150,9 @@
   <data name="Add_Client" xml:space="preserve">
     <value>Client hinzufügen</value>
   </data>
+  <data name="Add_Design_Concept" xml:space="preserve">
+    <value>Designkonzept hinzufügen</value>
+  </data>
   <data name="Add_New_File" xml:space="preserve">
     <value>Neue Datei hinzufügen</value>
   </data>

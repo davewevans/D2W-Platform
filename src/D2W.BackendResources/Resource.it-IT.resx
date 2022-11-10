@@ -171,6 +171,9 @@
   <data name="Deletion_of_entity_failed" xml:space="preserve">
     <value>Eliminazione dell'entità "{0}" ({1}) non riuscita. {2}.</value>
   </data>
+  <data name="Design_Concept_has_been_created_successfully" xml:space="preserve">
+    <value>Design Concept è stato creato con successo.</value>
+  </data>
   <data name="Email_is_already_taken" xml:space="preserve">
     <value>L'e-mail "{0}" è già stata presa.</value>
   </data>

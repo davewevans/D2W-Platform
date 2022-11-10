@@ -3,32 +3,33 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using D2W.Domain.Entities.Identity;
 
 namespace D2W.Domain.Entities;
 
 [Table("DesignConcepts")]
 public class DesignConceptModel : IAuditable, IMustHaveTenant
 {
+    public DesignConceptModel()
+    {
+        FabricCalculations = new List<FabricCalculationsModel>();
+    }
+
     public Guid Id { get; set; }
 
     public Guid TenantId { get; set; }
 
-    public string ImageUrl { get; set; }
+    public Guid? ClientId { get; set; }
 
-    public Guid ClientId { get; set; }
+    public string Name { get; set; }
+
+    public string ImageUrl { get; set; }
 
     public bool IsArchived { get; set; }
 
     public bool ApprovedByClient { get; set; }
 
     public string ClientNotes { get; set; }
-
-    public Guid? MainFabric { get; set; }
-    public Guid? AccentFabric1 { get; set; }
-    public Guid? AccentFabric2 { get; set; }
-    public Guid? AccentFabric3 { get; set; }
-    public Guid? AccentFabric4 { get; set; }
-    public Guid? AccentFabric5 { get; set; }
 
     public string CreatedBy { get; set; }
     public DateTime CreatedOn { get; set; }
@@ -39,8 +40,11 @@ public class DesignConceptModel : IAuditable, IMustHaveTenant
 
 
     #region Navigational Properties
+
+    // One-to-many for Client app user
+    public ApplicationUser ApplicationUser { get; set; }
     public WindowMeasurementsModel WindowMeasurements { get; set; }
-    public DraperyCalculationsModel DraperyCalculations { get; set; }
+    public ICollection<FabricCalculationsModel> FabricCalculations { get; set; }
 
     #endregion Navigational Properties
 }

@@ -16,13 +16,54 @@ public class DemoIdentitySeeder : IDemoIdentitySeeder
 
     private IdentityResult _result = new();
 
+    private static Random _randomizer = new Random();
+
     #endregion Private Fields
+
+    private readonly string[] _defaultProfilePics = new[]
+            {
+                "https://elevateottstoragedev.blob.core.windows.net/elevate-ott-dev-image-container/2DDDE973-40EC-4004-ABC0-73FD4CD6D042-200w.jpeg",
+                "https://elevateottstoragedev.blob.core.windows.net/elevate-ott-dev-image-container/2DDDE973-40EC-4004-ABC0-73FD4CD6D042-200w.jpeg",
+                "https://elevateottstoragedev.blob.core.windows.net/elevate-ott-dev-image-container/344CFC24-61FB-426C-B3D1-CAD5BCBD3209-200w.jpeg",
+                "https://elevateottstoragedev.blob.core.windows.net/elevate-ott-dev-image-container/852EC6E1-347C-4187-9D42-DF264CCF17BF-200w.jpeg",
+                "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/image-lorem-face-1026.jpg",
+                "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/image-lorem-face-1462.jpg",
+                "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/image-lorem-face-1536.jpg",
+                "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/image-lorem-face-2002.jpg",
+                "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/image-lorem-face-2096.jpg",
+                "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/image-lorem-face-2296.jpg",
+                "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/image-lorem-face-2352.jpg",
+                "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/image-lorem-face-2373.jpg",
+                "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/image-lorem-face-2441.jpg",
+                "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/image-lorem-face-2565.jpg",
+                "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/image-lorem-face-2684.jpg",
+                "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/image-lorem-face-2736.jpg",
+                "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/image-lorem-face-2779.jpg",
+                "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/image-lorem-face-278.jpg",
+                "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/image-lorem-face-284.jpg",
+                "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/image-lorem-face-3158.jpg",
+                "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/image-lorem-face-3197.jpg",
+                "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/image-lorem-face-327.jpg",
+                "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/image-lorem-face-3813.jpg",
+                "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/image-lorem-face-479.jpg",
+                "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/image-lorem-face-4795.jpg",
+                "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/image-lorem-face-4921.jpg",
+                "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/image-lorem-face-5111.jpg",
+                "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/image-lorem-face-5399.jpg",
+                "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/image-lorem-face-5941.jpg",
+                "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/image-lorem-face-5985.jpg",
+                "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/image-lorem-face-6152.jpg",
+                "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/lorem-face-5739.jpg",
+            };
+
+
+
 
     #region Public Constructors
 
     public DemoIdentitySeeder(ApplicationUserManager userManager,
                               ApplicationRoleManager roleManager,
-                              IApplicationDbContext dbContext, 
+                              IApplicationDbContext dbContext,
                               IMediator mediator)
     {
         _userManager = userManager;
@@ -74,50 +115,12 @@ public class DemoIdentitySeeder : IDemoIdentitySeeder
 
     public async Task SeedDemoClients()
     {
-        string[] defaultProfilePics = new[]
-        {
-            "https://elevateottstoragedev.blob.core.windows.net/elevate-ott-dev-image-container/2DDDE973-40EC-4004-ABC0-73FD4CD6D042-200w.jpeg",
-            "https://elevateottstoragedev.blob.core.windows.net/elevate-ott-dev-image-container/2DDDE973-40EC-4004-ABC0-73FD4CD6D042-200w.jpeg",
-            "https://elevateottstoragedev.blob.core.windows.net/elevate-ott-dev-image-container/344CFC24-61FB-426C-B3D1-CAD5BCBD3209-200w.jpeg",
-            "https://elevateottstoragedev.blob.core.windows.net/elevate-ott-dev-image-container/852EC6E1-347C-4187-9D42-DF264CCF17BF-200w.jpeg",
-            "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/image-lorem-face-1026.jpg",
-            "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/image-lorem-face-1462.jpg",
-            "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/image-lorem-face-1536.jpg",
-            "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/image-lorem-face-2002.jpg",
-            "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/image-lorem-face-2096.jpg",
-            "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/image-lorem-face-2296.jpg",
-            "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/image-lorem-face-2352.jpg",
-            "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/image-lorem-face-2373.jpg",
-            "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/image-lorem-face-2441.jpg",
-            "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/image-lorem-face-2565.jpg",
-            "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/image-lorem-face-2684.jpg",
-            "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/image-lorem-face-2736.jpg",
-            "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/image-lorem-face-2779.jpg",
-            "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/image-lorem-face-278.jpg",
-            "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/image-lorem-face-284.jpg",
-            "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/image-lorem-face-3158.jpg",
-            "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/image-lorem-face-3197.jpg",
-            "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/image-lorem-face-327.jpg",
-            "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/image-lorem-face-3813.jpg",
-            "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/image-lorem-face-479.jpg",
-            "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/image-lorem-face-4795.jpg",
-            "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/image-lorem-face-4921.jpg",
-            "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/image-lorem-face-5111.jpg",
-            "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/image-lorem-face-5399.jpg",
-            "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/image-lorem-face-5941.jpg",
-            "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/image-lorem-face-5985.jpg",
-            "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/image-lorem-face-6152.jpg",
-            "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/lorem-face-5739.jpg",
-        };
-
-        var randomizer = new Random();
-
         var request1 = new RegisterClientCommand
         {
             FullName = "Karoline Grzesiak",
             Email = "kgrzesiaku@stanford.edu",
             PhoneNumber = "469-743-3316",
-            AvatarUri = defaultProfilePics[randomizer.Next(defaultProfilePics.Length)]
+            AvatarUri = GetRandomProfilePic()
         };
 
         var request2 = new RegisterClientCommand
@@ -134,7 +137,7 @@ public class DemoIdentitySeeder : IDemoIdentitySeeder
             FullName = "Gannie Wardale",
             Email = "gwardalew@ibm.com",
             PhoneNumber = "544-502-9946",
-            AvatarUri = defaultProfilePics[randomizer.Next(defaultProfilePics.Length)]
+            AvatarUri = GetRandomProfilePic()
         };
 
         var request4 = new RegisterClientCommand
@@ -142,7 +145,7 @@ public class DemoIdentitySeeder : IDemoIdentitySeeder
             FullName = "Shaine Goodreid",
             Email = "sgoodreidx@newsvine.com",
             PhoneNumber = "171-783-6595",
-            AvatarUri = defaultProfilePics[randomizer.Next(defaultProfilePics.Length)]
+            AvatarUri = GetRandomProfilePic()
         };
 
         var request5 = new RegisterClientCommand
@@ -150,7 +153,7 @@ public class DemoIdentitySeeder : IDemoIdentitySeeder
             FullName = "Lethia Waszczyk",
             Email = "lwaszczyky@t.co",
             PhoneNumber = "687-570-5617",
-            AvatarUri = defaultProfilePics[randomizer.Next(defaultProfilePics.Length)]
+            AvatarUri = GetRandomProfilePic()
         };
 
 
@@ -196,6 +199,16 @@ public class DemoIdentitySeeder : IDemoIdentitySeeder
 
         await _mediator.Send(request1);
         await _mediator.Send(request2);
+    }
+
+    public Task SeedDemoFabrics()
+    {
+        throw new NotImplementedException();
+    }
+
+    public string GetRandomProfilePic()
+    {
+        return _defaultProfilePics[_randomizer.Next(_defaultProfilePics.Length)];
     }
 
     #endregion Public Methods

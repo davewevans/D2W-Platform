@@ -22,6 +22,8 @@ public class ClientItem : AuditableDto
 
     public static ClientItem MapFromEntity(ApplicationUser appUser, Guid tenantId)
     {
+        if (appUser is null) return null;
+
         var contactDetails = appUser.ContactDetails.FirstOrDefault(c => c.TenantId.Equals(tenantId));
 
         return new()
@@ -36,6 +38,8 @@ public class ClientItem : AuditableDto
             CreatedBy = appUser.CreatedBy,
             ModifiedOn = appUser.ModifiedOn,
             ModifiedBy = appUser.ModifiedBy
+
+            // TODO contact details
         };
     }
 

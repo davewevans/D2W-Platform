@@ -1,10 +1,10 @@
 ﻿namespace D2W.Application.Features.POC.Applicants.Commands.CreateApplicant;
 
-public class CreateApplicantCommandValidator : AbstractValidator<CreateApplicantCommand>
+public class CreateDesignConceptCommandValidator : AbstractValidator<CreateApplicantCommand>
 {
     #region Public Constructors
 
-    public CreateApplicantCommandValidator()
+    public CreateDesignConceptCommandValidator()
     {
         RuleFor(a => a.Ssn).Cascade(CascadeMode.Stop)
             .NotEmpty().WithMessage(Resource.Social_security_number_is_required)

@@ -54,6 +54,7 @@ public class ApplicationUser : IdentityUser, IAuditable, IMayHaveTenant
     public ICollection<TenantWorkroomModel> TenantsWorkrooms { get; set; }
     public ICollection<TenantClientModel> TenantsClients { get; set; }
     public ICollection<ContactDetailsModel> ContactDetails { get; set; }
+    public ICollection<DesignConceptModel> DesignConcepts { get; set; }
 
     #endregion
 }
