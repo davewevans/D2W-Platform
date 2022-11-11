@@ -10,6 +10,14 @@ public static class DependencyInjection
 
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration, IHostEnvironment environment)
     {
+        //string connectionStringName = environment.EnvironmentName switch
+        //{
+        //    "Development" => "DefaultConnection",
+        //    "Production" => "SqlServerConnectionProduction",
+        //    "Staging" => "SqlServerConnectionStaging",
+        //    _ => ""
+        //};
+
         services.AddDbContext<ApplicationDbContext>(options =>
         {
             options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));

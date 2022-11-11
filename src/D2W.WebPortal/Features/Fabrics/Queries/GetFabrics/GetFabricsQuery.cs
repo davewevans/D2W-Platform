@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace D2W.WebPortal.Features.Fabrics.Queries.GetFabrics
 {
-    public class GetFabricsQuery
+    public class GetFabricsQuery : FilterableQuery
     {
-        
+
     }
 }

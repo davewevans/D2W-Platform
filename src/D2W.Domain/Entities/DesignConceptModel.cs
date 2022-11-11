@@ -19,7 +19,7 @@ public class DesignConceptModel : IAuditable, IMustHaveTenant
 
     public Guid TenantId { get; set; }
 
-    public Guid? ClientId { get; set; }
+    public string ClientId { get; set; }
 
     public string Name { get; set; }
 

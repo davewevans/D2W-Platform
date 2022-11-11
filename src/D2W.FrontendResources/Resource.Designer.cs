@@ -844,6 +844,15 @@ namespace D2W.FrontendResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Client by that name not found.
+        /// </summary>
+        public static string Client_by_that_name_not_found {
+            get {
+                return ResourceManager.GetString("Client_by_that_name_not_found", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Client-Side Authorization.
         /// </summary>
         public static string Client_Side_Authorization {
@@ -1700,6 +1709,15 @@ namespace D2W.FrontendResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Fabric.
+        /// </summary>
+        public static string Fabric {
+            get {
+                return ResourceManager.GetString("Fabric", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Failed.
         /// </summary>
         public static string Failed {
@@ -2208,6 +2226,15 @@ namespace D2W.FrontendResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Image.
+        /// </summary>
+        public static string Image {
+            get {
+                return ResourceManager.GetString("Image", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Processing.
         /// </summary>
         public static string In_Progress {
@@ -2703,6 +2730,15 @@ namespace D2W.FrontendResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to More Clients found.
+        /// </summary>
+        public static string More_clients_found {
+            get {
+                return ResourceManager.GetString("More_clients_found", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to My Account.
         /// </summary>
         public static string My_Account {
@@ -2811,6 +2847,15 @@ namespace D2W.FrontendResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No Clients found..
+        /// </summary>
+        public static string No_clients_found {
+            get {
+                return ResourceManager.GetString("No_clients_found", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No Credit Card Required.
         /// </summary>
         public static string No_Credit_Card_Required {
@@ -2843,6 +2888,15 @@ namespace D2W.FrontendResources {
         public static string Normally_this_would_be_emailed {
             get {
                 return ResourceManager.GetString("Normally_this_would_be_emailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Notes.
+        /// </summary>
+        public static string Notes {
+            get {
+                return ResourceManager.GetString("Notes", resourceCulture);
             }
         }
         
@@ -3108,6 +3162,15 @@ namespace D2W.FrontendResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Profit.
+        /// </summary>
+        public static string Profit {
+            get {
+                return ResourceManager.GetString("Profit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Proof of Concepts.
         /// </summary>
         public static string Proof_of_Concepts {
@@ -3311,6 +3374,15 @@ namespace D2W.FrontendResources {
         public static string Remove {
             get {
                 return ResourceManager.GetString("Remove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Replace Image.
+        /// </summary>
+        public static string Replace_image {
+            get {
+                return ResourceManager.GetString("Replace_image", resourceCulture);
             }
         }
         
@@ -3599,6 +3671,15 @@ namespace D2W.FrontendResources {
         public static string Roles {
             get {
                 return ResourceManager.GetString("Roles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Room.
+        /// </summary>
+        public static string Room {
+            get {
+                return ResourceManager.GetString("Room", resourceCulture);
             }
         }
         
@@ -4215,6 +4296,15 @@ namespace D2W.FrontendResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Try entering more letters..
+        /// </summary>
+        public static string Try_entering_more_letters {
+            get {
+                return ResourceManager.GetString("Try_entering_more_letters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Two-Factor Authentication.
         /// </summary>
         public static string Two_Factor_Authentication {
@@ -4319,6 +4409,15 @@ namespace D2W.FrontendResources {
         public static string Upload_Documents {
             get {
                 return ResourceManager.GetString("Upload_Documents", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Upload Image.
+        /// </summary>
+        public static string Upload_image {
+            get {
+                return ResourceManager.GetString("Upload_image", resourceCulture);
             }
         }
         
@@ -4472,6 +4571,33 @@ namespace D2W.FrontendResources {
         public static string Wind {
             get {
                 return ResourceManager.GetString("Wind", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Window.
+        /// </summary>
+        public static string Window {
+            get {
+                return ResourceManager.GetString("Window", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Window Measurements.
+        /// </summary>
+        public static string Window_Measurements {
+            get {
+                return ResourceManager.GetString("Window_Measurements", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Work Order.
+        /// </summary>
+        public static string Work_Order {
+            get {
+                return ResourceManager.GetString("Work_Order", resourceCulture);
             }
         }
         

@@ -1,8 +1,18 @@
 ﻿dotnet ef commands:
 
 cd D2W.Infrastructure
+
+// Locally
 dotnet ef migrations add --startup-project ..\D2W.WebAPI\ MigrationName
+
+// On Azure
+dotnet ef migrations add --startup-project ..\D2W.WebAPI\ -o MigrationsProduction MigrationName
+
 dotnet ef database update --startup-project ..\D2W.WebAPI\
 
 
 https://docs.microsoft.com/en-us/ef/core/cli/dotnet#update-the-tools
+
+Migrations with Multiple Providers
+https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/providers?tabs=dotnet-core-cli
+

@@ -1,6 +1,7 @@
 @page "/AddDesignConcept"
+@using Features.Clients.Queries.GetClients
 
-<h3>@Resource.Add_Client</h3>
+<h3>@Resource.Add_Design_Concept</h3>
 
 
 <ServerSideValidator @ref="ServerSideValidator" />
@@ -10,128 +11,305 @@
     <MudCard>
         <MudCardContent>
             <MudTabs KeepPanelsAlive="true" Elevation="25" Color="Color.Transparent" Rounded="true" PanelClass="mt-6">
+
+                <!--Select Client-->
                 <MudTabPanel Text="@Resource.Client" Icon="@Icons.Material.Filled.Person">
+                    <MudAutocomplete T="ClientItem"
+                        Value="_selectedClient"
+                        ValueChanged="ClientSelectedHandler"
+                        Text="@_selectedClient?.FullName"
+                        Class="pl-md-12"
+                        Label="Client"
+                        Variant="Variant.Outlined"
+                        SearchFunc="@SearchClients"
+                        ResetValueOnEmptyText="true"
+                        CoerceText="false"
+                        CoerceValue="false"
+                        AdornmentIcon="@Icons.Material.Filled.Search"
+                        AdornmentColor="Color.Primary"
+                        Clearable="true"
+                        DebounceInterval="500"
+                        MaxHeight="400"
+                        MaxItems="50"
+                        SelectValueOnTab="true"
+                        Validation="@(new Func<string, IEnumerable<string>>(ValidateClient))">
+
+                        <ItemTemplate Context="client">
+                            <div class="d-flex align-center gap-4">
+                                @if (!string.IsNullOrWhiteSpace(client?.AvatarUri))
+                                {
+                                    <MudImage Src="@client.AvatarUri" Width="64" Height="64" Alt="@client?.FullName"
+                                    Elevation="25" Class="rounded-lg ma-4" />
+                                }
+                                else
+                                {
+                                    <MudIcon Icon="@Icons.Material.Filled.Person" Color="Color.Primary"
+                                    Size="Size.Large" />
+                                }
+
+                                <MudText>
+                                    @client?.FullName
+                                </MudText>
+                            </div>
+
+                        </ItemTemplate>
+
+                        <ItemSelectedTemplate Context="client">
+                            <div class="d-flex align-center gap-4">
+                                @if (!string.IsNullOrWhiteSpace(client?.AvatarUri))
+                                {
+                                    <MudImage Src="@client?.AvatarUri" Width="64" Height="64" Alt="@client?.FullName"
+                                    Elevation="25" Class="rounded-lg ma-4" />
+                                }
+                                else
+                                {
+                                    <MudIcon Icon="@Icons.Material.Filled.Person" Color="Color.Primary"
+                                    Size="Size.Large" />
+                                }
+
+                                <MudText>
+                                    @client?.FullName
+                                </MudText>
+                            </div>
+                        </ItemSelectedTemplate>
+
+                        <NoItemsTemplate>
+                            <MudText Align="Align.Center" Class="px-4 py-1">
+                                @Resource.No_clients_found
+                            </MudText>
+                        </NoItemsTemplate>
+
+                        <MoreItemsTemplate>
+                            <MudText Align="Align.Center" Class="px-4 py-1">
+                                @Resource.More_clients_found @Resource.Try_entering_more_letters
+                            </MudText>
+                        </MoreItemsTemplate>
+                    </MudAutocomplete>
+                </MudTabPanel>
+
+
+                <!--Window Measurements-->
+                <MudTabPanel Text="@Resource.Window_Measurements" Icon="fas fa-ruler-vertical">
+
+                    <ClientNameWithProfilePic SelectedClient="@_selectedClient" />
+
+                    <MudGrid Justify="Justify.SpaceBetween" Class="mb-10">
+                        <MudItem xs="12" md="6">
+                            <MudImage Src="@_windowIllustrationImageSrc"
+                                Style="height: 600px; width: 600px;"
+                                Alt="Window Illustration"/>
+                        </MudItem>
+
+                        <MudItem xs="12" md="6">
+                            <MudTextField Class="mb-4" Label="@Resource.Room" Variant="Variant.Outlined"
+                                @bind-Value="CreateDesignConceptCommand.WindowMeasurementsItem.Room"
+                                For="@(() => CreateDesignConceptCommand.WindowMeasurementsItem.Room)" />
+
+                            <MudTextField Class="mb-4" Label="@Resource.Window" Variant="Variant.Outlined"
+                                @bind-Value="CreateDesignConceptCommand.WindowMeasurementsItem.Window"
+                                For="@(() => CreateDesignConceptCommand.WindowMeasurementsItem.Window)" />
+
+                            <MudTextField Class="mb-4" Label="@Resource.Notes" Variant="Variant.Outlined" Lines="5"
+                                @bind-Value="CreateDesignConceptCommand.WindowMeasurementsItem.Notes"
+                                For="@(() => CreateDesignConceptCommand.WindowMeasurementsItem.Notes)" />
+
+
+                            <MudNumericField @bind-Value="CreateDesignConceptCommand.WindowMeasurementsItem.OutsideLeftToRight"
+                                Class="mb-4"
+                                Label="A"
+                                Format="F1"
+                                Variant="Variant.Outlined" />
+
+                            <MudNumericField @bind-Value="CreateDesignConceptCommand.WindowMeasurementsItem.OutsideTopToBottom"
+                                Class="mb-4"
+                                Label="B"
+                                Format="F1"
+                                Variant="Variant.Outlined" />
+
+                            <MudNumericField @bind-Value="CreateDesignConceptCommand.WindowMeasurementsItem.InsideLeftToRight"
+                                Class="mb-4"
+                                Label="C"
+                                Format="F1"
+                                Variant="Variant.Outlined" />
+
+                            <MudNumericField @bind-Value="CreateDesignConceptCommand.WindowMeasurementsItem.InsideTopToBottom"
+                                Class="mb-4"
+                                Label="D"
+                                Format="F1"
+                                Variant="Variant.Outlined" />
+
+                            <MudNumericField @bind-Value="CreateDesignConceptCommand.WindowMeasurementsItem.TopFrameToCeilingOrCrown"
+                                Class="mb-4"
+                                Label="E"
+                                Format="F1"
+                                Variant="Variant.Outlined" />
+
+                            <MudNumericField @bind-Value="CreateDesignConceptCommand.WindowMeasurementsItem.BottomFrameToFloor"
+                                Class="mb-4"
+                                Label="F"
+                                Format="F1"
+                                Variant="Variant.Outlined" />
+
+                            <MudNumericField @bind-Value="CreateDesignConceptCommand.WindowMeasurementsItem.FloorToCeilingOrCrown"
+                                Class="mb-4"
+                                Label="G"
+                                Format="F1"
+                                Variant="Variant.Outlined" />
+
+                            @* <MudNumericField @bind-Value="CreateDesignConceptCommand.WindowMeasurementsItem.TopFrameToFloor"
+                                Class="mb-4"
+                                Label="H"
+                                Format="F1"
+                                Variant="Variant.Outlined" />
+
+                            <MudNumericField @bind-Value="CreateDesignConceptCommand.WindowMeasurementsItem.LeftCasingToWallOrObstruction"
+                                Class="mb-4"
+                                Label="I"
+                                Format="F1"
+                                Variant="Variant.Outlined" />
+
+                            <MudNumericField @bind-Value="CreateDesignConceptCommand.WindowMeasurementsItem.RightCasingToWallOrObstruction"
+                                Class="mb-4"
+                                Label="J"
+                                Format="F1"
+                                Variant="Variant.Outlined" /> *@
+                          </MudItem>
+                    </MudGrid>
+                </MudTabPanel>
+
+                <!--Fabric Calculations-->
+                <MudTabPanel Text="@Resource.Fabric" Icon="@Icons.Filled.Star">
+
+                    <ClientNameWithProfilePic SelectedClient="@_selectedClient" />
+
                     <MudGrid>
                         <MudItem xs="6">
-                            <MudTextField Label="@Resource.Name"
-                                          Variant="Variant.Outlined"
-                                          @bind-Value="CreateDesignConceptCommand.Name"
-                                          For="@(() => CreateDesignConceptCommand.Name)" />
+                              <MudTextField Class="mb-4" Label="Trim Off" Variant="Variant.Outlined"
+                                @bind-Value="_fabricCalculationsItem.TrimOff"
+                                For="@(() => _fabricCalculationsItem.TrimOff)" />
+                        </MudItem>
 
-                            <MudTextField Label="@Resource.Name"
-                                          Variant="Variant.Outlined"
-                                          @bind-Value="CreateDesignConceptCommand.Name"
-                                          For="@(() => CreateDesignConceptCommand.Name)" />
+                         <MudItem xs="6">
+                              <MudTextField Class="mb-4" Label="Hems" Variant="Variant.Outlined"
+                                @bind-Value="_fabricCalculationsItem.Hems"
+                                For="@(() => _fabricCalculationsItem.Hems)" />
+                        </MudItem>
 
+                         <MudItem xs="6">
+                              <MudTextField Class="mb-4" Label="Headings" Variant="Variant.Outlined"
+                                @bind-Value="_fabricCalculationsItem.Headings"
+                                For="@(() => _fabricCalculationsItem.Headings)" />
+                        </MudItem>
 
-                            <MudTextField Label="@Resource.Name"
-                                          Variant="Variant.Outlined"
-                                          @bind-Value="CreateDesignConceptCommand.Name"
-                                          For="@(() => CreateDesignConceptCommand.Name)" />
+                         <MudItem xs="6">
+                              <MudTextField Class="mb-4" Label="Puddling" Variant="Variant.Outlined"
+                                @bind-Value="_fabricCalculationsItem.Puddling"
+                                For="@(() => _fabricCalculationsItem.Puddling)" />
+                        </MudItem>
+
+                         <MudItem xs="6">
+                              <MudTextField Class="mb-4" Label="Pattern Repeat Length" Variant="Variant.Outlined"
+                                @bind-Value="_fabricCalculationsItem.PatternRepeatLength"
+                                For="@(() => _fabricCalculationsItem.PatternRepeatLength)" />
+                        </MudItem>
+
+                         <MudItem xs="6">
+                              <MudTextField Class="mb-4" Label="Fullness" Variant="Variant.Outlined"
+                                @bind-Value="_fabricCalculationsItem.Fullness"
+                                For="@(() => _fabricCalculationsItem.Fullness)" />
+                        </MudItem>
+
+                         <MudItem xs="6">
+                              <MudTextField Class="mb-4" Label="Fabric Width" Variant="Variant.Outlined"
+                                @bind-Value="_fabricCalculationsItem.FabricWidth"
+                                For="@(() => _fabricCalculationsItem.FabricWidth)" />
+                        </MudItem>
+
+                         <MudItem xs="6">
+                              <MudTextField Class="mb-4" Label="Rod Face Width" Variant="Variant.Outlined"
+                                @bind-Value="_fabricCalculationsItem.RodFaceWidth"
+                                For="@(() => _fabricCalculationsItem.RodFaceWidth)" />
+                        </MudItem>
+
+                         <MudItem xs="6">
+                              <MudTextField Class="mb-4" Label="Overhang" Variant="Variant.Outlined"
+                                @bind-Value="_fabricCalculationsItem.Overhang"
+                                For="@(() => _fabricCalculationsItem.Overhang)" />
+                        </MudItem>
+
+                          <MudItem xs="6">
+                              <MudTextField Class="mb-4" Label="Overlap" Variant="Variant.Outlined"
+                                @bind-Value="_fabricCalculationsItem.Overlap"
+                                For="@(() => _fabricCalculationsItem.Overlap)" />
+                        </MudItem>
+                          <MudItem xs="6">
+                              <MudTextField Class="mb-4" Label="Return" Variant="Variant.Outlined"
+                                @bind-Value="_fabricCalculationsItem.Return"
+                                For="@(() => _fabricCalculationsItem.Return)" />
                         </MudItem>
 
                     </MudGrid>
                 </MudTabPanel>
 
-                 <MudTabPanel Text="@Resource.Client" Icon="@Icons.Material.Filled.Person">
-                    <MudGrid>
-                        <MudItem xs="6">
-                            <MudTextField Label="@Resource.Name"
-                                          Variant="Variant.Outlined"
-                                          @bind-Value="CreateDesignConceptCommand.Name"
-                                          For="@(() => CreateDesignConceptCommand.Name)" />
+                <!--Design Image Upload-->
+                <MudTabPanel Text="@Resource.Image" Icon="@Icons.Material.Filled.Image">
+                    <ClientNameWithProfilePic SelectedClient="@_selectedClient" />
 
-                            <MudTextField Label="@Resource.Name"
-                                          Variant="Variant.Outlined"
-                                          @bind-Value="CreateDesignConceptCommand.Name"
-                                          For="@(() => CreateDesignConceptCommand.Name)" />
+                   <MudCard Elevation="25">
+                        <MudCardContent>
+                            @if (!string.IsNullOrWhiteSpace(_designConceptImageSrc))
+                            {
+                                <MudPaper Class="pa-2" Outlined="true">
+                                        <div class="d-flex flex-column justify-center align-center gap-6">
+                                            <MudImage Src="@_designConceptImageSrc"
+                                                    Style="height: 400px; width: 400px;"
+                                                    Alt="Category Image"/>
 
-
-                            <MudTextField Label="@Resource.Name"
-                                          Variant="Variant.Outlined"
-                                          @bind-Value="CreateDesignConceptCommand.Name"
-                                          For="@(() => CreateDesignConceptCommand.Name)" />
-                        </MudItem>
-
-                    </MudGrid>
+                                            <MudButton Variant="Variant.Filled"
+                                                StartIcon="@Icons.Material.Filled.Delete"
+                                                Color="Color.Error"
+                                                OnClick="RemoveDesignConceptImage">Remove Image
+                                            </MudButton>
+                                        </div>
+                                </MudPaper>
+                            }
+                        </MudCardContent>
+                        <MudCardActions Class="d-flex justify-center">
+                            <div class="form-group">
+                                <BpUploadFile ButtonId="imageInput"
+                                                ButtonIcon="@Icons.Filled.PhotoCamera"
+                                                ButtonName="@(HasUploadedImage() ? Resource.Replace_image : Resource.Upload_image)"
+                                                AllowRename="false"
+                                                AllowedExtensions=".jpg,.png,.jpeg,.bmp"
+                                                MaxFileSize="10485760"
+                                                OnFileSelected="ImageSelected"
+                                                OnFileUnSelected="ImageUnSelected"
+                                                OnImageUpload="GetBase64StringImageUrl"/>
+                                <ValidationMessage For="@(() => CreateDesignConceptCommand.ImageUrl)"/>
+                            </div>
+                        </MudCardActions>
+                    </MudCard>
                 </MudTabPanel>
 
-                 <MudTabPanel Text="@Resource.Client" Icon="@Icons.Material.Filled.Person">
-                    <MudGrid>
-                        <MudItem xs="6">
-                            <MudTextField Label="@Resource.Name"
-                                          Variant="Variant.Outlined"
-                                          @bind-Value="CreateDesignConceptCommand.Name"
-                                          For="@(() => CreateDesignConceptCommand.Name)" />
 
-                            <MudTextField Label="@Resource.Name"
-                                          Variant="Variant.Outlined"
-                                          @bind-Value="CreateDesignConceptCommand.Name"
-                                          For="@(() => CreateDesignConceptCommand.Name)" />
+                <!--Profit-->
+                <MudTabPanel Text="@Resource.Profit" Icon="@Icons.Material.Filled.AttachMoney">
+                    <ClientNameWithProfilePic SelectedClient="@_selectedClient" />
 
-
-                            <MudTextField Label="@Resource.Name"
-                                          Variant="Variant.Outlined"
-                                          @bind-Value="CreateDesignConceptCommand.Name"
-                                          For="@(() => CreateDesignConceptCommand.Name)" />
-                        </MudItem>
-
-                    </MudGrid>
+                   <h4>@Resource.Profit</h4>
                 </MudTabPanel>
 
-                 <MudTabPanel Text="@Resource.Client" Icon="@Icons.Material.Filled.Person">
-                    <MudGrid>
-                        <MudItem xs="6">
-                            <MudTextField Label="@Resource.Name"
-                                          Variant="Variant.Outlined"
-                                          @bind-Value="CreateDesignConceptCommand.Name"
-                                          For="@(() => CreateDesignConceptCommand.Name)" />
+                <!--Work Order-->
+                <MudTabPanel Text="@Resource.Work_Order" Icon="fas fa-file-invoice">
+                    <ClientNameWithProfilePic SelectedClient="@_selectedClient" />
 
-                            <MudTextField Label="@Resource.Name"
-                                          Variant="Variant.Outlined"
-                                          @bind-Value="CreateDesignConceptCommand.Name"
-                                          For="@(() => CreateDesignConceptCommand.Name)" />
-
-
-                            <MudTextField Label="@Resource.Name"
-                                          Variant="Variant.Outlined"
-                                          @bind-Value="CreateDesignConceptCommand.Name"
-                                          For="@(() => CreateDesignConceptCommand.Name)" />
-                        </MudItem>
-
-                    </MudGrid>
-                </MudTabPanel>
-
-                 <MudTabPanel Text="@Resource.Client" Icon="@Icons.Material.Filled.Person">
-                    <MudGrid>
-                        <MudItem xs="6">
-                            <MudTextField Label="@Resource.Name"
-                                          Variant="Variant.Outlined"
-                                          @bind-Value="CreateDesignConceptCommand.Name"
-                                          For="@(() => CreateDesignConceptCommand.Name)" />
-
-                            <MudTextField Label="@Resource.Name"
-                                          Variant="Variant.Outlined"
-                                          @bind-Value="CreateDesignConceptCommand.Name"
-                                          For="@(() => CreateDesignConceptCommand.Name)" />
-
-
-                            <MudTextField Label="@Resource.Name"
-                                          Variant="Variant.Outlined"
-                                          @bind-Value="CreateDesignConceptCommand.Name"
-                                          For="@(() => CreateDesignConceptCommand.Name)" />
-                        </MudItem>
-
-                    </MudGrid>
+                    <h4>@Resource.Work_Order</h4>
                 </MudTabPanel>
             </MudTabs>
         </MudCardContent>
         <MudCardActions Class="pb-4 pl-4">
-            <MudButton ButtonType="ButtonType.Submit"
-                       Variant="Variant.Filled"
-                       Color="Color.Primary"
-                       Class="ml-auto"
-                       FullWidth="true">@Resource.Save</MudButton>
+            <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto"
+                FullWidth="true">@Resource.Save</MudButton>
         </MudCardActions>
         <MudDivider />
         <MudExpansionPanels>

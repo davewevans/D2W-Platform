@@ -189,6 +189,9 @@
   <data name="Error_changing_your_user_name" xml:space="preserve">
     <value>Error changing your user name.</value>
   </data>
+  <data name="Fabric_has_been_created_successfully" xml:space="preserve">
+    <value>Fabric has been created successfully.</value>
+  </data>
   <data name="File_has_not_been_uploaded" xml:space="preserve">
     <value>File has not been uploaded.</value>
   </data>

@@ -381,6 +381,9 @@
   <data name="Clients" xml:space="preserve">
     <value>客户</value>
   </data>
+  <data name="Client_by_that_name_not_found" xml:space="preserve">
+    <value>找不到该名称的客户端</value>
+  </data>
   <data name="Client_Side_Authorization" xml:space="preserve">
     <value>客户端授权</value>
   </data>
@@ -663,6 +666,9 @@
   <data name="Exporting_data_may_take_a_while" xml:space="preserve">
     <value>可能需要一段时间。</value>
   </data>
+  <data name="Fabric" xml:space="preserve">
+    <value>织物</value>
+  </data>
   <data name="Failed" xml:space="preserve">
     <value>已失败！</value>
   </data>
@@ -827,6 +833,9 @@
   </data>
   <data name="If_you_wish_to_change_the_key_used_in_an_authenticator_app_you_should" xml:space="preserve">
     <value>如果您想更改身份验证器应用中使用的密钥，您应该更改</value>
+  </data>
+  <data name="Image" xml:space="preserve">
+    <value>图像</value>
   </data>
   <data name="Im_sorry_I_can't_display_anything_until_you" xml:space="preserve">
     <value>对不起，在你之前我什么也展示不了</value>
@@ -996,6 +1005,9 @@
   <data name="Month_Names" xml:space="preserve">
     <value>月名称</value>
   </data>
+  <data name="More_clients_found" xml:space="preserve">
+    <value>找到更多客户</value>
+  </data>
   <data name="My_Account" xml:space="preserve">
     <value>我的帐户</value>
   </data>
@@ -1035,8 +1047,14 @@
   <data name="Normally_this_would_be_emailed" xml:space="preserve">
     <value>通常，这将通过电子邮件发送</value>
   </data>
+  <data name="Notes" xml:space="preserve">
+    <value>笔记</value>
+  </data>
   <data name="November" xml:space="preserve">
     <value>十一月</value>
+  </data>
+  <data name="No_clients_found" xml:space="preserve">
+    <value>未找到客户端。</value>
   </data>
   <data name="No_Credit_Card_Required" xml:space="preserve">
     <value>无需信用卡！</value>
@@ -1131,6 +1149,9 @@
   <data name="Profile_Picture" xml:space="preserve">
     <value>配置文件图片</value>
   </data>
+  <data name="Profit" xml:space="preserve">
+    <value>利润</value>
+  </data>
   <data name="Proof_of_Concepts" xml:space="preserve">
     <value>概念证明</value>
   </data>
@@ -1199,6 +1220,9 @@
   </data>
   <data name="Remove" xml:space="preserve">
     <value>删除</value>
+  </data>
+  <data name="Replace_image" xml:space="preserve">
+    <value>替换图像</value>
   </data>
   <data name="Reporting" xml:space="preserve">
     <value>报！</value>
@@ -1295,6 +1319,9 @@
   </data>
   <data name="Role_Name" xml:space="preserve">
     <value>角色名称</value>
+  </data>
+  <data name="Room" xml:space="preserve">
+    <value>房间</value>
   </data>
   <data name="Rows_Per_Page" xml:space="preserve">
     <value>每页行：</value>
@@ -1500,6 +1527,9 @@
   <data name="To_use_an_authenticator_app_go_through_the_following_steps" xml:space="preserve">
     <value>要使用身份验证器应用，请经历以下步骤：</value>
   </data>
+  <data name="Try_entering_more_letters" xml:space="preserve">
+    <value>尝试输入更多字母。</value>
+  </data>
   <data name="Two_Factor_Authentication" xml:space="preserve">
     <value>双重身份验证</value>
   </data>
@@ -1535,6 +1565,9 @@
   </data>
   <data name="Upload_Documents" xml:space="preserve">
     <value>上传文档</value>
+  </data>
+  <data name="Upload_image" xml:space="preserve">
+    <value>上传图片</value>
   </data>
   <data name="Username" xml:space="preserve">
     <value>用户名</value>
@@ -1587,6 +1620,12 @@
   <data name="Wind" xml:space="preserve">
     <value>风</value>
   </data>
+  <data name="Window" xml:space="preserve">
+    <value>窗</value>
+  </data>
+  <data name="Window_Measurements" xml:space="preserve">
+    <value>窗口测量</value>
+  </data>
   <data name="Workroom" xml:space="preserve">
     <value>车间</value>
   </data>
@@ -1598,6 +1637,9 @@
   </data>
   <data name="Workroom_Name" xml:space="preserve">
     <value>工作室名称</value>
+  </data>
+  <data name="Work_Order" xml:space="preserve">
+    <value>工作订单</value>
   </data>
   <data name="Work_Orders" xml:space="preserve">
     <value>工单</value>

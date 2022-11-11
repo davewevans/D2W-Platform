@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using D2W.Application.Common.Interfaces.UseCases;
 using D2W.Application.Common.Managers;
+using D2W.Application.Features.Clients.Queries.GetClients;
 using D2W.Application.Features.DesignConcepts.Commands.CreateDesignConcept;
 using D2W.Application.Features.DesignConcepts.Queries.GetDesignConceptForEdit;
 using D2W.Application.Features.DesignConcepts.Queries.GetDesignConcepts;
@@ -61,6 +62,14 @@ public class DesignConceptUseCase : IDesignConceptUseCase
             .Select(designConcept => DesignConceptItem.MapFromEntity(designConcept))
             .AsNoTracking()
             .ToPagedListAsync(request.PageNumber, request.RowsPerPage);
+
+
+        foreach (var designConcept in designConcepts.Items)
+        {
+            var client = await _userManager.FindByIdAsync(designConcept.ClientId);
+            designConcept.Client = ClientItem.MapFromEntity(client, designConcept.TenantId);
+        }
+
 
         var designConceptsResponse = new DesignConceptsResponse
         {

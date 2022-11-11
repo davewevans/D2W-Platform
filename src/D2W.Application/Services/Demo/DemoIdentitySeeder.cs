@@ -1,4 +1,5 @@
 ﻿using D2W.Application.Common.Managers;
+using D2W.Application.Features.Fabrics.Commands.CreateFabric;
 using D2W.Application.Features.Identity.Account.Commands.RegisterClient;
 using D2W.Application.Features.Identity.Account.Commands.RegisterWorkroom;
 namespace D2W.Application.Services.Demo;
@@ -201,9 +202,67 @@ public class DemoIdentitySeeder : IDemoIdentitySeeder
         await _mediator.Send(request2);
     }
 
-    public Task SeedDemoFabrics()
+    public async Task SeedDemoFabrics()
     {
-        throw new NotImplementedException();
+        var fabric1 = new CreateFabricCommand
+        {
+            ManufacturerName = "Fabricut Contract",
+            BrandName = "Fabricut Contract",
+            ProductNumber = "12345678",
+            Pattern = "Percival On Tx Spice",
+            Color = "Orange / Spice",
+            SwatchImageUri = "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/PercivalOnTxSpice.jpg",
+            CostPerYard = 2.5f,
+            CostPerMeter = 2.5f,
+            IsRepeating = false,
+            VerticalRepeatInInches = 27,
+            VerticalRepeatInCentimeters = 68.58f,
+            HorizontalRepeatInInches = 27,
+            HorizontalRepeatInCentimeters = 68.58f,
+            WidthInInches = 54,
+            WidthInCentimeters = 137.16f
+        };
+        var fabric2 = new CreateFabricCommand
+        {
+            ManufacturerName = "Fabricut Contract",
+            BrandName = "Fabricut Contract",
+            ProductNumber = "12345678",
+            Pattern = "Shay On Cn Sand",
+            Color = "Beige",
+            SwatchImageUri = "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/Shay-On-Cn-Sand.jpg",
+            CostPerYard = 1.75f,
+            CostPerMeter = 1.75f,
+            IsRepeating = false,
+            VerticalRepeatInInches = 6,
+            VerticalRepeatInCentimeters = 15.24f,
+            HorizontalRepeatInInches = 4.5f,
+            HorizontalRepeatInCentimeters = 11.43f,
+            WidthInInches = 54,
+            WidthInCentimeters = 137.16f
+        };
+        var fabric3 = new CreateFabricCommand
+        {
+            ManufacturerName = "Fabricut Contract",
+            BrandName = "Fabricut Contract",
+            ProductNumber = "12345678",
+            Pattern = "Merritt On Cn Morning Fog",
+            Color = "Beige",
+            SwatchImageUri = "https://d2wdevstorage.blob.core.windows.net/d2wdevblob/Merritt-On-Cn-Morning-Fog.jpg",
+            CostPerYard = 1.25f,
+            CostPerMeter = 1.25f,
+            IsRepeating = false,
+            VerticalRepeatInInches = 43,
+            VerticalRepeatInCentimeters = 109.22f,
+            HorizontalRepeatInInches = 27,
+            HorizontalRepeatInCentimeters = 68.58f,
+            WidthInInches = 54,
+            WidthInCentimeters = 137.16f
+        };
+        
+
+        await _mediator.Send(fabric1);
+        await _mediator.Send(fabric2);
+        await _mediator.Send(fabric3);
     }
 
     public string GetRandomProfilePic()

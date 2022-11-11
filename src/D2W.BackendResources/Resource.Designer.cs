@@ -277,6 +277,15 @@ namespace D2W.BackendResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Fabric has been created successfully..
+        /// </summary>
+        public static string Fabric_has_been_created_successfully {
+            get {
+                return ResourceManager.GetString("Fabric_has_been_created_successfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to File has not been uploaded..
         /// </summary>
         public static string File_has_not_been_uploaded {

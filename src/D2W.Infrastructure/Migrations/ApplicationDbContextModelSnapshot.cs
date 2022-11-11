@@ -136,26 +136,14 @@ namespace D2W.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("AccentFabric1")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("AccentFabric2")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("AccentFabric3")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("AccentFabric4")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("AccentFabric5")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<bool>("ApprovedByClient")
                         .HasColumnType("bit");
 
-                    b.Property<Guid>("ClientId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("ClientId")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ClientNotes")
                         .HasColumnType("nvarchar(max)");
@@ -178,24 +166,26 @@ namespace D2W.Infrastructure.Migrations
                     b.Property<bool>("IsArchived")
                         .HasColumnType("bit");
 
-                    b.Property<Guid?>("MainFabric")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("ModifiedBy")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<Guid>("TenantId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ApplicationUserId");
+
                     b.ToTable("DesignConcepts");
                 });
 
-            modelBuilder.Entity("D2W.Domain.Entities.DraperyCalculationsModel", b =>
+            modelBuilder.Entity("D2W.Domain.Entities.FabricCalculationsModel", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -215,6 +205,12 @@ namespace D2W.Infrastructure.Migrations
 
                     b.Property<Guid>("DesignConceptId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("FabricId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("FabricPriority")
+                        .HasColumnType("int");
 
                     b.Property<float>("FabricWidth")
                         .HasColumnType("real");
@@ -266,8 +262,9 @@ namespace D2W.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DesignConceptId")
-                        .IsUnique();
+                    b.HasIndex("DesignConceptId");
+
+                    b.HasIndex("FabricId");
 
                     b.ToTable("FabricCalculations");
                 });
@@ -277,6 +274,9 @@ namespace D2W.Infrastructure.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("BrandName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Color")
                         .HasColumnType("nvarchar(max)");
@@ -299,6 +299,12 @@ namespace D2W.Infrastructure.Migrations
                     b.Property<DateTime?>("DeletedOn")
                         .HasColumnType("datetime2");
 
+                    b.Property<float>("HorizontalRepeatInCentimeters")
+                        .HasColumnType("real");
+
+                    b.Property<float>("HorizontalRepeatInInches")
+                        .HasColumnType("real");
+
                     b.Property<bool>("IsRepeating")
                         .HasColumnType("bit");
 
@@ -311,23 +317,29 @@ namespace D2W.Infrastructure.Migrations
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Pattern")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<float>("RepeatingLengthInCentimeters")
-                        .HasColumnType("real");
-
-                    b.Property<float>("RepeatingLengthInInches")
-                        .HasColumnType("real");
+                    b.Property<string>("ProductNumber")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SwatchImageUri")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("TenantId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<float>("VerticalRepeatInCentimeters")
+                        .HasColumnType("real");
+
+                    b.Property<float>("VerticalRepeatInInches")
+                        .HasColumnType("real");
+
+                    b.Property<float>("WidthInCentimeters")
+                        .HasColumnType("real");
+
+                    b.Property<float>("WidthInInches")
+                        .HasColumnType("real");
 
                     b.HasKey("Id");
 
@@ -1197,15 +1209,30 @@ namespace D2W.Infrastructure.Migrations
                     b.Navigation("ApplicationUser");
                 });
 
-            modelBuilder.Entity("D2W.Domain.Entities.DraperyCalculationsModel", b =>
+            modelBuilder.Entity("D2W.Domain.Entities.DesignConceptModel", b =>
+                {
+                    b.HasOne("D2W.Domain.Entities.Identity.ApplicationUser", "ApplicationUser")
+                        .WithMany("DesignConcepts")
+                        .HasForeignKey("ApplicationUserId");
+
+                    b.Navigation("ApplicationUser");
+                });
+
+            modelBuilder.Entity("D2W.Domain.Entities.FabricCalculationsModel", b =>
                 {
                     b.HasOne("D2W.Domain.Entities.DesignConceptModel", "DesignConcept")
-                        .WithOne("FabricCalculations")
-                        .HasForeignKey("D2W.Domain.Entities.DraperyCalculationsModel", "DesignConceptId")
+                        .WithMany("FabricCalculations")
+                        .HasForeignKey("DesignConceptId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("D2W.Domain.Entities.FabricModel", "Fabric")
+                        .WithMany("FabricCalculations")
+                        .HasForeignKey("FabricId");
+
                     b.Navigation("DesignConcept");
+
+                    b.Navigation("Fabric");
                 });
 
             modelBuilder.Entity("D2W.Domain.Entities.Identity.ApplicationPermission", b =>
@@ -1358,6 +1385,11 @@ namespace D2W.Infrastructure.Migrations
                     b.Navigation("WindowMeasurements");
                 });
 
+            modelBuilder.Entity("D2W.Domain.Entities.FabricModel", b =>
+                {
+                    b.Navigation("FabricCalculations");
+                });
+
             modelBuilder.Entity("D2W.Domain.Entities.Identity.ApplicationPermission", b =>
                 {
                     b.Navigation("Permissions");
@@ -1375,6 +1407,8 @@ namespace D2W.Infrastructure.Migrations
                     b.Navigation("Claims");
 
                     b.Navigation("ContactDetails");
+
+                    b.Navigation("DesignConcepts");
 
                     b.Navigation("Logins");
 

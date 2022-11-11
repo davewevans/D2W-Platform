@@ -189,6 +189,9 @@
   <data name="Error_changing_your_user_name" xml:space="preserve">
     <value>आपके उपयोगकर्ता नाम को बदलने में त्रुटि।</value>
   </data>
+  <data name="Fabric_has_been_created_successfully" xml:space="preserve">
+    <value>फैब्रिक सफलतापूर्वक बनाया गया है।</value>
+  </data>
   <data name="File_has_not_been_uploaded" xml:space="preserve">
     <value>फाइल अपलोड नहीं की गई है।</value>
   </data>

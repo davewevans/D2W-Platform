@@ -8,6 +8,7 @@ using D2W.Application.Common.Extensions;
 using Microsoft.ApplicationInsights.AspNetCore.Extensions;
 using Microsoft.ApplicationInsights.Extensibility;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 // Serilog
 // ref: https://code-maze.com/structured-logging-in-asp-net-core-with-serilog/
@@ -21,7 +22,15 @@ Log.Logger = new LoggerConfiguration()
 try
 {
     Log.Information("Starting web host");
-    var builder = WebApplication.CreateBuilder(args);
+    var builder = WebApplication.CreateBuilder(new WebApplicationOptions
+    {
+        Args = args,
+
+        //
+        // TODO remove before deploy. 
+        //
+        // EnvironmentName = Environments.Production
+    });
 
     // Enables Application Insights telemetry collection.
     builder.ConfigureApplcationInsightsTelemetry();
@@ -108,8 +117,9 @@ try
 
         try
         {
-            //var context = services.GetRequiredService<ApplicationDbContext>();
-            //await context.Database.EnsureCreatedAsync();
+            var context = services.GetRequiredService<ApplicationDbContext>();
+            await context.Database.EnsureCreatedAsync();
+            //await context.Database.MigrateAsync();
 
             var permissionScannerService = services.GetRequiredService<IPermissionScannerService>();
             await ApplicationDbContextSeeder.SeedAsync(permissionScannerService);

@@ -11,7 +11,7 @@ namespace D2W.WebPortal.Features.DesignConcepts.Queries.GetDesignConcepts
 
         public Guid Id { get; set; }
         public Guid TenantId { get; set; }
-        public MeasurementSystem MeasurementSystem { get; set; }
+        public string MeasurementSystem { get; set; }
         public string Notes { get; set; }
         public string Room { get; set; }
         public string Window { get; set; }

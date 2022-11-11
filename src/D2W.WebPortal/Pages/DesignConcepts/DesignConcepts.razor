@@ -60,15 +60,15 @@
                         Icon="@Icons.Material.Filled.Add" OnClick="AddDesignConcept" />
             </ToolBarContent>
             <HeaderContent>
-                <MudTh><MudTableSortLabel SortLabel="FullName" T="DesignConceptItem">@Resource.FullName</MudTableSortLabel></MudTh>
-                <MudTh><MudTableSortLabel SortLabel="Email" T="DesignConceptItem">@Resource.Email</MudTableSortLabel></MudTh>
-                <MudTh><MudTableSortLabel SortLabel="PhoneNumber" T="DesignConceptItem">@Resource.Phone_Number</MudTableSortLabel></MudTh>
+                <MudTh><MudTableSortLabel SortLabel="Client" T="DesignConceptItem">@Resource.Client</MudTableSortLabel></MudTh>
+                <MudTh><MudTableSortLabel SortLabel="Room" T="DesignConceptItem">@Resource.Room</MudTableSortLabel></MudTh>
+                <MudTh><MudTableSortLabel SortLabel="Window" T="DesignConceptItem">@Resource.Window</MudTableSortLabel></MudTh>
                 <MudTh>@Resource.Options</MudTh>
             </HeaderContent>
             <RowTemplate>
-                <MudTd DataLabel="Name">@designConcept.Name</MudTd>
-                <MudTd DataLabel="Email">@designConcept.Name</MudTd>
-                <MudTd DataLabel="PhoneNumber">@designConcept.Name</MudTd>
+                <MudTd DataLabel="Client">@designConcept.Client?.FullName</MudTd>
+                <MudTd DataLabel="Room">@designConcept.WindowMeasurementsItem.Room</MudTd>
+                <MudTd DataLabel="Window">@designConcept.WindowMeasurementsItem.Window</MudTd>
                 <MudTd>
                     <MudButtonGroup Color="Color.Primary" Variant="Variant.Text">
 

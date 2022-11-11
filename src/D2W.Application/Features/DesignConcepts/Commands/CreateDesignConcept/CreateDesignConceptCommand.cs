@@ -21,7 +21,7 @@ public class CreateDesignConceptCommand : IRequest<Envelope<CreateDesignConceptR
 
     public string ImageUrl { get; set; }
 
-    public Guid? ClientId { get; set; }
+    public string ClientId { get; set; }
 
     public WindowMeasurementsItemForAdd WindowMeasurementsItem { get; set; }
     public List<FabricCalculationsItemForAdd> FabricCalculationsItems { get; set; }
@@ -50,7 +50,7 @@ public class CreateDesignConceptCommand : IRequest<Envelope<CreateDesignConceptR
     public class CreateDesignConceptCommandHandler : IRequestHandler<CreateDesignConceptCommand, Envelope<CreateDesignConceptResponse>>
     {
         #region Private Fields
-
+            
         private readonly IDesignConceptUseCase _designConceptUseCase;
 
         #endregion Private Fields

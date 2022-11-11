@@ -23,7 +23,7 @@ public partial class Login
 
     protected override void OnInitialized()
     {
-        LoginCommand.Email = "sparmenter28@bloglines.com";
+        LoginCommand.Email = "dmaccarrane2b@theguardian.com";
         LoginCommand.Password = "P@ssword123";
     }
 

@@ -138,6 +138,39 @@ namespace D2W.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Fabrics",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    TenantId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ManufacturerName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    BrandName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ProductNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Pattern = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Color = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SwatchImageUri = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CostPerYard = table.Column<float>(type: "real", nullable: false),
+                    CostPerMeter = table.Column<float>(type: "real", nullable: false),
+                    IsRepeating = table.Column<bool>(type: "bit", nullable: false),
+                    VerticalRepeatInInches = table.Column<float>(type: "real", nullable: false),
+                    VerticalRepeatInCentimeters = table.Column<float>(type: "real", nullable: false),
+                    HorizontalRepeatInInches = table.Column<float>(type: "real", nullable: false),
+                    HorizontalRepeatInCentimeters = table.Column<float>(type: "real", nullable: false),
+                    WidthInInches = table.Column<float>(type: "real", nullable: false),
+                    WidthInCentimeters = table.Column<float>(type: "real", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DeletedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Fabrics", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "FileStorageSettings",
                 schema: "Settings",
                 columns: table => new
@@ -280,6 +313,25 @@ namespace D2W.Infrastructure.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_UserSettings", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "WorkOrders",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    WorkOrderNumber = table.Column<int>(type: "int", nullable: false),
+                    TenantId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DeletedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_WorkOrders", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -441,6 +493,7 @@ namespace D2W.Infrastructure.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    TenantId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CompanyName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     AltPhone1 = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     AltPhone2 = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -472,6 +525,36 @@ namespace D2W.Infrastructure.Migrations
                     table.PrimaryKey("PK_ContactDetails", x => x.Id);
                     table.ForeignKey(
                         name: "FK_ContactDetails_AspNetUsers_ApplicationUserId",
+                        column: x => x.ApplicationUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "DesignConcepts",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    TenantId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ClientId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsArchived = table.Column<bool>(type: "bit", nullable: false),
+                    ApprovedByClient = table.Column<bool>(type: "bit", nullable: false),
+                    ClientNotes = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DeletedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    ApplicationUserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DesignConcepts", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_DesignConcepts_AspNetUsers_ApplicationUserId",
                         column: x => x.ApplicationUserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id");
@@ -537,6 +620,90 @@ namespace D2W.Infrastructure.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "FabricCalculations",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    TenantId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    MeasurementSystem = table.Column<int>(type: "int", nullable: false),
+                    FabricPriority = table.Column<int>(type: "int", nullable: false),
+                    FinishedLength = table.Column<float>(type: "real", nullable: false),
+                    TrimOff = table.Column<float>(type: "real", nullable: false),
+                    Hems = table.Column<float>(type: "real", nullable: false),
+                    Headings = table.Column<float>(type: "real", nullable: false),
+                    Puddling = table.Column<float>(type: "real", nullable: false),
+                    PatternRepeatLength = table.Column<float>(type: "real", nullable: false),
+                    Fullness = table.Column<float>(type: "real", nullable: false),
+                    FabricWidth = table.Column<float>(type: "real", nullable: false),
+                    RodFaceWidth = table.Column<float>(type: "real", nullable: false),
+                    Overhang = table.Column<float>(type: "real", nullable: false),
+                    Overlap = table.Column<float>(type: "real", nullable: false),
+                    Return = table.Column<float>(type: "real", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DeletedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DesignConceptId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    FabricId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_FabricCalculations", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_FabricCalculations_DesignConcepts_DesignConceptId",
+                        column: x => x.DesignConceptId,
+                        principalTable: "DesignConcepts",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_FabricCalculations_Fabrics_FabricId",
+                        column: x => x.FabricId,
+                        principalTable: "Fabrics",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "WindowMeasurements",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    TenantId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    MeasurementSystem = table.Column<int>(type: "int", nullable: false),
+                    Notes = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Room = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Window = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    OutsideLeftToRight = table.Column<float>(type: "real", nullable: false),
+                    OutsideTopToBottom = table.Column<float>(type: "real", nullable: false),
+                    InsideLeftToRight = table.Column<float>(type: "real", nullable: false),
+                    InsideTopToBottom = table.Column<float>(type: "real", nullable: false),
+                    TopFrameToCeilingOrCrown = table.Column<float>(type: "real", nullable: false),
+                    BottomFrameToFloor = table.Column<float>(type: "real", nullable: false),
+                    FloorToCeilingOrCrown = table.Column<float>(type: "real", nullable: false),
+                    TopFrameToFloor = table.Column<float>(type: "real", nullable: false),
+                    LeftCasingToWallOrObstruction = table.Column<float>(type: "real", nullable: false),
+                    RightCasingToWallOrObstruction = table.Column<float>(type: "real", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DeletedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DesignConceptId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_WindowMeasurements", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_WindowMeasurements_DesignConcepts_DesignConceptId",
+                        column: x => x.DesignConceptId,
+                        principalTable: "DesignConcepts",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetPermissions_ParentId",
                 table: "AspNetPermissions",
@@ -585,9 +752,22 @@ namespace D2W.Infrastructure.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_ContactDetails_ApplicationUserId",
                 table: "ContactDetails",
-                column: "ApplicationUserId",
-                unique: true,
-                filter: "[ApplicationUserId] IS NOT NULL");
+                column: "ApplicationUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_DesignConcepts_ApplicationUserId",
+                table: "DesignConcepts",
+                column: "ApplicationUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_FabricCalculations_DesignConceptId",
+                table: "FabricCalculations",
+                column: "DesignConceptId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_FabricCalculations_FabricId",
+                table: "FabricCalculations",
+                column: "FabricId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_References_ApplicantId",
@@ -610,6 +790,12 @@ namespace D2W.Infrastructure.Migrations
                 name: "IX_TenantsWorkrooms_ApplicationUserId",
                 table: "TenantsWorkrooms",
                 column: "ApplicationUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_WindowMeasurements_DesignConceptId",
+                table: "WindowMeasurements",
+                column: "DesignConceptId",
+                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -640,6 +826,9 @@ namespace D2W.Infrastructure.Migrations
 
             migrationBuilder.DropTable(
                 name: "Countries");
+
+            migrationBuilder.DropTable(
+                name: "FabricCalculations");
 
             migrationBuilder.DropTable(
                 name: "FileStorageSettings",
@@ -678,16 +867,28 @@ namespace D2W.Infrastructure.Migrations
                 schema: "Settings");
 
             migrationBuilder.DropTable(
+                name: "WindowMeasurements");
+
+            migrationBuilder.DropTable(
+                name: "WorkOrders");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
+
+            migrationBuilder.DropTable(
+                name: "Fabrics");
 
             migrationBuilder.DropTable(
                 name: "Applicants");
 
             migrationBuilder.DropTable(
-                name: "AspNetUsers");
+                name: "Tenants");
 
             migrationBuilder.DropTable(
-                name: "Tenants");
+                name: "DesignConcepts");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUsers");
         }
     }
 }

@@ -12,6 +12,7 @@ namespace D2W.WebPortal.Features.DesignConcepts.Commands.CreateDesignConceptComm
         public CreateDesignConceptCommand()
         {
             FabricCalculationsItems = new List<FabricCalculationsItemForAdd>();
+            WindowMeasurementsItem = new WindowMeasurementsItemForAdd();
         }
 
         #endregion Public Constructors
@@ -22,7 +23,7 @@ namespace D2W.WebPortal.Features.DesignConcepts.Commands.CreateDesignConceptComm
 
         public string ImageUrl { get; set; }
 
-        public Guid? ClientId { get; set; }
+        public string? ClientId { get; set; }
 
         public WindowMeasurementsItemForAdd WindowMeasurementsItem { get; set; }
         public List<FabricCalculationsItemForAdd> FabricCalculationsItems { get; set; }

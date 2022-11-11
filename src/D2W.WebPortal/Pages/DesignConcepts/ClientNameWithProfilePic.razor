@@ -1,0 +1,30 @@
+@using Features.Clients.Queries.GetClients
+
+@if (SelectedClient?.FullName is not null)
+{
+    <div class="d-flex align-center justify-center gap-4 mb-6">
+        @if (!string.IsNullOrWhiteSpace(SelectedClient.AvatarUri))
+        {
+            <MudImage Src="@SelectedClient.AvatarUri"
+                    Width="64"
+                    Height="64"
+                    Alt="@SelectedClient.FullName"
+                    Elevation="25"
+            Class="rounded-lg ma-4" />
+        }
+        else
+        {
+            <MudIcon Icon="@Icons.Material.Filled.Person" Color="Color.Primary" Size="Size.Large" />
+        }
+
+        <MudText>
+            @SelectedClient.FullName
+        </MudText>
+    </div>
+
+}
+
+@code {
+    [Parameter]
+    public ClientItem? SelectedClient { get; set; }
+}

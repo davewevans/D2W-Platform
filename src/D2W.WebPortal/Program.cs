@@ -117,6 +117,11 @@ public class Program
 
         services.AddScoped<IWorkroomsClient, WorkroomsClient>();
 
+        services.AddScoped<IDesignConceptsClient, DesignConceptsClient>();
+
+        services.AddScoped<IFabricsClient, FabricsClient>();
+
+
 
         services.AddLocalization();
 

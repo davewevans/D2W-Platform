@@ -381,6 +381,9 @@
   <data name="Clients" xml:space="preserve">
     <value>Clienti</value>
   </data>
+  <data name="Client_by_that_name_not_found" xml:space="preserve">
+    <value>Client con quel nome non trovato</value>
+  </data>
   <data name="Client_Side_Authorization" xml:space="preserve">
     <value>Autorizzazione lato client</value>
   </data>
@@ -663,6 +666,9 @@
   <data name="Exporting_data_may_take_a_while" xml:space="preserve">
     <value>L'esportazione dei dati potrebbe richiedere del tempo.</value>
   </data>
+  <data name="Fabric" xml:space="preserve">
+    <value>Tessuto</value>
+  </data>
   <data name="Failed" xml:space="preserve">
     <value>Fallito</value>
   </data>
@@ -827,6 +833,9 @@
   </data>
   <data name="If_you_wish_to_change_the_key_used_in_an_authenticator_app_you_should" xml:space="preserve">
     <value>Se desideri modificare la chiave utilizzata in un'app di autenticazione, dovresti</value>
+  </data>
+  <data name="Image" xml:space="preserve">
+    <value>Immagine</value>
   </data>
   <data name="Im_sorry_I_can't_display_anything_until_you" xml:space="preserve">
     <value>Mi dispiace, non posso visualizzare nulla fino a quando non ti</value>
@@ -996,6 +1005,9 @@
   <data name="Month_Names" xml:space="preserve">
     <value>Nomi dei mesi</value>
   </data>
+  <data name="More_clients_found" xml:space="preserve">
+    <value>Altri clienti trovati</value>
+  </data>
   <data name="My_Account" xml:space="preserve">
     <value>Il mio account</value>
   </data>
@@ -1035,8 +1047,14 @@
   <data name="Normally_this_would_be_emailed" xml:space="preserve">
     <value>Normalmente questo verrebbe inviato via e-mail</value>
   </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Note</value>
+  </data>
   <data name="November" xml:space="preserve">
     <value>Novembre</value>
+  </data>
+  <data name="No_clients_found" xml:space="preserve">
+    <value>Nessun client trovato.</value>
   </data>
   <data name="No_Credit_Card_Required" xml:space="preserve">
     <value>Nessuna necessità di carta di credito.</value>
@@ -1131,6 +1149,9 @@
   <data name="Profile_Picture" xml:space="preserve">
     <value>Immagine del profilo</value>
   </data>
+  <data name="Profit" xml:space="preserve">
+    <value>Profitto</value>
+  </data>
   <data name="Proof_of_Concepts" xml:space="preserve">
     <value>Prova di concetti</value>
   </data>
@@ -1199,6 +1220,9 @@
   </data>
   <data name="Remove" xml:space="preserve">
     <value>Togliere</value>
+  </data>
+  <data name="Replace_image" xml:space="preserve">
+    <value>Sostituisci immagine</value>
   </data>
   <data name="Reporting" xml:space="preserve">
     <value>Cronaca</value>
@@ -1295,6 +1319,9 @@
   </data>
   <data name="Role_Name" xml:space="preserve">
     <value>Nome ruolo</value>
+  </data>
+  <data name="Room" xml:space="preserve">
+    <value>Camera</value>
   </data>
   <data name="Rows_Per_Page" xml:space="preserve">
     <value>Righe per pagina:</value>
@@ -1500,6 +1527,9 @@
   <data name="To_use_an_authenticator_app_go_through_the_following_steps" xml:space="preserve">
     <value>Per usare un'app di autenticazione, procedi nel seguente modo:</value>
   </data>
+  <data name="Try_entering_more_letters" xml:space="preserve">
+    <value>Prova a inserire più lettere.</value>
+  </data>
   <data name="Two_Factor_Authentication" xml:space="preserve">
     <value>Autenticazione a due fattori</value>
   </data>
@@ -1535,6 +1565,9 @@
   </data>
   <data name="Upload_Documents" xml:space="preserve">
     <value>Carica documenti</value>
+  </data>
+  <data name="Upload_image" xml:space="preserve">
+    <value>Carica immagine</value>
   </data>
   <data name="Username" xml:space="preserve">
     <value>Nome utente</value>
@@ -1587,6 +1620,12 @@
   <data name="Wind" xml:space="preserve">
     <value>Vento</value>
   </data>
+  <data name="Window" xml:space="preserve">
+    <value>Finestra</value>
+  </data>
+  <data name="Window_Measurements" xml:space="preserve">
+    <value>Misure delle finestre</value>
+  </data>
   <data name="Workroom" xml:space="preserve">
     <value>Laboratorio</value>
   </data>
@@ -1598,6 +1637,9 @@
   </data>
   <data name="Workroom_Name" xml:space="preserve">
     <value>Nome del laboratorio</value>
+  </data>
+  <data name="Work_Order" xml:space="preserve">
+    <value>Ordine di lavoro</value>
   </data>
   <data name="Work_Orders" xml:space="preserve">
     <value>Ordini di lavoro</value>

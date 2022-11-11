@@ -11,8 +11,8 @@ namespace D2W.WebPortal.Features.DesignConcepts.Queries.GetDesignConcepts
 
         public Guid Id { get; set; }
         public Guid TenantId { get; set; }
-        public MeasurementSystem MeasurementSystem { get; set; }
-        public FabricPriority FabricPriority { get; set; }
+        public string MeasurementSystem { get; set; }
+        public string FabricPriority { get; set; }
         public float FinishedLength { get; set; }
         public float TrimOff { get; set; }
         public float Hems { get; set; }

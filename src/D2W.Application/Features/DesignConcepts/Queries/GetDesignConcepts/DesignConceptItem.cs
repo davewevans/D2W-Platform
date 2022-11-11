@@ -1,4 +1,5 @@
-﻿using D2W.Application.Features.Clients.Queries.GetClients;
+﻿using D2W.Application.Common.Managers;
+using D2W.Application.Features.Clients.Queries.GetClients;
 
 namespace D2W.Application.Features.DesignConcepts.Queries.GetDesignConcepts;
 
@@ -24,7 +25,7 @@ public class DesignConceptItem : AuditableDto
 
     public string ImageUrl { get; set; }
 
-    public Guid? ClientId { get; set; }
+    public string ClientId { get; set; }
 
     public ClientItem Client { get; set; }
 

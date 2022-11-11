@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using D2W.WebPortal.Features.Fabrics.Queries.GetFabrics;
 
 namespace D2W.WebPortal.Interfaces.Consumers
 {
@@ -11,7 +12,7 @@ namespace D2W.WebPortal.Interfaces.Consumers
 
         // Task<HttpResponseWrapper<object>> GetFabric(GetFabricForEditQuery request);
 
-        // Task<HttpResponseWrapper<object>> GetFabrics(GetFabricsQuery request);
+        Task<HttpResponseWrapper<object>> GetFabrics(GetFabricsQuery request);
 
         // Task<HttpResponseWrapper<object>> CreateFabric(RegisterFabricCommand request);
 

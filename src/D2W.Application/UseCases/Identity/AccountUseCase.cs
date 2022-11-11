@@ -284,8 +284,9 @@ public class AccountUseCase : IAccountUseCase
         {
             await _demoIdentitySeeder.SeedDemoClients();
             await _demoIdentitySeeder.SeedDemoWorkrooms();
-            // await _demoIdentitySeeder.SeedDemoFabrics();
+            await _demoIdentitySeeder.SeedDemoFabrics();
             user.AvatarUri = _demoIdentitySeeder.GetRandomProfilePic();
+            await _userManager.UpdateAsync(user);
         }
 
 

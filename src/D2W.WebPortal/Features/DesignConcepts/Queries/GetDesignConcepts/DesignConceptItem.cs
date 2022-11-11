@@ -28,7 +28,7 @@ namespace D2W.WebPortal.Features.DesignConcepts.Queries.GetDesignConcepts
 
         public string ImageUrl { get; set; }
 
-        public Guid? ClientId { get; set; }
+        public string ClientId { get; set; }
 
         public ClientItem Client { get; set; }
 
