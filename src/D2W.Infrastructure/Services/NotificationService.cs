@@ -11,16 +11,18 @@ public class NotificationService : INotificationService
     private readonly IConfigReaderService _configReaderService;
     private readonly IApplicationDbContext _dbContext;
     private readonly ILogger<NotificationService> _logger;
+    private readonly ITenantResolver _tenantResolver;
 
     #endregion Private Fields
 
     #region Public Constructors
 
-    public NotificationService(IConfigReaderService configReaderService, IApplicationDbContext dbContext, ILogger<NotificationService> logger)
+    public NotificationService(IConfigReaderService configReaderService, IApplicationDbContext dbContext, ILogger<NotificationService> logger, ITenantResolver tenantResolver)
     {
         _configReaderService = configReaderService;
         _dbContext = dbContext;
         _logger = logger;
+        _tenantResolver = tenantResolver;
     }
 
     #endregion Public Constructors
@@ -32,7 +34,7 @@ public class NotificationService : INotificationService
         return Task.CompletedTask;
     }
 
-    public Task SendEmailAsync(string email, string subject, string htmlMessage)
+    public async Task SendEmailAsync(string email, string subject, string htmlMessage)
     {
         var connectionString = _configReaderService.GetSmtpOptions().ConnectionString;
         var emailClient = new EmailClient(connectionString);
@@ -42,14 +44,11 @@ public class NotificationService : INotificationService
 
         if (_configReaderService.GetSmtpOptions().IsForTesting)
         {
-            email = "davewevans72@gmail.com";
+            //email = "davewevans72@gmail.com";
 
-            // Send to app user email
-
-            // Get tenant id from resolver
-            // Find app user by tenant id
-            // Use that user's email for the To email
-
+            var tenantId = _tenantResolver.GetTenantId();
+            var appUser = await _dbContext.Users.FirstOrDefaultAsync(x => x.TenantId.Equals(tenantId));
+            email = appUser?.Email;
         }
 
         //Replace with your domain and modify the content, recipient details as required
@@ -107,7 +106,6 @@ public class NotificationService : INotificationService
         //client.Credentials = new NetworkCredential(_configReaderService.GetSmtpOption().Email, _configReaderService.GetSmtpOption().Password);
         //client.Send(message);
 
-        return Task.CompletedTask;
     }
 
     #endregion Public Methods
