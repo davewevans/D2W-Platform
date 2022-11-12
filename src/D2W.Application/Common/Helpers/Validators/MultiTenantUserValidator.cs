@@ -56,7 +56,7 @@ public class MultiTenantUserValidator : IUserValidator<ApplicationUser>
             if (propertyInfo != null)
                 propertyInfo.SetValue(user, Convert.ChangeType(tenantId, propertyInfo.PropertyType), null);
         }
-        else if (userInterfaces.Any(i => !i.IsGenericType && i.Name == nameof(IMayHaveTenant)))
+        else if (!user.IgnoreTenantId && userInterfaces.Any(i => !i.IsGenericType && i.Name == nameof(IMayHaveTenant)))
         {
             var tenantId = tenantResolver.GetTenantId();
             var propertyInfo = user.GetType().GetProperty("TenantId");

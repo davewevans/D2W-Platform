@@ -45,6 +45,11 @@ public class NotificationService : INotificationService
         if (_configReaderService.GetSmtpOptions().IsForTesting)
         {
             //email = "davewevans72@gmail.com";
+
+            var tenantId = _tenantResolver.GetTenantId();
+            var appUser = await _dbContext.Users.FirstOrDefaultAsync(x => x.AppUserType == ApplicationUserType.Designer
+                                                                          && x.TenantId.Equals(tenantId));
+            email = appUser?.Email;
         }
 
         //Replace with your domain and modify the content, recipient details as required

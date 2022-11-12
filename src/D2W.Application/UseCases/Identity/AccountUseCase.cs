@@ -483,6 +483,12 @@ public class AccountUseCase : IAccountUseCase
 
         code = Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(code));
 
+
+        _logger.LogDebug("ConfirmEmail");
+        _logger.LogDebug($"user: {user.Email}");
+        _logger.LogDebug($"code: {code}");
+
+
         var result = await _userManager.ConfirmEmailAsync(user, code);
 
         return !result.Succeeded

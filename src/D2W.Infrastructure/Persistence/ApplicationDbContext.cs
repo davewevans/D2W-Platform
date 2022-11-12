@@ -141,7 +141,9 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser,
 
             foreach (var entry in ChangeTracker.Entries<IMayHaveTenant>())
             {
-                if (entry.Entity.IgnoreTenantId) continue;
+                var ignoreTenantIdValue = entry.Property("IgnoreTenantId").CurrentValue;
+                bool ignoreTenantId = ignoreTenantIdValue is not null && Convert.ToBoolean(ignoreTenantIdValue);
+                if (ignoreTenantId) continue;
 
                 switch (entry.State)
                 {

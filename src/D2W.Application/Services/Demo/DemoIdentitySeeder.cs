@@ -186,9 +186,9 @@ public class DemoIdentitySeeder : IDemoIdentitySeeder
         var request2 = new RegisterWorkroomCommand
         {
             CompanyName = "Kassulke-Kozey",
-            Email = "lwaszczyky@t.co",
-            PhoneNumber = "687-570-5617",
-            AltPhone1 = "687-687-8797",
+            Email = "kyakovitch3g@narod.ru",
+            PhoneNumber = "545-956-0020",
+            AltPhone1 = "545-956-0020",
             ContactName1 = "Roze Marnane",
             AddressLine1 = "4756 Moland Lane",
             City = "Denver",
