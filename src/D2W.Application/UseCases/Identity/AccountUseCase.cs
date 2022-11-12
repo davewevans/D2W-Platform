@@ -358,6 +358,7 @@ public class AccountUseCase : IAccountUseCase
 
         if (!userExists)
         {
+            user.IgnoreTenantId = true;
             var result = await _userManager.CreateAsync(user);
 
             if (!result.Succeeded)
@@ -416,6 +417,7 @@ public class AccountUseCase : IAccountUseCase
 
         if (!userExists)
         {
+            user.IgnoreTenantId = true;
             var result = await _userManager.CreateAsync(user);
 
             if (!result.Succeeded)
