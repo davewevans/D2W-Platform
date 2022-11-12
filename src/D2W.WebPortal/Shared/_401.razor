@@ -1,13 +1,8 @@
 ﻿@page "/pages/error/401"
 
-<div class="d-flex justify-center mb-12">
-    <MudButton OnClick="NavigateToBetaRegistration"
-            Variant="Variant.Filled"
-            Size="Size.Large"
-            Color="Color.Secondary">
-        Go to Beta Registraion
-    </MudButton>
-</div>
+<MudText Class="d-flex justify-center mb-16" Typo="Typo.h6">
+    @Resource.Dont_have_an_account <MudLink Href="/beta/registrations/new" Typo="Typo.h6">@Resource.Register</MudLink>
+</MudText>
 
 
 <MudContainer Class="mt-4" MaxWidth="MaxWidth.Small">
