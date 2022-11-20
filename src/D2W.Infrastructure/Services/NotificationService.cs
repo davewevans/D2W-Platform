@@ -42,14 +42,21 @@ public class NotificationService : INotificationService
         string sender = _configReaderService.GetSmtpOptions().From;
 
 
+        _logger.LogInformation($"SendEmailAsync::email: {email}");
+
+
         if (_configReaderService.GetSmtpOptions().IsForTesting)
         {
-            //email = "davewevans72@gmail.com";
+            email = "davewevans72@gmail.com";
 
-            var tenantId = _tenantResolver.GetTenantId();
-            var appUser = await _dbContext.Users.FirstOrDefaultAsync(x => x.AppUserType == ApplicationUserType.Designer
-                                                                          && x.TenantId.Equals(tenantId));
-            email = appUser?.Email;
+            //
+            // TODO do this at caller instead
+            //
+
+            //var tenantId = _tenantResolver.GetTenantId();
+            //var appUser = await _dbContext.Users.FirstOrDefaultAsync(x => x.AppUserType == ApplicationUserType.Designer
+            //                                                              && x.TenantId.Equals(tenantId));
+            //email = appUser?.Email;
         }
 
         //Replace with your domain and modify the content, recipient details as required

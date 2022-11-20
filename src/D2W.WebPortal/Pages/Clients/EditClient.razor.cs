@@ -1,3 +1,5 @@
+using D2W.WebPortal.Features.Clients.Commands.UpdateClient;
+using D2W.WebPortal.Features.Clients.Queries.GetClientForEdit;
 using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections.Generic;
@@ -10,18 +12,7 @@ namespace D2W.WebPortal.Pages.Clients
     {
         #region Public Properties
 
-        public EditClient()
-        {
-            AddedApplicantReferencesList = new List<ReferenceItemForAdd>();
-            ModifiedApplicantReferencesList = new List<ReferenceItemForEdit>();
-            RemovedApplicantReferencesList = new List<string>();
-        }
-
         [Parameter] public string ClientId { get; set; }
-
-        public List<ReferenceItemForAdd> AddedApplicantReferencesList { get; set; }
-        public List<ReferenceItemForEdit> ModifiedApplicantReferencesList { get; set; }
-        public List<string> RemovedApplicantReferencesList { get; set; }
 
         #endregion Public Properties
 
@@ -31,12 +22,12 @@ namespace D2W.WebPortal.Pages.Clients
         [Inject] private IDialogService DialogService { get; set; }
         [Inject] private ISnackbar Snackbar { get; set; }
         [Inject] private IBreadcrumbService BreadcrumbService { get; set; }
-        [Inject] private IApplicantsClient ApplicantsClient { get; set; }
+        [Inject] private IClientsClient ClientsClient { get; set; }
 
         private ServerSideValidator ServerSideValidator { get; set; }
         private EditContextServerSideValidator EditContextServerSideValidator { get; set; }
-        private ApplicantForEdit ApplicantForEditVm { get; set; } = new();
-        private UpdateApplicantCommand UpdateApplicantCommand { get; set; }
+        private ClientForEdit ClientForEditVm { get; set; } = new();
+        private UpdateClientCommand UpdateClientCommand { get; set; }
 
         #endregion Private Properties
 
@@ -45,21 +36,24 @@ namespace D2W.WebPortal.Pages.Clients
         protected override async Task OnInitializedAsync()
         {
             BreadcrumbService.SetBreadcrumbItems(new List<BreadcrumbItem>
-        {
-            new(Resource.Home, "/"),
-            new(Resource.Applicants, "/poc/army/applicants"),
-            new(Resource.Edit_Applicant, "#", true)
-        });
+            {
+                new(Resource.Home, "/"),
+                new(Resource.Clients, "clients"),
+                new(Resource.Edit_Client, "#", true)
+            });
 
-            var httpResponseWrapper = await ApplicantsClient.GetApplicant(new GetApplicantForEditQuery
+            System.Console.WriteLine("client id: " + ClientId);
+
+            var httpResponseWrapper = await ClientsClient.GetClient(new GetClientForEditQuery
             {
                 Id = ClientId,
             });
 
             if (httpResponseWrapper.Success)
             {
-                var successResult = httpResponseWrapper.Response as SuccessResult<ApplicantForEdit>;
-                ApplicantForEditVm = successResult?.Result;
+                System.Console.WriteLine("httpResponseWrapper.Success");
+                var successResult = httpResponseWrapper.Response as SuccessResult<ClientForEdit>;
+                ClientForEditVm = successResult?.Result;
             }
             else
             {
@@ -74,66 +68,28 @@ namespace D2W.WebPortal.Pages.Clients
 
         private async Task SubmitForm()
         {
-            var parameters = new DialogParameters
-        {
-            {"ContentText", Resource.Are_you_sure_you_want_to_save_applicant},
-            {"ButtonText", Resource.Yes},
-            {"Color", Color.Error}
-        };
-
-            var options = new DialogOptions() { CloseButton = true, MaxWidth = MaxWidth.ExtraSmall };
-
-            var dialog = DialogService.Show<DialogModal>("Confirm", parameters, options);
-
-            var result = await dialog.Result;
-
-            if (!result.Cancelled)
+            UpdateClientCommand = new UpdateClientCommand
             {
-                UpdateApplicantCommand = new UpdateApplicantCommand
-                {
-                    Id = ApplicantForEditVm.Id,
-                    Ssn = ApplicantForEditVm.Ssn,
-                    FirstName = ApplicantForEditVm.FirstName,
-                    LastName = ApplicantForEditVm.LastName,
-                    DateOfBirth = ApplicantForEditVm.DateOfBirth,
-                    Height = ApplicantForEditVm.Height,
-                    Weight = ApplicantForEditVm.Weight,
-                    NewApplicantReferences = AddedApplicantReferencesList,
-                    ModifiedApplicantReferences = ModifiedApplicantReferencesList,
-                    RemovedApplicantReferences = RemovedApplicantReferencesList
-                };
-                var httpResponse = await ApplicantsClient.UpdateApplicant(UpdateApplicantCommand);
+                Id = ClientForEditVm.Id,
+                FullName = ClientForEditVm.FullName,
+                PhoneNumber = ClientForEditVm.PhoneNumber,
+                Email = ClientForEditVm.Email,
+            };
+            var httpResponse = await ClientsClient.UpdateClient(UpdateClientCommand);
 
-                if (httpResponse.Success)
-                {
-                    var successResult = httpResponse.Response as SuccessResult<string>;
-                    Snackbar.Add(successResult.Result, Severity.Success);
-                    NavigationManager.NavigateTo("poc/army/applicants");
-                }
-                else
-                {
-                    var exceptionResult = httpResponse.Response as ExceptionResult;
-                    EditContextServerSideValidator.Validate(exceptionResult);
-                    ServerSideValidator.Validate(exceptionResult);
-                }
+            if (httpResponse.Success)
+            {
+                var successResult = httpResponse.Response as SuccessResult<string>;
+                Snackbar.Add(successResult.Result, Severity.Success);
+                NavigationManager.NavigateTo("clients");
+            }
+            else
+            {
+                var exceptionResult = httpResponse.Response as ExceptionResult;
+                EditContextServerSideValidator.Validate(exceptionResult);
+                ServerSideValidator.Validate(exceptionResult);
             }
         }
-
-        private void RefreshNewApplicantReferencesList(List<ReferenceItemForAdd> referenceItems)
-        {
-            AddedApplicantReferencesList = referenceItems;
-        }
-
-        private void RefreshModifiedApplicantReferencesList(List<ReferenceItemForEdit> referenceItems)
-        {
-            ModifiedApplicantReferencesList = referenceItems;
-        }
-
-        private void RefreshRemovedApplicantReferencesList(List<string> referenceItemsIds)
-        {
-            RemovedApplicantReferencesList = referenceItemsIds;
-        }
-
         #endregion Private Methods
     }
 }

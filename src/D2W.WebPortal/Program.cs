@@ -1,3 +1,4 @@
+using CurrieTechnologies.Razor.SweetAlert2;
 using Serilog;
 using Syncfusion.Blazor;
 
@@ -44,6 +45,11 @@ public class Program
         {
             BaseAddress = new Uri(builder.Configuration.GetSection("BaseApiUrl").Value)
         }.EnableIntercept(sp));
+
+        builder.Services.AddSweetAlert2(options =>
+        {
+            options.Theme = SweetAlertTheme.Dark;
+        });
 
         ConfigureServices(builder.Services);
 

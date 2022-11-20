@@ -13,13 +13,21 @@ public class WorkOrderItemModel : IAuditable, IMustHaveTenant
 
     public Guid TenantId { get; set; }
 
-    public string Item { get; set; }
+    public WorkOrderItemType WorkOrderItemType { get; set; }
+
+    public MeasurementSystem MeasurementSystem { get; set; }
+
+    public string Name { get; set; }
+
+    public string Value { get; set; }
 
     public string Description { get; set; }
 
-    public string Color { get; set; }
+    public Guid? FabricId { get; set; }
 
-    public string Fabric { get; set; }
+    public float Yardage { get; set; }
+
+    public float Meters { get; set; }
 
     public string CreatedBy { get; set; }
     public DateTime CreatedOn { get; set; }

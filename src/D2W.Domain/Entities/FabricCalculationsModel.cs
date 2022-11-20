@@ -12,7 +12,6 @@ public class FabricCalculationsModel : IAuditable, IMustHaveTenant
     public Guid Id { get; set; }
     public Guid TenantId { get; set; }
     public MeasurementSystem MeasurementSystem { get; set; }
-    public FabricPriority FabricPriority { get; set; }
     public float FinishedLength { get; set; }
     public float TrimOff { get; set; }
     public float Hems { get; set; }
@@ -25,7 +24,6 @@ public class FabricCalculationsModel : IAuditable, IMustHaveTenant
     public float Overhang { get; set; }
     public float Overlap { get; set; }
     public float Return { get; set; }
-
 
     public string CreatedBy { get; set; }
     public DateTime CreatedOn { get; set; }

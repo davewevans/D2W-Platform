@@ -72,6 +72,7 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser,
     public DbSet<CountryModel> Countries { get; set; }
     public DbSet<DesignConceptModel> DesignConcepts { get; set; }
     public DbSet<WorkOrderModel> WorkOrders { get; set; }
+    public DbSet<WorkOrderItemModel> WorkOrderItems { get; set; }
     public DbSet<WindowMeasurementsModel> WindowMeasurements { get; set; }
     public DbSet<FabricCalculationsModel> FabricCalculations { get; set; }
     public DbSet<FabricModel> Fabrics { get; set; }

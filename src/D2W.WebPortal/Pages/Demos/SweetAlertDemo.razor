@@ -1,0 +1,22 @@
+@page "/sweetalert"
+@inject SweetAlertService SweetAlert
+
+<h3>Sweet Alert Demo</h3>
+
+<!--ref: https://github.com/Basaingeal/Razor.SweetAlert2-->
+
+
+
+<MudButton OnClick="SweetAlertTest">
+    Click me
+</MudButton>
+
+@code {
+
+    private async Task SweetAlertTest()
+    {
+        await SweetAlert.FireAsync("Hello Sweet Alert!");
+        await SweetAlert.FireAsync("Oops...", "Something went wrong!", "error");
+    }
+
+}

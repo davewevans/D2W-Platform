@@ -117,8 +117,8 @@ try
 
         try
         {
-            var context = services.GetRequiredService<ApplicationDbContext>();
-            await context.Database.EnsureCreatedAsync();
+            //var context = services.GetRequiredService<ApplicationDbContext>();
+            //await context.Database.EnsureCreatedAsync();
             //await context.Database.MigrateAsync();
 
             var permissionScannerService = services.GetRequiredService<IPermissionScannerService>();

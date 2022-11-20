@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace D2W.Application.Features.Clients.Commands.UpdateClient;
 
-public class UpdateWorkroomCommandValidator : AbstractValidator<UpdateWorkroomCommand>
+public class UpdateWorkroomCommandValidator : AbstractValidator<UpdateClientCommand>
 {
     #region Public Constructors
 

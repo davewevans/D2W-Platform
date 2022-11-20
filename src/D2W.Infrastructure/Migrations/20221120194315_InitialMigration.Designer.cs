@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace D2W.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221111211336_InitialMigration")]
+    [Migration("20221120194315_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -36,40 +36,22 @@ namespace D2W.Infrastructure.Migrations
                     b.Property<string>("AddressLine2")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("AltEmailAddress1")
+                    b.Property<string>("AltEmailAddress")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("AltEmailAddress2")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("AltPhone1")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("AltPhone2")
+                    b.Property<string>("AltPhoneNumber")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ApplicationUserId")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("AvatarUri")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("City")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CompanyName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ContactName1")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ContactName2")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ContactName3")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ContactName4")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ContactName5")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("CountryId")
@@ -87,7 +69,13 @@ namespace D2W.Infrastructure.Migrations
                     b.Property<DateTime?>("DeletedOn")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("EmailAddress")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Fax")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FullName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LogoUri")
@@ -98,6 +86,9 @@ namespace D2W.Infrastructure.Migrations
 
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PostalCode")
                         .HasColumnType("nvarchar(max)");
@@ -177,6 +168,15 @@ namespace D2W.Infrastructure.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime?>("OpenByClientAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("OpenedByClient")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("SentToClientAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<Guid>("TenantId")
                         .HasColumnType("uniqueidentifier");
 
@@ -210,9 +210,6 @@ namespace D2W.Infrastructure.Migrations
 
                     b.Property<Guid?>("FabricId")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("FabricPriority")
-                        .HasColumnType("int");
 
                     b.Property<float>("FabricWidth")
                         .HasColumnType("real");
@@ -1167,7 +1164,7 @@ namespace D2W.Infrastructure.Migrations
                     b.ToTable("WindowMeasurements");
                 });
 
-            modelBuilder.Entity("D2W.Domain.Entities.WorkOrderModel", b =>
+            modelBuilder.Entity("D2W.Domain.Entities.WorkOrderItemModel", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -1185,11 +1182,144 @@ namespace D2W.Infrastructure.Migrations
                     b.Property<DateTime?>("DeletedOn")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid?>("FabricId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("MeasurementSystem")
+                        .HasColumnType("int");
+
+                    b.Property<float>("Meters")
+                        .HasColumnType("real");
+
                     b.Property<string>("ModifiedBy")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("TenantId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid?>("WorkOrderId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("WorkOrderItemType")
+                        .HasColumnType("int");
+
+                    b.Property<float>("Yardage")
+                        .HasColumnType("real");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("WorkOrderId");
+
+                    b.ToTable("WorkOrderItems");
+                });
+
+            modelBuilder.Entity("D2W.Domain.Entities.WorkOrderModel", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ClientId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<float>("CordingSize")
+                        .HasColumnType("real");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DecoratorName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DeletedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<float>("FinishedLength")
+                        .HasColumnType("real");
+
+                    b.Property<bool>("HasBlocks")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("HasBoards")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("HasPole")
+                        .HasColumnType("bit");
+
+                    b.Property<float>("HeaderTopBottom")
+                        .HasColumnType("real");
+
+                    b.Property<float>("Hem")
+                        .HasColumnType("real");
+
+                    b.Property<bool>("IsInterline")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsLined")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("MeasurementSystem")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("NumberOfWidths")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("OpenByWorkroomAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("OpenedByWorkroom")
+                        .HasColumnType("bit");
+
+                    b.Property<float>("Overhang")
+                        .HasColumnType("real");
+
+                    b.Property<float>("Overlap")
+                        .HasColumnType("real");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("ReadyDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<float>("Return")
+                        .HasColumnType("real");
+
+                    b.Property<float>("RodFaceWidth")
+                        .HasColumnType("real");
+
+                    b.Property<DateTime?>("SentToWorkroomAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("SpecialInstructions")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("TenantId")
                         .HasColumnType("uniqueidentifier");
@@ -1380,6 +1510,15 @@ namespace D2W.Infrastructure.Migrations
                     b.Navigation("DesignConcept");
                 });
 
+            modelBuilder.Entity("D2W.Domain.Entities.WorkOrderItemModel", b =>
+                {
+                    b.HasOne("D2W.Domain.Entities.WorkOrderModel", "WorkOrder")
+                        .WithMany("WorkOrderItems")
+                        .HasForeignKey("WorkOrderId");
+
+                    b.Navigation("WorkOrder");
+                });
+
             modelBuilder.Entity("D2W.Domain.Entities.DesignConceptModel", b =>
                 {
                     b.Navigation("FabricCalculations");
@@ -1435,6 +1574,11 @@ namespace D2W.Infrastructure.Migrations
                     b.Navigation("TenantsClients");
 
                     b.Navigation("TenantsWorkrooms");
+                });
+
+            modelBuilder.Entity("D2W.Domain.Entities.WorkOrderModel", b =>
+                {
+                    b.Navigation("WorkOrderItems");
                 });
 #pragma warning restore 612, 618
         }

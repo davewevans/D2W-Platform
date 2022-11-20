@@ -160,6 +160,15 @@ namespace D2W.BackendResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Client has been successfully deleted..
+        /// </summary>
+        public static string Client_has_been_deleted_successfully {
+            get {
+                return ResourceManager.GetString("Client_has_been_deleted_successfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Client has been updated successfully..
         /// </summary>
         public static string Client_has_been_updated_successfully {
@@ -385,6 +394,15 @@ namespace D2W.BackendResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Invalid Client ID.
+        /// </summary>
+        public static string Invalid_Client_Id {
+            get {
+                return ResourceManager.GetString("Invalid_Client_Id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invalid client request..
         /// </summary>
         public static string Invalid_client_request {
@@ -462,6 +480,15 @@ namespace D2W.BackendResources {
         public static string Invalid_user_Id {
             get {
                 return ResourceManager.GetString("Invalid_user_Id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid Workroom ID..
+        /// </summary>
+        public static string Invalid_Workroom_Id {
+            get {
+                return ResourceManager.GetString("Invalid_Workroom_Id", resourceCulture);
             }
         }
         
@@ -945,11 +972,29 @@ namespace D2W.BackendResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tenant not found..
+        /// </summary>
+        public static string Tenant_not_found {
+            get {
+                return ResourceManager.GetString("Tenant_not_found", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The applicant is not found..
         /// </summary>
         public static string The_applicant_is_not_found {
             get {
                 return ResourceManager.GetString("The_applicant_is_not_found", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Client is not found..
+        /// </summary>
+        public static string The_Client_is_not_found {
+            get {
+                return ResourceManager.GetString("The_Client_is_not_found", resourceCulture);
             }
         }
         
@@ -995,6 +1040,15 @@ namespace D2W.BackendResources {
         public static string The_specified_username_and_email_are_already_registered_in_the_given_tenant {
             get {
                 return ResourceManager.GetString("The_specified_username_and_email_are_already_registered_in_the_given_tenant", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Workroom is not found..
+        /// </summary>
+        public static string The_Workroom_is_not_found {
+            get {
+                return ResourceManager.GetString("The_Workroom_is_not_found", resourceCulture);
             }
         }
         
@@ -1351,6 +1405,15 @@ namespace D2W.BackendResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to View Client.
+        /// </summary>
+        public static string View_Client {
+            get {
+                return ResourceManager.GetString("View_Client", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Weight is required..
         /// </summary>
         public static string Weight_is_required {
@@ -1365,6 +1428,15 @@ namespace D2W.BackendResources {
         public static string Workroom_already_added {
             get {
                 return ResourceManager.GetString("Workroom_already_added", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Workroom has been successfully deleted..
+        /// </summary>
+        public static string Workroom_has_been_deleted_successfully {
+            get {
+                return ResourceManager.GetString("Workroom_has_been_deleted_successfully", resourceCulture);
             }
         }
         

@@ -213,6 +213,9 @@
   <data name="April" xml:space="preserve">
     <value>4 月</value>
   </data>
+  <data name="Are_You_Sure" xml:space="preserve">
+    <value>確かですか。</value>
+  </data>
   <data name="Are_you_sure_you_want_to_change_the_settings" xml:space="preserve">
     <value>設定を変更しますか?</value>
   </data>
@@ -227,6 +230,9 @@
   </data>
   <data name="Are_you_sure_you_want_to_remove_role_name" xml:space="preserve">
     <value>ロール '{0}' を削除しますか?</value>
+  </data>
+  <data name="Are_you_sure_you_want_to_save" xml:space="preserve">
+    <value>保存してもよろしいですか?</value>
   </data>
   <data name="Are_you_sure_you_want_to_save_applicant" xml:space="preserve">
     <value>申請者を保存しますか?</value>
@@ -322,6 +328,9 @@
     <value>カリホルニウム</value>
   </data>
   <data name="Cancel" xml:space="preserve">
+    <value>キャンセル</value>
+  </data>
+  <data name="Cancelled" xml:space="preserve">
     <value>キャンセル</value>
   </data>
   <data name="Cancel_Upload" xml:space="preserve">
@@ -522,6 +531,9 @@
   <data name="Delete" xml:space="preserve">
     <value>削除</value>
   </data>
+  <data name="Deleted" xml:space="preserve">
+    <value>削除</value>
+  </data>
   <data name="Delete_my_Account" xml:space="preserve">
     <value>アカウントの削除</value>
   </data>
@@ -591,6 +603,15 @@
   <data name="Edit_Applicant" xml:space="preserve">
     <value>申請者の編集</value>
   </data>
+  <data name="Edit_Client" xml:space="preserve">
+    <value>クライアントの編集</value>
+  </data>
+  <data name="Edit_Design_Concept" xml:space="preserve">
+    <value>デザインコンセプトの編集</value>
+  </data>
+  <data name="Edit_Fabric" xml:space="preserve">
+    <value>ファブリックの編集</value>
+  </data>
   <data name="Edit_Reference" xml:space="preserve">
     <value>編集</value>
   </data>
@@ -599,6 +620,12 @@
   </data>
   <data name="Edit_User" xml:space="preserve">
     <value>ユーザーの編集</value>
+  </data>
+  <data name="Edit_Workroom" xml:space="preserve">
+    <value>ワークルームの編集</value>
+  </data>
+  <data name="Edit_Work_Order" xml:space="preserve">
+    <value>作業指示書の編集</value>
   </data>
   <data name="Einsteinium" xml:space="preserve">
     <value>アインスタイニウム</value>
@@ -1611,6 +1638,21 @@
   <data name="View_Applicant" xml:space="preserve">
     <value>申請者の表示</value>
   </data>
+  <data name="View_Client" xml:space="preserve">
+    <value>クライアントの表示</value>
+  </data>
+  <data name="View_Design_Concept" xml:space="preserve">
+    <value>デザインコンセプトを見る</value>
+  </data>
+  <data name="View_Fabric" xml:space="preserve">
+    <value>ファブリックを見る</value>
+  </data>
+  <data name="View_Workroom" xml:space="preserve">
+    <value>ワークルームを見る</value>
+  </data>
+  <data name="View_Work_Order" xml:space="preserve">
+    <value>作業指示書の表示</value>
+  </data>
   <data name="Visit_Website" xml:space="preserve">
     <value>ウェブサイトを訪問</value>
   </data>
@@ -1662,6 +1704,24 @@
   <data name="Your_account_contains_personal_data_that_you_have_given_us" xml:space="preserve">
     <value>お客様のアカウントには、お客様から当社に提供された個人データが含まれています。</value>
   </data>
+  <data name="Your_client_has_been_deleted" xml:space="preserve">
+    <value>クライアントが削除されました</value>
+  </data>
+  <data name="Your_client_is_safe" xml:space="preserve">
+    <value>あなたのクライアントは安全:)</value>
+  </data>
+  <data name="Your_design_concept_has_been_deleted" xml:space="preserve">
+    <value>デザインコンセプトが削除されました</value>
+  </data>
+  <data name="Your_design_concept_is_safe" xml:space="preserve">
+    <value>あなたのデザインコンセプトは安全です。:)</value>
+  </data>
+  <data name="Your_fabric_has_been_deleted" xml:space="preserve">
+    <value>ファブリックが削除されました</value>
+  </data>
+  <data name="Your_fabric_is_safe" xml:space="preserve">
+    <value>あなたの生地は安全です:)</value>
+  </data>
   <data name="Your_password_has_been_reset" xml:space="preserve">
     <value>パスワードがリセットされました</value>
   </data>
@@ -1686,6 +1746,18 @@
   <data name="your_two_factor_authentication_app_will_provide_you_with_a_unique_code" xml:space="preserve">
     <value>二要素認証アプリは、一意のコードを提供します。</value>
   </data>
+  <data name="Your_workroom_has_been_deleted" xml:space="preserve">
+    <value>ワークルームが削除されました</value>
+  </data>
+  <data name="Your_workroom_is_safe" xml:space="preserve">
+    <value>あなたの作業室は安全です:)</value>
+  </data>
+  <data name="Your_work_order_has_been_deleted" xml:space="preserve">
+    <value>作業指示書が削除されました</value>
+  </data>
+  <data name="Your_work_order_is_safe" xml:space="preserve">
+    <value>作業指示書は安全です:)</value>
+  </data>
   <data name="You_are_not_authenticated_to_export_this_report" xml:space="preserve">
     <value>このレポートをエクスポートする認証がされていません。</value>
   </data>
@@ -1709,5 +1781,20 @@
   </data>
   <data name="You_should" xml:space="preserve">
     <value>あなたはすべきです</value>
+  </data>
+  <data name="You_will_not_be_able_to_recover_this_client" xml:space="preserve">
+    <value>このクライアントをリカバリすることはできません。</value>
+  </data>
+  <data name="You_will_not_be_able_to_recover_this_design_concept" xml:space="preserve">
+    <value>この設計コンセプトを復元することはできません。</value>
+  </data>
+  <data name="You_will_not_be_able_to_recover_this_fabric_data" xml:space="preserve">
+    <value>このファブリックを回復することはできません。</value>
+  </data>
+  <data name="You_will_not_be_able_to_recover_this_workroom" xml:space="preserve">
+    <value>このワークルームを回復することはできません。</value>
+  </data>
+  <data name="You_will_not_be_able_to_recover_this_work_order_data" xml:space="preserve">
+    <value>この作業指示書を回復することはできません。</value>
   </data>
 </root>

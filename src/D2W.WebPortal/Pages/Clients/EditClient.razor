@@ -1,83 +1,35 @@
 @page "/EditClient/{clientId}"
 
-<h3>Edit Client</h3>
+<MudText Typo="Typo.h5" Color="Color.Primary" Class="mb-4">@Resource.Edit_Client</MudText>
 
-<MudText Typo="Typo.h5" Color="Color.Primary" Class="mb-4">@Resource.Edit_Applicant</MudText>
 <ServerSideValidator @ref="ServerSideValidator" />
-<EditForm Model="ApplicantForEditVm" OnValidSubmit="SubmitForm">
+<EditForm Model="ClientForEditVm" OnValidSubmit="SubmitForm">
     <EditContextServerSideValidator @ref="EditContextServerSideValidator" />
     <FluentValidationValidator />
     <MudCard>
         <MudCardContent>
             <MudTabs KeepPanelsAlive="true" Elevation="25" Color="Color.Transparent" Rounded="true" PanelClass="mt-6">
-                <MudTabPanel Text="@Resource.Applicant" Icon="@Icons.Material.Filled.Photo">
+                <MudTabPanel Text="@Resource.Client" Icon="@Icons.Material.Filled.Person">
                     <MudGrid>
                         <MudItem xs="6">
-                            <MudTextField Label="@Resource.SSN"
-                                          Mask="@(new PatternMask("000000000"))"
+                            <MudTextField Label="@Resource.FullName"
                                           Variant="Variant.Outlined"
-                                          @bind-Value="ApplicantForEditVm.Ssn"
-                                          For="@(() => ApplicantForEditVm.Ssn)" />
+                                          @bind-Value="ClientForEditVm.FullName"
+                                          For="@(() => ClientForEditVm.FullName)" />
 
-                            <MudTextField Label="@Resource.First_Name"
+                            <MudTextField Label="@Resource.Email"
                                           Variant="Variant.Outlined"
-                                          @bind-Value="ApplicantForEditVm.FirstName"
-                                          For="@(() => ApplicantForEditVm.FirstName)" />
+                                          @bind-Value="ClientForEditVm.Email"
+                                          For="@(() => ClientForEditVm.Email)" />
 
-                            <MudTextField Label="@Resource.Last_Name"
+
+                            <MudTextField Label="@Resource.Phone_Number"
                                           Variant="Variant.Outlined"
-                                          @bind-Value="ApplicantForEditVm.LastName"
-                                          For="@(() => ApplicantForEditVm.LastName)" />
-
-                            <MudDatePicker Label="@Resource.Date_of_Birth"
-                                           Variant="Variant.Outlined"
-                                           @bind-Date="ApplicantForEditVm.DateOfBirth"
-                                           For="@(() => ApplicantForEditVm.DateOfBirth)"
-                                           Rounded="true"
-                                           Elevation="12"
-                                           ShowWeekNumbers="true"
-                                           AllowKeyboardInput="true"
-                                           OpenTo="OpenTo.Year"
-                                           MaxDate="@DateTime.Now.AddYears(-18)" />
-
-                            <MudText Typo="Typo.h6">@Resource.Body_Mass_Index</MudText>
-
-                            <MudTextField Label="@Resource.Height"
-                                          Variant="Variant.Outlined"
-                                          @bind-Value="ApplicantForEditVm.Height"
-                                          For="@(() => ApplicantForEditVm.Height)" />
-
-                            <MudTextField Label="@Resource.Weight"
-                                          Variant="Variant.Outlined"
-                                          @bind-Value="ApplicantForEditVm.Weight"
-                                          For="@(() => ApplicantForEditVm.Weight)" />
-
-                            <MudTextField Label="@Resource.BMI"
-                                          Variant="Variant.Outlined"
-                                          @bind-Value="ApplicantForEditVm.Bmi"
-                                          For="@(() => ApplicantForEditVm.Bmi)"
-                                          Disabled="true" />
-                            <br />
-                            <MudAlert Elevation="2" Severity="Severity.Info">@Resource.BMI_Info</MudAlert>
-                            <br />
-                            <MudAlert Elevation="2" Severity="Severity.Info">@Resource.BMI_Details</MudAlert>
+                                          @bind-Value="ClientForEditVm.PhoneNumber"
+                                          For="@(() => ClientForEditVm.PhoneNumber)" />
                         </MudItem>
-                        <MudItem xs="6">
-                            <MudPaper Class="d-flex align-center justify-center mud-width-full py-8">
-                                <img width="95%" src="/images/bmi.jpg" />
-                            </MudPaper>
-                        </MudItem>
+
                     </MudGrid>
-                </MudTabPanel>
-                <MudTabPanel Text="@Resource.References" Icon="@Icons.Material.Filled.GroupWork">
-                    <MudCard Elevation="25">
-                        <MudCardContent>
-                            <ApplicantReferencesListForEdit ApplicantId="@ClientId"
-                                                            OnAddedApplicantReferencesListChanged="RefreshNewApplicantReferencesList"
-                                                            OnModifiedApplicantReferencesListChanged="RefreshModifiedApplicantReferencesList"
-                                                            OnRemovedApplicantReferencesListChanged="RefreshRemovedApplicantReferencesList" />
-                        </MudCardContent>
-                    </MudCard>
                 </MudTabPanel>
             </MudTabs>
         </MudCardContent>
@@ -98,7 +50,3 @@
         </MudExpansionPanels>
     </MudCard>
 </EditForm>
-
-@code {
-
-}

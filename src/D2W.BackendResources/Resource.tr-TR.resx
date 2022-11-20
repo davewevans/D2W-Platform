@@ -150,6 +150,9 @@
   <data name="Client_already_added" xml:space="preserve">
     <value>İstemci zaten eklendi.</value>
   </data>
+  <data name="Client_has_been_deleted_successfully" xml:space="preserve">
+    <value>İstemci başarıyla silindi.</value>
+  </data>
   <data name="Client_has_been_updated_successfully" xml:space="preserve">
     <value>İstemci başarıyla güncelleştirildi.</value>
   </data>
@@ -225,6 +228,9 @@
   <data name="Invalid_authenticator_code_entered" xml:space="preserve">
     <value>Geçersiz kimlik doğrulayıcı kodu girildi.</value>
   </data>
+  <data name="Invalid_Client_Id" xml:space="preserve">
+    <value>Geçersiz İstemci Kimliği</value>
+  </data>
   <data name="Invalid_client_request" xml:space="preserve">
     <value>Geçersiz istemci isteği.</value>
   </data>
@@ -251,6 +257,9 @@
   </data>
   <data name="Invalid_user_Id" xml:space="preserve">
     <value>Geçersiz kullanıcı kimliği.</value>
+  </data>
+  <data name="Invalid_Workroom_Id" xml:space="preserve">
+    <value>Geçersiz Çalışma Odası Kimliği.</value>
   </data>
   <data name="Job_title_is_required" xml:space="preserve">
     <value>İş unvanı gereklidir.</value>
@@ -411,8 +420,14 @@
   <data name="Tenant_has_been_created_successfully" xml:space="preserve">
     <value>Kiracı başarıyla oluşturuldu.</value>
   </data>
+  <data name="Tenant_not_found" xml:space="preserve">
+    <value>Kiracı bulunamadı.</value>
+  </data>
   <data name="The_applicant_is_not_found" xml:space="preserve">
     <value>Başvuru sahibi bulunamadı.</value>
+  </data>
+  <data name="The_Client_is_not_found" xml:space="preserve">
+    <value>İstemci bulunamadı.</value>
   </data>
   <data name="The_password_and_confirmation_password_do_not_match" xml:space="preserve">
     <value>Parola ve onay parolası eşleşmiyor.</value>
@@ -428,6 +443,9 @@
   </data>
   <data name="The_specified_username_and_email_are_already_registered_in_the_given_tenant" xml:space="preserve">
     <value>Belirtilen kullanıcı adı ve e-posta zaten verilen kiracıda kayıtlı.</value>
+  </data>
+  <data name="The_Workroom_is_not_found" xml:space="preserve">
+    <value>Çalışma odası bulunamadı.</value>
   </data>
   <data name="Token_settings_have_been_updated_successfully" xml:space="preserve">
     <value>Belirteç ayarları başarıyla güncelleştirildi.</value>
@@ -551,6 +569,9 @@
   </data>
   <data name="Workroom_already_added" xml:space="preserve">
     <value>Çalışma odası zaten eklendi.</value>
+  </data>
+  <data name="Workroom_has_been_deleted_successfully" xml:space="preserve">
+    <value>Çalışma odası başarıyla silindi.</value>
   </data>
   <data name="Workroom_has_been_updated_successfully" xml:space="preserve">
     <value>Çalışma odası başarıyla güncelleştirildi.</value>

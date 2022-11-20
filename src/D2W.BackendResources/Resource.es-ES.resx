@@ -150,6 +150,9 @@
   <data name="Client_already_added" xml:space="preserve">
     <value>Cliente ya agregado.</value>
   </data>
+  <data name="Client_has_been_deleted_successfully" xml:space="preserve">
+    <value>El cliente se ha eliminado correctamente.</value>
+  </data>
   <data name="Client_has_been_updated_successfully" xml:space="preserve">
     <value>El cliente se ha actualizado correctamente.</value>
   </data>
@@ -225,6 +228,9 @@
   <data name="Invalid_authenticator_code_entered" xml:space="preserve">
     <value>Se ha introducido un código de autenticación no válido.</value>
   </data>
+  <data name="Invalid_Client_Id" xml:space="preserve">
+    <value>ID de cliente no válido</value>
+  </data>
   <data name="Invalid_client_request" xml:space="preserve">
     <value>Solicitud de cliente no válida.</value>
   </data>
@@ -251,6 +257,9 @@
   </data>
   <data name="Invalid_user_Id" xml:space="preserve">
     <value>ID de usuario no válido.</value>
+  </data>
+  <data name="Invalid_Workroom_Id" xml:space="preserve">
+    <value>ID de sala de trabajo no válido.</value>
   </data>
   <data name="Job_title_is_required" xml:space="preserve">
     <value>Se requiere título de trabajo.</value>
@@ -411,8 +420,14 @@
   <data name="Tenant_has_been_created_successfully" xml:space="preserve">
     <value>El inquilino se ha creado correctamente.</value>
   </data>
+  <data name="Tenant_not_found" xml:space="preserve">
+    <value>Inquilino no encontrado.</value>
+  </data>
   <data name="The_applicant_is_not_found" xml:space="preserve">
     <value>No se encuentra al solicitante.</value>
+  </data>
+  <data name="The_Client_is_not_found" xml:space="preserve">
+    <value>No se encuentra al Cliente.</value>
   </data>
   <data name="The_password_and_confirmation_password_do_not_match" xml:space="preserve">
     <value>La contraseña y la contraseña de confirmación no coinciden.</value>
@@ -428,6 +443,9 @@
   </data>
   <data name="The_specified_username_and_email_are_already_registered_in_the_given_tenant" xml:space="preserve">
     <value>El nombre de usuario y el correo electrónico especificados ya están registrados en el inquilino dado.</value>
+  </data>
+  <data name="The_Workroom_is_not_found" xml:space="preserve">
+    <value>No se encuentra el taller.</value>
   </data>
   <data name="Token_settings_have_been_updated_successfully" xml:space="preserve">
     <value>La configuración del token se ha actualizado correctamente.</value>
@@ -551,6 +569,9 @@
   </data>
   <data name="Workroom_already_added" xml:space="preserve">
     <value>Sala de trabajo ya agregada.</value>
+  </data>
+  <data name="Workroom_has_been_deleted_successfully" xml:space="preserve">
+    <value>El espacio de trabajo se ha eliminado correctamente.</value>
   </data>
   <data name="Workroom_has_been_updated_successfully" xml:space="preserve">
     <value>Workroom se ha actualizado correctamente.</value>

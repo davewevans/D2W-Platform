@@ -213,6 +213,9 @@
   <data name="April" xml:space="preserve">
     <value>Avril</value>
   </data>
+  <data name="Are_You_Sure" xml:space="preserve">
+    <value>Es-tu sûr?</value>
+  </data>
   <data name="Are_you_sure_you_want_to_change_the_settings" xml:space="preserve">
     <value>Voulez-vous vraiment modifier les paramètres ?</value>
   </data>
@@ -227,6 +230,9 @@
   </data>
   <data name="Are_you_sure_you_want_to_remove_role_name" xml:space="preserve">
     <value>Voulez-vous vraiment supprimer le rôle « {0} » ?</value>
+  </data>
+  <data name="Are_you_sure_you_want_to_save" xml:space="preserve">
+    <value>Êtes-vous sûr de vouloir économiser?</value>
   </data>
   <data name="Are_you_sure_you_want_to_save_applicant" xml:space="preserve">
     <value>Êtes-vous sûr de vouloir sauver le candidat?</value>
@@ -323,6 +329,9 @@
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>Annuler</value>
+  </data>
+  <data name="Cancelled" xml:space="preserve">
+    <value>Annulé</value>
   </data>
   <data name="Cancel_Upload" xml:space="preserve">
     <value>Annuler le téléchargement</value>
@@ -522,6 +531,9 @@
   <data name="Delete" xml:space="preserve">
     <value>Supprimer</value>
   </data>
+  <data name="Deleted" xml:space="preserve">
+    <value>Supprimé</value>
+  </data>
   <data name="Delete_my_Account" xml:space="preserve">
     <value>Supprimer mon compte</value>
   </data>
@@ -591,6 +603,15 @@
   <data name="Edit_Applicant" xml:space="preserve">
     <value>Modifier le candidat</value>
   </data>
+  <data name="Edit_Client" xml:space="preserve">
+    <value>Modifier le client</value>
+  </data>
+  <data name="Edit_Design_Concept" xml:space="preserve">
+    <value>Modifier le concept de conception</value>
+  </data>
+  <data name="Edit_Fabric" xml:space="preserve">
+    <value>Modifier le fabric</value>
+  </data>
   <data name="Edit_Reference" xml:space="preserve">
     <value>Modifier la référence</value>
   </data>
@@ -599,6 +620,12 @@
   </data>
   <data name="Edit_User" xml:space="preserve">
     <value>Modifier l’utilisateur</value>
+  </data>
+  <data name="Edit_Workroom" xml:space="preserve">
+    <value>Modifier la salle de travail</value>
+  </data>
+  <data name="Edit_Work_Order" xml:space="preserve">
+    <value>Modifier l’ordre de travail</value>
   </data>
   <data name="Einsteinium" xml:space="preserve">
     <value>Einsteinium</value>
@@ -1611,6 +1638,21 @@
   <data name="View_Applicant" xml:space="preserve">
     <value>Voir le candidat</value>
   </data>
+  <data name="View_Client" xml:space="preserve">
+    <value>Voir le client</value>
+  </data>
+  <data name="View_Design_Concept" xml:space="preserve">
+    <value>Voir le concept de conception</value>
+  </data>
+  <data name="View_Fabric" xml:space="preserve">
+    <value>Voir le fabric</value>
+  </data>
+  <data name="View_Workroom" xml:space="preserve">
+    <value>Voir la salle de travail</value>
+  </data>
+  <data name="View_Work_Order" xml:space="preserve">
+    <value>Afficher l’ordre de travail</value>
+  </data>
   <data name="Visit_Website" xml:space="preserve">
     <value>Visitez le site Web</value>
   </data>
@@ -1662,6 +1704,24 @@
   <data name="Your_account_contains_personal_data_that_you_have_given_us" xml:space="preserve">
     <value>Votre compte contient des données personnelles que vous nous avez fournies.</value>
   </data>
+  <data name="Your_client_has_been_deleted" xml:space="preserve">
+    <value>Votre client a été supprimé</value>
+  </data>
+  <data name="Your_client_is_safe" xml:space="preserve">
+    <value>Votre client est en sécurité :)</value>
+  </data>
+  <data name="Your_design_concept_has_been_deleted" xml:space="preserve">
+    <value>Votre concept de conception a été supprimé</value>
+  </data>
+  <data name="Your_design_concept_is_safe" xml:space="preserve">
+    <value>Votre concept de conception est sûr. :)</value>
+  </data>
+  <data name="Your_fabric_has_been_deleted" xml:space="preserve">
+    <value>Votre tissu a été supprimé</value>
+  </data>
+  <data name="Your_fabric_is_safe" xml:space="preserve">
+    <value>Votre tissu est sûr :)</value>
+  </data>
   <data name="Your_password_has_been_reset" xml:space="preserve">
     <value>Votre mot de passe a été réinitialisé</value>
   </data>
@@ -1686,6 +1746,18 @@
   <data name="your_two_factor_authentication_app_will_provide_you_with_a_unique_code" xml:space="preserve">
     <value>votre application d’authentification à deux facteurs vous fournira un code unique.</value>
   </data>
+  <data name="Your_workroom_has_been_deleted" xml:space="preserve">
+    <value>Votre atelier a été supprimé</value>
+  </data>
+  <data name="Your_workroom_is_safe" xml:space="preserve">
+    <value>Votre atelier est sécuritaire :)</value>
+  </data>
+  <data name="Your_work_order_has_been_deleted" xml:space="preserve">
+    <value>Votre ordre de travail a été supprimé</value>
+  </data>
+  <data name="Your_work_order_is_safe" xml:space="preserve">
+    <value>Votre bon de travail est sécuritaire :)</value>
+  </data>
   <data name="You_are_not_authenticated_to_export_this_report" xml:space="preserve">
     <value>Vous n'êtes pas authentifié pour exporter ce rapport. !</value>
   </data>
@@ -1709,5 +1781,20 @@
   </data>
   <data name="You_should" xml:space="preserve">
     <value>Tu devrais</value>
+  </data>
+  <data name="You_will_not_be_able_to_recover_this_client" xml:space="preserve">
+    <value>Vous ne pourrez pas récupérer ce client.</value>
+  </data>
+  <data name="You_will_not_be_able_to_recover_this_design_concept" xml:space="preserve">
+    <value>Vous ne pourrez pas récupérer ce concept de conception.</value>
+  </data>
+  <data name="You_will_not_be_able_to_recover_this_fabric_data" xml:space="preserve">
+    <value>Vous ne pourrez pas récupérer ce tissu.</value>
+  </data>
+  <data name="You_will_not_be_able_to_recover_this_workroom" xml:space="preserve">
+    <value>Vous ne pourrez pas récupérer cette salle de travail.</value>
+  </data>
+  <data name="You_will_not_be_able_to_recover_this_work_order_data" xml:space="preserve">
+    <value>Vous ne pourrez pas récupérer cet ordre de travail.</value>
   </data>
 </root>

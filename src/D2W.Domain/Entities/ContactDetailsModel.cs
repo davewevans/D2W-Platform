@@ -17,26 +17,23 @@ namespace D2W.Domain.Entities
 
         public string CompanyName { get; set; }
 
-        [Phone]
-        public string AltPhone1 { get; set; }
+        public string FullName { get; set; }
 
         [Phone]
-        public string AltPhone2 { get; set; }
+        public string PhoneNumber { get; set; }
+
+        [Phone]
+        public string AltPhoneNumber { get; set; }
 
         [Phone]
         public string Fax { get; set; }
 
         [EmailAddress]
-        public string AltEmailAddress1 { get; set; }
+        public string EmailAddress { get; set; }
         
         [EmailAddress]
-        public string AltEmailAddress2 { get; set; }
+        public string AltEmailAddress { get; set; }
 
-        public string ContactName1 { get; set; }
-        public string ContactName2 { get; set; }
-        public string ContactName3 { get; set; }
-        public string ContactName4 { get; set; }
-        public string ContactName5 { get; set; }
         public string AddressLine1 { get; set; }
         public string AddressLine2 { get; set; }
         public string City { get; set; }
@@ -44,6 +41,7 @@ namespace D2W.Domain.Entities
         public string PostalCode { get; set; }
         public Guid CountryId { get; set; }
         public string LogoUri { get; set; }
+        public string AvatarUri { get; set; }
         public string CreatedBy { get; set; }
         public DateTime CreatedOn { get; set; }
         public string ModifiedBy { get; set; }

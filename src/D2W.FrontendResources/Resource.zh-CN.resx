@@ -213,6 +213,9 @@
   <data name="April" xml:space="preserve">
     <value>四月</value>
   </data>
+  <data name="Are_You_Sure" xml:space="preserve">
+    <value>是否确定？</value>
+  </data>
   <data name="Are_you_sure_you_want_to_change_the_settings" xml:space="preserve">
     <value>您确定要更改设置吗？</value>
   </data>
@@ -227,6 +230,9 @@
   </data>
   <data name="Are_you_sure_you_want_to_remove_role_name" xml:space="preserve">
     <value>你确定要删除角色 "{0}" 吗？</value>
+  </data>
+  <data name="Are_you_sure_you_want_to_save" xml:space="preserve">
+    <value>您确定要保存吗？</value>
   </data>
   <data name="Are_you_sure_you_want_to_save_applicant" xml:space="preserve">
     <value>你确定要拯救申请人吗？</value>
@@ -322,6 +328,9 @@
     <value>鐦</value>
   </data>
   <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Cancelled" xml:space="preserve">
     <value>取消</value>
   </data>
   <data name="Cancel_Upload" xml:space="preserve">
@@ -522,6 +531,9 @@
   <data name="Delete" xml:space="preserve">
     <value>删除</value>
   </data>
+  <data name="Deleted" xml:space="preserve">
+    <value>删除</value>
+  </data>
   <data name="Delete_my_Account" xml:space="preserve">
     <value>删除我的帐户</value>
   </data>
@@ -591,6 +603,15 @@
   <data name="Edit_Applicant" xml:space="preserve">
     <value>编辑申请人</value>
   </data>
+  <data name="Edit_Client" xml:space="preserve">
+    <value>编辑客户端</value>
+  </data>
+  <data name="Edit_Design_Concept" xml:space="preserve">
+    <value>编辑设计概念</value>
+  </data>
+  <data name="Edit_Fabric" xml:space="preserve">
+    <value>编辑结构</value>
+  </data>
   <data name="Edit_Reference" xml:space="preserve">
     <value>编辑索引</value>
   </data>
@@ -599,6 +620,12 @@
   </data>
   <data name="Edit_User" xml:space="preserve">
     <value>编辑用户</value>
+  </data>
+  <data name="Edit_Workroom" xml:space="preserve">
+    <value>编辑工作室</value>
+  </data>
+  <data name="Edit_Work_Order" xml:space="preserve">
+    <value>编辑工作订单</value>
   </data>
   <data name="Einsteinium" xml:space="preserve">
     <value>锿</value>
@@ -1611,6 +1638,21 @@
   <data name="View_Applicant" xml:space="preserve">
     <value>查看申请人</value>
   </data>
+  <data name="View_Client" xml:space="preserve">
+    <value>查看客户端</value>
+  </data>
+  <data name="View_Design_Concept" xml:space="preserve">
+    <value>查看设计概念</value>
+  </data>
+  <data name="View_Fabric" xml:space="preserve">
+    <value>查看结构</value>
+  </data>
+  <data name="View_Workroom" xml:space="preserve">
+    <value>查看工作室</value>
+  </data>
+  <data name="View_Work_Order" xml:space="preserve">
+    <value>查看工作订单</value>
+  </data>
   <data name="Visit_Website" xml:space="preserve">
     <value>访问网站</value>
   </data>
@@ -1662,6 +1704,24 @@
   <data name="Your_account_contains_personal_data_that_you_have_given_us" xml:space="preserve">
     <value>您的帐户包含您提供给我们的个人数据。</value>
   </data>
+  <data name="Your_client_has_been_deleted" xml:space="preserve">
+    <value>您的客户端已被删除</value>
+  </data>
+  <data name="Your_client_is_safe" xml:space="preserve">
+    <value>您的客户是安全的:)</value>
+  </data>
+  <data name="Your_design_concept_has_been_deleted" xml:space="preserve">
+    <value>您的设计概念已被删除</value>
+  </data>
+  <data name="Your_design_concept_is_safe" xml:space="preserve">
+    <value>您的设计理念是安全的。:)</value>
+  </data>
+  <data name="Your_fabric_has_been_deleted" xml:space="preserve">
+    <value>您的结构已被删除</value>
+  </data>
+  <data name="Your_fabric_is_safe" xml:space="preserve">
+    <value>您的面料是安全的:)</value>
+  </data>
   <data name="Your_password_has_been_reset" xml:space="preserve">
     <value>您的密码已重置</value>
   </data>
@@ -1686,6 +1746,18 @@
   <data name="your_two_factor_authentication_app_will_provide_you_with_a_unique_code" xml:space="preserve">
     <value>您的两个因子身份验证应用程序将为您提供一个唯一的代码。</value>
   </data>
+  <data name="Your_workroom_has_been_deleted" xml:space="preserve">
+    <value>您的工作室已被删除</value>
+  </data>
+  <data name="Your_workroom_is_safe" xml:space="preserve">
+    <value>您的工作室是安全的:)</value>
+  </data>
+  <data name="Your_work_order_has_been_deleted" xml:space="preserve">
+    <value>您的工作订单已被删除</value>
+  </data>
+  <data name="Your_work_order_is_safe" xml:space="preserve">
+    <value>您的工作订单是安全的:)</value>
+  </data>
   <data name="You_are_not_authenticated_to_export_this_report" xml:space="preserve">
     <value>您没有经过身份验证可以导出此报表。!</value>
   </data>
@@ -1709,5 +1781,20 @@
   </data>
   <data name="You_should" xml:space="preserve">
     <value>你应该</value>
+  </data>
+  <data name="You_will_not_be_able_to_recover_this_client" xml:space="preserve">
+    <value>您将无法恢复此客户端。</value>
+  </data>
+  <data name="You_will_not_be_able_to_recover_this_design_concept" xml:space="preserve">
+    <value>您将无法恢复此设计概念。</value>
+  </data>
+  <data name="You_will_not_be_able_to_recover_this_fabric_data" xml:space="preserve">
+    <value>您将无法恢复此结构。</value>
+  </data>
+  <data name="You_will_not_be_able_to_recover_this_workroom" xml:space="preserve">
+    <value>您将无法恢复此工作室。</value>
+  </data>
+  <data name="You_will_not_be_able_to_recover_this_work_order_data" xml:space="preserve">
+    <value>您将无法恢复此工作订单。</value>
   </data>
 </root>

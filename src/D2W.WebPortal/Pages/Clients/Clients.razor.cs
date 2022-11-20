@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using D2W.WebPortal.Features.Clients.Queries.GetClients;
+using CurrieTechnologies.Razor.SweetAlert2;
 
 namespace D2W.WebPortal.Pages.Clients
 {
@@ -21,7 +22,9 @@ namespace D2W.WebPortal.Pages.Clients
         [Inject] private ISnackbar Snackbar { get; set; }
         [Inject] private NavigationManager NavigationManager { get; set; }
 
-        private bool disableOptionButtons = true;
+        [Inject] private SweetAlertService SweetAlert { get; set; }
+
+        private bool disableOptionButtons = false;
 
         private string title = "Clients";
         private string description = "List of clients for interior designers.";
@@ -32,6 +35,8 @@ namespace D2W.WebPortal.Pages.Clients
         private GetClientsQuery GetClientsQuery { get; set; } = new();
         private HubConnection HubConnection { get; set; }
         private MudTable<ClientItem> Table { get; set; }
+
+        private bool _overrideButtonGroupStyles = false;
 
         #endregion Private Properties
 
@@ -147,20 +152,18 @@ namespace D2W.WebPortal.Pages.Clients
 
         private async Task DeleteClient(string id)
         {
-            var parameters = new DialogParameters
-        {
-            {"ContentText", Resource.Do_you_really_want_to_delete_this_record},
-            {"ButtonText", Resource.Delete},
-            {"Color", Color.Error}
-        };
 
-            var options = new DialogOptions() { CloseButton = true, MaxWidth = MaxWidth.ExtraSmall };
+            SweetAlertResult result = await SweetAlert.FireAsync(new SweetAlertOptions
+            {
+                Title = Resource.Are_You_Sure,
+                Text = Resource.You_will_not_be_able_to_recover_this_client,
+                Icon = SweetAlertIcon.Warning,
+                ShowCancelButton = true,
+                ConfirmButtonText = Resource.Yes_delete_it,
+                CancelButtonText = Resource.No_keep_it
+            });
 
-            var dialog = DialogService.Show<DialogModal>(Resource.Delete, parameters, options);
-
-            var result = await dialog.Result;
-
-            if (!result.Cancelled)
+            if (!string.IsNullOrEmpty(result.Value))
             {
                 var httpResponseWrapper = await ClientsClient.DeleteClient(id);
 
@@ -175,7 +178,54 @@ namespace D2W.WebPortal.Pages.Clients
                     var exceptionResult = httpResponseWrapper.Response as ExceptionResult;
                     ServerSideValidator.Validate(exceptionResult);
                 }
+
+                await SweetAlert.FireAsync(
+                  Resource.Deleted,
+                  Resource.Your_client_has_been_deleted,
+                  SweetAlertIcon.Success
+                  );
             }
+            else if (result.Dismiss == DismissReason.Cancel)
+            {
+                await SweetAlert.FireAsync(
+                  Resource.Cancelled,
+                  Resource.Your_client_is_safe,
+                  SweetAlertIcon.Error
+                  );
+            }
+
+
+
+
+            // var parameters = new DialogParameters
+            // {
+            //     {"ContentText", Resource.Do_you_really_want_to_delete_this_record},
+            //     {"ButtonText", Resource.Delete},
+            //     {"Color", Color.Error}
+            // };
+
+            // var options = new DialogOptions() { CloseButton = true, MaxWidth = MaxWidth.ExtraSmall };
+
+            // var dialog = DialogService.Show<DialogModal>(Resource.Delete, parameters, options);
+
+            // var result = await dialog.Result;
+
+            // if (!result.Cancelled)
+            // {
+            //     var httpResponseWrapper = await ClientsClient.DeleteClient(id);
+
+            //     if (httpResponseWrapper.Success)
+            //     {
+            //         var successResult = httpResponseWrapper.Response as SuccessResult<string>;
+            //         Snackbar.Add(successResult.Result, Severity.Success);
+            //         await Table.ReloadServerData();
+            //     }
+            //     else
+            //     {
+            //         var exceptionResult = httpResponseWrapper.Response as ExceptionResult;
+            //         ServerSideValidator.Validate(exceptionResult);
+            //     }
+            // }
         }
 
         private void FilterClients(string searchString)

@@ -11,9 +11,10 @@ public class WorkroomItem : AuditableDto
     public string Email { get; set; }
     public string PhoneNumber { get; set; }
     public string AltEmailAddress { get; set; }
-    public string AltPhone1 { get; set; }
-    public string ContactName1 { get; set; }
-    public string ContactName2 { get; set; }
+    public string AltPhoneNumber { get; set; }
+    public string Fax { get; set; }
+ 
+  
     public ApplicationUserType AppUserType { get; set; }
     public string AvatarUri { get; set; }
 
@@ -39,10 +40,9 @@ public class WorkroomItem : AuditableDto
 
             // Contact details
             CompanyName = contactDetails?.CompanyName,
-            ContactName1 = contactDetails?.ContactName1,
-            ContactName2 = contactDetails?.ContactName2,
-            AltEmailAddress = contactDetails?.AltEmailAddress1,
-            AltPhone1 = contactDetails?.AltPhone1
+            AltEmailAddress = contactDetails?.AltEmailAddress,
+            AltPhoneNumber = contactDetails?.AltPhoneNumber,
+            Fax = contactDetails?.Fax,
         };
     }
 

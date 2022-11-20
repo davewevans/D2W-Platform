@@ -20,8 +20,8 @@ public interface IClientUseCase
     // Use RegisterClient instead
     //Task<Envelope<RegisterClientResponse>> AddClient(CreateClientCommand request);
 
-    Task<Envelope<string>> EditClient(UpdateWorkroomCommand request);
-    Task<Envelope<string>> DeleteClient(DeleteWorkroomCommand request);
+    Task<Envelope<string>> EditClient(UpdateClientCommand request);
+    Task<Envelope<string>> DeleteClient(DeleteClientCommand request);
 
 
     #endregion Public Methods

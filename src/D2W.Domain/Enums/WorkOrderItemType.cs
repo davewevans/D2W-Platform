@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace D2W.Domain.Enums;
 
-public enum FabricPriority
+public enum WorkOrderItemType
 {
-    Main,
-    Accent
+    MainFabric,
+    AccentFabric,
+    TrimmingFabric,
+    Custom,
 }

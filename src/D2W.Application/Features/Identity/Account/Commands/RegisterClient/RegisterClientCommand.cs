@@ -12,16 +12,14 @@ public class RegisterClientCommand : IRequest<Envelope<RegisterClientResponse>>
     #region Public Properties
 
     public string FullName { get; set; }
-    public string Email { get; set; }
-    public string PhoneNumber { get; set; }
-    public string AvatarUri { get; set; }
-
-    public string ContactName2 { get; set; }
-    [Phone]
-    public string AltPhone1 { get; set; }
 
     [EmailAddress]
-    public string AltEmailAddress { get; set; }
+    public string Email { get; set; }
+
+    [Phone]
+    public string PhoneNumber { get; set; }
+
+    public string AvatarUri { get; set; }
 
     #endregion Public Properties
 
@@ -47,11 +45,9 @@ public class RegisterClientCommand : IRequest<Envelope<RegisterClientResponse>>
     {
         return new ContactDetailsModel()
         {
-            ContactName1 = FullName?.Trim(),
-            ContactName2 = ContactName2?.Trim(),
-            AltPhone1 = AltPhone1?.Trim(),
-            AltEmailAddress1 = AltEmailAddress?.Trim(),
-
+            FullName = FullName?.Trim(),
+            PhoneNumber = PhoneNumber?.Trim(),
+            EmailAddress = Email?.Trim(),
         };
     }
 

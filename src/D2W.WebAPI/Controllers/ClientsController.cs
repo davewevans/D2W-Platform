@@ -13,7 +13,7 @@ namespace D2W.WebAPI.Controllers
     {
         #region Public Methods
 
-        [Authorize("Client,Designer")]
+        //[Authorize("Client,Designer")]
         [HttpPost("GetClient")]
         public async Task<IActionResult> GetClient(GetClientForEditQuery request)
         {
@@ -36,20 +36,20 @@ namespace D2W.WebAPI.Controllers
         //    return TryGetResult(response);
         //}
 
-        [Authorize("Client,Designer")]
+        //[Authorize("Client,Designer")]
         [HttpPut("UpdateClient")]
-        public async Task<IActionResult> UpdateClient(UpdateWorkroomCommand request)
+        public async Task<IActionResult> UpdateClient(UpdateClientCommand request)
         {
             var response = await Mediator.Send(request);
             return TryGetResult(response);
         }
 
-        //[HttpDelete("DeleteClient")]
-        //public async Task<IActionResult> DeleteClient(string id)
-        //{
-        //    var response = await Mediator.Send(new DeleteClientCommand { Id = id });
-        //    return TryGetResult(response);
-        //}
+        [HttpDelete("DeleteClient")]
+        public async Task<IActionResult> DeleteClient(string id)
+        {
+            var response = await Mediator.Send(new DeleteClientCommand { Id = id });
+            return TryGetResult(response);
+        }
 
 
         //[AllowAnonymous]

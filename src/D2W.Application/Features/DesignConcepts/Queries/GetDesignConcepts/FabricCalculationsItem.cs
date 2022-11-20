@@ -13,7 +13,6 @@ public class FabricCalculationsItem : AuditableDto
     public Guid Id { get; set; }
     public Guid TenantId { get; set; }
     public MeasurementSystem MeasurementSystem { get; set; }
-    public FabricPriority FabricPriority { get; set; }
     public float FinishedLength { get; set; }
     public float TrimOff { get; set; }
     public float Hems { get; set; }
@@ -39,7 +38,6 @@ public class FabricCalculationsItem : AuditableDto
             Id = fabricCalculations.Id,
             TenantId = fabricCalculations.TenantId,
             MeasurementSystem = fabricCalculations.MeasurementSystem,
-            FabricPriority = fabricCalculations.FabricPriority,
             FinishedLength = fabricCalculations.FinishedLength,
             TrimOff = fabricCalculations.TrimOff,
             Hems = fabricCalculations.Hems,

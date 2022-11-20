@@ -21,6 +21,7 @@ public class ClientUseCase : IClientUseCase
     private readonly ApplicationUserManager _userManager;
     private readonly IHttpContextAccessor _httpContextAccessor;
     private readonly IReportingService _reportingService;
+    private readonly ITenantResolver _tenenResolver;
 
     #endregion Private Fields
 
@@ -28,12 +29,13 @@ public class ClientUseCase : IClientUseCase
 
     public ClientUseCase(IApplicationDbContext dbContext,
         IHttpContextAccessor httpContextAccessor,
-        IReportingService reportingService, ApplicationUserManager userManager)
+        IReportingService reportingService, ApplicationUserManager userManager, ITenantResolver tenenResolver)
     {
         _dbContext = dbContext;
         _httpContextAccessor = httpContextAccessor;
         _reportingService = reportingService;
         _userManager = userManager;
+        _tenenResolver = tenenResolver;
     }
 
     #endregion Public Constructors
@@ -97,46 +99,60 @@ public class ClientUseCase : IClientUseCase
     //    return Envelope<RegisterClientResponse>.Result.Ok(createClientResponse);
     //}
 
-    public async Task<Envelope<string>> EditClient(UpdateWorkroomCommand request)
+    public async Task<Envelope<string>> EditClient(UpdateClientCommand request)
     {
+
         if (string.IsNullOrEmpty(request.Id))
             return Envelope<string>.Result.BadRequest(Resource.Invalid_ApplicationUser_Id);
+
+        var tenantId = _tenenResolver.GetTenantId();
+
+        if (!tenantId.HasValue)
+            return Envelope<string>.Result.NotFound(Resource.Tenant_not_found);
 
         var client = await _userManager.FindByIdAsync(request.Id);
 
         if (client == null)
             return Envelope<string>.Result.NotFound(Resource.Unable_to_load_Client);
 
+        bool isLinkedToAnotherTenant = await _dbContext.TenantsClients.AnyAsync(x =>
+            !x.TenantId.Equals(tenantId) && x.ApplicationUserId.Equals(request.Id));
+
+
+
         request.MapToEntity(client);
 
-        _dbContext.Users.Update(client);
+        if (!isLinkedToAnotherTenant)
+            _dbContext.Users.Update(client);
 
         await _dbContext.SaveChangesAsync();
 
         return Envelope<string>.Result.Ok(Resource.Client_has_been_updated_successfully);
     }
 
-    public async Task<Envelope<string>> DeleteClient(DeleteWorkroomCommand request)
+    public async Task<Envelope<string>> DeleteClient(DeleteClientCommand request)
     {
+        // Client only deleted in many-to-many as related to tenant
 
-        throw new NotImplementedException();
+        if (string.IsNullOrEmpty(request.Id))
+            return Envelope<string>.Result.BadRequest(Resource.Invalid_Client_Id);
 
-        //if (string.IsNullOrEmpty(request.Id))
-        //    return Envelope<string>.Result.BadRequest(Resource.Invalid_Client_Id);
+        var tenantId = _tenenResolver.GetTenantId();
 
-        //if (!Guid.TryParse(request.Id, out var ClientId))
-        //    return Envelope<string>.Result.BadRequest(Resource.Invalid_Client_Id);
+        if (!tenantId.HasValue)
+            return Envelope<string>.Result.NotFound(Resource.Tenant_not_found);
 
-        //var Client = await _dbContext.Workrooms.Where(p => p.Id == ClientId).FirstOrDefaultAsync();
+        var tenantClient = await _dbContext.TenantsClients.FirstOrDefaultAsync(x =>
+            x.TenantId.Equals(tenantId.Value) && x.ApplicationUserId.Equals(request.Id));
 
-        //if (Client == null)
-        //    return Envelope<string>.Result.NotFound(Resource.The_Client_is_not_found);
+        if (tenantClient == null)
+            return Envelope<string>.Result.NotFound(Resource.The_Client_is_not_found);
 
-        //_dbContext.Workrooms.Remove(Client);
+        _dbContext.TenantsClients.Remove(tenantClient);
 
-        //await _dbContext.SaveChangesAsync();
+        await _dbContext.SaveChangesAsync();
 
-        //return Envelope<string>.Result.Ok(Resource.Client_has_been_deleted_successfully);
+        return Envelope<string>.Result.Ok(Resource.Client_has_been_deleted_successfully);
     }
 
     #endregion Public Methods

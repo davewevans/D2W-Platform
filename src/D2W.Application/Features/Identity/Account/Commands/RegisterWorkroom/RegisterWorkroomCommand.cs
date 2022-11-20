@@ -12,26 +12,28 @@ public class RegisterWorkroomCommand : IRequest<Envelope<RegisterWorkroomRespons
 {
     #region Public Properties
 
-    public string Email { get; set; }
-    public string PhoneNumber { get; set; }
-
     public string CompanyName { get; set; }
 
+    [EmailAddress]
+    public string Email { get; set; }
+
     [Phone]
-    public string AltPhone1 { get; set; }
+    public string PhoneNumber { get; set; }
+
+    [Phone]
+    public string AltPhoneNumber { get; set; }
+
+    [Phone]
+    public string FaxNumber { get; set; }
 
     [EmailAddress]
     public string AltEmailAddress { get; set; }
-
-    public string ContactName1 { get; set; }
-    public string ContactName2 { get; set; }
     public string AddressLine1 { get; set; }
     public string AddressLine2 { get; set; }
     public string City { get; set; }
     public string Region { get; set; }
     public string PostalCode { get; set; }
     public Guid CountryId { get; set; }
-    public string LogoUri { get; set; }
 
     #endregion Public Properties
 
@@ -54,10 +56,11 @@ public class RegisterWorkroomCommand : IRequest<Envelope<RegisterWorkroomRespons
         return new ContactDetailsModel()
         {
             CompanyName = CompanyName,
-            AltPhone1 = AltPhone1,
-            AltEmailAddress1 = AltEmailAddress,
-            ContactName1 = ContactName1,
-            ContactName2 = ContactName2,
+            EmailAddress = Email,
+            PhoneNumber = PhoneNumber,
+            AltEmailAddress = AltEmailAddress,
+            AltPhoneNumber = AltPhoneNumber,
+            Fax = FaxNumber,
             AddressLine1 = AddressLine1,
             AddressLine2 = AddressLine2,
             City = City,

@@ -213,6 +213,9 @@
   <data name="April" xml:space="preserve">
     <value>अप्रैल</value>
   </data>
+  <data name="Are_You_Sure" xml:space="preserve">
+    <value>क्या आपको यकीन है?</value>
+  </data>
   <data name="Are_you_sure_you_want_to_change_the_settings" xml:space="preserve">
     <value>क्या आप सुनिश्चित हैं कि आप सेटिंग्स को बदलना चाहते हैं?</value>
   </data>
@@ -227,6 +230,9 @@
   </data>
   <data name="Are_you_sure_you_want_to_remove_role_name" xml:space="preserve">
     <value>क्या आप सुनिश्चित हैं कि आप भूमिका '{0}' को हटाना चाहते हैं?</value>
+  </data>
+  <data name="Are_you_sure_you_want_to_save" xml:space="preserve">
+    <value>क्या आप वाकई सहेजना चाहते हैं?</value>
   </data>
   <data name="Are_you_sure_you_want_to_save_applicant" xml:space="preserve">
     <value>क्या आप सुनिश्चित हैं कि आप आवेदक को बचाना चाहते हैं?</value>
@@ -323,6 +329,9 @@
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>रद्द करना</value>
+  </data>
+  <data name="Cancelled" xml:space="preserve">
+    <value>रद्द</value>
   </data>
   <data name="Cancel_Upload" xml:space="preserve">
     <value>अपलोड रद्द करें</value>
@@ -522,6 +531,9 @@
   <data name="Delete" xml:space="preserve">
     <value>मिटाना</value>
   </data>
+  <data name="Deleted" xml:space="preserve">
+    <value>हटाए गए</value>
+  </data>
   <data name="Delete_my_Account" xml:space="preserve">
     <value>मेरा खाता हटाएं</value>
   </data>
@@ -591,6 +603,15 @@
   <data name="Edit_Applicant" xml:space="preserve">
     <value>आवेदक को संपादित करें</value>
   </data>
+  <data name="Edit_Client" xml:space="preserve">
+    <value>क्लाइंट संपादित करें</value>
+  </data>
+  <data name="Edit_Design_Concept" xml:space="preserve">
+    <value>डिजाइन अवधारणा संपादित करें</value>
+  </data>
+  <data name="Edit_Fabric" xml:space="preserve">
+    <value>कपड़े संपादित करें</value>
+  </data>
   <data name="Edit_Reference" xml:space="preserve">
     <value>Reference संदर्भ</value>
   </data>
@@ -599,6 +620,12 @@
   </data>
   <data name="Edit_User" xml:space="preserve">
     <value>उपयोगकर्ता को संपादित करें</value>
+  </data>
+  <data name="Edit_Workroom" xml:space="preserve">
+    <value>वर्करूम संपादित करें</value>
+  </data>
+  <data name="Edit_Work_Order" xml:space="preserve">
+    <value>कार्य आदेश संपादित करें</value>
   </data>
   <data name="Einsteinium" xml:space="preserve">
     <value>आइंस्टीनियम</value>
@@ -1611,6 +1638,21 @@
   <data name="View_Applicant" xml:space="preserve">
     <value>देखें आवेदक</value>
   </data>
+  <data name="View_Client" xml:space="preserve">
+    <value>क्लाइंट देखें</value>
+  </data>
+  <data name="View_Design_Concept" xml:space="preserve">
+    <value>डिजाइन अवधारणा देखें</value>
+  </data>
+  <data name="View_Fabric" xml:space="preserve">
+    <value>कपड़े देखें</value>
+  </data>
+  <data name="View_Workroom" xml:space="preserve">
+    <value>वर्करूम देखें</value>
+  </data>
+  <data name="View_Work_Order" xml:space="preserve">
+    <value>कार्य क्रम देखें</value>
+  </data>
   <data name="Visit_Website" xml:space="preserve">
     <value>वेबसाइट पर जाएं</value>
   </data>
@@ -1662,6 +1704,24 @@
   <data name="Your_account_contains_personal_data_that_you_have_given_us" xml:space="preserve">
     <value>आपके खाते में व्यक्तिगत डेटा होता है जो आपने हमें दिया है।</value>
   </data>
+  <data name="Your_client_has_been_deleted" xml:space="preserve">
+    <value>आपका क्लाइंट हटा दिया गया है</value>
+  </data>
+  <data name="Your_client_is_safe" xml:space="preserve">
+    <value>आपका ग्राहक सुरक्षित :) है</value>
+  </data>
+  <data name="Your_design_concept_has_been_deleted" xml:space="preserve">
+    <value>आपकी डिज़ाइन अवधारणा हटा दी गई है</value>
+  </data>
+  <data name="Your_design_concept_is_safe" xml:space="preserve">
+    <value>आपकी डिजाइन अवधारणा सुरक्षित है। :)</value>
+  </data>
+  <data name="Your_fabric_has_been_deleted" xml:space="preserve">
+    <value>आपका कपड़ा हटा दिया गया है</value>
+  </data>
+  <data name="Your_fabric_is_safe" xml:space="preserve">
+    <value>आपका कपड़ा सुरक्षित :) है</value>
+  </data>
   <data name="Your_password_has_been_reset" xml:space="preserve">
     <value>आपका पासवर्ड रीसेट कर दिया गया है</value>
   </data>
@@ -1686,6 +1746,18 @@
   <data name="your_two_factor_authentication_app_will_provide_you_with_a_unique_code" xml:space="preserve">
     <value>आपका दो कारक प्रमाणीकरण ऐप आपको एक अद्वितीय कोड प्रदान करेगा।</value>
   </data>
+  <data name="Your_workroom_has_been_deleted" xml:space="preserve">
+    <value>आपका वर्करूम हटा दिया गया है</value>
+  </data>
+  <data name="Your_workroom_is_safe" xml:space="preserve">
+    <value>आपका वर्करूम सुरक्षित :)</value>
+  </data>
+  <data name="Your_work_order_has_been_deleted" xml:space="preserve">
+    <value>आपका कार्य क्रम हटा दिया गया है</value>
+  </data>
+  <data name="Your_work_order_is_safe" xml:space="preserve">
+    <value>आपका कार्य आदेश सुरक्षित :)</value>
+  </data>
   <data name="You_are_not_authenticated_to_export_this_report" xml:space="preserve">
     <value>आप इस रिपोर्ट को निर्यात करने के लिए प्रमाणित नहीं कर रहे हैं!</value>
   </data>
@@ -1709,5 +1781,20 @@
   </data>
   <data name="You_should" xml:space="preserve">
     <value>आपको चाहिए</value>
+  </data>
+  <data name="You_will_not_be_able_to_recover_this_client" xml:space="preserve">
+    <value>आप इस क्लाइंट को पुनर्प्राप्त करने में सक्षम नहीं होंगे।</value>
+  </data>
+  <data name="You_will_not_be_able_to_recover_this_design_concept" xml:space="preserve">
+    <value>आप इस डिजाइन अवधारणा को पुनर्प्राप्त करने में सक्षम नहीं होंगे।</value>
+  </data>
+  <data name="You_will_not_be_able_to_recover_this_fabric_data" xml:space="preserve">
+    <value>आप इस कपड़े को पुनर्प्राप्त नहीं कर पाएंगे।</value>
+  </data>
+  <data name="You_will_not_be_able_to_recover_this_workroom" xml:space="preserve">
+    <value>आप इस वर्करूम को पुनर्प्राप्त नहीं कर पाएंगे।</value>
+  </data>
+  <data name="You_will_not_be_able_to_recover_this_work_order_data" xml:space="preserve">
+    <value>आप इस वर्क ऑर्डर को पुनर्प्राप्त नहीं कर पाएंगे।</value>
   </data>
 </root>

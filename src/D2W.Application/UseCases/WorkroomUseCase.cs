@@ -20,6 +20,7 @@ public class WorkroomUseCase : IWorkroomUseCase
     private readonly ApplicationUserManager _userManager;
     private readonly IHttpContextAccessor _httpContextAccessor;
     private readonly IReportingService _reportingService;
+    private readonly ITenantResolver _tenenResolver;
 
     #endregion Private Fields
 
@@ -27,12 +28,13 @@ public class WorkroomUseCase : IWorkroomUseCase
 
     public WorkroomUseCase(IApplicationDbContext dbContext,
         IHttpContextAccessor httpContextAccessor,
-        IReportingService reportingService, ApplicationUserManager userManager)
+        IReportingService reportingService, ApplicationUserManager userManager, ITenantResolver tenenResolver)
     {
         _dbContext = dbContext;
         _httpContextAccessor = httpContextAccessor;
         _reportingService = reportingService;
         _userManager = userManager;
+        _tenenResolver = tenenResolver;
     }
 
     #endregion Public Constructors
@@ -98,7 +100,27 @@ public class WorkroomUseCase : IWorkroomUseCase
 
     public async Task<Envelope<string>> DeleteWorkroom(DeleteWorkroomCommand request)
     {
-        throw new NotImplementedException();
+        // Workroom only deleted in many-to-many as related to tenant
+
+        if (string.IsNullOrEmpty(request.Id))
+            return Envelope<string>.Result.BadRequest(Resource.Invalid_Workroom_Id);
+
+        var tenantId = _tenenResolver.GetTenantId();
+
+        if (!tenantId.HasValue)
+            return Envelope<string>.Result.NotFound(Resource.Tenant_not_found);
+
+        var tenantWorkroom = await _dbContext.TenantsWorkrooms.FirstOrDefaultAsync(x =>
+            x.TenantId.Equals(tenantId.Value) && x.ApplicationUserId.Equals(request.Id));
+
+        if (tenantWorkroom == null)
+            return Envelope<string>.Result.NotFound(Resource.The_Workroom_is_not_found);
+
+        _dbContext.TenantsWorkrooms.Remove(tenantWorkroom);
+
+        await _dbContext.SaveChangesAsync();
+
+        return Envelope<string>.Result.Ok(Resource.Workroom_has_been_deleted_successfully);
     }
 
     #endregion Public Methods

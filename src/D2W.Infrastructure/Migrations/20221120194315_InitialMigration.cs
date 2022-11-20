@@ -320,8 +320,32 @@ namespace D2W.Infrastructure.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    WorkOrderNumber = table.Column<int>(type: "int", nullable: false),
                     TenantId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ClientId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    WorkOrderNumber = table.Column<int>(type: "int", nullable: false),
+                    OpenedByWorkroom = table.Column<bool>(type: "bit", nullable: false),
+                    SentToWorkroomAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    OpenByWorkroomAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ReadyDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    MeasurementSystem = table.Column<int>(type: "int", nullable: false),
+                    DecoratorName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Quantity = table.Column<int>(type: "int", nullable: false),
+                    HasBoards = table.Column<bool>(type: "bit", nullable: false),
+                    HasPole = table.Column<bool>(type: "bit", nullable: false),
+                    HasBlocks = table.Column<bool>(type: "bit", nullable: false),
+                    IsLined = table.Column<bool>(type: "bit", nullable: false),
+                    IsInterline = table.Column<bool>(type: "bit", nullable: false),
+                    NumberOfWidths = table.Column<int>(type: "int", nullable: false),
+                    RodFaceWidth = table.Column<float>(type: "real", nullable: false),
+                    Overhang = table.Column<float>(type: "real", nullable: false),
+                    Overlap = table.Column<float>(type: "real", nullable: false),
+                    Return = table.Column<float>(type: "real", nullable: false),
+                    Hem = table.Column<float>(type: "real", nullable: false),
+                    HeaderTopBottom = table.Column<float>(type: "real", nullable: false),
+                    FinishedLength = table.Column<float>(type: "real", nullable: false),
+                    CordingSize = table.Column<float>(type: "real", nullable: false),
+                    SpecialInstructions = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -495,16 +519,12 @@ namespace D2W.Infrastructure.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     TenantId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CompanyName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    AltPhone1 = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    AltPhone2 = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FullName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    AltPhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Fax = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    AltEmailAddress1 = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    AltEmailAddress2 = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ContactName1 = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ContactName2 = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ContactName3 = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ContactName4 = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ContactName5 = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    EmailAddress = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    AltEmailAddress = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     AddressLine1 = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     AddressLine2 = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     City = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -512,6 +532,7 @@ namespace D2W.Infrastructure.Migrations
                     PostalCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CountryId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     LogoUri = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    AvatarUri = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -537,10 +558,13 @@ namespace D2W.Infrastructure.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     TenantId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     ClientId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    OpenedByClient = table.Column<bool>(type: "bit", nullable: false),
+                    SentToClientAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    OpenByClientAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    IsArchived = table.Column<bool>(type: "bit", nullable: false),
                     ApprovedByClient = table.Column<bool>(type: "bit", nullable: false),
+                    IsArchived = table.Column<bool>(type: "bit", nullable: false),
                     ClientNotes = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -621,13 +645,44 @@ namespace D2W.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "WorkOrderItems",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    TenantId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    WorkOrderItemType = table.Column<int>(type: "int", nullable: false),
+                    MeasurementSystem = table.Column<int>(type: "int", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Value = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FabricId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    Yardage = table.Column<float>(type: "real", nullable: false),
+                    Meters = table.Column<float>(type: "real", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DeletedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    WorkOrderId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_WorkOrderItems", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_WorkOrderItems_WorkOrders_WorkOrderId",
+                        column: x => x.WorkOrderId,
+                        principalTable: "WorkOrders",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "FabricCalculations",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     TenantId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     MeasurementSystem = table.Column<int>(type: "int", nullable: false),
-                    FabricPriority = table.Column<int>(type: "int", nullable: false),
                     FinishedLength = table.Column<float>(type: "real", nullable: false),
                     TrimOff = table.Column<float>(type: "real", nullable: false),
                     Hems = table.Column<float>(type: "real", nullable: false),
@@ -796,6 +851,11 @@ namespace D2W.Infrastructure.Migrations
                 table: "WindowMeasurements",
                 column: "DesignConceptId",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_WorkOrderItems_WorkOrderId",
+                table: "WorkOrderItems",
+                column: "WorkOrderId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -870,7 +930,7 @@ namespace D2W.Infrastructure.Migrations
                 name: "WindowMeasurements");
 
             migrationBuilder.DropTable(
-                name: "WorkOrders");
+                name: "WorkOrderItems");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
@@ -886,6 +946,9 @@ namespace D2W.Infrastructure.Migrations
 
             migrationBuilder.DropTable(
                 name: "DesignConcepts");
+
+            migrationBuilder.DropTable(
+                name: "WorkOrders");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");

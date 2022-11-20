@@ -21,13 +21,17 @@ public class DesignConceptModel : IAuditable, IMustHaveTenant
 
     public string ClientId { get; set; }
 
+    public bool OpenedByClient { get; set; }
+    public DateTime? SentToClientAt { get; set; }
+    public DateTime? OpenByClientAt { get; set; }
+
     public string Name { get; set; }
 
     public string ImageUrl { get; set; }
 
-    public bool IsArchived { get; set; }
-
     public bool ApprovedByClient { get; set; }
+
+    public bool IsArchived { get; set; }
 
     public string ClientNotes { get; set; }
 

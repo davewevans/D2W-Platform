@@ -1,3 +1,4 @@
+using D2W.WebPortal.Features.Clients.Queries.GetClientForEdit;
 using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections.Generic;
@@ -17,10 +18,10 @@ namespace D2W.WebPortal.Pages.Clients
         #region Private Properties
 
         [Inject] private IBreadcrumbService BreadcrumbService { get; set; }
-        [Inject] private IApplicantsClient ApplicantsClient { get; set; }
+        [Inject] private IClientsClient ClientsClient { get; set; }
 
         private ServerSideValidator ServerSideValidator { get; set; }
-        private ApplicantForEdit ApplicantForEditVm { get; set; } = new();
+        private ClientForEdit ClientForEditVm { get; set; } = new();
 
         #endregion Private Properties
 
@@ -31,19 +32,19 @@ namespace D2W.WebPortal.Pages.Clients
             BreadcrumbService.SetBreadcrumbItems(new List<BreadcrumbItem>
         {
             new(Resource.Home, "/"),
-            new(Resource.Applicants, "/poc/army/applicants"),
-            new(Resource.View_Applicant, "#", true)
+            new(Resource.Clients, "/Clients"),
+            new(Resource.View_Client, "#", true)
         });
 
-            var httpResponseWrapper = await ApplicantsClient.GetApplicant(new GetApplicantForEditQuery
+            var httpResponseWrapper = await ClientsClient.GetClient(new GetClientForEditQuery
             {
                 Id = ClientId,
             });
 
             if (httpResponseWrapper.Success)
             {
-                var successResult = httpResponseWrapper.Response as SuccessResult<ApplicantForEdit>;
-                ApplicantForEditVm = successResult?.Result;
+                var successResult = httpResponseWrapper.Response as SuccessResult<ClientForEdit>;
+                ClientForEditVm = successResult?.Result;
             }
             else
             {

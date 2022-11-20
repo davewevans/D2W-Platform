@@ -349,6 +349,15 @@ namespace D2W.FrontendResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are you sure?.
+        /// </summary>
+        public static string Are_You_Sure {
+            get {
+                return ResourceManager.GetString("Are_You_Sure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Are you sure you want to change the settings?.
         /// </summary>
         public static string Are_you_sure_you_want_to_change_the_settings {
@@ -390,6 +399,15 @@ namespace D2W.FrontendResources {
         public static string Are_you_sure_you_want_to_remove_role_name {
             get {
                 return ResourceManager.GetString("Are_you_sure_you_want_to_remove_role_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to save?.
+        /// </summary>
+        public static string Are_you_sure_you_want_to_save {
+            get {
+                return ResourceManager.GetString("Are_you_sure_you_want_to_save", resourceCulture);
             }
         }
         
@@ -687,6 +705,15 @@ namespace D2W.FrontendResources {
         public static string Cancel_Upload {
             get {
                 return ResourceManager.GetString("Cancel_Upload", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancelled.
+        /// </summary>
+        public static string Cancelled {
+            get {
+                return ResourceManager.GetString("Cancelled", resourceCulture);
             }
         }
         
@@ -1294,6 +1321,15 @@ namespace D2W.FrontendResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Deleted.
+        /// </summary>
+        public static string Deleted {
+            get {
+                return ResourceManager.GetString("Deleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Deleting this data will permanently remove your account, and this cannot be recovered..
         /// </summary>
         public static string Deleting_this_data_will_permanently_remove_your_account_and_this_cannot_be_recovered {
@@ -1484,6 +1520,33 @@ namespace D2W.FrontendResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit Client.
+        /// </summary>
+        public static string Edit_Client {
+            get {
+                return ResourceManager.GetString("Edit_Client", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit Design Concept.
+        /// </summary>
+        public static string Edit_Design_Concept {
+            get {
+                return ResourceManager.GetString("Edit_Design_Concept", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit Fabric.
+        /// </summary>
+        public static string Edit_Fabric {
+            get {
+                return ResourceManager.GetString("Edit_Fabric", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit Reference.
         /// </summary>
         public static string Edit_Reference {
@@ -1507,6 +1570,24 @@ namespace D2W.FrontendResources {
         public static string Edit_User {
             get {
                 return ResourceManager.GetString("Edit_User", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit Work Order.
+        /// </summary>
+        public static string Edit_Work_Order {
+            get {
+                return ResourceManager.GetString("Edit_Work_Order", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit Workroom.
+        /// </summary>
+        public static string Edit_Workroom {
+            get {
+                return ResourceManager.GetString("Edit_Workroom", resourceCulture);
             }
         }
         
@@ -4548,6 +4629,51 @@ namespace D2W.FrontendResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to View Client.
+        /// </summary>
+        public static string View_Client {
+            get {
+                return ResourceManager.GetString("View_Client", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View Design Concept.
+        /// </summary>
+        public static string View_Design_Concept {
+            get {
+                return ResourceManager.GetString("View_Design_Concept", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View Fabric.
+        /// </summary>
+        public static string View_Fabric {
+            get {
+                return ResourceManager.GetString("View_Fabric", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View Work Order.
+        /// </summary>
+        public static string View_Work_Order {
+            get {
+                return ResourceManager.GetString("View_Work_Order", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View Workroom.
+        /// </summary>
+        public static string View_Workroom {
+            get {
+                return ResourceManager.GetString("View_Workroom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Visit Website.
         /// </summary>
         public static string Visit_Website {
@@ -4665,7 +4791,7 @@ namespace D2W.FrontendResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Yes, delete it.
+        ///   Looks up a localized string similar to Yes, delete it!.
         /// </summary>
         public static string Yes_delete_it {
             get {
@@ -4674,7 +4800,7 @@ namespace D2W.FrontendResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Yes, remove it.
+        ///   Looks up a localized string similar to Yes, remove it!.
         /// </summary>
         public static string Yes_remove_it {
             get {
@@ -4764,11 +4890,110 @@ namespace D2W.FrontendResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You will not be able to recover this client..
+        /// </summary>
+        public static string You_will_not_be_able_to_recover_this_client {
+            get {
+                return ResourceManager.GetString("You_will_not_be_able_to_recover_this_client", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You will not be able to recover this design concept..
+        /// </summary>
+        public static string You_will_not_be_able_to_recover_this_design_concept {
+            get {
+                return ResourceManager.GetString("You_will_not_be_able_to_recover_this_design_concept", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You will not be able to recover this fabric..
+        /// </summary>
+        public static string You_will_not_be_able_to_recover_this_fabric_data {
+            get {
+                return ResourceManager.GetString("You_will_not_be_able_to_recover_this_fabric_data", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You will not be able to recover this work order..
+        /// </summary>
+        public static string You_will_not_be_able_to_recover_this_work_order_data {
+            get {
+                return ResourceManager.GetString("You_will_not_be_able_to_recover_this_work_order_data", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You will not be able to recover this workroom..
+        /// </summary>
+        public static string You_will_not_be_able_to_recover_this_workroom {
+            get {
+                return ResourceManager.GetString("You_will_not_be_able_to_recover_this_workroom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Your account contains personal data that you have given us..
         /// </summary>
         public static string Your_account_contains_personal_data_that_you_have_given_us {
             get {
                 return ResourceManager.GetString("Your_account_contains_personal_data_that_you_have_given_us", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your client has been deleted.
+        /// </summary>
+        public static string Your_client_has_been_deleted {
+            get {
+                return ResourceManager.GetString("Your_client_has_been_deleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your client is safe :).
+        /// </summary>
+        public static string Your_client_is_safe {
+            get {
+                return ResourceManager.GetString("Your_client_is_safe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your design concept has been deleted.
+        /// </summary>
+        public static string Your_design_concept_has_been_deleted {
+            get {
+                return ResourceManager.GetString("Your_design_concept_has_been_deleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your design concept is safe. :).
+        /// </summary>
+        public static string Your_design_concept_is_safe {
+            get {
+                return ResourceManager.GetString("Your_design_concept_is_safe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your fabric has been deleted.
+        /// </summary>
+        public static string Your_fabric_has_been_deleted {
+            get {
+                return ResourceManager.GetString("Your_fabric_has_been_deleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your fabric is safe :).
+        /// </summary>
+        public static string Your_fabric_is_safe {
+            get {
+                return ResourceManager.GetString("Your_fabric_is_safe", resourceCulture);
             }
         }
         
@@ -4841,6 +5066,42 @@ namespace D2W.FrontendResources {
         public static string your_two_factor_authentication_app_will_provide_you_with_a_unique_code {
             get {
                 return ResourceManager.GetString("your_two_factor_authentication_app_will_provide_you_with_a_unique_code", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your work order has been deleted.
+        /// </summary>
+        public static string Your_work_order_has_been_deleted {
+            get {
+                return ResourceManager.GetString("Your_work_order_has_been_deleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your work order is safe  :).
+        /// </summary>
+        public static string Your_work_order_is_safe {
+            get {
+                return ResourceManager.GetString("Your_work_order_is_safe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your workroom has been deleted.
+        /// </summary>
+        public static string Your_workroom_has_been_deleted {
+            get {
+                return ResourceManager.GetString("Your_workroom_has_been_deleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your workroom is safe  :).
+        /// </summary>
+        public static string Your_workroom_is_safe {
+            get {
+                return ResourceManager.GetString("Your_workroom_is_safe", resourceCulture);
             }
         }
     }
