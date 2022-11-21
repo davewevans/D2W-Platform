@@ -12,21 +12,21 @@
                 <MudTabPanel Text="@Resource.Client" Icon="@Icons.Material.Filled.Person">
                     <MudGrid>
                         <MudItem xs="6">
-                            <MudTextField Label="@Resource.FullName"
-                                          Variant="Variant.Outlined"
-                                          @bind-Value="ClientForEditVm.FullName"
-                                          For="@(() => ClientForEditVm.FullName)" />
 
-                            <MudTextField Label="@Resource.Email"
-                                          Variant="Variant.Outlined"
-                                          @bind-Value="ClientForEditVm.Email"
-                                          For="@(() => ClientForEditVm.Email)" />
+                            <MudTextField Label="@Resource.FullName" Variant="Variant.Outlined"
+                                @bind-Value="ClientForEditVm.FullName" For="@(() => ClientForEditVm.FullName)" />
 
+                            <MudTextField Class="mt-4" Disabled="ClientForEditVm.IsLinkedToAnotherTenant" Label="@Resource.Email"
+                                Variant="Variant.Outlined" @bind-Value="ClientForEditVm.Email"
+                                For="@(() => ClientForEditVm.Email)" />
 
-                            <MudTextField Label="@Resource.Phone_Number"
-                                          Variant="Variant.Outlined"
-                                          @bind-Value="ClientForEditVm.PhoneNumber"
-                                          For="@(() => ClientForEditVm.PhoneNumber)" />
+                            @if(ClientForEditVm.IsLinkedToAnotherTenant)
+                            {
+                                <MudAlert Class="mb-4 mt-2" Severity="Severity.Info">@Resource.Client_email_cannot_be_changed</MudAlert>
+                            }
+
+                            <MudTextField Class="mt-4" Label="@Resource.Phone_Number" Variant="Variant.Outlined"
+                                @bind-Value="ClientForEditVm.PhoneNumber" For="@(() => ClientForEditVm.PhoneNumber)" />
                         </MudItem>
 
                     </MudGrid>
@@ -34,11 +34,8 @@
             </MudTabs>
         </MudCardContent>
         <MudCardActions Class="pb-4 pl-4">
-            <MudButton ButtonType="ButtonType.Submit"
-                       Variant="Variant.Filled"
-                       Color="Color.Primary"
-                       Class="ml-auto"
-                       FullWidth="true">@Resource.Save</MudButton>
+            <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto"
+                FullWidth="true">@Resource.Save</MudButton>
         </MudCardActions>
         <MudDivider />
         <MudExpansionPanels>

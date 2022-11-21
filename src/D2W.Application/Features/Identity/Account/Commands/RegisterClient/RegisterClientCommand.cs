@@ -27,7 +27,7 @@ public class RegisterClientCommand : IRequest<Envelope<RegisterClientResponse>>
 
     public ApplicationUser MapToEntity()
     {
-        var (firstName, lastName) = SplitFullName();
+        var (firstName, lastName) = FullName.SplitFullName();
 
         return new()
         {
@@ -48,28 +48,11 @@ public class RegisterClientCommand : IRequest<Envelope<RegisterClientResponse>>
             FullName = FullName?.Trim(),
             PhoneNumber = PhoneNumber?.Trim(),
             EmailAddress = Email?.Trim(),
+            AvatarUri = AvatarUri
         };
     }
 
     #endregion Public Methods
-
-    #region methods
-
-    private (string, string) SplitFullName()
-    {
-        var nameSplit = FullName?.Split(' ');
-        string firstName = string.Empty;
-        string lastName = string.Empty;
-        if (nameSplit != null)
-        {
-            firstName = nameSplit[0];
-            lastName = nameSplit[^1];
-        }
-
-        return (firstName, lastName);
-    }
-
-    #endregion
 
 
 

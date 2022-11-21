@@ -7,20 +7,27 @@ namespace D2W.WebPortal.Features.Workrooms.Queries.GetWorkroomForEdit
 {
     public class WorkroomForEdit
     {
+        public WorkroomForEdit ()
+        {
+            Countries = new List<CountryItem>();
+        }
+
         #region Public Properties
         public string Id { get; set; }
         public string CompanyName { get; set; }
-        public string Email { get; set; }
-        public string PhoneNumber { get; set; }
+        public string EmailAddress { get; set; }
         public string AltEmailAddress { get; set; }
-        public string AltPhone1 { get; set; }
-        public string ContactName1 { get; set; }
-        public string ContactName2 { get; set; }
-        public string AvatarUri { get; set; }
-
-        public string AppUserType { get; set; }
-
-        // TODO address
+        public string PhoneNumber { get; set; }
+        public string AltPhoneNumber { get; set; }
+        public string Fax { get; set; }
+        public string AddressLine1 { get; set; }
+        public string AddressLine2 { get; set; }
+        public string City { get; set; }
+        public string Region { get; set; }
+        public string PostalCode { get; set; }
+        public Guid? CountryId { get; set; }
+        public bool IsLinkedToAnotherTenant { get; set; }
+        public List<CountryItem> Countries { get; set; }
 
         #endregion Public Properties
     }

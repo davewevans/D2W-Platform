@@ -1,5 +1,33 @@
-<h3>ViewWorkroom</h3>
+@page "/ViewWorkroom/{workroomId}"
 
-@code {
+<MudText Typo="Typo.h5" Color="Color.Primary" Class="mb-4">@Resource.View_Workroom</MudText>
 
-}
+<ServerSideValidator @ref="ServerSideValidator" />
+<MudCard>
+    <MudCardContent>
+        <MudTabs KeepPanelsAlive="true" Elevation="25" Color="Color.Transparent" Rounded="true" PanelClass="mt-6">
+            <MudTabPanel Text="@Resource.Workroom" Icon="@Icons.Material.Filled.Person">
+                <MudGrid>
+                    <MudItem xs="6">
+                        <MudTextField Disabled="true" Label="@Resource.Workroom" Variant="Variant.Outlined"
+                            @bind-Value="WorkroomForEditVm.CompanyName" For="@(() => WorkroomForEditVm.CompanyName)" />
+
+                        <MudTextField Disabled="true" Label="@Resource.Email" Variant="Variant.Outlined"
+                            @bind-Value="WorkroomForEditVm.EmailAddress" For="@(() => WorkroomForEditVm.EmailAddress)" />
+
+
+                        <MudTextField Disabled="true" Label="@Resource.Phone_Number" Variant="Variant.Outlined"
+                            @bind-Value="WorkroomForEditVm.PhoneNumber" For="@(() => WorkroomForEditVm.PhoneNumber)" />
+                    </MudItem>
+
+                </MudGrid>
+            </MudTabPanel>
+        </MudTabs>
+    </MudCardContent>
+    <MudCardActions Class="pb-4 pl-4">
+        <MudButton Link="/Workrooms" Variant="Variant.Filled" StartIcon="@Icons.Material.Outlined.ArrowBack"
+            Color="Color.Primary">
+            @Resource.Return
+        </MudButton>
+    </MudCardActions>
+</MudCard>

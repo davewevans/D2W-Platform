@@ -2,21 +2,20 @@
 
 public class WorkroomItem : AuditableDto
 {
-    // TODO contact details
-
     #region Public Properties
 
     public string Id { get; set; }
     public string CompanyName { get; set; }
-    public string Email { get; set; }
-    public string PhoneNumber { get; set; }
+    public string EmailAddress { get; set; }
     public string AltEmailAddress { get; set; }
+    public string PhoneNumber { get; set; }
     public string AltPhoneNumber { get; set; }
     public string Fax { get; set; }
- 
-  
-    public ApplicationUserType AppUserType { get; set; }
-    public string AvatarUri { get; set; }
+    public string AddressLine1 { get; set; }
+    public string AddressLine2 { get; set; }
+    public string City { get; set; }
+    public string Region { get; set; }
+    public string PostalCode { get; set; }
 
     #endregion Public Properties
 
@@ -29,20 +28,24 @@ public class WorkroomItem : AuditableDto
         return new()
         {
             Id = appUser.Id,
-            Email = appUser.Email,
+            EmailAddress = appUser.Email,
             PhoneNumber = appUser.PhoneNumber,
-            AppUserType = appUser.AppUserType,
-            AvatarUri = appUser.AvatarUri,
-            CreatedOn = appUser.CreatedOn,
-            CreatedBy = appUser.CreatedBy,
-            ModifiedOn = appUser.ModifiedOn,
-            ModifiedBy = appUser.ModifiedBy,
 
             // Contact details
             CompanyName = contactDetails?.CompanyName,
             AltEmailAddress = contactDetails?.AltEmailAddress,
             AltPhoneNumber = contactDetails?.AltPhoneNumber,
             Fax = contactDetails?.Fax,
+            AddressLine1 = contactDetails?.AddressLine1,
+            AddressLine2 = contactDetails?.AddressLine2,
+            City = contactDetails?.City,
+            Region = contactDetails?.Region,
+            PostalCode = contactDetails?.PostalCode,
+
+            CreatedOn = appUser.CreatedOn,
+            CreatedBy = appUser.CreatedBy,
+            ModifiedOn = appUser.ModifiedOn,
+            ModifiedBy = appUser.ModifiedBy,
         };
     }
 

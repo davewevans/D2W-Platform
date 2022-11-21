@@ -15,5 +15,19 @@ public static class StringExtensions
         return cleanedStr;
     }
 
+    public static (string, string) SplitFullName(this string fullName)
+    {
+        var nameSplit = fullName?.Split(' ');
+        string firstName = string.Empty;
+        string lastName = string.Empty;
+        if (nameSplit != null)
+        {
+            firstName = nameSplit[0];
+            lastName = nameSplit[^1];
+        }
+
+        return (firstName, lastName);
+    }
+
     #endregion Public Methods
 }

@@ -1,5 +1,58 @@
-<h3>EditWorkroom</h3>
+@page "/EditWorkroom/{workroomId}"
 
-@code {
+<MudText Typo="Typo.h5" Color="Color.Primary" Class="mb-4">@Resource.Edit_Workroom</MudText>
 
-}
+<ServerSideValidator @ref="ServerSideValidator" />
+<EditForm Model="WorkroomForEditVm" OnValidSubmit="SubmitForm">
+    <EditContextServerSideValidator @ref="EditContextServerSideValidator" />
+    <FluentValidationValidator />
+    <MudCard>
+        <MudCardContent>
+            <MudTabs KeepPanelsAlive="true" Elevation="25" Color="Color.Transparent" Rounded="true" PanelClass="mt-6">
+                <MudTabPanel Text="@Resource.Workroom" Icon="@Icons.Material.Filled.Person">
+                    <MudGrid>
+                        <MudItem xs="6">
+
+                            <MudTextField Label="@Resource.Workroom" Variant="Variant.Outlined"
+                                @bind-Value="WorkroomForEditVm.CompanyName" For="@(() => WorkroomForEditVm.CompanyName)" />
+
+                            <MudTextField Class="mt-4" Disabled="WorkroomForEditVm.IsLinkedToAnotherTenant" Label="@Resource.Email"
+                                Variant="Variant.Outlined" @bind-Value="WorkroomForEditVm.EmailAddress"
+                                For="@(() => WorkroomForEditVm.EmailAddress)" />
+
+                            @if(WorkroomForEditVm.IsLinkedToAnotherTenant)
+                            {
+                                <MudAlert Class="mb-4 mt-2" Severity="Severity.Info">@Resource.Workroom_email_cannot_be_changed</MudAlert>
+                            }
+
+                            <MudTextField Class="mt-4" Label="@Resource.Phone_Number" Variant="Variant.Outlined"
+                                @bind-Value="WorkroomForEditVm.PhoneNumber" For="@(() => WorkroomForEditVm.PhoneNumber)" />
+
+                            <MudSelect Class="mt-4" @bind-Value="@_country" Label="@Resource.Country" Variant="Variant.Outlined">
+                                @foreach (var country in WorkroomForEditVm.Countries)
+                                {
+                                    <MudSelectItem Value="@country.CountryName">
+                                        <img src="@country.CountryFlagUri" height="14" class="mr-1" /> @country.CountryName
+                                    </MudSelectItem>
+                                }
+                            </MudSelect>
+                        </MudItem>
+
+                    </MudGrid>
+                </MudTabPanel>
+            </MudTabs>
+        </MudCardContent>
+        <MudCardActions Class="pb-4 pl-4">
+            <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto"
+                FullWidth="true">@Resource.Save</MudButton>
+        </MudCardActions>
+        <MudDivider />
+        <MudExpansionPanels>
+            <MudExpansionPanel Text="@Resource.Validation_Summary" IsExpanded="true" Disabled="true" HideIcon="true">
+                <MudText Color="@Color.Error">
+                    <ValidationSummary />
+                </MudText>
+            </MudExpansionPanel>
+        </MudExpansionPanels>
+    </MudCard>
+</EditForm>

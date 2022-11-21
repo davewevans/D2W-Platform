@@ -60,38 +60,30 @@
                         Icon="@Icons.Material.Filled.Add" OnClick="AddWorkroom" />
             </ToolBarContent>
             <HeaderContent>
-                <MudTh><MudTableSortLabel SortLabel="FullName" T="WorkroomItem">@Resource.Workroom_Name</MudTableSortLabel></MudTh>
-                <MudTh><MudTableSortLabel SortLabel="Email" T="WorkroomItem">@Resource.Email</MudTableSortLabel></MudTh>
+                <MudTh><MudTableSortLabel SortLabel="CompanyName" T="WorkroomItem">@Resource.Workroom_Name</MudTableSortLabel></MudTh>
+                <MudTh><MudTableSortLabel SortLabel="EmailAddress" T="WorkroomItem">@Resource.Email</MudTableSortLabel></MudTh>
                 <MudTh><MudTableSortLabel SortLabel="PhoneNumber" T="WorkroomItem">@Resource.Phone_Number</MudTableSortLabel></MudTh>
                 <MudTh>@Resource.Options</MudTh>
             </HeaderContent>
             <RowTemplate>
                 <MudTd DataLabel="@Resource.Workroom_Name">@Workroom.CompanyName</MudTd>
-                <MudTd DataLabel="@Resource.Email">@Workroom.Email</MudTd>
+                <MudTd DataLabel="@Resource.Email">@Workroom.EmailAddress</MudTd>
                 <MudTd DataLabel="@Resource.Phone_Number">@Workroom.PhoneNumber</MudTd>
                 <MudTd>
-                    <MudButtonGroup Color="Color.Primary" Variant="Variant.Text">
+                    <MudButtonGroup Variant="Variant.Text" Color="Color.Primary"
+                        OverrideStyles="@_overrideButtonGroupStyles">
 
-                        <MudButton Variant="Variant.Filled"
-                                   StartIcon="@Icons.Material.Filled.ViewModule"
-                                   Size="Size.Small"
-                                   Color="Color.Default"
-                                   Disabled="@disableOptionButtons"
-                                   OnClick="@(() => ViewWorkroom(Workroom.Id))">@Resource.View</MudButton>
+                        <MudButton Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.ViewModule"
+                            Size="Size.Small" Color="Color.Primary" Disabled="@disableOptionButtons"
+                            OnClick="@(() => ViewWorkroom(Workroom.Id))">@Resource.View</MudButton>
 
-                        <MudButton Variant="Variant.Filled"
-                                   StartIcon="@Icons.Material.Filled.Edit"
-                                   Size="Size.Small"
-                                   Color="Color.Default"
-                                   Disabled="@disableOptionButtons"
-                                   OnClick="@(() => EditWorkroom(Workroom.Id))">@Resource.Edit</MudButton>
+                        <MudButton Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.Edit" Size="Size.Small"
+                            Color="Color.Secondary" Disabled="@disableOptionButtons"
+                            OnClick="@(() => EditWorkroom(Workroom.Id))">@Resource.Edit</MudButton>
 
-                        <MudButton Variant="Variant.Filled"
-                                   StartIcon="@Icons.Material.Filled.Delete"
-                                   Size="Size.Small"
-                                   Color="Color.Error"
-                                   Disabled="@disableOptionButtons"
-                                   OnClick="@(() => DeleteWorkroom(Workroom.Id))">@Resource.Delete</MudButton>
+                        <MudButton Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.Delete" Size="Size.Small"
+                            Color="Color.Error" Disabled="@disableOptionButtons"
+                            OnClick="@(() => DeleteWorkroom(Workroom.Id))">@Resource.Delete</MudButton>
                     </MudButtonGroup>
                 </MudTd>
             </RowTemplate>

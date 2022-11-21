@@ -128,7 +128,7 @@ try
             await ApplicationDbContextSeeder.SeedStaticRoles(roleManager);
 
             var dbContext = services.GetRequiredService<IApplicationDbContext>();
-            await ApplicationDbContextSeeder.SeedCountries(dbContext);
+            await ApplicationDbContextSeeder.SeedCountries(dbContext, app.Configuration);
         }
         catch (Exception ex)
         {

@@ -393,6 +393,9 @@
   <data name="Client_by_that_name_not_found" xml:space="preserve">
     <value>Client mit diesem Namen nicht gefunden</value>
   </data>
+  <data name="Client_email_cannot_be_changed" xml:space="preserve">
+    <value>Diese E-Mail-Adresse kann nicht geändert werden. Wenn diese E-Mail falsch ist, können Sie einen weiteren Mandanten hinzufügen und alle zugehörigen Designkonzepte neu zuweisen. Löschen Sie dann diesen Client.</value>
+  </data>
   <data name="Client_Side_Authorization" xml:space="preserve">
     <value>Clientseitige Autorisierung</value>
   </data>
@@ -420,6 +423,9 @@
   <data name="Code_Samples" xml:space="preserve">
     <value>Codebeispiele</value>
   </data>
+  <data name="Company" xml:space="preserve">
+    <value>Firma</value>
+  </data>
   <data name="Completed" xml:space="preserve">
     <value>Abgeschlossen!</value>
   </data>
@@ -446,6 +452,9 @@
   </data>
   <data name="Copper" xml:space="preserve">
     <value>Kupfer</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>Land</value>
   </data>
   <data name="Create" xml:space="preserve">
     <value>Schaffen</value>
@@ -1673,6 +1682,9 @@
   </data>
   <data name="Workrooms" xml:space="preserve">
     <value>Arbeitszimmer</value>
+  </data>
+  <data name="Workroom_email_cannot_be_changed" xml:space="preserve">
+    <value>Diese E-Mail-Adresse kann nicht geändert werden. Wenn diese E-Mail falsch ist, können Sie einen weiteren Arbeitsbereich hinzufügen und alle zugehörigen Arbeitsaufträge neu zuweisen. Löschen Sie dann diesen Arbeitsbereich.</value>
   </data>
   <data name="Workroom_has_been_updated_successfully" xml:space="preserve">
     <value>Workroom wurde erfolgreich aktualisiert.</value>

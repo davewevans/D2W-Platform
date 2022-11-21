@@ -4,14 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace D2W.Domain.Entities;
+namespace D2W.Application.Features.Workrooms.Queries.GetWorkroomForEdit;
 
-[Table("Countries")]
-public class CountryModel
+public class CountryItem
 {
     public Guid Id { get; set; }
     public string CountryName { get; set; }
     public string CountryCode { get; set; }
     public string CountryFlagUri { get; set; }
 }
-

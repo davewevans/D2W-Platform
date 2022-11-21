@@ -393,6 +393,9 @@
   <data name="Client_by_that_name_not_found" xml:space="preserve">
     <value>उस नाम से क्लाइंट नहीं मिला</value>
   </data>
+  <data name="Client_email_cannot_be_changed" xml:space="preserve">
+    <value>यह ईमेल बदला नहीं जा सकता. यदि यह ईमेल गलत है, तो आप एक और क्लाइंट जोड़ सकते हैं और किसी भी संबंधित डिज़ाइन अवधारणाओं को फिर से असाइन कर सकते हैं। उसके बाद इस क्लाइंट को हटाएँ।</value>
+  </data>
   <data name="Client_Side_Authorization" xml:space="preserve">
     <value>क्लाइंट-साइड प्राधिकरण</value>
   </data>
@@ -420,6 +423,9 @@
   <data name="Code_Samples" xml:space="preserve">
     <value>कोड नमूने</value>
   </data>
+  <data name="Company" xml:space="preserve">
+    <value>कंपनी</value>
+  </data>
   <data name="Completed" xml:space="preserve">
     <value>पूरा हो गया</value>
   </data>
@@ -446,6 +452,9 @@
   </data>
   <data name="Copper" xml:space="preserve">
     <value>तांबा</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>देश</value>
   </data>
   <data name="Create" xml:space="preserve">
     <value>बनाना</value>
@@ -1673,6 +1682,9 @@
   </data>
   <data name="Workrooms" xml:space="preserve">
     <value>वर्करूम</value>
+  </data>
+  <data name="Workroom_email_cannot_be_changed" xml:space="preserve">
+    <value>यह ईमेल बदला नहीं जा सकता. यदि यह ईमेल गलत है, तो आप एक और वर्करूम जोड़ सकते हैं और किसी भी संबंधित कार्य आदेश को फिर से असाइन कर सकते हैं। फिर इस वर्करूम को हटा दें।</value>
   </data>
   <data name="Workroom_has_been_updated_successfully" xml:space="preserve">
     <value>वर्करूम सफलतापूर्वक अद्यतन किया गया है.</value>

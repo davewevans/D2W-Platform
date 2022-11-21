@@ -206,6 +206,8 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser,
 
         ConfigureSettingsSchemaEntities(modelBuilder);
 
+        ConfigureOneToManyRelationships(modelBuilder);
+
         ConfigureManyToManyRelationships(modelBuilder);
 
         ConfigureOneToOneRelationships(modelBuilder);

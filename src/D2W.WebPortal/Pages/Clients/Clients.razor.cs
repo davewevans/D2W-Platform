@@ -152,7 +152,6 @@ namespace D2W.WebPortal.Pages.Clients
 
         private async Task DeleteClient(string id)
         {
-
             SweetAlertResult result = await SweetAlert.FireAsync(new SweetAlertOptions
             {
                 Title = Resource.Are_You_Sure,
@@ -193,39 +192,6 @@ namespace D2W.WebPortal.Pages.Clients
                   SweetAlertIcon.Error
                   );
             }
-
-
-
-
-            // var parameters = new DialogParameters
-            // {
-            //     {"ContentText", Resource.Do_you_really_want_to_delete_this_record},
-            //     {"ButtonText", Resource.Delete},
-            //     {"Color", Color.Error}
-            // };
-
-            // var options = new DialogOptions() { CloseButton = true, MaxWidth = MaxWidth.ExtraSmall };
-
-            // var dialog = DialogService.Show<DialogModal>(Resource.Delete, parameters, options);
-
-            // var result = await dialog.Result;
-
-            // if (!result.Cancelled)
-            // {
-            //     var httpResponseWrapper = await ClientsClient.DeleteClient(id);
-
-            //     if (httpResponseWrapper.Success)
-            //     {
-            //         var successResult = httpResponseWrapper.Response as SuccessResult<string>;
-            //         Snackbar.Add(successResult.Result, Severity.Success);
-            //         await Table.ReloadServerData();
-            //     }
-            //     else
-            //     {
-            //         var exceptionResult = httpResponseWrapper.Response as ExceptionResult;
-            //         ServerSideValidator.Validate(exceptionResult);
-            //     }
-            // }
         }
 
         private void FilterClients(string searchString)

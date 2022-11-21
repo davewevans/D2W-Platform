@@ -393,6 +393,9 @@
   <data name="Client_by_that_name_not_found" xml:space="preserve">
     <value>لم يتم العثور على العميل بهذا الاسم</value>
   </data>
+  <data name="Client_email_cannot_be_changed" xml:space="preserve">
+    <value>لا يمكن تغيير هذا البريد الإلكتروني. إذا كان هذا البريد الإلكتروني غير صحيح، فيمكنك إضافة عميل آخر وإعادة تعيين أي مفاهيم تصميم ذات صلة. ثم احذف هذا العميل.</value>
+  </data>
   <data name="Client_Side_Authorization" xml:space="preserve">
     <value>التفويض من جانب العميل</value>
   </data>
@@ -420,6 +423,9 @@
   <data name="Code_Samples" xml:space="preserve">
     <value>نماذج كودات</value>
   </data>
+  <data name="Company" xml:space="preserve">
+    <value>شركة</value>
+  </data>
   <data name="Completed" xml:space="preserve">
     <value>مكتمل</value>
   </data>
@@ -446,6 +452,9 @@
   </data>
   <data name="Copper" xml:space="preserve">
     <value>نحاس</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>بلد</value>
   </data>
   <data name="Create" xml:space="preserve">
     <value>إنشاء</value>
@@ -1673,6 +1682,9 @@
   </data>
   <data name="Workrooms" xml:space="preserve">
     <value>غرف العمل</value>
+  </data>
+  <data name="Workroom_email_cannot_be_changed" xml:space="preserve">
+    <value>لا يمكن تغيير هذا البريد الإلكتروني. إذا كان هذا البريد الإلكتروني غير صحيح، فيمكنك إضافة غرفة عمل أخرى وإعادة تعيين أي أوامر عمل ذات صلة. ثم احذف غرفة العمل هذه.</value>
   </data>
   <data name="Workroom_has_been_updated_successfully" xml:space="preserve">
     <value>تم تحديث غرفة العمل بنجاح.</value>

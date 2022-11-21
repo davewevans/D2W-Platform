@@ -143,49 +143,112 @@ public static class ApplicationDbContextSeeder
 
     }
 
-    public static async Task SeedCountries(IApplicationDbContext dbContext)
+    public static async Task SeedCountries(IApplicationDbContext dbContext, IConfiguration configuration)
     {
-        // USA
+        // United States of America
+        // United Kingdom
+        // Canada
         // Spain
         // Japan
-        // England
-        // Canada
         // Turkey
+        // China
+        // Italy
+        // France
+        // Saudi Arabia
+        // Portugal 
+        // Germany
+
+        string blobBaseUri = configuration["Blob:BlobBaseUri"];
 
         var country1 = new CountryModel
         {
             CountryCode = "US",
-            CountryName = "USA"
+            CountryName = "United States of America",
+            CountryFlagUri = $"{blobBaseUri}/us-flag.png"
         };
 
         var country2 = new CountryModel
         {
             CountryCode = "ES",
-            CountryName = "Spain"
+            CountryName = "Spain",
+            CountryFlagUri = $"{blobBaseUri}/es-flag.png"
         };
 
         var country3 = new CountryModel
         {
             CountryCode = "JP",
-            CountryName = "Japan"
+            CountryName = "Japan",
+            CountryFlagUri = $"{blobBaseUri}/jp-flag.png"
         };
 
         var country4 = new CountryModel
         {
             CountryCode = "GB",
-            CountryName = "United Kingdom"
+            CountryName = "United Kingdom",
+            CountryFlagUri = $"{blobBaseUri}/gb-flag.png"
         };
 
         var country5 = new CountryModel
         {
             CountryCode = "CA",
-            CountryName = "Canada"
+            CountryName = "Canada",
+            CountryFlagUri = $"{blobBaseUri}/ca-flag.png"
         };
 
         var country6 = new CountryModel
         {
             CountryCode = "TR",
-            CountryName = "Turkey"
+            CountryName = "Turkey",
+            CountryFlagUri = $"{blobBaseUri}/tr-flag.png"
+        };
+
+        var country7 = new CountryModel
+        {
+            CountryCode = "CN",
+            CountryName = "China",
+            CountryFlagUri = $"{blobBaseUri}/cn-flag.png"
+        };
+
+        var country8 = new CountryModel
+        {
+            CountryCode = "IT",
+            CountryName = "Italy",
+            CountryFlagUri = $"{blobBaseUri}/it-flag.png"
+        };
+
+        var country9 = new CountryModel
+        {
+            CountryCode = "FR",
+            CountryName = "France",
+            CountryFlagUri = $"{blobBaseUri}/fr-flag.png"
+        };
+
+        var country10 = new CountryModel
+        {
+            CountryCode = "SA",
+            CountryName = "Saudi Arabia",
+            CountryFlagUri = $"{blobBaseUri}/sa-flag.png"
+        };
+
+        var country11 = new CountryModel
+        {
+            CountryCode = "PT",
+            CountryName = "Portugal",
+            CountryFlagUri = $"{blobBaseUri}/pt-flag.png"
+        };
+
+        var country12 = new CountryModel
+        {
+            CountryCode = "DE",
+            CountryName = "Germany",
+            CountryFlagUri = $"{blobBaseUri}/de-flag.png"
+        };
+
+        var country13 = new CountryModel
+        {
+            CountryCode = "AU",
+            CountryName = "Australia",
+            CountryFlagUri = $"{blobBaseUri}/au-flag.png"
         };
 
         if (!dbContext.Countries.Any(c => c.CountryCode.Equals(country1.CountryCode)))
@@ -216,6 +279,41 @@ public static class ApplicationDbContextSeeder
         if (!dbContext.Countries.Any(c => c.CountryCode.Equals(country6.CountryCode)))
         {
             await dbContext.Countries.AddAsync(country6);
+        }
+
+        if (!dbContext.Countries.Any(c => c.CountryCode.Equals(country7.CountryCode)))
+        {
+            await dbContext.Countries.AddAsync(country7);
+        }
+
+        if (!dbContext.Countries.Any(c => c.CountryCode.Equals(country8.CountryCode)))
+        {
+            await dbContext.Countries.AddAsync(country8);
+        }
+
+        if (!dbContext.Countries.Any(c => c.CountryCode.Equals(country9.CountryCode)))
+        {
+            await dbContext.Countries.AddAsync(country9);
+        }
+
+        if (!dbContext.Countries.Any(c => c.CountryCode.Equals(country10.CountryCode)))
+        {
+            await dbContext.Countries.AddAsync(country10);
+        }
+
+        if (!dbContext.Countries.Any(c => c.CountryCode.Equals(country11.CountryCode)))
+        {
+            await dbContext.Countries.AddAsync(country11);
+        }
+
+        if (!dbContext.Countries.Any(c => c.CountryCode.Equals(country12.CountryCode)))
+        {
+            await dbContext.Countries.AddAsync(country12);
+        }
+
+        if (!dbContext.Countries.Any(c => c.CountryCode.Equals(country13.CountryCode)))
+        {
+            await dbContext.Countries.AddAsync(country13);
         }
 
         await dbContext.SaveChangesAsync();

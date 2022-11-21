@@ -18,7 +18,6 @@ public class UpdateClientCommand : IRequest<Envelope<string>>
     public string FullName { get; set; }
     public string Email { get; set; }
     public string PhoneNumber { get; set; }
-    public ApplicationUserType AppUserType { get; set; }
     public string AvatarUri { get; set; }
 
     #endregion Public Properties
@@ -31,14 +30,7 @@ public class UpdateClientCommand : IRequest<Envelope<string>>
         if (appUser == null)
             throw new ArgumentNullException(nameof(appUser));
 
-        var nameSplit = FullName?.Split(' ');
-        string firstName = string.Empty;
-        string lastName = string.Empty;
-        if (nameSplit != null)
-        {
-            firstName = nameSplit[0];
-            lastName = nameSplit[^1];
-        }
+        var (firstName, lastName) = FullName.SplitFullName();
 
         appUser.Name = firstName;
         appUser.Surname = lastName;
@@ -49,12 +41,11 @@ public class UpdateClientCommand : IRequest<Envelope<string>>
 
     public void MapToContactDetailsEntity(ContactDetailsModel contactDetails)
     {
-        //return new ContactDetailsModel()
-        //{
-        //    FullName = FullName?.Trim(),
-        //    PhoneNumber = PhoneNumber?.Trim(),
-        //    EmailAddress = Email?.Trim(),
-        //};
+        contactDetails.ApplicationUserId = Id;
+        contactDetails.FullName = FullName;
+        contactDetails.EmailAddress = Email;
+        contactDetails.PhoneNumber = PhoneNumber;
+        contactDetails.AvatarUri = AvatarUri;
     }
 
     #endregion Public Methods

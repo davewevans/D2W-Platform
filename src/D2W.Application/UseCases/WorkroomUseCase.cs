@@ -20,7 +20,7 @@ public class WorkroomUseCase : IWorkroomUseCase
     private readonly ApplicationUserManager _userManager;
     private readonly IHttpContextAccessor _httpContextAccessor;
     private readonly IReportingService _reportingService;
-    private readonly ITenantResolver _tenenResolver;
+    private readonly ITenantResolver _tenantResolver;
 
     #endregion Private Fields
 
@@ -28,13 +28,13 @@ public class WorkroomUseCase : IWorkroomUseCase
 
     public WorkroomUseCase(IApplicationDbContext dbContext,
         IHttpContextAccessor httpContextAccessor,
-        IReportingService reportingService, ApplicationUserManager userManager, ITenantResolver tenenResolver)
+        IReportingService reportingService, ApplicationUserManager userManager, ITenantResolver tenantResolver)
     {
         _dbContext = dbContext;
         _httpContextAccessor = httpContextAccessor;
         _reportingService = reportingService;
         _userManager = userManager;
-        _tenenResolver = tenenResolver;
+        _tenantResolver = tenantResolver;
     }
 
     #endregion Public Constructors
@@ -44,12 +44,38 @@ public class WorkroomUseCase : IWorkroomUseCase
 
     public async Task<Envelope<WorkroomForEdit>> GetWorkroom(GetWorkroomForEditQuery request)
     {
+        var tenantId = _tenantResolver.GetTenantId();
+
+        if (!tenantId.HasValue)
+            return Envelope<WorkroomForEdit>.Result.NotFound(Resource.Tenant_not_found);
+
         var workroom = await _userManager.FindByIdAsync(request.Id);
 
         if (workroom == null)
             return Envelope<WorkroomForEdit>.Result.NotFound(Resource.Unable_to_load_Workroom);
 
         var workroomForEdit = WorkroomForEdit.MapFromEntity(workroom);
+
+        var contactDetails =
+            await _dbContext.ContactDetails.FirstOrDefaultAsync(x => x.ApplicationUserId.Equals(request.Id));
+
+        if (contactDetails == null)
+            return Envelope<WorkroomForEdit>.Result.NotFound(Resource.Unable_to_load_Workroom);
+
+        workroomForEdit.MapFromContactDetailsEntity(contactDetails);
+
+        var countries = await _dbContext.Countries.OrderBy(x => x.CountryName).ToListAsync();
+        
+        // Move USA to top of list
+        int index = countries.FindIndex(x => x.CountryCode.Equals("US"));
+        countries.Move(index, 0);
+
+        workroomForEdit.MapFromCountryEntity(countries);
+
+        workroomForEdit.IsLinkedToAnotherTenant = await _dbContext.TenantsClients.AnyAsync(x =>
+            !x.TenantId.Equals(tenantId) && x.ApplicationUserId.Equals(request.Id));
+
+        //workroomForEdit.IsLinkedToAnotherTenant = true;
 
         return Envelope<WorkroomForEdit>.Result.Ok(workroomForEdit);
     }
@@ -89,13 +115,41 @@ public class WorkroomUseCase : IWorkroomUseCase
         if (workroom == null)
             return Envelope<string>.Result.NotFound(Resource.Unable_to_load_Workroom);
 
-        request.MapToEntity(workroom);
+        var tenantId = _tenantResolver.GetTenantId();
 
-        _dbContext.Users.Update(workroom);
+        if (!tenantId.HasValue)
+            return Envelope<string>.Result.NotFound(Resource.Tenant_not_found);
+
+        var contactDetails =
+            await _dbContext.ContactDetails.FirstOrDefaultAsync(x => x.ApplicationUserId.Equals(request.Id));
+
+        if (contactDetails != null)
+        {
+            request.MapToContactDetailsEntity(contactDetails);
+            _dbContext.ContactDetails.Update(contactDetails);
+        }
+        else // Contact details doesn't exist for workroom
+        {
+            contactDetails = new ContactDetailsModel();
+            request.MapToContactDetailsEntity(contactDetails);
+            _dbContext.ContactDetails.Add(contactDetails);
+        }
 
         await _dbContext.SaveChangesAsync();
 
-        return Envelope<string>.Result.Ok(Resource.Workroom_has_been_updated_successfully);
+        bool isLinkedToAnotherTenant = await _dbContext.TenantsWorkrooms.AnyAsync(x =>
+            !x.TenantId.Equals(tenantId) && x.ApplicationUserId.Equals(request.Id));
+
+        if (isLinkedToAnotherTenant) return Envelope<string>.Result.Ok(Resource.Workroom_has_been_updated_successfully);
+
+
+
+        request.MapToEntity(workroom);
+        var updateUserResult = await _userManager.UpdateAsync(workroom);
+
+        return !updateUserResult.Succeeded
+            ? Envelope<string>.Result.AddErrors(updateUserResult.Errors.ToApplicationResult(), ResponseType.ServerError)
+            : Envelope<string>.Result.Ok(Resource.Workroom_has_been_updated_successfully);
     }
 
     public async Task<Envelope<string>> DeleteWorkroom(DeleteWorkroomCommand request)
@@ -105,7 +159,7 @@ public class WorkroomUseCase : IWorkroomUseCase
         if (string.IsNullOrEmpty(request.Id))
             return Envelope<string>.Result.BadRequest(Resource.Invalid_Workroom_Id);
 
-        var tenantId = _tenenResolver.GetTenantId();
+        var tenantId = _tenantResolver.GetTenantId();
 
         if (!tenantId.HasValue)
             return Envelope<string>.Result.NotFound(Resource.Tenant_not_found);
@@ -124,5 +178,6 @@ public class WorkroomUseCase : IWorkroomUseCase
     }
 
     #endregion Public Methods
+
 
 }

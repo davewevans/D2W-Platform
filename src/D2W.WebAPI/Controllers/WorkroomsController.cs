@@ -1,4 +1,5 @@
-﻿using D2W.Application.Features.Workrooms.Commands.UpdateWorkroom;
+﻿using D2W.Application.Features.Workrooms.Commands.DeleteWorkroom;
+using D2W.Application.Features.Workrooms.Commands.UpdateWorkroom;
 using D2W.Application.Features.Workrooms.Queries.GetWorkroomForEdit;
 using D2W.Application.Features.Workrooms.Queries.GetWorkrooms;
 
@@ -10,7 +11,7 @@ namespace D2W.WebAPI.Controllers
     {
         #region Public Methods
 
-        [Authorize("Workroom,Designer")]
+        //[Authorize("Workroom,Designer")]
         [HttpPost("GetWorkroom")]
         public async Task<IActionResult> GetWorkroom(GetWorkroomForEditQuery request)
         {
@@ -33,7 +34,7 @@ namespace D2W.WebAPI.Controllers
         //    return TryGetResult(response);
         //}
 
-        [Authorize("Workroom,Designer")]
+        //[Authorize("Workroom,Designer")]
         [HttpPut("UpdateWorkroom")]
         public async Task<IActionResult> UpdateWorkroom(UpdateWorkroomCommand request)
         {
@@ -41,12 +42,12 @@ namespace D2W.WebAPI.Controllers
             return TryGetResult(response);
         }
 
-        //[HttpDelete("DeleteWorkroom")]
-        //public async Task<IActionResult> DeleteWorkroom(string id)
-        //{
-        //    var response = await Mediator.Send(new DeleteWorkroomCommand { Id = id });
-        //    return TryGetResult(response);
-        //}
+        [HttpDelete("DeleteWorkroom")]
+        public async Task<IActionResult> DeleteWorkroom(string id)
+        {
+            var response = await Mediator.Send(new DeleteWorkroomCommand { Id = id });
+            return TryGetResult(response);
+        }
 
 
         //[AllowAnonymous]

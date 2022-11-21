@@ -880,6 +880,15 @@ namespace D2W.FrontendResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This email cannot be changed. If this email is incorrect, you could add another client and re-assign any related design concepts. Then delete this client..
+        /// </summary>
+        public static string Client_email_cannot_be_changed {
+            get {
+                return ResourceManager.GetString("Client_email_cannot_be_changed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Client-Side Authorization.
         /// </summary>
         public static string Client_Side_Authorization {
@@ -970,6 +979,15 @@ namespace D2W.FrontendResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Company.
+        /// </summary>
+        public static string Company {
+            get {
+                return ResourceManager.GetString("Company", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Completed.
         /// </summary>
         public static string Completed {
@@ -1047,6 +1065,15 @@ namespace D2W.FrontendResources {
         public static string Copper {
             get {
                 return ResourceManager.GetString("Copper", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Country.
+        /// </summary>
+        public static string Country {
+            get {
+                return ResourceManager.GetString("Country", resourceCulture);
             }
         }
         
@@ -4742,6 +4769,15 @@ namespace D2W.FrontendResources {
         public static string Workroom {
             get {
                 return ResourceManager.GetString("Workroom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This email cannot be changed. If this email is incorrect, you could add another workroom and re-assign any related work orders. Then delete this workroom..
+        /// </summary>
+        public static string Workroom_email_cannot_be_changed {
+            get {
+                return ResourceManager.GetString("Workroom_email_cannot_be_changed", resourceCulture);
             }
         }
         

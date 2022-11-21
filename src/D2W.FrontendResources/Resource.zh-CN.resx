@@ -393,6 +393,9 @@
   <data name="Client_by_that_name_not_found" xml:space="preserve">
     <value>找不到该名称的客户端</value>
   </data>
+  <data name="Client_email_cannot_be_changed" xml:space="preserve">
+    <value>此电子邮件无法更改。如果此电子邮件不正确，您可以添加另一个客户端并重新分配任何相关的设计概念。然后删除此客户端。</value>
+  </data>
   <data name="Client_Side_Authorization" xml:space="preserve">
     <value>客户端授权</value>
   </data>
@@ -420,6 +423,9 @@
   <data name="Code_Samples" xml:space="preserve">
     <value>代码示例</value>
   </data>
+  <data name="Company" xml:space="preserve">
+    <value>公司</value>
+  </data>
   <data name="Completed" xml:space="preserve">
     <value>已完成！</value>
   </data>
@@ -446,6 +452,9 @@
   </data>
   <data name="Copper" xml:space="preserve">
     <value>铜</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>国家</value>
   </data>
   <data name="Create" xml:space="preserve">
     <value>创造</value>
@@ -1673,6 +1682,9 @@
   </data>
   <data name="Workrooms" xml:space="preserve">
     <value>工作室</value>
+  </data>
+  <data name="Workroom_email_cannot_be_changed" xml:space="preserve">
+    <value>此电子邮件无法更改。如果此电子邮件不正确，您可以添加另一个工作室并重新分配任何相关的工作订单。然后删除此工作室。</value>
   </data>
   <data name="Workroom_has_been_updated_successfully" xml:space="preserve">
     <value>工作室已成功更新。</value>

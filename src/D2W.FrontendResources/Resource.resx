@@ -393,6 +393,9 @@
   <data name="Client_by_that_name_not_found" xml:space="preserve">
     <value>Client by that name not found</value>
   </data>
+  <data name="Client_email_cannot_be_changed" xml:space="preserve">
+    <value>This email cannot be changed. If this email is incorrect, you could add another client and re-assign any related design concepts. Then delete this client.</value>
+  </data>
   <data name="Client_Side_Authorization" xml:space="preserve">
     <value>Client-Side Authorization</value>
   </data>
@@ -420,6 +423,9 @@
   <data name="Code_Samples" xml:space="preserve">
     <value>Code Samples</value>
   </data>
+  <data name="Company" xml:space="preserve">
+    <value>Company</value>
+  </data>
   <data name="Completed" xml:space="preserve">
     <value>Completed</value>
   </data>
@@ -446,6 +452,9 @@
   </data>
   <data name="Copper" xml:space="preserve">
     <value>Copper</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>Country</value>
   </data>
   <data name="Create" xml:space="preserve">
     <value>Create</value>
@@ -1673,6 +1682,9 @@
   </data>
   <data name="Workrooms" xml:space="preserve">
     <value>Workrooms</value>
+  </data>
+  <data name="Workroom_email_cannot_be_changed" xml:space="preserve">
+    <value>This email cannot be changed. If this email is incorrect, you could add another workroom and re-assign any related work orders. Then delete this workroom.</value>
   </data>
   <data name="Workroom_has_been_updated_successfully" xml:space="preserve">
     <value>Workroom has been updated successfully.</value>

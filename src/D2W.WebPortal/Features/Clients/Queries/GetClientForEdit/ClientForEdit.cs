@@ -14,6 +14,7 @@ namespace D2W.WebPortal.Features.Clients.Queries.GetClientForEdit
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
         public string AvatarUri { get; set; }
+        public bool IsLinkedToAnotherTenant { get; set; }
 
         #endregion Public Properties
     }

@@ -1,3 +1,4 @@
+using CurrieTechnologies.Razor.SweetAlert2;
 using D2W.WebPortal.Features.Workrooms.Queries.GetWorkrooms;
 using Microsoft.AspNetCore.Components;
 using System;
@@ -20,8 +21,11 @@ namespace D2W.WebPortal.Pages.Workrooms
         [Inject] private IJSRuntime Js { get; set; }
         [Inject] private ISnackbar Snackbar { get; set; }
         [Inject] private NavigationManager NavigationManager { get; set; }
+        [Inject] private SweetAlertService SweetAlert { get; set; }
 
-        private bool disableOptionButtons = true;
+        private bool disableOptionButtons = false;
+        private bool _overrideButtonGroupStyles = false;
+
 
         private string title = "Workrooms";
         private string description = "List of workrooms for interior designers.";
@@ -147,20 +151,17 @@ namespace D2W.WebPortal.Pages.Workrooms
 
         private async Task DeleteWorkroom(string id)
         {
-            var parameters = new DialogParameters
-        {
-            {"ContentText", Resource.Do_you_really_want_to_delete_this_record},
-            {"ButtonText", Resource.Delete},
-            {"Color", Color.Error}
-        };
+            SweetAlertResult result = await SweetAlert.FireAsync(new SweetAlertOptions
+            {
+                Title = Resource.Are_You_Sure,
+                Text = Resource.You_will_not_be_able_to_recover_this_workroom,
+                Icon = SweetAlertIcon.Warning,
+                ShowCancelButton = true,
+                ConfirmButtonText = Resource.Yes_delete_it,
+                CancelButtonText = Resource.No_keep_it
+            });
 
-            var options = new DialogOptions() { CloseButton = true, MaxWidth = MaxWidth.ExtraSmall };
-
-            var dialog = DialogService.Show<DialogModal>(Resource.Delete, parameters, options);
-
-            var result = await dialog.Result;
-
-            if (!result.Cancelled)
+            if (!string.IsNullOrEmpty(result.Value))
             {
                 var httpResponseWrapper = await WorkroomsClient.DeleteWorkroom(id);
 
@@ -175,6 +176,20 @@ namespace D2W.WebPortal.Pages.Workrooms
                     var exceptionResult = httpResponseWrapper.Response as ExceptionResult;
                     ServerSideValidator.Validate(exceptionResult);
                 }
+
+                await SweetAlert.FireAsync(
+                  Resource.Deleted,
+                  Resource.Your_workroom_has_been_deleted,
+                  SweetAlertIcon.Success
+                  );
+            }
+            else if (result.Dismiss == DismissReason.Cancel)
+            {
+                await SweetAlert.FireAsync(
+                  Resource.Cancelled,
+                  Resource.Your_workroom_is_safe,
+                  SweetAlertIcon.Error
+                  );
             }
         }
 

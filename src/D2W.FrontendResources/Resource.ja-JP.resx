@@ -393,6 +393,9 @@
   <data name="Client_by_that_name_not_found" xml:space="preserve">
     <value>その名前のクライアントが見つかりません</value>
   </data>
+  <data name="Client_email_cannot_be_changed" xml:space="preserve">
+    <value>このメールアドレスは変更できません。この電子メールが正しくない場合は、別のクライアントを追加して、関連する設計コンセプトを再割り当てできます。次に、このクライアントを削除します。</value>
+  </data>
   <data name="Client_Side_Authorization" xml:space="preserve">
     <value>クライアント側認証</value>
   </data>
@@ -420,6 +423,9 @@
   <data name="Code_Samples" xml:space="preserve">
     <value>コード サンプル</value>
   </data>
+  <data name="Company" xml:space="preserve">
+    <value>会社</value>
+  </data>
   <data name="Completed" xml:space="preserve">
     <value>完了しました</value>
   </data>
@@ -446,6 +452,9 @@
   </data>
   <data name="Copper" xml:space="preserve">
     <value>銅</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>国</value>
   </data>
   <data name="Create" xml:space="preserve">
     <value>創造する</value>
@@ -1673,6 +1682,9 @@
   </data>
   <data name="Workrooms" xml:space="preserve">
     <value>ワークルーム</value>
+  </data>
+  <data name="Workroom_email_cannot_be_changed" xml:space="preserve">
+    <value>このメールアドレスは変更できません。この電子メールが正しくない場合は、別の作業ルームを追加して、関連する作業指示を再割り当てできます。次に、このワークルームを削除します。</value>
   </data>
   <data name="Workroom_has_been_updated_successfully" xml:space="preserve">
     <value>ワークルームが正常に更新されました。</value>

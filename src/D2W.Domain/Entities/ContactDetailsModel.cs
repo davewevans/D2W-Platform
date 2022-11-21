@@ -39,7 +39,8 @@ namespace D2W.Domain.Entities
         public string City { get; set; }
         public string Region { get; set; }
         public string PostalCode { get; set; }
-        public Guid CountryId { get; set; }
+        public Guid? CountryId { get; set; }
+
         public string LogoUri { get; set; }
         public string AvatarUri { get; set; }
         public string CreatedBy { get; set; }

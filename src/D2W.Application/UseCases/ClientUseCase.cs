@@ -9,7 +9,9 @@ using D2W.Application.Features.Clients.Commands.DeleteClient;
 using D2W.Application.Features.Clients.Commands.UpdateClient;
 using D2W.Application.Features.Clients.Queries.GetClientForEdit;
 using D2W.Application.Features.Clients.Queries.GetClients;
+using D2W.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using static Microsoft.ApplicationInsights.MetricDimensionNames.TelemetryContext;
 
 namespace D2W.Application.UseCases;
 
@@ -21,7 +23,7 @@ public class ClientUseCase : IClientUseCase
     private readonly ApplicationUserManager _userManager;
     private readonly IHttpContextAccessor _httpContextAccessor;
     private readonly IReportingService _reportingService;
-    private readonly ITenantResolver _tenenResolver;
+    private readonly ITenantResolver _tenantResolver;
 
     #endregion Private Fields
 
@@ -29,13 +31,13 @@ public class ClientUseCase : IClientUseCase
 
     public ClientUseCase(IApplicationDbContext dbContext,
         IHttpContextAccessor httpContextAccessor,
-        IReportingService reportingService, ApplicationUserManager userManager, ITenantResolver tenenResolver)
+        IReportingService reportingService, ApplicationUserManager userManager, ITenantResolver tenantResolver)
     {
         _dbContext = dbContext;
         _httpContextAccessor = httpContextAccessor;
         _reportingService = reportingService;
         _userManager = userManager;
-        _tenenResolver = tenenResolver;
+        _tenantResolver = tenantResolver;
     }
 
     #endregion Public Constructors
@@ -50,6 +52,17 @@ public class ClientUseCase : IClientUseCase
             return Envelope<ClientForEdit>.Result.NotFound(Resource.Unable_to_load_Client);
 
         var clientForEdit = ClientForEdit.MapFromEntity(client);
+
+        var tenantId = _tenantResolver.GetTenantId();
+
+        if (!tenantId.HasValue)
+            return Envelope<ClientForEdit>.Result.NotFound(Resource.Tenant_not_found);
+
+        clientForEdit.IsLinkedToAnotherTenant = await _dbContext.TenantsClients.AnyAsync(x =>
+            !x.TenantId.Equals(tenantId) && x.ApplicationUserId.Equals(request.Id));
+
+        // TODO remove
+        //clientForEdit.IsLinkedToAnotherTenant = true;
 
         return Envelope<ClientForEdit>.Result.Ok(clientForEdit);
     }
@@ -78,7 +91,7 @@ public class ClientUseCase : IClientUseCase
 
         return Envelope<ClientsResponse>.Result.Ok(clientsResponse);
     }
-
+    
 
     // Use register client command instead
 
@@ -101,11 +114,10 @@ public class ClientUseCase : IClientUseCase
 
     public async Task<Envelope<string>> EditClient(UpdateClientCommand request)
     {
-
         if (string.IsNullOrEmpty(request.Id))
             return Envelope<string>.Result.BadRequest(Resource.Invalid_ApplicationUser_Id);
 
-        var tenantId = _tenenResolver.GetTenantId();
+        var tenantId = _tenantResolver.GetTenantId();
 
         if (!tenantId.HasValue)
             return Envelope<string>.Result.NotFound(Resource.Tenant_not_found);
@@ -115,19 +127,34 @@ public class ClientUseCase : IClientUseCase
         if (client == null)
             return Envelope<string>.Result.NotFound(Resource.Unable_to_load_Client);
 
-        bool isLinkedToAnotherTenant = await _dbContext.TenantsClients.AnyAsync(x =>
-            !x.TenantId.Equals(tenantId) && x.ApplicationUserId.Equals(request.Id));
+        var contactDetails =
+            await _dbContext.ContactDetails.FirstOrDefaultAsync(x => x.ApplicationUserId.Equals(request.Id));
 
-
-
-        request.MapToEntity(client);
-
-        if (!isLinkedToAnotherTenant)
-            _dbContext.Users.Update(client);
+        if (contactDetails != null)
+        {
+            request.MapToContactDetailsEntity(contactDetails);
+            _dbContext.ContactDetails.Update(contactDetails);
+        }
+        else // Contact details doesn't exist for client
+        {
+            contactDetails = new ContactDetailsModel();
+            request.MapToContactDetailsEntity(contactDetails);
+            _dbContext.ContactDetails.Add(contactDetails);
+        }
 
         await _dbContext.SaveChangesAsync();
 
-        return Envelope<string>.Result.Ok(Resource.Client_has_been_updated_successfully);
+        bool isLinkedToAnotherTenant = await _dbContext.TenantsClients.AnyAsync(x =>
+            !x.TenantId.Equals(tenantId) && x.ApplicationUserId.Equals(request.Id));
+
+        if (isLinkedToAnotherTenant) return Envelope<string>.Result.Ok(Resource.Client_has_been_updated_successfully);
+
+        request.MapToEntity(client);
+        var updateUserResult = await _userManager.UpdateAsync(client);
+
+        return !updateUserResult.Succeeded
+            ? Envelope<string>.Result.AddErrors(updateUserResult.Errors.ToApplicationResult(), ResponseType.ServerError)
+            : Envelope<string>.Result.Ok(Resource.Client_has_been_updated_successfully);
     }
 
     public async Task<Envelope<string>> DeleteClient(DeleteClientCommand request)
@@ -137,7 +164,7 @@ public class ClientUseCase : IClientUseCase
         if (string.IsNullOrEmpty(request.Id))
             return Envelope<string>.Result.BadRequest(Resource.Invalid_Client_Id);
 
-        var tenantId = _tenenResolver.GetTenantId();
+        var tenantId = _tenantResolver.GetTenantId();
 
         if (!tenantId.HasValue)
             return Envelope<string>.Result.NotFound(Resource.Tenant_not_found);

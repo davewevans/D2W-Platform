@@ -393,6 +393,9 @@
   <data name="Client_by_that_name_not_found" xml:space="preserve">
     <value>Cliente por esse nome não encontrado</value>
   </data>
+  <data name="Client_email_cannot_be_changed" xml:space="preserve">
+    <value>Este e-mail não pode ser alterado. Se este e-mail estiver incorreto, pode adicionar outro cliente e reatribuir quaisquer conceitos de design relacionados. Então apague este cliente.</value>
+  </data>
   <data name="Client_Side_Authorization" xml:space="preserve">
     <value>Autorização do lado do cliente</value>
   </data>
@@ -420,6 +423,9 @@
   <data name="Code_Samples" xml:space="preserve">
     <value>Amostras de código</value>
   </data>
+  <data name="Company" xml:space="preserve">
+    <value>Empresa</value>
+  </data>
   <data name="Completed" xml:space="preserve">
     <value>Concluído.</value>
   </data>
@@ -446,6 +452,9 @@
   </data>
   <data name="Copper" xml:space="preserve">
     <value>Cobre</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>País</value>
   </data>
   <data name="Create" xml:space="preserve">
     <value>Criar</value>
@@ -1673,6 +1682,9 @@
   </data>
   <data name="Workrooms" xml:space="preserve">
     <value>Salas de trabalho</value>
+  </data>
+  <data name="Workroom_email_cannot_be_changed" xml:space="preserve">
+    <value>Este e-mail não pode ser alterado. Se este e-mail estiver incorreto, pode adicionar outra sala de trabalho e reatribuir quaisquer ordens de trabalho relacionadas. Em seguida, apague esta sala de trabalho.</value>
   </data>
   <data name="Workroom_has_been_updated_successfully" xml:space="preserve">
     <value>A sala de trabalho foi atualizada com sucesso.</value>
