@@ -1,4 +1,57 @@
-<h3>AddFabric</h3>
+@page "/AddFabric"
+
+<h3>@Resource.Add_Fabric</h3>
+
+
+<ServerSideValidator @ref="ServerSideValidator" />
+<EditForm Model="CreateFabricCommand" OnValidSubmit="SubmitForm">
+    <EditContextServerSideValidator @ref="EditContextServerSideValidator" />
+    <FluentValidationValidator />
+    <MudCard>
+        <MudCardContent>
+            <MudTabs KeepPanelsAlive="true" Elevation="25" Color="Color.Transparent" Rounded="true" PanelClass="mt-6">
+                <MudTabPanel Text="@Resource.Fabric" Icon="@Icons.Material.Filled.Person">
+                    <MudGrid>
+                        <MudItem xs="6">
+                            <MudTextField Class="mt-4" Label="@Resource.FullName"
+                                          Variant="Variant.Outlined"
+                                          @bind-Value="CreateFabricCommand.FullName"
+                                          For="@(() => CreateFabricCommand.FullName)" />
+
+                            <MudTextField Class="mt-4" Label="@Resource.Email"
+                                          Variant="Variant.Outlined"
+                                          @bind-Value="CreateFabricCommand.Email"
+                                          For="@(() => CreateFabricCommand.Email)" />
+
+
+                            <MudTextField Class="mt-4" Label="@Resource.Phone_Number"
+                                          Variant="Variant.Outlined"
+                                          @bind-Value="CreateFabricCommand.PhoneNumber"
+                                          For="@(() => CreateFabricCommand.PhoneNumber)" />
+                        </MudItem>
+
+                    </MudGrid>
+                </MudTabPanel>
+            </MudTabs>
+        </MudCardContent>
+        <MudCardActions Class="pb-4 pl-4">
+            <MudButton ButtonType="ButtonType.Submit"
+                       Variant="Variant.Filled"
+                       Color="Color.Primary"
+                       Class="ml-auto"
+                       FullWidth="true">@Resource.Save</MudButton>
+        </MudCardActions>
+        <MudDivider />
+        <MudExpansionPanels>
+            <MudExpansionPanel Text="@Resource.Validation_Summary" IsExpanded="true" Disabled="true" HideIcon="true">
+                <MudText Color="@Color.Error">
+                    <ValidationSummary />
+                </MudText>
+            </MudExpansionPanel>
+        </MudExpansionPanels>
+    </MudCard>
+</EditForm>
+<hr />
 
 @code {
 

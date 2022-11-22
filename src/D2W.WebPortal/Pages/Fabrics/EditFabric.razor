@@ -1,5 +1,49 @@
-<h3>EditFabric</h3>
+@page "/EditFabric/{fabricId}"
 
-@code {
+<MudText Typo="Typo.h5" Color="Color.Primary" Class="mb-4">@Resource.Edit_Fabric</MudText>
 
-}
+<ServerSideValidator @ref="ServerSideValidator" />
+<EditForm Model="FabricForEditVm" OnValidSubmit="SubmitForm">
+    <EditContextServerSideValidator @ref="EditContextServerSideValidator" />
+    <FluentValidationValidator />
+    <MudCard>
+        <MudCardContent>
+            <MudTabs KeepPanelsAlive="true" Elevation="25" Color="Color.Transparent" Rounded="true" PanelClass="mt-6">
+                <MudTabPanel Text="@Resource.Fabric" Icon="@Icons.Material.Filled.Person">
+                    <MudGrid>
+                        <MudItem xs="6">
+
+                            <MudTextField Label="@Resource.FullName" Variant="Variant.Outlined"
+                                @bind-Value="FabricForEditVm.FullName" For="@(() => FabricForEditVm.FullName)" />
+
+                            <MudTextField Class="mt-4" Disabled="FabricForEditVm.IsLinkedToAnotherTenant" Label="@Resource.Email"
+                                Variant="Variant.Outlined" @bind-Value="FabricForEditVm.Email"
+                                For="@(() => FabricForEditVm.Email)" />
+
+                            @if(FabricForEditVm.IsLinkedToAnotherTenant)
+                            {
+                                <MudAlert Class="mb-4 mt-2" Severity="Severity.Info">@Resource.Fabric_email_cannot_be_changed</MudAlert>
+                            }
+
+                            <MudTextField Class="mt-4" Label="@Resource.Phone_Number" Variant="Variant.Outlined"
+                                @bind-Value="FabricForEditVm.PhoneNumber" For="@(() => FabricForEditVm.PhoneNumber)" />
+                        </MudItem>
+
+                    </MudGrid>
+                </MudTabPanel>
+            </MudTabs>
+        </MudCardContent>
+        <MudCardActions Class="pb-4 pl-4">
+            <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto"
+                FullWidth="true">@Resource.Save</MudButton>
+        </MudCardActions>
+        <MudDivider />
+        <MudExpansionPanels>
+            <MudExpansionPanel Text="@Resource.Validation_Summary" IsExpanded="true" Disabled="true" HideIcon="true">
+                <MudText Color="@Color.Error">
+                    <ValidationSummary />
+                </MudText>
+            </MudExpansionPanel>
+        </MudExpansionPanels>
+    </MudCard>
+</EditForm>

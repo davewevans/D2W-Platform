@@ -40,7 +40,7 @@ public class FabricCalculationsModel : IAuditable, IMustHaveTenant
     #region Navigational Properties
 
     public DesignConceptModel DesignConcept { get; set; }
-    public FabricModel Fabric { get; set; }
+
 
     #endregion Navigational Properties
 

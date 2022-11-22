@@ -1,5 +1,33 @@
-<h3>ViewFabric</h3>
+@page "/ViewFabric/{fabricId}"
 
-@code {
+<MudText Typo="Typo.h5" Color="Color.Primary" Class="mb-4">@Resource.View_Fabric</MudText>
 
-}
+<ServerSideValidator @ref="ServerSideValidator" />
+<MudCard>
+    <MudCardContent>
+        <MudTabs KeepPanelsAlive="true" Elevation="25" Color="Color.Transparent" Rounded="true" PanelClass="mt-6">
+            <MudTabPanel Text="@Resource.Fabric" Icon="@Icons.Material.Filled.Person">
+                <MudGrid>
+                    <MudItem xs="6">
+                        <MudTextField Disabled="true" Label="@Resource.FullName" Variant="Variant.Outlined"
+                            @bind-Value="FabricForEditVm.FullName" For="@(() => FabricForEditVm.FullName)" />
+
+                        <MudTextField Disabled="true" Label="@Resource.Email" Variant="Variant.Outlined"
+                            @bind-Value="FabricForEditVm.Email" For="@(() => FabricForEditVm.Email)" />
+
+
+                        <MudTextField Disabled="true" Label="@Resource.Phone_Number" Variant="Variant.Outlined"
+                            @bind-Value="FabricForEditVm.PhoneNumber" For="@(() => FabricForEditVm.PhoneNumber)" />
+                    </MudItem>
+
+                </MudGrid>
+            </MudTabPanel>
+        </MudTabs>
+    </MudCardContent>
+    <MudCardActions Class="pb-4 pl-4">
+        <MudButton Link="/Fabrics" Variant="Variant.Filled" StartIcon="@Icons.Material.Outlined.ArrowBack"
+            Color="Color.Primary">
+            @Resource.Return
+        </MudButton>
+    </MudCardActions>
+</MudCard>

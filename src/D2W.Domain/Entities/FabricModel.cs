@@ -9,11 +9,6 @@ namespace D2W.Domain.Entities;
 [Table("Fabrics")]
 public class FabricModel : IAuditable, IMustHaveTenant
 {
-    public FabricModel()
-    {
-        FabricCalculations = new List<FabricCalculationsModel>();
-    }
-
     public Guid Id { get; set; }
     public Guid TenantId { get; set; }
     public string ManufacturerName { get; set; }
@@ -41,7 +36,6 @@ public class FabricModel : IAuditable, IMustHaveTenant
 
     #region Navigational Properties
 
-    public ICollection<FabricCalculationsModel> FabricCalculations { get; set; }
 
     #endregion Navigational Properties
 
