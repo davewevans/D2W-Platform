@@ -169,6 +169,15 @@ namespace D2W.FrontendResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Fabric.
+        /// </summary>
+        public static string Add_Fabric {
+            get {
+                return ResourceManager.GetString("Add_Fabric", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add New File.
         /// </summary>
         public static string Add_New_File {
@@ -628,6 +637,15 @@ namespace D2W.FrontendResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Brand Name.
+        /// </summary>
+        public static string Brand_Name {
+            get {
+                return ResourceManager.GetString("Brand_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Browser Time Zone.
         /// </summary>
         public static string Browser_Time_Zone {
@@ -979,6 +997,15 @@ namespace D2W.FrontendResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Color.
+        /// </summary>
+        public static string Color {
+            get {
+                return ResourceManager.GetString("Color", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Company.
         /// </summary>
         public static string Company {
@@ -1065,6 +1092,24 @@ namespace D2W.FrontendResources {
         public static string Copper {
             get {
                 return ResourceManager.GetString("Copper", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cost Per Meter.
+        /// </summary>
+        public static string Cost_Per_Meter {
+            get {
+                return ResourceManager.GetString("Cost_Per_Meter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cost Per Yard.
+        /// </summary>
+        public static string Cost_Per_Yard {
+            get {
+                return ResourceManager.GetString("Cost_Per_Yard", resourceCulture);
             }
         }
         
@@ -1826,6 +1871,15 @@ namespace D2W.FrontendResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Fabrics.
+        /// </summary>
+        public static string Fabrics {
+            get {
+                return ResourceManager.GetString("Fabrics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Failed.
         /// </summary>
         public static string Failed {
@@ -2250,6 +2304,24 @@ namespace D2W.FrontendResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Horizontal Repeat In Centimeters.
+        /// </summary>
+        public static string Horizontal_Repeat_In_Centimeters {
+            get {
+                return ResourceManager.GetString("Horizontal_Repeat_In_Centimeters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Horizontal Repeat In Inches.
+        /// </summary>
+        public static string Horizontal_Repeat_In_Inches {
+            get {
+                return ResourceManager.GetString("Horizontal_Repeat_In_Inches", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hour.
         /// </summary>
         public static string Hour {
@@ -2384,6 +2456,15 @@ namespace D2W.FrontendResources {
         public static string into_your_two_factor_authenticator_app__Spaces_and_casing_do_not_matter {
             get {
                 return ResourceManager.GetString("into_your_two_factor_authenticator_app._Spaces_and_casing_do_not_matter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid fabric ID..
+        /// </summary>
+        public static string Invalid_fabric_Id {
+            get {
+                return ResourceManager.GetString("Invalid_fabric_Id", resourceCulture);
             }
         }
         
@@ -2721,6 +2802,15 @@ namespace D2W.FrontendResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Manufacturer Name.
+        /// </summary>
+        public static string Manufacturer_Name {
+            get {
+                return ResourceManager.GetString("Manufacturer_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to March.
         /// </summary>
         public static string March {
@@ -2735,6 +2825,15 @@ namespace D2W.FrontendResources {
         public static string Master_Details_Form {
             get {
                 return ResourceManager.GetString("Master_Details_Form", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Material Type.
+        /// </summary>
+        public static string Material_Type {
+            get {
+                return ResourceManager.GetString("Material_Type", resourceCulture);
             }
         }
         
@@ -3135,6 +3234,15 @@ namespace D2W.FrontendResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Pattern.
+        /// </summary>
+        public static string Pattern {
+            get {
+                return ResourceManager.GetString("Pattern", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Pending.
         /// </summary>
         public static string Pending {
@@ -3248,6 +3356,15 @@ namespace D2W.FrontendResources {
         public static string Previous {
             get {
                 return ResourceManager.GetString("Previous", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Product Number.
+        /// </summary>
+        public static string Product_Number {
+            get {
+                return ResourceManager.GetString("Product_Number", resourceCulture);
             }
         }
         
@@ -4638,6 +4755,24 @@ namespace D2W.FrontendResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Vertical Repeat In Centimeters.
+        /// </summary>
+        public static string Vertical_Repeat_In_Centimeters {
+            get {
+                return ResourceManager.GetString("Vertical_Repeat_In_Centimeters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vertical Repeat In Inches.
+        /// </summary>
+        public static string Vertical_Repeat_In_Inches {
+            get {
+                return ResourceManager.GetString("Vertical_Repeat_In_Inches", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to View.
         /// </summary>
         public static string View {
@@ -4715,6 +4850,24 @@ namespace D2W.FrontendResources {
         public static string Weight {
             get {
                 return ResourceManager.GetString("Weight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Width In Centimeters.
+        /// </summary>
+        public static string Width_In_Centimeters {
+            get {
+                return ResourceManager.GetString("Width_In_Centimeters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Width In Inches.
+        /// </summary>
+        public static string Width_In_Inches {
+            get {
+                return ResourceManager.GetString("Width_In_Inches", resourceCulture);
             }
         }
         
@@ -4940,6 +5093,15 @@ namespace D2W.FrontendResources {
         public static string You_will_not_be_able_to_recover_this_design_concept {
             get {
                 return ResourceManager.GetString("You_will_not_be_able_to_recover_this_design_concept", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You will not be able to recover this fabric..
+        /// </summary>
+        public static string You_will_not_be_able_to_recover_this_fabric {
+            get {
+                return ResourceManager.GetString("You_will_not_be_able_to_recover_this_fabric", resourceCulture);
             }
         }
         

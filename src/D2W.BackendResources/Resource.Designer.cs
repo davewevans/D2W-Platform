@@ -295,6 +295,24 @@ namespace D2W.BackendResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Fabric has been deleted successfully..
+        /// </summary>
+        public static string Fabric_has_been_deleted_successfully {
+            get {
+                return ResourceManager.GetString("Fabric_has_been_deleted_successfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fabric has been updated successfully..
+        /// </summary>
+        public static string Fabric_has_been_updated_successfully {
+            get {
+                return ResourceManager.GetString("Fabric_has_been_updated_successfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to File has not been uploaded..
         /// </summary>
         public static string File_has_not_been_uploaded {
@@ -417,6 +435,15 @@ namespace D2W.BackendResources {
         public static string Invalid_code_entered {
             get {
                 return ResourceManager.GetString("Invalid_code_entered", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid fabric ID..
+        /// </summary>
+        public static string Invalid_fabric_Id {
+            get {
+                return ResourceManager.GetString("Invalid_fabric_Id", resourceCulture);
             }
         }
         
@@ -999,6 +1026,15 @@ namespace D2W.BackendResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The fabric is not found..
+        /// </summary>
+        public static string The_fabric_is_not_found {
+            get {
+                return ResourceManager.GetString("The_fabric_is_not_found", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The password and confirmation password do not match..
         /// </summary>
         public static string The_password_and_confirmation_password_do_not_match {
@@ -1148,6 +1184,15 @@ namespace D2W.BackendResources {
         public static string Unable_to_load_Client {
             get {
                 return ResourceManager.GetString("Unable_to_load_Client", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to load fabric..
+        /// </summary>
+        public static string Unable_to_load_fabric {
+            get {
+                return ResourceManager.GetString("Unable_to_load_fabric", resourceCulture);
             }
         }
         

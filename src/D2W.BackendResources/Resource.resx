@@ -195,6 +195,12 @@
   <data name="Fabric_has_been_created_successfully" xml:space="preserve">
     <value>Fabric has been created successfully.</value>
   </data>
+  <data name="Fabric_has_been_deleted_successfully" xml:space="preserve">
+    <value>Fabric has been deleted successfully.</value>
+  </data>
+  <data name="Fabric_has_been_updated_successfully" xml:space="preserve">
+    <value>Fabric has been updated successfully.</value>
+  </data>
   <data name="File_has_not_been_uploaded" xml:space="preserve">
     <value>File has not been uploaded.</value>
   </data>
@@ -236,6 +242,9 @@
   </data>
   <data name="Invalid_code_entered" xml:space="preserve">
     <value>Invalid code entered.</value>
+  </data>
+  <data name="Invalid_fabric_Id" xml:space="preserve">
+    <value>Invalid fabric ID.</value>
   </data>
   <data name="Invalid_login_attempt" xml:space="preserve">
     <value>Invalid login attempt.</value>
@@ -429,6 +438,9 @@
   <data name="The_Client_is_not_found" xml:space="preserve">
     <value>The Client is not found.</value>
   </data>
+  <data name="The_fabric_is_not_found" xml:space="preserve">
+    <value>The fabric is not found.</value>
+  </data>
   <data name="The_password_and_confirmation_password_do_not_match" xml:space="preserve">
     <value>The password and confirmation password do not match.</value>
   </data>
@@ -479,6 +491,9 @@
   </data>
   <data name="Unable_to_load_Client" xml:space="preserve">
     <value>Unable to load client.</value>
+  </data>
+  <data name="Unable_to_load_fabric" xml:space="preserve">
+    <value>Unable to load fabric.</value>
   </data>
   <data name="Unable_to_load_report" xml:space="preserve">
 	  <value>Unable to load report.</value>

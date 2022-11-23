@@ -1,4 +1,7 @@
 ﻿using D2W.Application.Features.Fabrics.Commands.CreateFabric;
+using D2W.Application.Features.Fabrics.Commands.DeleteFabric;
+using D2W.Application.Features.Fabrics.Commands.UpdateFabric;
+using D2W.Application.Features.Fabrics.Queries.GetFabricForEdit;
 using D2W.Application.Features.Fabrics.Queries.GetFabrics;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -11,12 +14,12 @@ public class FabricsController : ApiController
 {
     #region Public Methods
 
-    //[HttpPost("GetFabric")]
-    //public async Task<IActionResult> GetFabric(GetFabricForEditQuery request)
-    //{
-    //    var response = await Mediator.Send(request);
-    //    return TryGetResult(response);
-    //}
+    [HttpPost("GetFabric")]
+    public async Task<IActionResult> GetFabric(GetFabricForEditQuery request)
+    {
+        var response = await Mediator.Send(request);
+        return TryGetResult(response);
+    }
 
     [HttpPost("GetFabrics")]
     public async Task<IActionResult> GetFabrics(GetFabricsQuery request)
@@ -32,19 +35,19 @@ public class FabricsController : ApiController
         return TryGetResult(response);
     }
 
-    //[HttpPut("UpdateFabric")]
-    //public async Task<IActionResult> UpdateFabric(UpdateFabricCommand request)
-    //{
-    //    var response = await Mediator.Send(request);
-    //    return TryGetResult(response);
-    //}
+    [HttpPut("UpdateFabric")]
+    public async Task<IActionResult> UpdateFabric(UpdateFabricCommand request)
+    {
+        var response = await Mediator.Send(request);
+        return TryGetResult(response);
+    }
 
-    //[HttpDelete("DeleteFabric")]
-    //public async Task<IActionResult> DeleteFabric(string id)
-    //{
-    //    var response = await Mediator.Send(new DeleteFabricCommand { Id = id });
-    //    return TryGetResult(response);
-    //}
+    [HttpDelete("DeleteFabric")]
+    public async Task<IActionResult> DeleteFabric(Guid id)
+    {
+        var response = await Mediator.Send(new DeleteFabricCommand { Id = id });
+        return TryGetResult(response);
+    }
 
     #endregion Public Methods
 

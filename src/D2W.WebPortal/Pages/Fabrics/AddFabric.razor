@@ -13,21 +13,60 @@
                 <MudTabPanel Text="@Resource.Fabric" Icon="@Icons.Material.Filled.Person">
                     <MudGrid>
                         <MudItem xs="6">
-                            <MudTextField Class="mt-4" Label="@Resource.FullName"
-                                          Variant="Variant.Outlined"
-                                          @bind-Value="CreateFabricCommand.FullName"
-                                          For="@(() => CreateFabricCommand.FullName)" />
+                            <MudTextField Class="mt-4" Label="@Resource.Manufacturer_Name" Variant="Variant.Outlined"
+                                @bind-Value="CreateFabricCommand.ManufacturerName"
+                                For="@(() => CreateFabricCommand.ManufacturerName)" />
 
-                            <MudTextField Class="mt-4" Label="@Resource.Email"
-                                          Variant="Variant.Outlined"
-                                          @bind-Value="CreateFabricCommand.Email"
-                                          For="@(() => CreateFabricCommand.Email)" />
+                            <MudTextField Class="mt-4" Label="@Resource.Brand_Name" Variant="Variant.Outlined"
+                                @bind-Value="CreateFabricCommand.BrandName"
+                                For="@(() => CreateFabricCommand.BrandName)" />
 
 
-                            <MudTextField Class="mt-4" Label="@Resource.Phone_Number"
-                                          Variant="Variant.Outlined"
-                                          @bind-Value="CreateFabricCommand.PhoneNumber"
-                                          For="@(() => CreateFabricCommand.PhoneNumber)" />
+                            <MudTextField Class="mt-4" Label="@Resource.Material_Type" Variant="Variant.Outlined"
+                                @bind-Value="CreateFabricCommand.MaterialType"
+                                For="@(() => CreateFabricCommand.MaterialType)" />
+
+                            <MudTextField Class="mt-4" Label="@Resource.Pattern" Variant="Variant.Outlined"
+                                @bind-Value="CreateFabricCommand.Pattern"
+                                For="@(() => CreateFabricCommand.Pattern)" />
+
+                            <MudTextField Class="mt-4" Label="@Resource.Color" Variant="Variant.Outlined"
+                                @bind-Value="CreateFabricCommand.Color"
+                                For="@(() => CreateFabricCommand.Color)" />
+
+                            <MudTextField Class="mt-4" Label="@Resource.Cost_Per_Yard" Variant="Variant.Outlined"
+                                @bind-Value="CreateFabricCommand.CostPerYard"
+                                For="@(() => CreateFabricCommand.CostPerYard)" />
+
+                            <MudTextField Class="mt-4" Label="@Resource.Cost_Per_Meter" Variant="Variant.Outlined"
+                                @bind-Value="CreateFabricCommand.CostPerMeter"
+                                For="@(() => CreateFabricCommand.CostPerMeter)" />
+
+                            <MudTextField Class="mt-4" Label="@Resource.Vertical_Repeat_In_Inches" Variant="Variant.Outlined"
+                                @bind-Value="CreateFabricCommand.VerticalRepeatInInches"
+                                For="@(() => CreateFabricCommand.VerticalRepeatInInches)" />
+
+                            <MudTextField Class="mt-4" Label="@Resource.Vertical_Repeat_In_Centimeters" Variant="Variant.Outlined"
+                                @bind-Value="CreateFabricCommand.VerticalRepeatInCentimeters"
+                                For="@(() => CreateFabricCommand.VerticalRepeatInCentimeters)" />
+
+                            <MudTextField Class="mt-4" Label="@Resource.Horizontal_Repeat_In_Inches" Variant="Variant.Outlined"
+                                @bind-Value="CreateFabricCommand.HorizontalRepeatInInches"
+                                For="@(() => CreateFabricCommand.HorizontalRepeatInInches)" />
+
+                            <MudTextField Class="mt-4" Label="@Resource.Horizontal_Repeat_In_Centimeters" Variant="Variant.Outlined"
+                                @bind-Value="CreateFabricCommand.HorizontalRepeatInCentimeters"
+                                For="@(() => CreateFabricCommand.HorizontalRepeatInCentimeters)" />
+
+                                 <MudTextField Class="mt-4" Label="@Resource.Width_In_Inches" Variant="Variant.Outlined"
+                                @bind-Value="CreateFabricCommand.WidthInInches"
+                                For="@(() => CreateFabricCommand.WidthInInches)" />
+
+                                 <MudTextField Class="mt-4" Label="@Resource.Width_In_Centimeters" Variant="Variant.Outlined"
+                                @bind-Value="CreateFabricCommand.WidthInCentimeters"
+                                For="@(() => CreateFabricCommand.WidthInCentimeters)" />
+
+
                         </MudItem>
 
                     </MudGrid>
@@ -35,11 +74,8 @@
             </MudTabs>
         </MudCardContent>
         <MudCardActions Class="pb-4 pl-4">
-            <MudButton ButtonType="ButtonType.Submit"
-                       Variant="Variant.Filled"
-                       Color="Color.Primary"
-                       Class="ml-auto"
-                       FullWidth="true">@Resource.Save</MudButton>
+            <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto"
+                FullWidth="true">@Resource.Save</MudButton>
         </MudCardActions>
         <MudDivider />
         <MudExpansionPanels>

@@ -195,6 +195,12 @@
   <data name="Fabric_has_been_created_successfully" xml:space="preserve">
     <value>फैब्रिक सफलतापूर्वक बनाया गया है।</value>
   </data>
+  <data name="Fabric_has_been_deleted_successfully" xml:space="preserve">
+    <value>कपड़े सफलतापूर्वक हटा दिए गए हैं.</value>
+  </data>
+  <data name="Fabric_has_been_updated_successfully" xml:space="preserve">
+    <value>कपड़े सफलतापूर्वक अद्यतन किया गया है।</value>
+  </data>
   <data name="File_has_not_been_uploaded" xml:space="preserve">
     <value>फाइल अपलोड नहीं की गई है।</value>
   </data>
@@ -236,6 +242,9 @@
   </data>
   <data name="Invalid_code_entered" xml:space="preserve">
     <value>अमान्य कोड दर्ज किया गया.</value>
+  </data>
+  <data name="Invalid_fabric_Id" xml:space="preserve">
+    <value>अमान्य कपड़े आईडी.</value>
   </data>
   <data name="Invalid_login_attempt" xml:space="preserve">
     <value>अमान्य लॉगिन प्रयास।</value>
@@ -429,6 +438,9 @@
   <data name="The_Client_is_not_found" xml:space="preserve">
     <value>क्लाइंट नहीं मिला है।</value>
   </data>
+  <data name="The_fabric_is_not_found" xml:space="preserve">
+    <value>कपड़ा नहीं मिला है।</value>
+  </data>
   <data name="The_password_and_confirmation_password_do_not_match" xml:space="preserve">
     <value>पासवर्ड और कन्फर्मेशन पासवर्ड मेल नहीं खाता।</value>
   </data>
@@ -479,6 +491,9 @@
   </data>
   <data name="Unable_to_load_Client" xml:space="preserve">
     <value>क्लाइंट लोड करने में असमर्थ.</value>
+  </data>
+  <data name="Unable_to_load_fabric" xml:space="preserve">
+    <value>कपड़े लोड करने में असमर्थ.</value>
   </data>
   <data name="Unable_to_load_report" xml:space="preserve">
     <value>रिपोर्ट लोड करने में असमर्थ.</value>
@@ -563,6 +578,9 @@
   </data>
   <data name="Verification_email_has_been_sent" xml:space="preserve">
     <value>वेरिफिकेशन ईमेल भेजा गया है। कृपया अपना ईमेल चेक करें।</value>
+  </data>
+  <data name="View_Client" xml:space="preserve">
+    <value>क्लाइंट देखें</value>
   </data>
   <data name="Weight_is_required" xml:space="preserve">
     <value>वजन की आवश्यकता है।</value>

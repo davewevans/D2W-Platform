@@ -15,7 +15,7 @@ namespace D2W.WebPortal.Pages.Fabrics
         public int ActivePanelIndex { get; set; } = 0;
         [Inject] private IAccessTokenProvider AccessTokenProvider { get; set; }
         [Inject] private IApiUrlProvider ApiUrlProvider { get; set; }
-        [Inject] private IFabricsFabric FabricsFabric { get; set; }
+        [Inject] private IFabricsClient FabricsClient { get; set; }
         [Inject] private IBreadcrumbService BreadcrumbService { get; set; }
         [Inject] private IDialogService DialogService { get; set; }
         [Inject] private IJSRuntime Js { get; set; }
@@ -69,38 +69,6 @@ namespace D2W.WebPortal.Pages.Fabrics
             new(Resource.Home, "/"),
             new(Resource.Fabrics, "#", true)
         });
-
-            // await StartHubConnection();
-
-            // HubConnection.On("NotifyReportIssuer", (Func<FileMetaData, ReportStatus, Task>)(async (fileMetaData, reportStatus) =>
-            // {
-            //     switch (reportStatus)
-            //     {
-            //         case ReportStatus.Pending:
-            //             Snackbar.Add(Resource.Your_report_is_being_initiated, Severity.Info);
-            //             break;
-
-            //         case ReportStatus.InProgress:
-            //             Snackbar.Add(Resource.Your_report_is_being_generated,
-            //         Severity.Warning);
-            //             break;
-
-            //         case ReportStatus.Completed:
-            //             Snackbar.Add(
-            //         string.Format(Resource.Your_report_0_is_ready_to_download, fileMetaData.FileName),
-            //         Severity.Success);
-            //             await ShowDownloadFileDialogue(fileMetaData, reportStatus);
-            //             break;
-
-            //         case ReportStatus.Failed:
-            //             Snackbar.Add(Resource.Your_report_generation_has_failed,
-            //         Severity.Error);
-            //             break;
-
-            //         default:
-            //             throw new ArgumentOutOfRangeException(nameof(reportStatus), reportStatus, null);
-            //     }
-            // }));
         }
 
         #endregion Protected Methods
@@ -140,17 +108,17 @@ namespace D2W.WebPortal.Pages.Fabrics
             NavigationManager.NavigateTo("AddFabric");
         }
 
-        private void EditFabric(string id)
+        private void EditFabric(Guid id)
         {
             NavigationManager.NavigateTo($"EditFabric/{id}");
         }
 
-        private void ViewFabric(string id)
+        private void ViewFabric(Guid id)
         {
             NavigationManager.NavigateTo($"ViewFabric/{id}");
         }
 
-        private async Task DeleteFabric(string id)
+        private async Task DeleteFabric(Guid id)
         {
             SweetAlertResult result = await SweetAlert.FireAsync(new SweetAlertOptions
             {
@@ -164,7 +132,7 @@ namespace D2W.WebPortal.Pages.Fabrics
 
             if (!string.IsNullOrEmpty(result.Value))
             {
-                var httpResponseWrapper = await FabricsFabric.DeleteFabric(id);
+                var httpResponseWrapper = await FabricsClient.DeleteFabric(id);
 
                 if (httpResponseWrapper.Success)
                 {
@@ -219,7 +187,7 @@ namespace D2W.WebPortal.Pages.Fabrics
 
         //     if (!result.Cancelled)
         //     {
-        //         var httpResponseWrapper = await FabricsFabric.ExportAsPdf(new ExportApplicantsQuery
+        //         var httpResponseWrapper = await FabricsClient.ExportAsPdf(new ExportApplicantsQuery
         //         {
         //             SearchText = GetFabricsQuery.SearchText,
         //             SortBy = GetFabricsQuery.SortBy,
@@ -289,7 +257,7 @@ namespace D2W.WebPortal.Pages.Fabrics
 
             GetFabricsQuery.SortBy = state.SortDirection == SortDirection.None ? string.Empty : $"{state.SortLabel} {state.SortDirection}";
 
-            var responseWrapper = await FabricsFabric.GetFabrics(GetFabricsQuery);
+            var responseWrapper = await FabricsClient.GetFabrics(GetFabricsQuery);
 
             var tableData = new TableData<FabricItem>();
 

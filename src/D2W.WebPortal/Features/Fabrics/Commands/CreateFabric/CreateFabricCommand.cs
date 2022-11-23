@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace D2W.WebPortal.Features.Fabrics.Queries.GetFabrics
+namespace D2W.WebPortal.Features.Fabrics.Commands.CreateFabric
 {
-    public class FabricItem
+    public class CreateFabricCommand
     {
-        public Guid Id { get; set; }
         public string ManufacturerName { get; set; }
         public string BrandName { get; set; }
+        public string MaterialType { get; set; }
         public string ProductNumber { get; set; }
         public string Pattern { get; set; }
         public string Color { get; set; }

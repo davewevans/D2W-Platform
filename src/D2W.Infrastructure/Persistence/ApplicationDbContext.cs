@@ -291,11 +291,11 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser,
             .HasForeignKey(x => x.ClientId)
             .OnDelete(DeleteBehavior.ClientSetNull);
 
-        modelBuilder.Entity<FabricCalculationsModel>()
-            .HasOne(fc => fc.Fabric)
-            .WithMany(f => f.FabricCalculations)
-            .HasForeignKey(fc => fc.FabricId)
-            .OnDelete(DeleteBehavior.ClientSetNull);
+        //modelBuilder.Entity<FabricCalculationsModel>()
+        //    .HasOne(fc => fc.Fabric)
+        //    .WithMany(f => f.FabricCalculations)
+        //    .HasForeignKey(fc => fc.FabricId)
+        //    .OnDelete(DeleteBehavior.ClientSetNull);
 
         modelBuilder.Entity<FabricCalculationsModel>()
             .HasOne(fc => fc.DesignConcept)

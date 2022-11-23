@@ -13,6 +13,7 @@ public class FabricModel : IAuditable, IMustHaveTenant
     public Guid TenantId { get; set; }
     public string ManufacturerName { get; set; }
     public string BrandName { get; set; }
+    public string MaterialType { get; set; }
     public string ProductNumber { get; set; }
     public string Pattern { get; set; }
     public string Color { get; set; }

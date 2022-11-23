@@ -1,4 +1,4 @@
-@page "/ViewFabric/{fabricId}"
+@page "/ViewFabric/{fabricId:guid}"
 
 <MudText Typo="Typo.h5" Color="Color.Primary" Class="mb-4">@Resource.View_Fabric</MudText>
 
@@ -9,15 +9,11 @@
             <MudTabPanel Text="@Resource.Fabric" Icon="@Icons.Material.Filled.Person">
                 <MudGrid>
                     <MudItem xs="6">
-                        <MudTextField Disabled="true" Label="@Resource.FullName" Variant="Variant.Outlined"
-                            @bind-Value="FabricForEditVm.FullName" For="@(() => FabricForEditVm.FullName)" />
+                        <MudTextField Disabled="true" Label="@Resource.Pattern" Variant="Variant.Outlined"
+                            @bind-Value="FabricForEditVm.Pattern" For="@(() => FabricForEditVm.Pattern)" />
 
-                        <MudTextField Disabled="true" Label="@Resource.Email" Variant="Variant.Outlined"
-                            @bind-Value="FabricForEditVm.Email" For="@(() => FabricForEditVm.Email)" />
-
-
-                        <MudTextField Disabled="true" Label="@Resource.Phone_Number" Variant="Variant.Outlined"
-                            @bind-Value="FabricForEditVm.PhoneNumber" For="@(() => FabricForEditVm.PhoneNumber)" />
+                        <MudTextField Disabled="true" Label="@Resource.Color" Variant="Variant.Outlined"
+                            @bind-Value="FabricForEditVm.Color" For="@(() => FabricForEditVm.Color)" />
                     </MudItem>
 
                 </MudGrid>

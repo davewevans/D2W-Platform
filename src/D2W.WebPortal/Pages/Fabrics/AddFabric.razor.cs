@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using D2W.WebPortal.Features.Identity.Account.Commands.Register;
+using D2W.WebPortal.Features.Fabrics.Commands.CreateFabric;
 
 namespace D2W.WebPortal.Pages.Fabrics
 {
@@ -13,13 +14,13 @@ namespace D2W.WebPortal.Pages.Fabrics
 
         [Inject] private NavigationManager NavigationManager { get; set; }
         [Inject] private ISnackbar Snackbar { get; set; }
-        [Inject] private IFabricsFabric FabricsFabric { get; set; }
+        [Inject] private IFabricsClient FabricsClient { get; set; }
         [Inject] private IBreadcrumbService BreadcrumbService { get; set; }
         [Inject] private IAppStateManager AppStateManager { get; set; }
 
         private ServerSideValidator ServerSideValidator { get; set; }
         private EditContextServerSideValidator EditContextServerSideValidator { get; set; }
-        private RegisterFabricCommand CreateFabricCommand { get; set; } = new();
+        private CreateFabricCommand CreateFabricCommand { get; set; } = new();
 
         private bool IsTipsOpen { get; set; }
 
@@ -54,13 +55,13 @@ namespace D2W.WebPortal.Pages.Fabrics
 
         private async Task SubmitForm()
         {
-            var httpResponseWrapper = await FabricsFabric.CreateFabric(CreateFabricCommand);
+            var httpResponseWrapper = await FabricsClient.CreateFabric(CreateFabricCommand);
 
             System.Console.WriteLine($"http response: {httpResponseWrapper.Success}");
 
             if (httpResponseWrapper.Success)
             {
-                var successResult = httpResponseWrapper.Response as SuccessResult<RegisterFabricResponse>;
+                var successResult = httpResponseWrapper.Response as SuccessResult<CreateFabricResponse>;
 
                 if (successResult is not null)
                 {

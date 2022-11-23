@@ -12,7 +12,7 @@ namespace D2W.WebPortal.Pages.Fabrics
     {
         #region Public Properties
 
-        [Parameter] public string FabricId { get; set; }
+        [Parameter] public Guid FabricId { get; set; }
 
         #endregion Public Properties
 
@@ -22,7 +22,7 @@ namespace D2W.WebPortal.Pages.Fabrics
         [Inject] private IDialogService DialogService { get; set; }
         [Inject] private ISnackbar Snackbar { get; set; }
         [Inject] private IBreadcrumbService BreadcrumbService { get; set; }
-        [Inject] private IFabricsFabric FabricsFabric { get; set; }
+        [Inject] private IFabricsClient FabricsFabric { get; set; }
 
         private ServerSideValidator ServerSideValidator { get; set; }
         private EditContextServerSideValidator EditContextServerSideValidator { get; set; }
@@ -70,10 +70,22 @@ namespace D2W.WebPortal.Pages.Fabrics
         {
             UpdateFabricCommand = new UpdateFabricCommand
             {
-                Id = FabricForEditVm.Id,
-                FullName = FabricForEditVm.FullName,
-                PhoneNumber = FabricForEditVm.PhoneNumber,
-                Email = FabricForEditVm.Email,
+                ManufacturerName = FabricForEditVm.ManufacturerName,
+                BrandName = FabricForEditVm.BrandName,
+                MaterialType = FabricForEditVm.MaterialType,
+                ProductNumber = FabricForEditVm.ProductNumber,
+                Pattern = FabricForEditVm.Pattern,
+                Color = FabricForEditVm.Color,
+                SwatchImageUri = FabricForEditVm.SwatchImageUri,
+                CostPerYard = FabricForEditVm.CostPerYard,
+                CostPerMeter = FabricForEditVm.CostPerMeter,
+                IsRepeating = FabricForEditVm.IsRepeating,
+                VerticalRepeatInInches = FabricForEditVm.VerticalRepeatInInches,
+                VerticalRepeatInCentimeters = FabricForEditVm.VerticalRepeatInCentimeters,
+                HorizontalRepeatInInches = FabricForEditVm.HorizontalRepeatInInches,
+                HorizontalRepeatInCentimeters = FabricForEditVm.HorizontalRepeatInCentimeters,
+                WidthInInches = FabricForEditVm.WidthInInches,
+                WidthInCentimeters = FabricForEditVm.WidthInCentimeters,
             };
             var httpResponse = await FabricsFabric.UpdateFabric(UpdateFabricCommand);
 

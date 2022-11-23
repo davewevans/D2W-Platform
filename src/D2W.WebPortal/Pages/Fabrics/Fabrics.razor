@@ -20,31 +20,6 @@
             <ToolBarContent>
                 <MudText Typo="Typo.h5" Color="Color.Primary">@Resource.Fabrics</MudText>
 
-                @* <MudTooltip Text="@Resource.ExportAsPdfInBackground">
-                    <MudFab Style="margin-left: 20px; margin-top: 10px"
-                    Color="Color.Primary"
-                    Size="Size.Small"
-                    Icon="@Icons.Material.Filled.Timer" OnClick="PostponedExportFabricToPdf" />
-                    </MudTooltip>
-
-                    <MudTooltip Text="@Resource.ExportAsPdfImmediate">
-                    <MudFab Style="margin-left: 20px; margin-top: 10px"
-                    Color="Color.Primary"
-                    Size="Size.Small"
-                    Icon="@Icons.Material.Filled.PictureAsPdf" OnClick="ImmediateExportFabricToPdf" />
-                    </MudTooltip> *@
-
-                @* <MudToggleIconButton Style="margin-left: 20px; margin-top: 10px"
-                    Size="Size.Medium"
-                    Icon="@Icons.Material.Outlined.StopCircle"
-                    Color="@Color.Error"
-                    Title="@Resource.Close_SignalR_Connection"
-                    Toggled="@IsHubConnectionClosed"
-                    ToggledChanged="OnHubConnectionToggledChanged"
-                    ToggledIcon="@Icons.Material.Outlined.PlayCircle"
-                    ToggledColor="@Color.Success"
-                    ToggledTitle="@Resource.Start_SignalR_Connection" /> *@
-
                 <MudSpacer />
 
                 <MudTextField T="string" Immediate="true" ValueChanged="@(FilterFabrics)" Placeholder="@Resource.Search"
@@ -57,20 +32,16 @@
             </ToolBarContent>
             <HeaderContent>
                 <MudTh>
-                    <MudTableSortLabel SortLabel="FullName" T="FabricItem">@Resource.FullName</MudTableSortLabel>
+                    <MudTableSortLabel SortLabel="Pattern" T="FabricItem">@Resource.Pattern</MudTableSortLabel>
                 </MudTh>
                 <MudTh>
-                    <MudTableSortLabel SortLabel="Email" T="FabricItem">@Resource.Email</MudTableSortLabel>
-                </MudTh>
-                <MudTh>
-                    <MudTableSortLabel SortLabel="PhoneNumber" T="FabricItem">@Resource.Phone_Number</MudTableSortLabel>
+                    <MudTableSortLabel SortLabel="Color" T="FabricItem">@Resource.Color</MudTableSortLabel>
                 </MudTh>
                 <MudTh>@Resource.Options</MudTh>
             </HeaderContent>
             <RowTemplate>
-                <MudTd DataLabel="FullName">@Fabric.FullName</MudTd>
-                <MudTd DataLabel="Email">@Fabric.Email</MudTd>
-                <MudTd DataLabel="PhoneNumber">@Fabric.PhoneNumber</MudTd>
+                <MudTd DataLabel="Pattern">@Fabric.Pattern</MudTd>
+                <MudTd DataLabel="Color">@Fabric.Color</MudTd>
                 <MudTd>
                     <MudButtonGroup Variant="Variant.Text" Color="Color.Primary"
                         OverrideStyles="@_overrideButtonGroupStyles">

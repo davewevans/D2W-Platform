@@ -11,14 +11,14 @@ namespace D2W.WebPortal.Pages.Fabrics
     {
         #region Public Properties
 
-        [Parameter] public string FabricId { get; set; }
+        [Parameter] public Guid FabricId { get; set; }
 
         #endregion Public Properties
 
         #region Private Properties
 
         [Inject] private IBreadcrumbService BreadcrumbService { get; set; }
-        [Inject] private IFabricsFabric FabricsFabric { get; set; }
+        [Inject] private IFabricsClient FabricsFabric { get; set; }
 
         private ServerSideValidator ServerSideValidator { get; set; }
         private FabricForEdit FabricForEditVm { get; set; } = new();

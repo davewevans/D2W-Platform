@@ -72,9 +72,6 @@
 	<ItemGroup>
 	  <Folder Include="Features\DesignConcepts\Commands\DeleteDesignConcept\" />
 	  <Folder Include="Features\DesignConcepts\Commands\UpdateDesignConcept\" />
-	  <Folder Include="Features\Fabrics\Commands\DeleteFabric\" />
-	  <Folder Include="Features\Fabrics\Commands\UpdateFabric\" />
-	  <Folder Include="Features\Fabrics\Queries\GetfabricForEdit\" />
 	  <Folder Include="Features\WorkOrders\" />
 	  <Folder Include="Features\Reports\" />
 	</ItemGroup>

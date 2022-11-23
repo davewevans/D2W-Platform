@@ -153,6 +153,9 @@
   <data name="Add_Design_Concept" xml:space="preserve">
     <value>Tasarım Konsepti Ekle</value>
   </data>
+  <data name="Add_Fabric" xml:space="preserve">
+    <value>Kumaş Ekle</value>
+  </data>
   <data name="Add_New_File" xml:space="preserve">
     <value>Yeni Dosya Ekle</value>
   </data>
@@ -306,6 +309,9 @@
   <data name="Bottom" xml:space="preserve">
     <value>Dip</value>
   </data>
+  <data name="Brand_Name" xml:space="preserve">
+    <value>Markası</value>
+  </data>
   <data name="Browser_Time_Zone" xml:space="preserve">
     <value>Tarayıcı Zaman Dilimi</value>
   </data>
@@ -423,6 +429,9 @@
   <data name="Code_Samples" xml:space="preserve">
     <value>Kod Örnekleri</value>
   </data>
+  <data name="Color" xml:space="preserve">
+    <value>Renk</value>
+  </data>
   <data name="Company" xml:space="preserve">
     <value>Şirket</value>
   </data>
@@ -452,6 +461,12 @@
   </data>
   <data name="Copper" xml:space="preserve">
     <value>Bakır</value>
+  </data>
+  <data name="Cost_Per_Meter" xml:space="preserve">
+    <value>Metre Başına Maliyet</value>
+  </data>
+  <data name="Cost_Per_Yard" xml:space="preserve">
+    <value>Bahçe Başına Maliyet</value>
   </data>
   <data name="Country" xml:space="preserve">
     <value>Ülke</value>
@@ -705,6 +720,9 @@
   <data name="Fabric" xml:space="preserve">
     <value>Kumaş</value>
   </data>
+  <data name="Fabrics" xml:space="preserve">
+    <value>Kumaş</value>
+  </data>
   <data name="Failed" xml:space="preserve">
     <value>İşlem Başarısız</value>
   </data>
@@ -846,6 +864,12 @@
   <data name="Home" xml:space="preserve">
     <value>Ev</value>
   </data>
+  <data name="Horizontal_Repeat_In_Centimeters" xml:space="preserve">
+    <value>Santimetre Cinsinden Yatay Tekrarlama</value>
+  </data>
+  <data name="Horizontal_Repeat_In_Inches" xml:space="preserve">
+    <value>İnç Cinsinden Yatay Tekrarlama</value>
+  </data>
   <data name="Hour" xml:space="preserve">
     <value>Saat</value>
   </data>
@@ -887,6 +911,9 @@
   </data>
   <data name="into_your_two_factor_authenticator_app._Spaces_and_casing_do_not_matter" xml:space="preserve">
     <value>iki faktörlü kimlik doğrulayıcı uygulamanıza dahil edin. Boşluklar ve muhafaza önemli değil.</value>
+  </data>
+  <data name="Invalid_fabric_Id" xml:space="preserve">
+    <value>Geçersiz doku kimliği.</value>
   </data>
   <data name="Invalid_file_name" xml:space="preserve">
     <value>Geçersiz dosya adı.</value>
@@ -1002,11 +1029,17 @@
   <data name="Low" xml:space="preserve">
     <value>Alçak</value>
   </data>
+  <data name="Manufacturer_Name" xml:space="preserve">
+    <value>Üretici Adı</value>
+  </data>
   <data name="March" xml:space="preserve">
     <value>Mart</value>
   </data>
   <data name="Master_Details_Form" xml:space="preserve">
     <value>Usta - Detay Formu!</value>
+  </data>
+  <data name="Material_Type" xml:space="preserve">
+    <value>Malzeme Türü</value>
   </data>
   <data name="Maximum_Failed_Access_Attempts" xml:space="preserve">
     <value>En Fazla Başarısız Erişim Denemesi Sayısı</value>
@@ -1140,6 +1173,9 @@
   <data name="Password_Settings" xml:space="preserve">
     <value>Parola Ayarları</value>
   </data>
+  <data name="Pattern" xml:space="preserve">
+    <value>Desen</value>
+  </data>
   <data name="Pending" xml:space="preserve">
     <value>Bekleyen İşlem</value>
   </data>
@@ -1178,6 +1214,9 @@
   </data>
   <data name="Previous" xml:space="preserve">
     <value>Önceki</value>
+  </data>
+  <data name="Product_Number" xml:space="preserve">
+    <value>Ürün Numarası</value>
   </data>
   <data name="Profile" xml:space="preserve">
     <value>Profil</value>
@@ -1641,6 +1680,12 @@
   <data name="Verify" xml:space="preserve">
     <value>Doğrulamak</value>
   </data>
+  <data name="Vertical_Repeat_In_Centimeters" xml:space="preserve">
+    <value>Santimetre Cinsinden Dikey Tekrarlama</value>
+  </data>
+  <data name="Vertical_Repeat_In_Inches" xml:space="preserve">
+    <value>İnç Cinsinden Dikey Tekrarlama</value>
+  </data>
   <data name="View" xml:space="preserve">
     <value>Görünüm</value>
   </data>
@@ -1667,6 +1712,12 @@
   </data>
   <data name="Weight" xml:space="preserve">
     <value>Ağırlık</value>
+  </data>
+  <data name="Width_In_Centimeters" xml:space="preserve">
+    <value>Santimetre Cinsinden Genişlik</value>
+  </data>
+  <data name="Width_In_Inches" xml:space="preserve">
+    <value>İnç Cinsinden Genişlik</value>
   </data>
   <data name="Wind" xml:space="preserve">
     <value>Rüzgar</value>
@@ -1799,6 +1850,9 @@
   </data>
   <data name="You_will_not_be_able_to_recover_this_design_concept" xml:space="preserve">
     <value>Bu tasarım konseptini geri kazanamazsınız.</value>
+  </data>
+  <data name="You_will_not_be_able_to_recover_this_fabric" xml:space="preserve">
+    <value>Bu kumaşı geri kazanamazsınız.</value>
   </data>
   <data name="You_will_not_be_able_to_recover_this_fabric_data" xml:space="preserve">
     <value>Bu kumaşı geri kazanamazsınız.</value>

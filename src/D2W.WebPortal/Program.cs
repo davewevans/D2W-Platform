@@ -128,7 +128,6 @@ public class Program
         services.AddScoped<IFabricsClient, FabricsClient>();
 
 
-
         services.AddLocalization();
 
         services.AddBlazoredLocalStorage();

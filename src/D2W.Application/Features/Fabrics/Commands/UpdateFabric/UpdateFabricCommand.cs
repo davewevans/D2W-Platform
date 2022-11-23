@@ -5,13 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace D2W.Application.Features.Fabrics.Commands.CreateFabric;
+namespace D2W.Application.Features.Fabrics.Commands.UpdateFabric;
 
-public class CreateFabricCommand : IRequest<Envelope<CreateFabricResponse>>
+public class UpdateFabricCommand : IRequest<Envelope<string>>
 {
-
     #region Public Properties
-
+    public Guid Id { get; set; }
     public string ManufacturerName { get; set; }
     public string BrandName { get; set; }
     public string MaterialType { get; set; }
@@ -29,40 +28,40 @@ public class CreateFabricCommand : IRequest<Envelope<CreateFabricResponse>>
     public float WidthInInches { get; set; }
     public float WidthInCentimeters { get; set; }
 
-
     #endregion Public Properties
 
     #region Public Methods
 
-    public FabricModel MapToEntity()
-    {
-        return new()
-        {
-            ManufacturerName = ManufacturerName,
-            BrandName = BrandName,
-            MaterialType = MaterialType,
-            ProductNumber = ProductNumber,
-            Pattern = Pattern,
-            Color = Color,
-            SwatchImageUri = SwatchImageUri,
-            CostPerYard = CostPerYard,
-            CostPerMeter = CostPerMeter,
-            IsRepeating = IsRepeating,
-            VerticalRepeatInInches = VerticalRepeatInInches,
-            VerticalRepeatInCentimeters = VerticalRepeatInCentimeters,
-            HorizontalRepeatInInches = HorizontalRepeatInInches,
-            HorizontalRepeatInCentimeters = HorizontalRepeatInCentimeters,
-            WidthInInches = WidthInInches,
-            WidthInCentimeters = WidthInCentimeters,
-        };
-    }
 
+    public void MapToEntity(FabricModel fabric)
+    {
+        if (fabric == null)
+            throw new ArgumentNullException(nameof(fabric));
+
+        fabric.ManufacturerName = ManufacturerName;
+        fabric.BrandName = BrandName;
+        fabric.MaterialType = MaterialType;
+        fabric.ProductNumber = ProductNumber;
+        fabric.Pattern = Pattern;
+        fabric.Color = Color;
+        fabric.SwatchImageUri = SwatchImageUri;
+        fabric.CostPerYard = CostPerYard;
+        fabric.CostPerMeter = CostPerMeter;
+        fabric.IsRepeating = IsRepeating;
+        fabric.VerticalRepeatInInches = VerticalRepeatInInches;
+        fabric.VerticalRepeatInCentimeters = VerticalRepeatInCentimeters;
+        fabric.HorizontalRepeatInInches = HorizontalRepeatInInches;
+        fabric.HorizontalRepeatInCentimeters = HorizontalRepeatInCentimeters;
+        fabric.WidthInInches = WidthInInches;
+        fabric.WidthInCentimeters = WidthInCentimeters;
+    }
+    
 
     #endregion Public Methods
 
     #region Public Classes
 
-    public class CreateFabricCommandHandler : IRequestHandler<CreateFabricCommand, Envelope<CreateFabricResponse>>
+    public class UpdateFabricCommandHandler : IRequestHandler<UpdateFabricCommand, Envelope<string>>
     {
         #region Private Fields
 
@@ -72,7 +71,7 @@ public class CreateFabricCommand : IRequest<Envelope<CreateFabricResponse>>
 
         #region Public Constructors
 
-        public CreateFabricCommandHandler(IFabricUseCase fabricUseCase)
+        public UpdateFabricCommandHandler(IFabricUseCase fabricUseCase)
         {
             _fabricUseCase = fabricUseCase;
         }
@@ -81,9 +80,9 @@ public class CreateFabricCommand : IRequest<Envelope<CreateFabricResponse>>
 
         #region Public Methods
 
-        public async Task<Envelope<CreateFabricResponse>> Handle(CreateFabricCommand request, CancellationToken cancellationToken)
+        public async Task<Envelope<string>> Handle(UpdateFabricCommand request, CancellationToken cancellationToken)
         {
-            return await _fabricUseCase.AddFabric(request);
+            return await _fabricUseCase.EditFabric(request);
         }
 
         #endregion Public Methods

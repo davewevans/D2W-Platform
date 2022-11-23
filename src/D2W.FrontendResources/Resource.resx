@@ -153,6 +153,9 @@
   <data name="Add_Design_Concept" xml:space="preserve">
     <value>Add Design Concept</value>
   </data>
+  <data name="Add_Fabric" xml:space="preserve">
+    <value>Add Fabric</value>
+  </data>
   <data name="Add_New_File" xml:space="preserve">
     <value>Add New File</value>
   </data>
@@ -306,6 +309,9 @@
   <data name="Bottom" xml:space="preserve">
     <value>Bottom</value>
   </data>
+  <data name="Brand_Name" xml:space="preserve">
+    <value>Brand Name</value>
+  </data>
   <data name="Browser_Time_Zone" xml:space="preserve">
     <value>Browser Time Zone</value>
   </data>
@@ -423,6 +429,9 @@
   <data name="Code_Samples" xml:space="preserve">
     <value>Code Samples</value>
   </data>
+  <data name="Color" xml:space="preserve">
+    <value>Color</value>
+  </data>
   <data name="Company" xml:space="preserve">
     <value>Company</value>
   </data>
@@ -452,6 +461,12 @@
   </data>
   <data name="Copper" xml:space="preserve">
     <value>Copper</value>
+  </data>
+  <data name="Cost_Per_Meter" xml:space="preserve">
+    <value>Cost Per Meter</value>
+  </data>
+  <data name="Cost_Per_Yard" xml:space="preserve">
+    <value>Cost Per Yard</value>
   </data>
   <data name="Country" xml:space="preserve">
     <value>Country</value>
@@ -705,6 +720,9 @@
   <data name="Fabric" xml:space="preserve">
     <value>Fabric</value>
   </data>
+  <data name="Fabrics" xml:space="preserve">
+    <value>Fabrics</value>
+  </data>
   <data name="Failed" xml:space="preserve">
     <value>Failed</value>
   </data>
@@ -846,6 +864,12 @@
   <data name="Home" xml:space="preserve">
     <value>Home</value>
   </data>
+  <data name="Horizontal_Repeat_In_Centimeters" xml:space="preserve">
+    <value>Horizontal Repeat In Centimeters</value>
+  </data>
+  <data name="Horizontal_Repeat_In_Inches" xml:space="preserve">
+    <value>Horizontal Repeat In Inches</value>
+  </data>
   <data name="Hour" xml:space="preserve">
     <value>Hour</value>
   </data>
@@ -887,6 +911,9 @@
   </data>
   <data name="into_your_two_factor_authenticator_app._Spaces_and_casing_do_not_matter" xml:space="preserve">
     <value>into your two factor authenticator app. Spaces and casing do not matter.</value>
+  </data>
+  <data name="Invalid_fabric_Id" xml:space="preserve">
+    <value>Invalid fabric ID.</value>
   </data>
   <data name="Invalid_file_name" xml:space="preserve">
     <value>Invalid file name.</value>
@@ -1002,11 +1029,17 @@
   <data name="Low" xml:space="preserve">
     <value>Low</value>
   </data>
+  <data name="Manufacturer_Name" xml:space="preserve">
+    <value>Manufacturer Name</value>
+  </data>
   <data name="March" xml:space="preserve">
     <value>March</value>
   </data>
   <data name="Master_Details_Form" xml:space="preserve">
     <value>Master-Details Form</value>
+  </data>
+  <data name="Material_Type" xml:space="preserve">
+    <value>Material Type</value>
   </data>
   <data name="Maximum_Failed_Access_Attempts" xml:space="preserve">
     <value>Maximum Failed Access Attempts</value>
@@ -1140,6 +1173,9 @@
   <data name="Password_Settings" xml:space="preserve">
     <value>Password Settings</value>
   </data>
+  <data name="Pattern" xml:space="preserve">
+    <value>Pattern</value>
+  </data>
   <data name="Pending" xml:space="preserve">
     <value>Pending</value>
   </data>
@@ -1178,6 +1214,9 @@
   </data>
   <data name="Previous" xml:space="preserve">
     <value>Previous</value>
+  </data>
+  <data name="Product_Number" xml:space="preserve">
+    <value>Product Number</value>
   </data>
   <data name="Profile" xml:space="preserve">
     <value>Profile</value>
@@ -1641,6 +1680,12 @@
   <data name="Verify" xml:space="preserve">
     <value>Verify</value>
   </data>
+  <data name="Vertical_Repeat_In_Centimeters" xml:space="preserve">
+    <value>Vertical Repeat In Centimeters</value>
+  </data>
+  <data name="Vertical_Repeat_In_Inches" xml:space="preserve">
+    <value>Vertical Repeat In Inches</value>
+  </data>
   <data name="View" xml:space="preserve">
     <value>View</value>
   </data>
@@ -1667,6 +1712,12 @@
   </data>
   <data name="Weight" xml:space="preserve">
     <value>Weight</value>
+  </data>
+  <data name="Width_In_Centimeters" xml:space="preserve">
+    <value>Width In Centimeters</value>
+  </data>
+  <data name="Width_In_Inches" xml:space="preserve">
+    <value>Width In Inches</value>
   </data>
   <data name="Wind" xml:space="preserve">
     <value>Wind</value>
@@ -1799,6 +1850,9 @@
   </data>
   <data name="You_will_not_be_able_to_recover_this_design_concept" xml:space="preserve">
     <value>You will not be able to recover this design concept.</value>
+  </data>
+  <data name="You_will_not_be_able_to_recover_this_fabric" xml:space="preserve">
+    <value>You will not be able to recover this fabric.</value>
   </data>
   <data name="You_will_not_be_able_to_recover_this_fabric_data" xml:space="preserve">
     <value>You will not be able to recover this fabric.</value>

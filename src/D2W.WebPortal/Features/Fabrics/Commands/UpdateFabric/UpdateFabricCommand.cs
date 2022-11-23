@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace D2W.WebPortal.Features.Fabrics.Queries.GetFabrics
+namespace D2W.WebPortal.Features.Fabrics.Commands.UpdateFabric
 {
-    public class FabricItem
+    public class UpdateFabricCommand
     {
+        #region Public Properties
+
         public Guid Id { get; set; }
         public string ManufacturerName { get; set; }
         public string BrandName { get; set; }
+        public string MaterialType { get; set; }
         public string ProductNumber { get; set; }
         public string Pattern { get; set; }
         public string Color { get; set; }
@@ -23,5 +26,8 @@ namespace D2W.WebPortal.Features.Fabrics.Queries.GetFabrics
         public float HorizontalRepeatInCentimeters { get; set; }
         public float WidthInInches { get; set; }
         public float WidthInCentimeters { get; set; }
+
+        #endregion Public Properties
+
     }
 }

@@ -4,17 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace D2W.Application.Features.Fabrics.Queries.GetFabrics;
+namespace D2W.Application.Features.Fabrics.Queries.GetFabricForEdit;
 
-public class FabricItem : AuditableDto
+public class FabricForEdit
 {
-
     #region Public Properties
 
     public Guid Id { get; set; }
-
-    public Guid TenantId { get; set; }
-
     public string ManufacturerName { get; set; }
     public string BrandName { get; set; }
     public string MaterialType { get; set; }
@@ -34,14 +30,14 @@ public class FabricItem : AuditableDto
 
     #endregion Public Properties
 
+
     #region Public Methods
 
-    public static FabricItem MapFromEntity(FabricModel fabric)
+    public static FabricForEdit MapFromEntity(FabricModel fabric)
     {
         return new()
         {
             Id = fabric.Id,
-            TenantId = fabric.TenantId,
             ManufacturerName = fabric.ManufacturerName,
             BrandName = fabric.BrandName,
             MaterialType = fabric.MaterialType,
@@ -58,11 +54,6 @@ public class FabricItem : AuditableDto
             HorizontalRepeatInCentimeters = fabric.HorizontalRepeatInCentimeters,
             WidthInInches = fabric.WidthInInches,
             WidthInCentimeters = fabric.WidthInCentimeters,
-
-            CreatedOn = fabric.CreatedOn,
-            CreatedBy = fabric.CreatedBy,
-            ModifiedOn = fabric.ModifiedOn,
-            ModifiedBy = fabric.ModifiedBy,
         };
     }
 

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace D2W.Application.Features.Fabrics.Commands.CreateFabric;
+namespace D2W.Application.Features.Fabrics.Commands.UpdateFabric;
 
-public class CreateFabricResponse
+public class UpdateFabricResponse
 {
     #region Public Properties
 

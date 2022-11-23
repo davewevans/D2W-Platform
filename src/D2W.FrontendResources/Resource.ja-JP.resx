@@ -153,6 +153,9 @@
   <data name="Add_Design_Concept" xml:space="preserve">
     <value>デザインコンセプトを追加</value>
   </data>
+  <data name="Add_Fabric" xml:space="preserve">
+    <value>ファブリックの追加</value>
+  </data>
   <data name="Add_New_File" xml:space="preserve">
     <value>新しいファイルの追加</value>
   </data>
@@ -306,6 +309,9 @@
   <data name="Bottom" xml:space="preserve">
     <value>底</value>
   </data>
+  <data name="Brand_Name" xml:space="preserve">
+    <value>商標名</value>
+  </data>
   <data name="Browser_Time_Zone" xml:space="preserve">
     <value>ブラウザのタイムゾーン</value>
   </data>
@@ -423,6 +429,9 @@
   <data name="Code_Samples" xml:space="preserve">
     <value>コード サンプル</value>
   </data>
+  <data name="Color" xml:space="preserve">
+    <value>色</value>
+  </data>
   <data name="Company" xml:space="preserve">
     <value>会社</value>
   </data>
@@ -452,6 +461,12 @@
   </data>
   <data name="Copper" xml:space="preserve">
     <value>銅</value>
+  </data>
+  <data name="Cost_Per_Meter" xml:space="preserve">
+    <value>メートルあたりのコスト</value>
+  </data>
+  <data name="Cost_Per_Yard" xml:space="preserve">
+    <value>ヤードあたりのコスト</value>
   </data>
   <data name="Country" xml:space="preserve">
     <value>国</value>
@@ -705,6 +720,9 @@
   <data name="Fabric" xml:space="preserve">
     <value>生地</value>
   </data>
+  <data name="Fabrics" xml:space="preserve">
+    <value>生地</value>
+  </data>
   <data name="Failed" xml:space="preserve">
     <value>失敗しました!</value>
   </data>
@@ -846,6 +864,12 @@
   <data name="Home" xml:space="preserve">
     <value>家</value>
   </data>
+  <data name="Horizontal_Repeat_In_Centimeters" xml:space="preserve">
+    <value>水平方向の繰り返し(センチメートル)</value>
+  </data>
+  <data name="Horizontal_Repeat_In_Inches" xml:space="preserve">
+    <value>水平リピート(インチ)</value>
+  </data>
   <data name="Hour" xml:space="preserve">
     <value>時</value>
   </data>
@@ -887,6 +911,9 @@
   </data>
   <data name="into_your_two_factor_authenticator_app._Spaces_and_casing_do_not_matter" xml:space="preserve">
     <value>あなたの2要素認証アプリに。スペースとケーシングは関係ありません。</value>
+  </data>
+  <data name="Invalid_fabric_Id" xml:space="preserve">
+    <value>ファブリック ID が無効です。</value>
   </data>
   <data name="Invalid_file_name" xml:space="preserve">
     <value>無効なファイル名です。</value>
@@ -1002,11 +1029,17 @@
   <data name="Low" xml:space="preserve">
     <value>低い</value>
   </data>
+  <data name="Manufacturer_Name" xml:space="preserve">
+    <value>メーカー名</value>
+  </data>
   <data name="March" xml:space="preserve">
     <value>3 月</value>
   </data>
   <data name="Master_Details_Form" xml:space="preserve">
     <value>マスター詳細フォーム！</value>
+  </data>
+  <data name="Material_Type" xml:space="preserve">
+    <value>材料タイプ</value>
   </data>
   <data name="Maximum_Failed_Access_Attempts" xml:space="preserve">
     <value>失敗したアクセス試行の最大数</value>
@@ -1140,6 +1173,9 @@
   <data name="Password_Settings" xml:space="preserve">
     <value>パスワードの設定</value>
   </data>
+  <data name="Pattern" xml:space="preserve">
+    <value>パターン</value>
+  </data>
   <data name="Pending" xml:space="preserve">
     <value>レビュー待ち</value>
   </data>
@@ -1178,6 +1214,9 @@
   </data>
   <data name="Previous" xml:space="preserve">
     <value>先の</value>
+  </data>
+  <data name="Product_Number" xml:space="preserve">
+    <value>製品番号</value>
   </data>
   <data name="Profile" xml:space="preserve">
     <value>プロフィール</value>
@@ -1641,6 +1680,12 @@
   <data name="Verify" xml:space="preserve">
     <value>確かめる</value>
   </data>
+  <data name="Vertical_Repeat_In_Centimeters" xml:space="preserve">
+    <value>垂直リピート(センチメートル)</value>
+  </data>
+  <data name="Vertical_Repeat_In_Inches" xml:space="preserve">
+    <value>垂直リピート(インチ)</value>
+  </data>
   <data name="View" xml:space="preserve">
     <value>眺める</value>
   </data>
@@ -1667,6 +1712,12 @@
   </data>
   <data name="Weight" xml:space="preserve">
     <value>重量</value>
+  </data>
+  <data name="Width_In_Centimeters" xml:space="preserve">
+    <value>センチメートル単位の幅</value>
+  </data>
+  <data name="Width_In_Inches" xml:space="preserve">
+    <value>インチ単位の幅</value>
   </data>
   <data name="Wind" xml:space="preserve">
     <value>風</value>
@@ -1799,6 +1850,9 @@
   </data>
   <data name="You_will_not_be_able_to_recover_this_design_concept" xml:space="preserve">
     <value>この設計コンセプトを復元することはできません。</value>
+  </data>
+  <data name="You_will_not_be_able_to_recover_this_fabric" xml:space="preserve">
+    <value>このファブリックを回復することはできません。</value>
   </data>
   <data name="You_will_not_be_able_to_recover_this_fabric_data" xml:space="preserve">
     <value>このファブリックを回復することはできません。</value>
