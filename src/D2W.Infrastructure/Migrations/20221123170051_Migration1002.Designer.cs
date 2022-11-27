@@ -153,7 +153,7 @@ namespace D2W.Infrastructure.Migrations
                     b.Property<DateTime?>("DeletedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("ImageUrl")
+                    b.Property<string>("ImageUri")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsArchived")
@@ -263,7 +263,7 @@ namespace D2W.Infrastructure.Migrations
 
                     b.HasIndex("DesignConceptId");
 
-                    b.ToTable("FabricCalculations");
+                    b.ToTable("DraperyCalculations");
                 });
 
             modelBuilder.Entity("D2W.Domain.Entities.FabricModel", b =>
@@ -449,7 +449,7 @@ namespace D2W.Infrastructure.Migrations
                     b.ToTable("AspNetRoleClaims", (string)null);
                 });
 
-            modelBuilder.Entity("D2W.Domain.Entities.Identity.ApplicationUser", b =>
+            modelBuilder.Entity("D2W.Domain.Entities.Identity.Client", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -1335,26 +1335,26 @@ namespace D2W.Infrastructure.Migrations
 
             modelBuilder.Entity("D2W.Domain.Entities.ContactDetailsModel", b =>
                 {
-                    b.HasOne("D2W.Domain.Entities.Identity.ApplicationUser", "ApplicationUser")
+                    b.HasOne("D2W.Domain.Entities.Identity.Client", "Client")
                         .WithMany("ContactDetails")
                         .HasForeignKey("ApplicationUserId");
 
-                    b.Navigation("ApplicationUser");
+                    b.Navigation("Client");
                 });
 
             modelBuilder.Entity("D2W.Domain.Entities.DesignConceptModel", b =>
                 {
-                    b.HasOne("D2W.Domain.Entities.Identity.ApplicationUser", "ApplicationUser")
+                    b.HasOne("D2W.Domain.Entities.Identity.Client", "Client")
                         .WithMany("DesignConcepts")
                         .HasForeignKey("ClientId");
 
-                    b.Navigation("ApplicationUser");
+                    b.Navigation("Client");
                 });
 
             modelBuilder.Entity("D2W.Domain.Entities.FabricCalculationsModel", b =>
                 {
                     b.HasOne("D2W.Domain.Entities.DesignConceptModel", "DesignConcept")
-                        .WithMany("FabricCalculations")
+                        .WithMany("DraperyCalculations")
                         .HasForeignKey("DesignConceptId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1384,7 +1384,7 @@ namespace D2W.Infrastructure.Migrations
 
             modelBuilder.Entity("D2W.Domain.Entities.Identity.ApplicationUserAttachment", b =>
                 {
-                    b.HasOne("D2W.Domain.Entities.Identity.ApplicationUser", "User")
+                    b.HasOne("D2W.Domain.Entities.Identity.Client", "User")
                         .WithMany("UserAttachments")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1395,7 +1395,7 @@ namespace D2W.Infrastructure.Migrations
 
             modelBuilder.Entity("D2W.Domain.Entities.Identity.ApplicationUserClaim", b =>
                 {
-                    b.HasOne("D2W.Domain.Entities.Identity.ApplicationUser", "User")
+                    b.HasOne("D2W.Domain.Entities.Identity.Client", "User")
                         .WithMany("Claims")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1406,7 +1406,7 @@ namespace D2W.Infrastructure.Migrations
 
             modelBuilder.Entity("D2W.Domain.Entities.Identity.ApplicationUserLogin", b =>
                 {
-                    b.HasOne("D2W.Domain.Entities.Identity.ApplicationUser", "User")
+                    b.HasOne("D2W.Domain.Entities.Identity.Client", "User")
                         .WithMany("Logins")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1423,7 +1423,7 @@ namespace D2W.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("D2W.Domain.Entities.Identity.ApplicationUser", "User")
+                    b.HasOne("D2W.Domain.Entities.Identity.Client", "User")
                         .WithMany("UserRoles")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1436,7 +1436,7 @@ namespace D2W.Infrastructure.Migrations
 
             modelBuilder.Entity("D2W.Domain.Entities.Identity.ApplicationUserToken", b =>
                 {
-                    b.HasOne("D2W.Domain.Entities.Identity.ApplicationUser", "User")
+                    b.HasOne("D2W.Domain.Entities.Identity.Client", "User")
                         .WithMany("Tokens")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1458,7 +1458,7 @@ namespace D2W.Infrastructure.Migrations
 
             modelBuilder.Entity("D2W.Domain.Entities.TenantClientModel", b =>
                 {
-                    b.HasOne("D2W.Domain.Entities.Identity.ApplicationUser", "Client")
+                    b.HasOne("D2W.Domain.Entities.Identity.Client", "Client")
                         .WithMany("TenantsClients")
                         .HasForeignKey("ApplicationUserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1477,7 +1477,7 @@ namespace D2W.Infrastructure.Migrations
 
             modelBuilder.Entity("D2W.Domain.Entities.TenantWorkroomModel", b =>
                 {
-                    b.HasOne("D2W.Domain.Entities.Identity.ApplicationUser", "Workroom")
+                    b.HasOne("D2W.Domain.Entities.Identity.Client", "Workroom")
                         .WithMany("TenantsWorkrooms")
                         .HasForeignKey("ApplicationUserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1516,7 +1516,7 @@ namespace D2W.Infrastructure.Migrations
 
             modelBuilder.Entity("D2W.Domain.Entities.DesignConceptModel", b =>
                 {
-                    b.Navigation("FabricCalculations");
+                    b.Navigation("DraperyCalculations");
 
                     b.Navigation("WindowMeasurements");
                 });
@@ -1533,7 +1533,7 @@ namespace D2W.Infrastructure.Migrations
                     b.Navigation("UserRoles");
                 });
 
-            modelBuilder.Entity("D2W.Domain.Entities.Identity.ApplicationUser", b =>
+            modelBuilder.Entity("D2W.Domain.Entities.Identity.Client", b =>
                 {
                     b.Navigation("Claims");
 

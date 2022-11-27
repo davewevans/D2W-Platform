@@ -12,7 +12,9 @@ public class DesignConceptModel : IAuditable, IMustHaveTenant
 {
     public DesignConceptModel()
     {
-        FabricCalculations = new List<FabricCalculationsModel>();
+        WindowMeasurements = new WindowMeasurementsModel();
+        DraperyCalculations = new DraperyCalculationsModel();
+        WorkOrder = new WorkOrderModel();
     }
 
     public Guid Id { get; set; }
@@ -27,7 +29,7 @@ public class DesignConceptModel : IAuditable, IMustHaveTenant
 
     public string Name { get; set; }
 
-    public string ImageUrl { get; set; }
+    public string ImageUri { get; set; }
 
     public bool ApprovedByClient { get; set; }
 
@@ -46,9 +48,10 @@ public class DesignConceptModel : IAuditable, IMustHaveTenant
     #region Navigational Properties
 
     // One-to-many for Client app user
-    public ApplicationUser ApplicationUser { get; set; }
+    public ApplicationUser Client { get; set; }
     public WindowMeasurementsModel WindowMeasurements { get; set; }
-    public ICollection<FabricCalculationsModel> FabricCalculations { get; set; }
+    public DraperyCalculationsModel DraperyCalculations { get; set; }
+    public WorkOrderModel WorkOrder { get; set; }
 
     #endregion Navigational Properties
 }

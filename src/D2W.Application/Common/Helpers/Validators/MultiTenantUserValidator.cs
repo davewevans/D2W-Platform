@@ -78,7 +78,7 @@ public class MultiTenantUserValidator : IUserValidator<ApplicationUser>
                     var userEntityImplementsIHaveTenant = userInterfaces.Any(i => i.Name is nameof(IMustHaveTenant) or nameof(IMayHaveTenant));
 
                     if (!userEntityImplementsIHaveTenant)
-                        throw new ArgumentException("ApplicationUser must implement either IMustHaveTenant or IMayHaveTenant.");
+                        throw new ArgumentException("Client must implement either IMustHaveTenant or IMayHaveTenant.");
                     break;
                 }
         }

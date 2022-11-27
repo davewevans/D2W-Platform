@@ -324,6 +324,9 @@
   <data name="Calcium" xml:space="preserve">
     <value>Kalzium</value>
   </data>
+  <data name="Calculations" xml:space="preserve">
+    <value>Berechnungen</value>
+  </data>
   <data name="Calendar" xml:space="preserve">
     <value>Kalender</value>
   </data>
@@ -684,6 +687,9 @@
   <data name="End_Slope" xml:space="preserve">
     <value>Endneigung</value>
   </data>
+  <data name="English" xml:space="preserve">
+    <value>Englisch</value>
+  </data>
   <data name="English_Name" xml:space="preserve">
     <value>Englischer Name</value>
   </data>
@@ -761,6 +767,15 @@
   </data>
   <data name="File_upload_has_been_cancelled" xml:space="preserve">
     <value>Der Datei-Upload wurde abgebrochen.</value>
+  </data>
+  <data name="Finished_Length_no_repeat" xml:space="preserve">
+    <value>Fertige Länge (keine Wiederholung)</value>
+  </data>
+  <data name="Finished_Length_repeat" xml:space="preserve">
+    <value>Fertige Länge (Wiederholung)</value>
+  </data>
+  <data name="Finished_Width" xml:space="preserve">
+    <value>Fertige Breite</value>
   </data>
   <data name="Fire_in_reactor_core" xml:space="preserve">
     <value>Brand im Reaktorkern</value>
@@ -1047,8 +1062,14 @@
   <data name="May" xml:space="preserve">
     <value>Mai</value>
   </data>
+  <data name="Measurement_System" xml:space="preserve">
+    <value>Messsystem</value>
+  </data>
   <data name="Medium" xml:space="preserve">
     <value>Mittel</value>
+  </data>
+  <data name="Metric" xml:space="preserve">
+    <value>Metrik</value>
   </data>
   <data name="Military_Applicants" xml:space="preserve">
     <value>Militärische Bewerber</value>
@@ -1175,6 +1196,9 @@
   </data>
   <data name="Pattern" xml:space="preserve">
     <value>Muster</value>
+  </data>
+  <data name="Pattern_Repeat" xml:space="preserve">
+    <value>Musterwiederholung</value>
   </data>
   <data name="Pending" xml:space="preserve">
     <value>Ausstehend!</value>
@@ -1383,6 +1407,12 @@
   <data name="Right" xml:space="preserve">
     <value>Rechts</value>
   </data>
+  <data name="Rod_Face_Width" xml:space="preserve">
+    <value>Breite der Stangenfläche</value>
+  </data>
+  <data name="Rod_Face_Width_Description" xml:space="preserve">
+    <value>Beschreibung der Stabflächenbreite</value>
+  </data>
   <data name="Roentgen" xml:space="preserve">
     <value>Röntgen</value>
   </data>
@@ -1529,6 +1559,9 @@
   </data>
   <data name="Suspend" xml:space="preserve">
     <value>Aufhängen</value>
+  </data>
+  <data name="Swags_and_Cascades" xml:space="preserve">
+    <value>Swags und Kaskaden</value>
   </data>
   <data name="Swatches" xml:space="preserve">
     <value>Farbfelder</value>

@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace D2W.WebPortal.Features.DesignConcepts.Commands.CreateDesignConceptCommand
+namespace D2W.WebPortal.Features.DesignConcepts.Commands.Shared
 {
-    public class FabricCalculationsItemForAdd
+    public abstract class DraperyCalculationsBase : AuditableDto
     {
         #region Public Properties
 
         public MeasurementSystem MeasurementSystem { get; set; }
-        public FabricPriority FabricPriority { get; set; }
+        public bool IsRepeating { get; set; }
         public float FinishedLength { get; set; }
         public float TrimOff { get; set; }
         public float Hems { get; set; }
@@ -24,7 +24,38 @@ namespace D2W.WebPortal.Features.DesignConcepts.Commands.CreateDesignConceptComm
         public float Overlap { get; set; }
         public float Return { get; set; }
 
+        public int NumberOfWidths
+        {
+            get
+            {
+                return 0;
+            }
+            private set { }
+        }
+
+        public int TotalYardsOfFabricNeeded
+        {
+            get
+            {
+                if (IsRepeating) { }
+                return 0;
+            }
+            private set { }
+        }
+
+        public int TotalYardsOfFabricForCascade
+        {
+            get
+            {
+                if (IsRepeating) { }
+                return 0;
+            }
+            private set { }
+        }
 
         #endregion Public Properties
+
+
+
     }
 }

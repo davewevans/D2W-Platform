@@ -10,7 +10,9 @@ public class CreateDesignConceptCommand : IRequest<Envelope<CreateDesignConceptR
 
     public CreateDesignConceptCommand()
     {
-        FabricCalculationsItems = new List<FabricCalculationsItemForAdd>();
+        WindowMeasurements = new WindowMeasurementsForAdd();
+        DraperyCalculations = new DraperyCalculationsForAdd();
+        WorkOrder = new WorkOrderForAdd();
     }
 
     #endregion Public Constructors
@@ -19,12 +21,19 @@ public class CreateDesignConceptCommand : IRequest<Envelope<CreateDesignConceptR
 
     public string Name { get; set; }
 
-    public string ImageUrl { get; set; }
+    public string ImageUri { get; set; }
 
     public string ClientId { get; set; }
 
-    public WindowMeasurementsItemForAdd WindowMeasurementsItem { get; set; }
-    public List<FabricCalculationsItemForAdd> FabricCalculationsItems { get; set; }
+    public bool OpenedByClient { get; set; }
+
+    public DateTime? SentToClientAt { get; set; }
+
+    public DateTime? OpenByClientAt { get; set; }
+
+    public WindowMeasurementsForAdd WindowMeasurements { get; set; }
+    public DraperyCalculationsForAdd DraperyCalculations { get; set; }
+    public WorkOrderForAdd WorkOrder { get; set; }
 
     #endregion Public Properties
 
@@ -35,10 +44,11 @@ public class CreateDesignConceptCommand : IRequest<Envelope<CreateDesignConceptR
         return new()
         {
             Name = Name,
-            ImageUrl = ImageUrl,
+            ImageUri = ImageUri,
             ClientId = ClientId,
-            WindowMeasurements = WindowMeasurementsItemForAdd.MapToEntity(WindowMeasurementsItem),
-            FabricCalculations = FabricCalculationsItems?.Select(fc => FabricCalculationsItemForAdd.MapToEntity(fc)).ToList()
+            WindowMeasurements = WindowMeasurements.MapToEntity(),
+            DraperyCalculations = DraperyCalculations.MapToEntity(),
+            WorkOrder = WorkOrder.MapToEntity()
         };
     }
 

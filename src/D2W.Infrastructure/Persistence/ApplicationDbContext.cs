@@ -74,7 +74,7 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser,
     public DbSet<WorkOrderModel> WorkOrders { get; set; }
     public DbSet<WorkOrderItemModel> WorkOrderItems { get; set; }
     public DbSet<WindowMeasurementsModel> WindowMeasurements { get; set; }
-    public DbSet<FabricCalculationsModel> FabricCalculations { get; set; }
+    public DbSet<DraperyCalculationsModel> DraperyCalculations { get; set; }
     public DbSet<FabricModel> Fabrics { get; set; }
 
     #endregion Public Properties
@@ -286,22 +286,16 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser,
         // TODO configure all one-to-many relationships here
 
         modelBuilder.Entity<DesignConceptModel>()
-            .HasOne(x => x.ApplicationUser)
+            .HasOne(x => x.Client)
             .WithMany(x => x.DesignConcepts)
             .HasForeignKey(x => x.ClientId)
             .OnDelete(DeleteBehavior.ClientSetNull);
 
-        //modelBuilder.Entity<FabricCalculationsModel>()
-        //    .HasOne(fc => fc.Fabric)
-        //    .WithMany(f => f.FabricCalculations)
-        //    .HasForeignKey(fc => fc.FabricId)
-        //    .OnDelete(DeleteBehavior.ClientSetNull);
-
-        modelBuilder.Entity<FabricCalculationsModel>()
-            .HasOne(fc => fc.DesignConcept)
-            .WithMany(f => f.FabricCalculations)
-            .HasForeignKey(fc => fc.DesignConceptId)
-            .OnDelete(DeleteBehavior.Cascade);
+        modelBuilder.Entity<WorkOrderModel>()
+            .HasOne(x => x.Workroom)
+            .WithMany(x => x.WorkOrders)
+            .HasForeignKey(x => x.WorkroomId)
+            .OnDelete(DeleteBehavior.ClientSetNull);
     }
 
     private static void ConfigureManyToManyRelationships(ModelBuilder modelBuilder)
@@ -320,6 +314,16 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser,
             .HasOne(b => b.WindowMeasurements)
             .WithOne(i => i.DesignConcept)
             .HasForeignKey<WindowMeasurementsModel>(b => b.DesignConceptId);
+
+        modelBuilder.Entity<DesignConceptModel>()
+            .HasOne(b => b.DraperyCalculations)
+            .WithOne(i => i.DesignConcept)
+            .HasForeignKey<DraperyCalculationsModel>(b => b.DesignConceptId);
+
+        modelBuilder.Entity<DesignConceptModel>()
+            .HasOne(b => b.WorkOrder)
+            .WithOne(i => i.DesignConcept)
+            .HasForeignKey<WorkOrderModel>(b => b.DesignConceptId);
     }
 
     private void InitiateTenantMode()

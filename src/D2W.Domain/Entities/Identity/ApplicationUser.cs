@@ -14,6 +14,7 @@ public class ApplicationUser : IdentityUser, IAuditable, IMayHaveTenant
         TenantsWorkrooms = new List<TenantWorkroomModel>();
         TenantsClients = new List<TenantClientModel>();
         ContactDetails = new List<ContactDetailsModel>();
+        WorkOrders = new List<WorkOrderModel>();
     }
 
     #endregion Public Constructors
@@ -55,6 +56,7 @@ public class ApplicationUser : IdentityUser, IAuditable, IMayHaveTenant
     public ICollection<TenantClientModel> TenantsClients { get; set; }
     public ICollection<ContactDetailsModel> ContactDetails { get; set; }
     public ICollection<DesignConceptModel> DesignConcepts { get; set; }
+    public ICollection<WorkOrderModel> WorkOrders { get; set; }
 
     #endregion
 }

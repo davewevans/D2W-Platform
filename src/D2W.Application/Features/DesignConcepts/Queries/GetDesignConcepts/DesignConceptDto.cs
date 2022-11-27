@@ -3,13 +3,15 @@ using D2W.Application.Features.Clients.Queries.GetClients;
 
 namespace D2W.Application.Features.DesignConcepts.Queries.GetDesignConcepts;
 
-public class DesignConceptItem : AuditableDto
+public class DesignConceptDto : AuditableDto
 {
     #region Public Constructors
 
-    public DesignConceptItem()
+    public DesignConceptDto()
     {
-        FabricCalculationsItems = new List<FabricCalculationsItem>();
+        WindowMeasurements = new WindowMeasurementsDto();
+        DraperyCalculations = new DraperyCalculationsDto();
+        WorkOrder = new WorkOrderDto();
     }
 
     #endregion Public Constructors
@@ -35,21 +37,22 @@ public class DesignConceptItem : AuditableDto
 
     public string ClientNotes { get; set; }
 
-    public WindowMeasurementsItem WindowMeasurementsItem { get; set; }
-    public List<FabricCalculationsItem> FabricCalculationsItems { get; set; }
+    public WindowMeasurementsDto WindowMeasurements { get; set; }
+    public DraperyCalculationsDto DraperyCalculations { get; set; }
+    public WorkOrderDto WorkOrder { get; set; }
 
     #endregion Public Properties
 
     #region Public Methods
 
-    public static DesignConceptItem MapFromEntity(DesignConceptModel designConcept)
+    public static DesignConceptDto MapFromEntity(DesignConceptModel designConcept)
     {
         return new()
         {
             Id = designConcept.Id,
             TenantId = designConcept.TenantId,
             Name = designConcept.Name,
-            ImageUrl = designConcept.ImageUrl,
+            ImageUrl = designConcept.ImageUri,
             ClientId = designConcept.ClientId,
             IsArchived = designConcept.IsArchived,
             ApprovedByClient = designConcept.ApprovedByClient,
@@ -60,9 +63,9 @@ public class DesignConceptItem : AuditableDto
             ModifiedOn = designConcept.ModifiedOn,
             ModifiedBy = designConcept.ModifiedBy,
 
-            Client = ClientItem.MapFromEntity(designConcept.ApplicationUser, designConcept.TenantId),
-            WindowMeasurementsItem = WindowMeasurementsItem.MapFromEntity(designConcept.WindowMeasurements),
-            FabricCalculationsItems = designConcept.FabricCalculations?.Select(fc => FabricCalculationsItem.MapFromEntity(fc)).ToList()
+            Client = ClientItem.MapFromEntity(designConcept.Client, designConcept.TenantId),
+            WindowMeasurements = WindowMeasurementsDto.MapFromEntity(designConcept.WindowMeasurements),
+            DraperyCalculations = DraperyCalculationsDto.MapFromEntity(designConcept.DraperyCalculations)
         };
     }
 

@@ -8,8 +8,9 @@ namespace D2W.Domain.Enums;
 
 public enum WorkOrderItemType
 {
+    CustomItem,
     MainFabric,
     AccentFabric,
     TrimmingFabric,
-    Custom,
+    SwagsAndCascades,
 }

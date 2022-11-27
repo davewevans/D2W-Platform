@@ -677,7 +677,7 @@ namespace D2W.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "FabricCalculations",
+                name: "DraperyCalculations",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -816,12 +816,12 @@ namespace D2W.Infrastructure.Migrations
 
             migrationBuilder.CreateIndex(
                 name: "IX_FabricCalculations_DesignConceptId",
-                table: "FabricCalculations",
+                table: "DraperyCalculations",
                 column: "DesignConceptId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_FabricCalculations_FabricId",
-                table: "FabricCalculations",
+                table: "DraperyCalculations",
                 column: "FabricId");
 
             migrationBuilder.CreateIndex(
@@ -888,7 +888,7 @@ namespace D2W.Infrastructure.Migrations
                 name: "Countries");
 
             migrationBuilder.DropTable(
-                name: "FabricCalculations");
+                name: "DraperyCalculations");
 
             migrationBuilder.DropTable(
                 name: "FileStorageSettings",

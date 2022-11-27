@@ -324,6 +324,9 @@
   <data name="Calcium" xml:space="preserve">
     <value>カルシウム</value>
   </data>
+  <data name="Calculations" xml:space="preserve">
+    <value>計算</value>
+  </data>
   <data name="Calendar" xml:space="preserve">
     <value>暦</value>
   </data>
@@ -684,6 +687,9 @@
   <data name="End_Slope" xml:space="preserve">
     <value>エンドスロープ</value>
   </data>
+  <data name="English" xml:space="preserve">
+    <value>英語</value>
+  </data>
   <data name="English_Name" xml:space="preserve">
     <value>英語名</value>
   </data>
@@ -761,6 +767,15 @@
   </data>
   <data name="File_upload_has_been_cancelled" xml:space="preserve">
     <value>ファイルのアップロードはキャンセルされました。</value>
+  </data>
+  <data name="Finished_Length_no_repeat" xml:space="preserve">
+    <value>完成長さ(繰り返しなし)</value>
+  </data>
+  <data name="Finished_Length_repeat" xml:space="preserve">
+    <value>仕上がり長さ(繰り返し)</value>
+  </data>
+  <data name="Finished_Width" xml:space="preserve">
+    <value>仕上がり幅</value>
   </data>
   <data name="Fire_in_reactor_core" xml:space="preserve">
     <value>原子炉炉心火災</value>
@@ -1047,8 +1062,14 @@
   <data name="May" xml:space="preserve">
     <value>5 月</value>
   </data>
+  <data name="Measurement_System" xml:space="preserve">
+    <value>測定システム</value>
+  </data>
   <data name="Medium" xml:space="preserve">
     <value>中程度</value>
+  </data>
+  <data name="Metric" xml:space="preserve">
+    <value>メトリック</value>
   </data>
   <data name="Military_Applicants" xml:space="preserve">
     <value>軍事申請者</value>
@@ -1175,6 +1196,9 @@
   </data>
   <data name="Pattern" xml:space="preserve">
     <value>パターン</value>
+  </data>
+  <data name="Pattern_Repeat" xml:space="preserve">
+    <value>パターンリピート</value>
   </data>
   <data name="Pending" xml:space="preserve">
     <value>レビュー待ち</value>
@@ -1383,6 +1407,12 @@
   <data name="Right" xml:space="preserve">
     <value>右</value>
   </data>
+  <data name="Rod_Face_Width" xml:space="preserve">
+    <value>ロッド面幅</value>
+  </data>
+  <data name="Rod_Face_Width_Description" xml:space="preserve">
+    <value>ロッド面幅の説明</value>
+  </data>
   <data name="Roentgen" xml:space="preserve">
     <value>レントゲン</value>
   </data>
@@ -1529,6 +1559,9 @@
   </data>
   <data name="Suspend" xml:space="preserve">
     <value>停止する</value>
+  </data>
+  <data name="Swags_and_Cascades" xml:space="preserve">
+    <value>盗品とカスケード</value>
   </data>
   <data name="Swatches" xml:space="preserve">
     <value>見本</value>

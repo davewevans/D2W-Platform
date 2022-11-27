@@ -68,9 +68,50 @@
 
 
                         </MudItem>
-
                     </MudGrid>
                 </MudTabPanel>
+
+
+                @* <MudTabPanel Text="@Resource.Image" Icon="@Icons.Material.Filled.Image">
+
+                   <MudCard Elevation="25">
+                        <MudCardContent>
+                            @if (!string.IsNullOrWhiteSpace(_fabricImageSrc))
+                            {
+                                <MudPaper Class="pa-2" Outlined="true">
+                                        <div class="d-flex flex-column justify-center align-center gap-6">
+                                            <MudImage Src="@_fabricImageSrc"
+                                                    Style="height: 400px; width: 400px;"
+                                                    Alt="Category Image"/>
+
+                                            <MudButton Variant="Variant.Filled"
+                                                StartIcon="@Icons.Material.Filled.Delete"
+                                                Color="Color.Error"
+                                                OnClick="RemoveDesignConceptImage">Remove Image
+                                            </MudButton>
+                                        </div>
+                                </MudPaper>
+                            }
+                        </MudCardContent>
+                        <MudCardActions Class="d-flex justify-center">
+                            <div class="form-group">
+                                <BpUploadFile ButtonId="imageInput"
+                                                ButtonIcon="@Icons.Filled.PhotoCamera"
+                                                ButtonName="@(HasUploadedImage() ? Resource.Replace_image : Resource.Upload_image)"
+                                                AllowRename="false"
+                                                AllowedExtensions=".jpg,.png,.jpeg,.bmp"
+                                                MaxFileSize="10485760"
+                                                OnFileSelected="ImageSelected"
+                                                OnFileUnSelected="ImageUnSelected"
+                                                OnImageUpload="GetBase64StringImageUrl"/>
+                                <ValidationMessage For="@(() => CreateDesignConceptCommand.ImageUrl)"/>
+                            </div>
+                        </MudCardActions>
+                    </MudCard>
+                </MudTabPanel> *@
+
+
+
             </MudTabs>
         </MudCardContent>
         <MudCardActions Class="pb-4 pl-4">

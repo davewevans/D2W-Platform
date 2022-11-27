@@ -11,7 +11,7 @@ namespace D2W.WebPortal.Features.DesignConcepts.Commands.CreateDesignConceptComm
 
         public CreateDesignConceptCommand()
         {
-            FabricCalculationsItems = new List<FabricCalculationsItemForAdd>();
+            DraperyCalculationsItem = new DraperyCalculationsItemForAdd();
             WindowMeasurementsItem = new WindowMeasurementsItemForAdd();
         }
 
@@ -26,7 +26,7 @@ namespace D2W.WebPortal.Features.DesignConcepts.Commands.CreateDesignConceptComm
         public string? ClientId { get; set; }
 
         public WindowMeasurementsItemForAdd WindowMeasurementsItem { get; set; }
-        public List<FabricCalculationsItemForAdd> FabricCalculationsItems { get; set; }
+        public DraperyCalculationsItemForAdd DraperyCalculationsItem { get; set; }
 
         #endregion Public Properties
     }

@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace D2W.Domain.Entities;
 
-[Table("FabricCalculations")]
-public class FabricCalculationsModel : IAuditable, IMustHaveTenant
+[Table("DraperyCalculations")]
+public class DraperyCalculationsModel : IAuditable, IMustHaveTenant
 {
     public Guid Id { get; set; }
     public Guid TenantId { get; set; }
     public MeasurementSystem MeasurementSystem { get; set; }
+    public bool IsRepeating { get; set; }
     public float FinishedLength { get; set; }
     public float TrimOff { get; set; }
     public float Hems { get; set; }
@@ -34,7 +35,6 @@ public class FabricCalculationsModel : IAuditable, IMustHaveTenant
 
 
     public Guid DesignConceptId { get; set; }
-    public Guid? FabricId { get; set; }
 
 
     #region Navigational Properties
@@ -43,5 +43,8 @@ public class FabricCalculationsModel : IAuditable, IMustHaveTenant
 
 
     #endregion Navigational Properties
+
+
+
 
 }

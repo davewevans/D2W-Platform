@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace D2W.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221121121436_Migration1000")]
-    partial class Migration1000
+    [Migration("20221126150549_Migration1004")]
+    partial class Migration1004
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -54,7 +54,7 @@ namespace D2W.Infrastructure.Migrations
                     b.Property<string>("CompanyName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("CountryId")
+                    b.Property<Guid?>("CountryId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("CreatedBy")
@@ -113,6 +113,9 @@ namespace D2W.Infrastructure.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("CountryCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CountryFlagUri")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CountryName")
@@ -184,7 +187,7 @@ namespace D2W.Infrastructure.Migrations
                     b.ToTable("DesignConcepts");
                 });
 
-            modelBuilder.Entity("D2W.Domain.Entities.FabricCalculationsModel", b =>
+            modelBuilder.Entity("D2W.Domain.Entities.DraperyCalculationsModel", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -205,9 +208,6 @@ namespace D2W.Infrastructure.Migrations
                     b.Property<Guid>("DesignConceptId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("FabricId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<float>("FabricWidth")
                         .HasColumnType("real");
 
@@ -222,6 +222,9 @@ namespace D2W.Infrastructure.Migrations
 
                     b.Property<float>("Hems")
                         .HasColumnType("real");
+
+                    b.Property<bool>("IsRepeating")
+                        .HasColumnType("bit");
 
                     b.Property<int>("MeasurementSystem")
                         .HasColumnType("int");
@@ -259,8 +262,6 @@ namespace D2W.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("DesignConceptId");
-
-                    b.HasIndex("FabricId");
 
                     b.ToTable("DraperyCalculations");
                 });
@@ -305,6 +306,9 @@ namespace D2W.Infrastructure.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("ManufacturerName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MaterialType")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ModifiedBy")
@@ -1347,7 +1351,7 @@ namespace D2W.Infrastructure.Migrations
                     b.Navigation("Client");
                 });
 
-            modelBuilder.Entity("D2W.Domain.Entities.FabricCalculationsModel", b =>
+            modelBuilder.Entity("D2W.Domain.Entities.DraperyCalculationsModel", b =>
                 {
                     b.HasOne("D2W.Domain.Entities.DesignConceptModel", "DesignConcept")
                         .WithMany("DraperyCalculations")
@@ -1355,13 +1359,7 @@ namespace D2W.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("D2W.Domain.Entities.FabricModel", "Fabric")
-                        .WithMany("DraperyCalculations")
-                        .HasForeignKey("FabricId");
-
                     b.Navigation("DesignConcept");
-
-                    b.Navigation("Fabric");
                 });
 
             modelBuilder.Entity("D2W.Domain.Entities.Identity.ApplicationPermission", b =>
@@ -1521,11 +1519,6 @@ namespace D2W.Infrastructure.Migrations
                     b.Navigation("DraperyCalculations");
 
                     b.Navigation("WindowMeasurements");
-                });
-
-            modelBuilder.Entity("D2W.Domain.Entities.FabricModel", b =>
-                {
-                    b.Navigation("DraperyCalculations");
                 });
 
             modelBuilder.Entity("D2W.Domain.Entities.Identity.ApplicationPermission", b =>

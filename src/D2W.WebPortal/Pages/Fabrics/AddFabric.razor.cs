@@ -22,6 +22,8 @@ namespace D2W.WebPortal.Pages.Fabrics
         private EditContextServerSideValidator EditContextServerSideValidator { get; set; }
         private CreateFabricCommand CreateFabricCommand { get; set; } = new();
 
+        private string? _fabricImageSrc;
+
         private bool IsTipsOpen { get; set; }
 
         #endregion Private Properties

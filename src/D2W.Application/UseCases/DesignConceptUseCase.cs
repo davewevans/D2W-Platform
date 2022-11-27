@@ -46,20 +46,20 @@ public class DesignConceptUseCase : IDesignConceptUseCase
     {
         var query = _dbContext.DesignConcepts
             .Include(x => x.WindowMeasurements)
-            .Include(x => x.FabricCalculations)
-            .Include(x => x.ApplicationUser)
+            .Include(x => x.DraperyCalculations)
+            .Include(x => x.Client)
             .AsQueryable();
 
         if (!string.IsNullOrWhiteSpace(request.SearchText))
             query = query.Where(x => x.Name.Contains(request.SearchText) 
-                                     || x.ApplicationUser.FullName.Contains(request.SearchText));
+                                     || x.Client.FullName.Contains(request.SearchText));
 
         query = !string.IsNullOrWhiteSpace(request.SortBy)
             ? query.SortBy(request.SortBy)
             : query.OrderBy(x => x.Name);
 
         var designConcepts = await query
-            .Select(designConcept => DesignConceptItem.MapFromEntity(designConcept))
+            .Select(designConcept => DesignConceptDto.MapFromEntity(designConcept))
             .AsNoTracking()
             .ToPagedListAsync(request.PageNumber, request.RowsPerPage);
 

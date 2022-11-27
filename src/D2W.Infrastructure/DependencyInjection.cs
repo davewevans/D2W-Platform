@@ -65,7 +65,7 @@ public static class DependencyInjection
 
         #region AnotherPasswordHashingMethod
 
-        //services.AddScoped<IPasswordHasher<ApplicationUser>, BCryptPasswordHasher<ApplicationUser>>();
+        //services.AddScoped<IPasswordHasher<Client>, BCryptPasswordHasher<Client>>();
         //services.Configure<BCryptPasswordHasherOptions>(options =>
         //{
         //    options.WorkFactor = 10;

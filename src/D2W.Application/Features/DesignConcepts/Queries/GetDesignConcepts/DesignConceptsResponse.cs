@@ -4,7 +4,7 @@ public class DesignConceptsResponse
 {
     #region Public Properties
 
-    public PagedList<DesignConceptItem> DesignConcepts { get; set; }
+    public PagedList<DesignConceptDto> DesignConcepts { get; set; }
 
     #endregion Public Properties
 }

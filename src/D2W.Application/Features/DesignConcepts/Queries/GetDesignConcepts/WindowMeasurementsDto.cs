@@ -1,9 +1,17 @@
-﻿namespace D2W.Application.Features.DesignConcepts.Commands.CreateDesignConcept;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-public class WindowMeasurementsItemForAdd
+namespace D2W.Application.Features.DesignConcepts.Queries.GetDesignConcepts;
+
+public class WindowMeasurementsDto : AuditableDto
 {
     #region Public Properties
 
+    public Guid Id { get; set; }
+    public Guid TenantId { get; set; }
     public MeasurementSystem MeasurementSystem { get; set; }
     public string Notes { get; set; }
     public string Room { get; set; }
@@ -21,10 +29,15 @@ public class WindowMeasurementsItemForAdd
 
     #endregion Public Properties
 
-    public static WindowMeasurementsModel MapToEntity(WindowMeasurementsItemForAdd windowMeasurements)
+
+    #region Public Methods
+
+    public static WindowMeasurementsDto MapFromEntity(WindowMeasurementsModel windowMeasurements)
     {
-        return new WindowMeasurementsModel
+        return new WindowMeasurementsDto
         {
+            Id = windowMeasurements.Id,
+            TenantId = windowMeasurements.TenantId,
             MeasurementSystem = windowMeasurements.MeasurementSystem,
             Notes = windowMeasurements.Notes,
             Room = windowMeasurements.Room,
@@ -39,6 +52,13 @@ public class WindowMeasurementsItemForAdd
             TopFrameToFloor = windowMeasurements.TopFrameToFloor,
             LeftCasingToWallOrObstruction = windowMeasurements.LeftCasingToWallOrObstruction,
             RightCasingToWallOrObstruction = windowMeasurements.RightCasingToWallOrObstruction,
+
+            CreatedOn = windowMeasurements.CreatedOn,
+            CreatedBy = windowMeasurements.CreatedBy,
+            ModifiedOn = windowMeasurements.ModifiedOn,
+            ModifiedBy = windowMeasurements.ModifiedBy
         };
     }
+
+    #endregion Public Methods
 }

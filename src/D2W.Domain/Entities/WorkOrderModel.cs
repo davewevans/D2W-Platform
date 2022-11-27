@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using D2W.Domain.Entities.Identity;
 
 namespace D2W.Domain.Entities;
 
@@ -17,6 +18,7 @@ public class WorkOrderModel : IAuditable, IMustHaveTenant
     public Guid Id { get; set; }
     public Guid TenantId { get; set; }
     public string ClientId { get; set; }
+    public string WorkroomId { get; set; }
 
     public int WorkOrderNumber { get; set; }
     public bool OpenedByWorkroom { get; set; }
@@ -52,10 +54,15 @@ public class WorkOrderModel : IAuditable, IMustHaveTenant
     public string DeletedBy { get; set; }
     public DateTime? DeletedOn { get; set; }
 
+    public Guid DesignConceptId { get; set; }
 
     #region Navigational Properties
 
     public ICollection<WorkOrderItemModel> WorkOrderItems { get; set; }
+    public DesignConceptModel DesignConcept { get; set; }
+
+    // One-to-many for app user Workroom
+    public ApplicationUser Workroom { get; set; }
 
     #endregion Navigational Properties
 

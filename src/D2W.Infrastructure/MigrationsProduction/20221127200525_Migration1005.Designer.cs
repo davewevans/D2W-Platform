@@ -9,11 +9,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace D2W.Infrastructure.Migrations
+namespace D2W.Infrastructure.MigrationsProduction
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221121121436_Migration1000")]
-    partial class Migration1000
+    [Migration("20221127200525_Migration1005")]
+    partial class Migration1005
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -54,7 +54,7 @@ namespace D2W.Infrastructure.Migrations
                     b.Property<string>("CompanyName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("CountryId")
+                    b.Property<Guid?>("CountryId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("CreatedBy")
@@ -113,6 +113,9 @@ namespace D2W.Infrastructure.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("CountryCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CountryFlagUri")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CountryName")
@@ -184,7 +187,7 @@ namespace D2W.Infrastructure.Migrations
                     b.ToTable("DesignConcepts");
                 });
 
-            modelBuilder.Entity("D2W.Domain.Entities.FabricCalculationsModel", b =>
+            modelBuilder.Entity("D2W.Domain.Entities.DraperyCalculationsModel", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -205,9 +208,6 @@ namespace D2W.Infrastructure.Migrations
                     b.Property<Guid>("DesignConceptId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("FabricId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<float>("FabricWidth")
                         .HasColumnType("real");
 
@@ -222,6 +222,9 @@ namespace D2W.Infrastructure.Migrations
 
                     b.Property<float>("Hems")
                         .HasColumnType("real");
+
+                    b.Property<bool>("IsRepeating")
+                        .HasColumnType("bit");
 
                     b.Property<int>("MeasurementSystem")
                         .HasColumnType("int");
@@ -258,9 +261,8 @@ namespace D2W.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DesignConceptId");
-
-                    b.HasIndex("FabricId");
+                    b.HasIndex("DesignConceptId")
+                        .IsUnique();
 
                     b.ToTable("DraperyCalculations");
                 });
@@ -305,6 +307,9 @@ namespace D2W.Infrastructure.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("ManufacturerName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MaterialType")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ModifiedBy")
@@ -445,7 +450,7 @@ namespace D2W.Infrastructure.Migrations
                     b.ToTable("AspNetRoleClaims", (string)null);
                 });
 
-            modelBuilder.Entity("D2W.Domain.Entities.Identity.Client", b =>
+            modelBuilder.Entity("D2W.Domain.Entities.Identity.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -1252,6 +1257,9 @@ namespace D2W.Infrastructure.Migrations
                     b.Property<DateTime?>("DeletedOn")
                         .HasColumnType("datetime2");
 
+                    b.Property<Guid>("DesignConceptId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<float>("FinishedLength")
                         .HasColumnType("real");
 
@@ -1324,44 +1332,46 @@ namespace D2W.Infrastructure.Migrations
                     b.Property<int>("WorkOrderNumber")
                         .HasColumnType("int");
 
+                    b.Property<string>("WorkroomId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("DesignConceptId")
+                        .IsUnique();
+
+                    b.HasIndex("WorkroomId");
 
                     b.ToTable("WorkOrders");
                 });
 
             modelBuilder.Entity("D2W.Domain.Entities.ContactDetailsModel", b =>
                 {
-                    b.HasOne("D2W.Domain.Entities.Identity.Client", "Client")
+                    b.HasOne("D2W.Domain.Entities.Identity.ApplicationUser", "ApplicationUser")
                         .WithMany("ContactDetails")
                         .HasForeignKey("ApplicationUserId");
 
-                    b.Navigation("Client");
+                    b.Navigation("ApplicationUser");
                 });
 
             modelBuilder.Entity("D2W.Domain.Entities.DesignConceptModel", b =>
                 {
-                    b.HasOne("D2W.Domain.Entities.Identity.Client", "Client")
+                    b.HasOne("D2W.Domain.Entities.Identity.ApplicationUser", "Client")
                         .WithMany("DesignConcepts")
                         .HasForeignKey("ClientId");
 
                     b.Navigation("Client");
                 });
 
-            modelBuilder.Entity("D2W.Domain.Entities.FabricCalculationsModel", b =>
+            modelBuilder.Entity("D2W.Domain.Entities.DraperyCalculationsModel", b =>
                 {
                     b.HasOne("D2W.Domain.Entities.DesignConceptModel", "DesignConcept")
-                        .WithMany("DraperyCalculations")
-                        .HasForeignKey("DesignConceptId")
+                        .WithOne("DraperyCalculations")
+                        .HasForeignKey("D2W.Domain.Entities.DraperyCalculationsModel", "DesignConceptId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("D2W.Domain.Entities.FabricModel", "Fabric")
-                        .WithMany("DraperyCalculations")
-                        .HasForeignKey("FabricId");
-
                     b.Navigation("DesignConcept");
-
-                    b.Navigation("Fabric");
                 });
 
             modelBuilder.Entity("D2W.Domain.Entities.Identity.ApplicationPermission", b =>
@@ -1386,7 +1396,7 @@ namespace D2W.Infrastructure.Migrations
 
             modelBuilder.Entity("D2W.Domain.Entities.Identity.ApplicationUserAttachment", b =>
                 {
-                    b.HasOne("D2W.Domain.Entities.Identity.Client", "User")
+                    b.HasOne("D2W.Domain.Entities.Identity.ApplicationUser", "User")
                         .WithMany("UserAttachments")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1397,7 +1407,7 @@ namespace D2W.Infrastructure.Migrations
 
             modelBuilder.Entity("D2W.Domain.Entities.Identity.ApplicationUserClaim", b =>
                 {
-                    b.HasOne("D2W.Domain.Entities.Identity.Client", "User")
+                    b.HasOne("D2W.Domain.Entities.Identity.ApplicationUser", "User")
                         .WithMany("Claims")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1408,7 +1418,7 @@ namespace D2W.Infrastructure.Migrations
 
             modelBuilder.Entity("D2W.Domain.Entities.Identity.ApplicationUserLogin", b =>
                 {
-                    b.HasOne("D2W.Domain.Entities.Identity.Client", "User")
+                    b.HasOne("D2W.Domain.Entities.Identity.ApplicationUser", "User")
                         .WithMany("Logins")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1425,7 +1435,7 @@ namespace D2W.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("D2W.Domain.Entities.Identity.Client", "User")
+                    b.HasOne("D2W.Domain.Entities.Identity.ApplicationUser", "User")
                         .WithMany("UserRoles")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1438,7 +1448,7 @@ namespace D2W.Infrastructure.Migrations
 
             modelBuilder.Entity("D2W.Domain.Entities.Identity.ApplicationUserToken", b =>
                 {
-                    b.HasOne("D2W.Domain.Entities.Identity.Client", "User")
+                    b.HasOne("D2W.Domain.Entities.Identity.ApplicationUser", "User")
                         .WithMany("Tokens")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1460,7 +1470,7 @@ namespace D2W.Infrastructure.Migrations
 
             modelBuilder.Entity("D2W.Domain.Entities.TenantClientModel", b =>
                 {
-                    b.HasOne("D2W.Domain.Entities.Identity.Client", "Client")
+                    b.HasOne("D2W.Domain.Entities.Identity.ApplicationUser", "Client")
                         .WithMany("TenantsClients")
                         .HasForeignKey("ApplicationUserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1479,7 +1489,7 @@ namespace D2W.Infrastructure.Migrations
 
             modelBuilder.Entity("D2W.Domain.Entities.TenantWorkroomModel", b =>
                 {
-                    b.HasOne("D2W.Domain.Entities.Identity.Client", "Workroom")
+                    b.HasOne("D2W.Domain.Entities.Identity.ApplicationUser", "Workroom")
                         .WithMany("TenantsWorkrooms")
                         .HasForeignKey("ApplicationUserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1516,16 +1526,30 @@ namespace D2W.Infrastructure.Migrations
                     b.Navigation("WorkOrder");
                 });
 
+            modelBuilder.Entity("D2W.Domain.Entities.WorkOrderModel", b =>
+                {
+                    b.HasOne("D2W.Domain.Entities.DesignConceptModel", "DesignConcept")
+                        .WithOne("WorkOrder")
+                        .HasForeignKey("D2W.Domain.Entities.WorkOrderModel", "DesignConceptId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("D2W.Domain.Entities.Identity.ApplicationUser", "Workroom")
+                        .WithMany("WorkOrders")
+                        .HasForeignKey("WorkroomId");
+
+                    b.Navigation("DesignConcept");
+
+                    b.Navigation("Workroom");
+                });
+
             modelBuilder.Entity("D2W.Domain.Entities.DesignConceptModel", b =>
                 {
                     b.Navigation("DraperyCalculations");
 
                     b.Navigation("WindowMeasurements");
-                });
 
-            modelBuilder.Entity("D2W.Domain.Entities.FabricModel", b =>
-                {
-                    b.Navigation("DraperyCalculations");
+                    b.Navigation("WorkOrder");
                 });
 
             modelBuilder.Entity("D2W.Domain.Entities.Identity.ApplicationPermission", b =>
@@ -1540,7 +1564,7 @@ namespace D2W.Infrastructure.Migrations
                     b.Navigation("UserRoles");
                 });
 
-            modelBuilder.Entity("D2W.Domain.Entities.Identity.Client", b =>
+            modelBuilder.Entity("D2W.Domain.Entities.Identity.ApplicationUser", b =>
                 {
                     b.Navigation("Claims");
 
@@ -1559,6 +1583,8 @@ namespace D2W.Infrastructure.Migrations
                     b.Navigation("UserAttachments");
 
                     b.Navigation("UserRoles");
+
+                    b.Navigation("WorkOrders");
                 });
 
             modelBuilder.Entity("D2W.Domain.Entities.POC.Applicant", b =>

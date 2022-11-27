@@ -8,6 +8,6 @@ namespace D2W.Domain.Enums;
 
 public enum MeasurementSystem
 {
-    Imperial,
+    English,
     Metric
 }

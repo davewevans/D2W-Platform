@@ -682,6 +682,15 @@ namespace D2W.FrontendResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Calculations.
+        /// </summary>
+        public static string Calculations {
+            get {
+                return ResourceManager.GetString("Calculations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Calendar.
         /// </summary>
         public static string Calendar {
@@ -1763,6 +1772,15 @@ namespace D2W.FrontendResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to English.
+        /// </summary>
+        public static string English {
+            get {
+                return ResourceManager.GetString("English", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to English Name.
         /// </summary>
         public static string English_Name {
@@ -1993,6 +2011,33 @@ namespace D2W.FrontendResources {
         public static string FileName {
             get {
                 return ResourceManager.GetString("FileName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Finished Length (No Repeat).
+        /// </summary>
+        public static string Finished_Length_no_repeat {
+            get {
+                return ResourceManager.GetString("Finished_Length_no_repeat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Finished Length (Repeat).
+        /// </summary>
+        public static string Finished_Length_repeat {
+            get {
+                return ResourceManager.GetString("Finished_Length_repeat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Finished Width.
+        /// </summary>
+        public static string Finished_Width {
+            get {
+                return ResourceManager.GetString("Finished_Width", resourceCulture);
             }
         }
         
@@ -2856,11 +2901,29 @@ namespace D2W.FrontendResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Measurement System.
+        /// </summary>
+        public static string Measurement_System {
+            get {
+                return ResourceManager.GetString("Measurement_System", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Medium.
         /// </summary>
         public static string Medium {
             get {
                 return ResourceManager.GetString("Medium", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Metric.
+        /// </summary>
+        public static string Metric {
+            get {
+                return ResourceManager.GetString("Metric", resourceCulture);
             }
         }
         
@@ -3239,6 +3302,15 @@ namespace D2W.FrontendResources {
         public static string Pattern {
             get {
                 return ResourceManager.GetString("Pattern", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pattern Repeat.
+        /// </summary>
+        public static string Pattern_Repeat {
+            get {
+                return ResourceManager.GetString("Pattern_Repeat", resourceCulture);
             }
         }
         
@@ -3864,6 +3936,24 @@ namespace D2W.FrontendResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Rod Face Width.
+        /// </summary>
+        public static string Rod_Face_Width {
+            get {
+                return ResourceManager.GetString("Rod_Face_Width", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rod face width description.
+        /// </summary>
+        public static string Rod_Face_Width_Description {
+            get {
+                return ResourceManager.GetString("Rod_Face_Width_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Roentgen.
         /// </summary>
         public static string Roentgen {
@@ -4301,6 +4391,15 @@ namespace D2W.FrontendResources {
         public static string Suspend {
             get {
                 return ResourceManager.GetString("Suspend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Swags and Cascades.
+        /// </summary>
+        public static string Swags_and_Cascades {
+            get {
+                return ResourceManager.GetString("Swags_and_Cascades", resourceCulture);
             }
         }
         

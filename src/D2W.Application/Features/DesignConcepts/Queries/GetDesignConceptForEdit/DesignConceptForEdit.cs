@@ -15,7 +15,6 @@ public class DesignConceptForEdit : AuditableDto
         {
             
 
-
             //CreatedOn = appUser.CreatedOn,
             //CreatedBy = appUser.CreatedBy,
             //ModifiedOn = appUser.ModifiedOn,

@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 
 namespace D2W.Application.Features.DesignConcepts.Commands.CreateDesignConcept;
 
-public class FabricCalculationsItemForAdd
+public class DraperyCalculationsForAdd
 {
     #region Public Properties
 
     public MeasurementSystem MeasurementSystem { get; set; }
+    public bool IsRepeating { get; set; }
     public float FinishedLength { get; set; }
     public float TrimOff { get; set; }
     public float Hems { get; set; }
@@ -28,23 +29,24 @@ public class FabricCalculationsItemForAdd
 
     #endregion Public Properties
 
-    public static FabricCalculationsModel MapToEntity(FabricCalculationsItemForAdd fabricCalculations)
+    public DraperyCalculationsModel MapToEntity()
     {
-        return new FabricCalculationsModel
+        return new DraperyCalculationsModel
         {
-            MeasurementSystem = fabricCalculations.MeasurementSystem,
-            FinishedLength = fabricCalculations.FinishedLength,
-            TrimOff = fabricCalculations.TrimOff,
-            Hems = fabricCalculations.Hems,
-            Headings = fabricCalculations.Headings,
-            Puddling = fabricCalculations.Puddling,
-            PatternRepeatLength = fabricCalculations.PatternRepeatLength,
-            Fullness = fabricCalculations.Fullness,
-            FabricWidth = fabricCalculations.FabricWidth,
-            RodFaceWidth = fabricCalculations.RodFaceWidth,
-            Overhang = fabricCalculations.Overhang,
-            Overlap = fabricCalculations.Overlap,
-            Return = fabricCalculations.Return,
+            IsRepeating = IsRepeating,
+            MeasurementSystem = MeasurementSystem,
+            FinishedLength = FinishedLength,
+            TrimOff = TrimOff,
+            Hems = Hems,
+            Headings = Headings,
+            Puddling = Puddling,
+            PatternRepeatLength = PatternRepeatLength,
+            Fullness = Fullness,
+            FabricWidth = FabricWidth,
+            RodFaceWidth = RodFaceWidth,
+            Overhang = Overhang,
+            Overlap = Overlap,
+            Return = Return,
         };
     }
 }

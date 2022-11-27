@@ -12,7 +12,7 @@ namespace D2W.WebPortal.Features.DesignConcepts.Queries.GetDesignConcepts
 
         public DesignConceptItem()
         {
-            FabricCalculationsItems = new List<FabricCalculationsItem>();
+            FabricCalculationsItems = new List<DraperyCalculationsItem>();
         }
 
         #endregion Public Constructors
@@ -39,7 +39,7 @@ namespace D2W.WebPortal.Features.DesignConcepts.Queries.GetDesignConcepts
         public string ClientNotes { get; set; }
 
         public WindowMeasurementsItem WindowMeasurementsItem { get; set; }
-        public List<FabricCalculationsItem> FabricCalculationsItems { get; set; }
+        public List<DraperyCalculationsItem> FabricCalculationsItems { get; set; }
 
         #endregion Public Properties
     }

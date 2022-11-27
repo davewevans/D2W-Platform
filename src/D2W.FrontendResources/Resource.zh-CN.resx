@@ -324,6 +324,9 @@
   <data name="Calcium" xml:space="preserve">
     <value>钙</value>
   </data>
+  <data name="Calculations" xml:space="preserve">
+    <value>计算</value>
+  </data>
   <data name="Calendar" xml:space="preserve">
     <value>日历</value>
   </data>
@@ -684,6 +687,9 @@
   <data name="End_Slope" xml:space="preserve">
     <value>结束斜坡</value>
   </data>
+  <data name="English" xml:space="preserve">
+    <value>英语</value>
+  </data>
   <data name="English_Name" xml:space="preserve">
     <value>英文名称</value>
   </data>
@@ -761,6 +767,15 @@
   </data>
   <data name="File_upload_has_been_cancelled" xml:space="preserve">
     <value>文件上传已取消。</value>
+  </data>
+  <data name="Finished_Length_no_repeat" xml:space="preserve">
+    <value>成品长度（无重复）</value>
+  </data>
+  <data name="Finished_Length_repeat" xml:space="preserve">
+    <value>成品长度（重复）</value>
+  </data>
+  <data name="Finished_Width" xml:space="preserve">
+    <value>成品宽度</value>
   </data>
   <data name="Fire_in_reactor_core" xml:space="preserve">
     <value>反应堆核心起火</value>
@@ -1047,8 +1062,14 @@
   <data name="May" xml:space="preserve">
     <value>五月</value>
   </data>
+  <data name="Measurement_System" xml:space="preserve">
+    <value>测量系统</value>
+  </data>
   <data name="Medium" xml:space="preserve">
     <value>中等</value>
+  </data>
+  <data name="Metric" xml:space="preserve">
+    <value>度量</value>
   </data>
   <data name="Military_Applicants" xml:space="preserve">
     <value>军事申请人</value>
@@ -1175,6 +1196,9 @@
   </data>
   <data name="Pattern" xml:space="preserve">
     <value>模式</value>
+  </data>
+  <data name="Pattern_Repeat" xml:space="preserve">
+    <value>图案重复</value>
   </data>
   <data name="Pending" xml:space="preserve">
     <value>待定！</value>
@@ -1383,6 +1407,12 @@
   <data name="Right" xml:space="preserve">
     <value>右</value>
   </data>
+  <data name="Rod_Face_Width" xml:space="preserve">
+    <value>杆面宽度</value>
+  </data>
+  <data name="Rod_Face_Width_Description" xml:space="preserve">
+    <value>杆面宽度说明</value>
+  </data>
   <data name="Roentgen" xml:space="preserve">
     <value>伦琴</value>
   </data>
@@ -1529,6 +1559,9 @@
   </data>
   <data name="Suspend" xml:space="preserve">
     <value>暂停</value>
+  </data>
+  <data name="Swags_and_Cascades" xml:space="preserve">
+    <value>赃物和瀑布</value>
   </data>
   <data name="Swatches" xml:space="preserve">
     <value>样本</value>

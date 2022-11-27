@@ -27,7 +27,7 @@ namespace D2W.WebPortal.Pages.DesignConcepts
         private ClientsResponse _clientsForAutoResponse = new();
         private GetClientsQuery _getClientsQuery { get; set; } = new();
 
-        private FabricCalculationsItemForAdd _fabricCalculationsItem = new();
+        private DraperyCalculationsItemForAdd _draperyCalculationsItem = new();
 
         private string? _designConceptImageSrc;
 
@@ -148,7 +148,6 @@ namespace D2W.WebPortal.Pages.DesignConcepts
 
         private async Task SubmitForm()
         {
-            CreateDesignConceptCommand.FabricCalculationsItems.Add(_fabricCalculationsItem);
             var httpResponseWrapper = await DesignConceptsClient.CreateDesignConcept(CreateDesignConceptCommand);
 
             System.Console.WriteLine($"http response: {httpResponseWrapper.Success}");

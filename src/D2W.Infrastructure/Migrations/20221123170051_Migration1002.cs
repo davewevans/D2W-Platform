@@ -10,11 +10,11 @@ namespace D2W.Infrastructure.Migrations
         {
             migrationBuilder.DropForeignKey(
                 name: "FK_FabricCalculations_Fabrics_FabricId",
-                table: "FabricCalculations");
+                table: "DraperyCalculations");
 
             migrationBuilder.DropIndex(
                 name: "IX_FabricCalculations_FabricId",
-                table: "FabricCalculations");
+                table: "DraperyCalculations");
 
             migrationBuilder.AddColumn<string>(
                 name: "MaterialType",
@@ -31,12 +31,12 @@ namespace D2W.Infrastructure.Migrations
 
             migrationBuilder.CreateIndex(
                 name: "IX_FabricCalculations_FabricId",
-                table: "FabricCalculations",
+                table: "DraperyCalculations",
                 column: "FabricId");
 
             migrationBuilder.AddForeignKey(
                 name: "FK_FabricCalculations_Fabrics_FabricId",
-                table: "FabricCalculations",
+                table: "DraperyCalculations",
                 column: "FabricId",
                 principalTable: "Fabrics",
                 principalColumn: "Id");
